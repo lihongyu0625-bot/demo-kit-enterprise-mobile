@@ -1,0 +1,37 @@
+.app-preview {
+  padding: 32px 16px 64px;
+}
+
+.app-preview__inner {
+  display: grid;
+  gap: 24px;
+  justify-items: center;
+}
+
+.app-preview__header {
+  max-width: 760px;
+  text-align: center;
+}
+
+.app-preview__eyebrow {
+  color: #0f6cbd;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.app-preview__title {
+  margin: 12px 0 10px;
+}
+
+.app-preview__copy {
+  color: #5d6779;
+}
+
+@media (max-width: 768px) {
+  .app-preview {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+}

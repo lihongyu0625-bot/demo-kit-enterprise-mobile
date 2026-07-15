@@ -1,0 +1,11 @@
+{
+  "pageType": "hotel-list",
+  "pageTitle": "酒店列表页",
+  "sections": [
+    "search-bar",
+    "filter-bar",
+    "promo-strip",
+    "hotel-card-list",
+    "footer"
+  ]
+}

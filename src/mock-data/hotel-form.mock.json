@@ -1,0 +1,87 @@
+{
+  "hotelName": "北京海淀四季青亚朵酒店",
+  "navAction": "预订须知",
+  "room": {
+    "checkIn": "07月04日",
+    "checkInWeekday": "周二",
+    "checkOut": "07月06日",
+    "checkOutWeekday": "周四",
+    "nights": "共2晚",
+    "title": "豪华大床房",
+    "detailLabel": "房型信息",
+    "features": ["1张大床房", "2份早餐", "禁烟", "2人入住"],
+    "policies": [
+      { "type": "warning", "text": "不可免费取消" },
+      { "type": "success", "text": "立即确认" }
+    ],
+    "readingNotes": [
+      "取消规则：2022年09月02日17点前，可免费取消",
+      "加床政策：当前房型可加床"
+    ]
+  },
+  "stayInfo": {
+    "roomCount": 1,
+    "guestRoom": "房间1",
+    "capacity": "可住2成人",
+    "guestName": "张三",
+    "guestPhone": "+86 150****2210",
+    "priceNotice": "房间差标：￥450/间夜",
+    "arrivalTime": "18:00",
+    "arrivalPlaceholder": "18:00",
+    "remarkPlaceholder": "如有特殊需求请填写",
+    "confirmSmsTitle": "入住人确认短信",
+    "confirmSmsHint": "订单确认后，入住短信将发送至已填写的入住人手机",
+    "confirmSmsEnabled": true
+  },
+  "contactInfo": {
+    "countryCode": "+86",
+    "phonePlaceholder": "填写用于接收订单信息的电话",
+    "emailPlaceholder": "该邮箱用于接收确认函"
+  },
+  "approvalInfo": {
+    "hint": "本次预订需等待审批通过",
+    "approverPlaceholder": "选择审批人"
+  },
+  "costCenter": {
+    "placeholder": "选择成本中心"
+  },
+  "tripNote": {
+    "purposePlaceholder": "请选择出行目的",
+    "descriptionPlaceholder": "请输入出行原因"
+  },
+  "benefits": {
+    "title": "专享权益·美团会员",
+    "optionalBenefitsTitle": "可选权益",
+    "allLabel": "全部",
+    "items": [
+      {
+        "title": "免费兑早餐",
+        "description": "安心离店不匆忙·酒店送1份",
+        "mode": "counter",
+        "quantity": "1份"
+      },
+      {
+        "title": "延迟退房至14:00",
+        "description": "安心离店不匆忙·酒店送1份",
+        "mode": "checkbox",
+        "checked": false
+      }
+    ],
+    "giftTitle": "住就送",
+    "giftValue": "送23元券包"
+  },
+  "invoiceTip": {
+    "text": "差标内费用由企业承担，无需开具发票；超出部分由个人支付，可在入住完成后点击【开发票】进行开具"
+  },
+  "terms": {
+    "checked": false,
+    "prefix": "我已阅读并同意",
+    "links": ["《购票须知》", "《XX国内旅客》", "《行李运输…》"]
+  },
+  "payment": {
+    "label": "企业支付",
+    "amount": "600",
+    "detailLabel": "明细",
+    "buttonLabel": "提交订单"
+  }
+}

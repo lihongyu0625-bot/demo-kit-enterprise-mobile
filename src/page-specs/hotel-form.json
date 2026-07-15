@@ -1,0 +1,16 @@
+{
+  "pageType": "hotel-form",
+  "pageTitle": "酒店填单页",
+  "topSections": ["gradient-background", "navigation"],
+  "cardSections": [
+    "room-info-card",
+    "stay-info-card",
+    "contact-info-card",
+    "approval-info-card",
+    "cost-center-card",
+    "trip-note-card",
+    "benefit-card",
+    "invoice-tip-card"
+  ],
+  "footerSections": ["terms-bar", "submit-bar"]
+}
