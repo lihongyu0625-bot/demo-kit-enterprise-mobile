@@ -1,0 +1,447 @@
+.hotel-room-detail-preview {
+  width: 375px;
+  background: #f5f7fa;
+  border: 1px solid rgba(18, 51, 84, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(23, 45, 77, 0.14);
+  overflow: hidden;
+}
+
+.hotel-room-detail-shell {
+  position: relative;
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.room-detail-screen {
+  position: relative;
+  min-height: 812px;
+  padding-top: 98px;
+}
+
+.room-detail-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.room-detail-sheet {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 375px;
+  background: #f5f7fa;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+
+.room-detail-hero {
+  position: relative;
+  height: 226px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+}
+
+.room-detail-hero__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.room-detail-hero__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.room-detail-hero__close img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.room-detail-hero__counter {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 5px;
+  height: 16px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.room-detail-hero__counter img {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.room-detail-scroll {
+  display: grid;
+  gap: 8px;
+  width: 351px;
+  margin: 0 auto;
+}
+
+.room-detail-card {
+  padding: 12px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.room-detail-card--gradient {
+  background: linear-gradient(180deg, #e7f1ff 0%, #f3f8ff 3.691%, #ffffff 18.456%);
+}
+
+.room-detail-card__title {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.84);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.room-detail-facility-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px;
+  background: #fafafa;
+  border-radius: 6px;
+}
+
+.room-detail-facility-grid__item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  color: rgba(0, 0, 0, 0.84);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.room-detail-facility-grid__icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.room-detail-remark {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.room-detail-remark__title {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.84);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.room-detail-remark__text,
+.room-detail-provider__text,
+.room-detail-policy__text,
+.room-detail-promo-item__description,
+.room-detail-benefit-item__description,
+.room-detail-benefit-item__bullet-row {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.room-detail-benefit-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.room-detail-benefit-item {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  background: #fafafa;
+  border-radius: 6px;
+}
+
+.room-detail-benefit-item__header,
+.room-detail-benefit-item__title-wrap,
+.room-detail-benefit-item__link,
+.room-detail-fee-row,
+.room-detail-submit__inner,
+.room-detail-submit-tags,
+.room-detail-submit-tags__item,
+.room-detail-submit__price {
+  display: flex;
+}
+
+.room-detail-benefit-item__header {
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.room-detail-benefit-item__title-wrap {
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.room-detail-benefit-item__icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.room-detail-benefit-item__title {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.84);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.room-detail-benefit-item__link {
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.room-detail-benefit-item__link img {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.room-detail-benefit-item__bullets {
+  display: grid;
+  gap: 4px;
+}
+
+.room-detail-benefit-item__bullet-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.room-detail-benefit-item__bullet-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+}
+
+.room-detail-policy {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.room-detail-policy__highlight {
+  color: #ff7f41;
+}
+
+.room-detail-provider__text {
+  margin-top: 12px;
+}
+
+.room-detail-promo-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.room-detail-promo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.room-detail-promo-item__tag {
+  flex-shrink: 0;
+  margin-top: 2px;
+  padding: 0 3px;
+  border-radius: 3px;
+  background: linear-gradient(270deg, #ff6948 0%, #fe4f2a 100%);
+  color: #ffffff;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.room-detail-fee-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.room-detail-fee-row {
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.room-detail-fee-row__label {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.room-detail-fee-row__value {
+  color: rgba(0, 0, 0, 0.84);
+  font-family: 'Barlow Semi Condensed', 'DIN Alternate', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.room-detail-fee-row__value--accent {
+  color: #ff7f41;
+}
+
+.room-detail-submit {
+  background: #ffffff;
+}
+
+.room-detail-submit__inner {
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 12px 0;
+}
+
+.room-detail-submit__price-block {
+  display: grid;
+  justify-items: end;
+  gap: 4px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.room-detail-submit__price {
+  align-items: flex-end;
+  color: #1473ff;
+  font-family: 'Barlow Semi Condensed', 'DIN Alternate', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.room-detail-submit__currency {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.room-detail-submit__amount {
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.room-detail-submit-tags {
+  align-items: center;
+  gap: 0;
+  height: 16px;
+  padding: 3px 1px 3px 4px;
+  border: 0.5px solid rgba(255, 96, 96, 0.1);
+  border-radius: 3px;
+  background: rgba(255, 96, 96, 0.08);
+  color: #ff4343;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.room-detail-submit-tags__item {
+  align-items: center;
+  gap: 3px;
+}
+
+.room-detail-submit-tags__divider {
+  width: 1px;
+  height: 8px;
+  background: rgba(255, 67, 67, 0.35);
+}
+
+.room-detail-submit-tags__caret {
+  width: 10px;
+  height: 10px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.room-detail-submit__button-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 52px;
+  border: 1px solid #1473ff;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.room-detail-submit__button {
+  width: 100%;
+  height: 26px;
+  padding: 0;
+  border: none;
+  background: linear-gradient(180deg, #0066f6 0%, #438fff 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.room-detail-submit__button-hint {
+  width: 100%;
+  margin: 0;
+  color: #1473ff;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.room-detail-home-indicator {
+  width: 134px;
+  height: 5px;
+  margin: 8px auto 8px;
+  border-radius: 2.5px;
+  background: #000000;
+}
+
+@media (max-width: 768px) {
+  .hotel-room-detail-preview,
+  .room-detail-sheet {
+    width: 100%;
+    max-width: 375px;
+  }
+}

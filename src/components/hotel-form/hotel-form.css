@@ -26,24 +26,7 @@
 }
 
 .hotel-statusbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 44px;
-  padding: 0 14px 0 20px;
-}
-
-.hotel-statusbar__time {
-  font-size: 15px;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.84);
-}
-
-.hotel-statusbar__icons {
-  display: flex;
-  gap: 6px;
-  color: rgba(0, 0, 0, 0.78);
-  font-size: 12px;
+  background: transparent;
 }
 
 .hotel-toolbar {

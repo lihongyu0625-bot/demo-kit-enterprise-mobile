@@ -1,3 +1,4 @@
+import { IPhoneBar } from '../common/IPhoneBar'
 import './hotel-form.css'
 
 function cx(...classNames) {
@@ -138,14 +139,7 @@ export function HotelFormGradientBackground() {
 export function HotelFormNavBar({ title, actionLabel }) {
   return (
     <header className="hotel-nav">
-      <div className="hotel-statusbar">
-        <span className="hotel-statusbar__time">9:41</span>
-        <div className="hotel-statusbar__icons" aria-hidden="true">
-          <span>◔</span>
-          <span>◒</span>
-          <span>▮</span>
-        </div>
-      </div>
+      <IPhoneBar className="hotel-statusbar" />
       <div className="hotel-toolbar">
         <button className="hotel-toolbar__back" type="button" aria-label="返回">
           ‹

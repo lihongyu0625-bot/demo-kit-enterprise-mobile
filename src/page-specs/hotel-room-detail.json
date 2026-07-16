@@ -1,0 +1,14 @@
+{
+  "pageType": "hotel-room-detail",
+  "pageTitle": "房型详情页",
+  "topSections": ["backdrop"],
+  "contentSections": [
+    "facility-card",
+    "benefit-card",
+    "policy-card",
+    "provider-card",
+    "promo-card",
+    "fee-card"
+  ],
+  "footerSections": ["submit-bar"]
+}
