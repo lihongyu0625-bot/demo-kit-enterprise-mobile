@@ -1,0 +1,15 @@
+{
+  "pageType": "hotel-order-detail",
+  "pageTitle": "酒店订单详情页",
+  "sections": [
+    "nav",
+    "status",
+    "payment",
+    "hotel-info",
+    "booking-info",
+    "stay-info",
+    "invoice",
+    "benefits",
+    "footer"
+  ]
+}

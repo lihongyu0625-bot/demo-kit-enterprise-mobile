@@ -7,9 +7,21 @@ function cx(...classNames) {
   return classNames.filter(Boolean).join(' ')
 }
 
-export function IPhoneBar({ className, time = '9:41' }) {
+export function IPhoneBar({
+  className,
+  time = '9:41',
+  transparent = false,
+  tone = 'dark',
+}) {
   return (
-    <div className={cx('iphone-bar', className)}>
+    <div
+      className={cx(
+        'iphone-bar',
+        transparent && 'iphone-bar--transparent',
+        tone === 'light' && 'iphone-bar--light',
+        className,
+      )}
+    >
       <span className="iphone-bar__time">{time}</span>
       <div className="iphone-bar__icons" aria-hidden="true">
         <img

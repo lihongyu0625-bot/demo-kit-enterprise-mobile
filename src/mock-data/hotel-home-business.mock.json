@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "policyLabel": "差旅制度"
+  },
+  "header": {
+    "title": "酒店",
+    "subtitle": "安心出行，省心住",
+    "tabs": [
+      {
+        "label": "因公",
+        "active": true
+      },
+      {
+        "label": "因私",
+        "active": false
+      }
+    ]
+  },
+  "application": {
+    "planLabel": "申请单/制度",
+    "dateRange": "11.27-12.3",
+    "fromCity": "北京",
+    "toCity": "上海",
+    "description": "参加滴滴商旅产品发布会",
+    "locationLabel": "我的位置",
+    "searchPlaceholder": "酒店/位置/品牌",
+    "checkInDate": "11月28日",
+    "checkInWeekday": "周二",
+    "stayCount": "1晚",
+    "checkOutDate": "11月29日",
+    "checkOutWeekday": "周三",
+    "guestLabel": "选择入住人",
+    "guestTip": "9推荐两人合住，差标可能上浮",
+    "filterLabel": "¥200-600四星/高档",
+    "roomCount": "1间",
+    "adultCount": "1成人",
+    "submitLabel": "因公酒店·贵必赔"
+  },
+  "footerNav": [
+    {
+      "label": "我的订单",
+      "icon": "orders"
+    },
+    {
+      "label": "品牌权益",
+      "icon": "benefits"
+    },
+    {
+      "label": "联系客服",
+      "icon": "headphones"
+    }
+  ]
+}

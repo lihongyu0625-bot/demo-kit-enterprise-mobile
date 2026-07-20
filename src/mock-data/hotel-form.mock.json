@@ -65,6 +65,12 @@
         "description": "安心离店不匆忙·酒店送1份",
         "mode": "checkbox",
         "checked": false
+      },
+      {
+        "title": "延迟退房至14:00",
+        "description": "安心离店不匆忙·酒店送1份",
+        "mode": "checkbox",
+        "checked": false
       }
     ],
     "giftTitle": "住就送",

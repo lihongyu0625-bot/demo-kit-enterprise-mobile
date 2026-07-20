@@ -103,7 +103,9 @@ function HotelFormBusinessPreview() {
                 <p className="catalog-block__description">{item.description}</p>
               </div>
             </div>
-            <div className="catalog-block__surface">{item.render}</div>
+            <div className="catalog-block__surface">
+              <div className="catalog-device-frame">{item.render}</div>
+            </div>
           </article>
         ))}
       </div>

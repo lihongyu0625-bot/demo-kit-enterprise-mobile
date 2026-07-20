@@ -1,0 +1,51 @@
+.hotel-benefit-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  width: fit-content;
+  min-height: 16px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #e3edff 0%, rgba(227, 237, 255, 0) 100%);
+  color: #3f4d70;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.hotel-benefit-strip__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 5px 0 3px;
+  border-radius: 3px 0 0 3px;
+  background: linear-gradient(90deg, #272a32 0%, #69718e 100%);
+  color: #ffffff;
+}
+
+.hotel-benefit-strip__icon {
+  display: block;
+  width: 10.06px;
+  height: 10px;
+  flex: none;
+}
+
+.hotel-benefit-strip__badge-text {
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.hotel-benefit-strip__item {
+  white-space: nowrap;
+}
+
+.hotel-benefit-strip__item + .hotel-benefit-strip__item::before {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 6px;
+  margin: 0 4px 0 1px;
+  background: rgba(61, 81, 108, 0.3);
+  vertical-align: middle;
+}

@@ -1,0 +1,11 @@
+{
+  "pageType": "hotel-booking-success",
+  "pageTitle": "酒店下单成功页",
+  "sections": [
+    "status",
+    "order-card",
+    "flight-benefit",
+    "airport-transfer",
+    "footer"
+  ]
+}

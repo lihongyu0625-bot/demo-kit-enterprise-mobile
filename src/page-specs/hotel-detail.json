@@ -1,0 +1,14 @@
+{
+  "pageType": "hotel-detail",
+  "pageTitle": "酒店详情页",
+  "sections": [
+    "hero",
+    "name-card",
+    "selector",
+    "room-list",
+    "facilities",
+    "introduction",
+    "policies",
+    "footer"
+  ]
+}

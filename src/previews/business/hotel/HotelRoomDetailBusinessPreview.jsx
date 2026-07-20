@@ -1,6 +1,5 @@
 import roomDetailData from '../../../mock-data/hotel-room-detail.mock.json'
 import {
-  HotelRoomDetailBackdrop,
   HotelRoomDetailBenefitCard,
   HotelRoomDetailFacilityCard,
   HotelRoomDetailFeeCard,
@@ -12,16 +11,6 @@ import {
 } from '../../../components/hotel-room-detail/HotelRoomDetailComponents'
 
 const showcaseList = [
-  {
-    name: '遮罩背景',
-    description: '房型详情页弹层打开时的遮罩层和底部弹层关系。',
-    render: (
-      <div className="catalog-surface catalog-surface--backdrop">
-        <HotelRoomDetailBackdrop />
-        <div className="catalog-backdrop-demo-sheet" />
-      </div>
-    ),
-  },
   {
     name: '房型头图',
     description: '展示房间图片、关闭按钮和图片计数。',
@@ -87,7 +76,9 @@ function HotelRoomDetailBusinessPreview() {
                 <p className="catalog-block__description">{item.description}</p>
               </div>
             </div>
-            <div className="catalog-block__surface">{item.render}</div>
+            <div className="catalog-block__surface">
+              <div className="catalog-device-frame">{item.render}</div>
+            </div>
           </article>
         ))}
       </div>

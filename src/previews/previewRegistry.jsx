@@ -5,8 +5,18 @@ import {
   CommonSwitchPreview,
 } from './common/CommonComponentPreviews'
 import HotelFormBusinessPreview from './business/hotel/HotelFormBusinessPreview'
+import HotelBookingSuccessBusinessPreview from './business/hotel/HotelBookingSuccessBusinessPreview'
+import HotelDetailBusinessPreview from './business/hotel/HotelDetailBusinessPreview'
+import HotelHomeBusinessBusinessPreview from './business/hotel/HotelHomeBusinessBusinessPreview'
+import HotelListBusinessPreview from './business/hotel/HotelListBusinessPreview'
+import HotelOrderDetailBusinessPreview from './business/hotel/HotelOrderDetailBusinessPreview'
 import HotelRoomDetailBusinessPreview from './business/hotel/HotelRoomDetailBusinessPreview'
+import HotelBookingSuccessCasePreview from './page-cases/hotel/HotelBookingSuccessCasePreview'
+import HotelDetailCasePreview from './page-cases/hotel/HotelDetailCasePreview'
 import HotelFormCasePreview from './page-cases/hotel/HotelFormCasePreview'
+import HotelHomeBusinessCasePreview from './page-cases/hotel/HotelHomeBusinessCasePreview'
+import HotelListCasePreview from './page-cases/hotel/HotelListCasePreview'
+import HotelOrderDetailCasePreview from './page-cases/hotel/HotelOrderDetailCasePreview'
 import HotelRoomDetailCasePreview from './page-cases/hotel/HotelRoomDetailCasePreview'
 
 function createPlaceholderItem(config) {
@@ -67,15 +77,37 @@ export const previewNavigation = [
         type: 'group',
         children: [
           {
-            id: 'business-hotel-form',
-            label: '酒店填单页',
+            id: 'business-hotel-home-business',
+            label: '酒店首页-因公',
             type: 'item',
-            title: '酒店填单页组件预览',
-            pathLabel: '业务组件 / 酒店 / 酒店填单页',
-            description: '这里展示酒店填单页里拆出来的业务组件，适合按模块核对和后续复用。',
+            title: '酒店首页-因公组件预览',
+            pathLabel: '业务组件 / 酒店 / 酒店首页-因公',
+            description: '这里展示酒店首页-因公里拆出来的业务组件，适合按头部、填写卡片和底部权益模块持续维护。',
             statusLabel: '已接入',
-            maintenanceHint: '当前挂载的是酒店填单页拆分后的业务组件。',
-            component: HotelFormBusinessPreview,
+            maintenanceHint: '当前挂载的是酒店首页-因公拆分后的业务组件。',
+            component: HotelHomeBusinessBusinessPreview,
+          },
+          {
+            id: 'business-hotel-list',
+            label: '酒店列表页',
+            type: 'item',
+            title: '酒店列表页组件预览',
+            pathLabel: '业务组件 / 酒店 / 酒店列表页',
+            description: '这里展示酒店列表页里拆出来的业务组件，适合按搜索栏、筛选区和酒店卡片持续沉淀。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店列表页拆分后的业务组件。',
+            component: HotelListBusinessPreview,
+          },
+          {
+            id: 'business-hotel-detail',
+            label: '酒店详情页',
+            type: 'item',
+            title: '酒店详情页组件预览',
+            pathLabel: '业务组件 / 酒店 / 酒店详情页',
+            description: '这里展示酒店详情页里拆出来的业务组件，适合按头图、房型和酒店信息模块持续沉淀。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店详情页拆分后的业务组件。',
+            component: HotelDetailBusinessPreview,
           },
           {
             id: 'business-hotel-room-detail',
@@ -87,6 +119,39 @@ export const previewNavigation = [
             statusLabel: '已接入',
             maintenanceHint: '当前挂载的是房型详情页拆分后的业务组件。',
             component: HotelRoomDetailBusinessPreview,
+          },
+          {
+            id: 'business-hotel-form',
+            label: '酒店填单页',
+            type: 'item',
+            title: '酒店填单页组件预览',
+            pathLabel: '业务组件 / 酒店 / 酒店填单页',
+            description: '这里展示酒店填单页里拆出来的业务组件，适合按模块核对和后续复用。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店填单页拆分后的业务组件。',
+            component: HotelFormBusinessPreview,
+          },
+          {
+            id: 'business-hotel-booking-success',
+            label: '酒店下单成功页',
+            type: 'item',
+            title: '酒店下单成功页组件预览',
+            pathLabel: '业务组件 / 酒店 / 酒店下单成功页',
+            description: '这里展示酒店下单成功页里拆出来的业务组件，适合按状态区、订单卡片和联订福利卡片继续维护。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店下单成功页拆分后的业务组件。',
+            component: HotelBookingSuccessBusinessPreview,
+          },
+          {
+            id: 'business-hotel-order-detail',
+            label: '酒店订单详情页',
+            type: 'item',
+            title: '酒店订单详情页组件预览',
+            pathLabel: '业务组件 / 酒店 / 酒店订单详情页',
+            description: '这里展示酒店订单详情页里拆出来的业务组件，适合按状态区、订单信息卡片和权益模块持续维护。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店订单详情页拆分后的业务组件。',
+            component: HotelOrderDetailBusinessPreview,
           },
         ],
       },
@@ -163,15 +228,37 @@ export const previewNavigation = [
         type: 'group',
         children: [
           {
-            id: 'page-hotel-form',
-            label: '酒店填单页',
+            id: 'page-hotel-home-business',
+            label: '酒店首页-因公',
             type: 'item',
-            title: '酒店填单页整页案例',
-            pathLabel: '页面案例 / 酒店 / 酒店填单页',
-            description: '这里展示酒店填单页整页组装后的最终效果，适合从页面层级验证完整输出。',
+            title: '酒店首页-因公整页案例',
+            pathLabel: '页面案例 / 酒店 / 酒店首页-因公',
+            description: '这里展示酒店首页-因公整页组装后的最终效果，适合从页面层级核对头图、填写卡片和底部权益入口的整体编排。',
             statusLabel: '已接入',
-            maintenanceHint: '当前挂载的是酒店填单页完整预览。',
-            component: HotelFormCasePreview,
+            maintenanceHint: '当前挂载的是酒店首页-因公完整预览。',
+            component: HotelHomeBusinessCasePreview,
+          },
+          {
+            id: 'page-hotel-list',
+            label: '酒店列表页',
+            type: 'item',
+            title: '酒店列表页整页案例',
+            pathLabel: '页面案例 / 酒店 / 酒店列表页',
+            description: '这里展示酒店列表页整页组装后的最终效果，适合从页面层级验证搜索、筛选和列表信息的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店列表页完整预览。',
+            component: HotelListCasePreview,
+          },
+          {
+            id: 'page-hotel-detail',
+            label: '酒店详情页',
+            type: 'item',
+            title: '酒店详情页整页案例',
+            pathLabel: '页面案例 / 酒店 / 酒店详情页',
+            description: '这里展示酒店详情页整页组装后的最终效果，适合从页面层级验证头图、房型和酒店基础信息的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店详情页完整预览。',
+            component: HotelDetailCasePreview,
           },
           {
             id: 'page-hotel-room-detail',
@@ -183,6 +270,39 @@ export const previewNavigation = [
             statusLabel: '已接入',
             maintenanceHint: '当前挂载的是房型详情页完整预览。',
             component: HotelRoomDetailCasePreview,
+          },
+          {
+            id: 'page-hotel-form',
+            label: '酒店填单页',
+            type: 'item',
+            title: '酒店填单页整页案例',
+            pathLabel: '页面案例 / 酒店 / 酒店填单页',
+            description: '这里展示酒店填单页整页组装后的最终效果，适合从页面层级验证完整输出。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店填单页完整预览。',
+            component: HotelFormCasePreview,
+          },
+          {
+            id: 'page-hotel-booking-success',
+            label: '酒店下单成功页',
+            type: 'item',
+            title: '酒店下单成功页整页案例',
+            pathLabel: '页面案例 / 酒店 / 酒店下单成功页',
+            description: '这里展示酒店下单成功页整页组装后的最终效果，适合从页面层级核对状态文案、订单信息和联订福利推荐的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店下单成功页完整预览。',
+            component: HotelBookingSuccessCasePreview,
+          },
+          {
+            id: 'page-hotel-order-detail',
+            label: '酒店订单详情页',
+            type: 'item',
+            title: '酒店订单详情页整页案例',
+            pathLabel: '页面案例 / 酒店 / 酒店订单详情页',
+            description: '这里展示酒店订单详情页整页组装后的最终效果，适合从页面层级核对状态操作、订单信息和权益模块的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店订单详情页完整预览。',
+            component: HotelOrderDetailCasePreview,
           },
         ],
       },

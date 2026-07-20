@@ -1,0 +1,215 @@
+{
+  "hero": {
+    "imageCount": "1/5",
+    "favoriteLabel": "收藏"
+  },
+  "hotel": {
+    "name": "全季酒店 (浦东机场自贸区店)",
+    "level": "高档型",
+    "score": "4.8",
+    "scoreLabel": "棒",
+    "reviews": "1298点评",
+    "highlights": ["2021年开业", "无接触送餐", "餐厅", "近地铁"],
+    "address": "上海市黄浦区延安东路222号外滩中心A座28号",
+    "transit": [
+      {
+        "icon": "airplane",
+        "text": "距浦东国际机场 30.9km，打车约50分钟"
+      },
+      {
+        "icon": "destination",
+        "text": "距徐家汇地铁站直线1.2km，步行约6分钟"
+      }
+    ],
+    "actions": [
+      {
+        "icon": "location",
+        "label": "位置"
+      },
+      {
+        "icon": "phone",
+        "label": "电话"
+      }
+    ]
+  },
+  "selector": {
+    "checkInDate": "12月26日",
+    "checkInWeekday": "周五",
+    "checkOutDate": "12月28日",
+    "checkOutWeekday": "周日",
+    "guestSummary": "成人 两晚",
+    "chips": [
+      {
+        "label": "协议价",
+        "tone": "muted"
+      },
+      {
+        "label": "亚朵轻居"
+      },
+      {
+        "label": "商旅尊享",
+        "icon": "benefit"
+      },
+      {
+        "label": "立即确认"
+      },
+      {
+        "label": "好打车"
+      }
+    ]
+  },
+  "rooms": [
+    {
+      "type": "multi-rate",
+      "image": "room-1",
+      "name": "高级大床房",
+      "summary": "有窗 大床 15-18m² 6-15层",
+      "startPrice": 345,
+      "collapsedPrice": 600,
+      "rates": [
+        {
+          "title": "2份早餐 入住当天20点前可免费取消",
+          "titleSegments": [
+            {
+              "text": "2份早餐 ",
+              "tone": "primary"
+            },
+            {
+              "text": "入住当天20点前可免费取消",
+              "tone": "primary"
+            }
+          ],
+          "benefits": ["专享权益", "延迟退房", "住就送"],
+          "tags": ["立即确认", "协议价", "优享会"],
+          "price": 420,
+          "buttonLabel": "预订",
+          "buttonHint": "企业支付"
+        },
+        {
+          "title": "2份早餐 不可取消",
+          "titleSegments": [
+            {
+              "text": "2份早餐 ",
+              "tone": "primary"
+            },
+            {
+              "text": "不可取消",
+              "tone": "default"
+            }
+          ],
+          "tags": ["立即确认", "协议价", "优享会"],
+          "price": 420,
+          "buttonLabel": "预订",
+          "buttonHint": "企业+个人",
+          "buttonTone": "orange"
+        },
+        {
+          "title": "2份早餐 入住当天20点前可免费取消",
+          "titleSegments": [
+            {
+              "text": "2份早餐 ",
+              "tone": "primary"
+            },
+            {
+              "text": "入住当天20点前可免费取消",
+              "tone": "primary"
+            }
+          ],
+          "benefits": ["专享权益", "延迟退房"],
+          "tags": ["立即确认", "协议价"],
+          "price": 420,
+          "buttonLabel": "预订",
+          "buttonHint": "企业支付"
+        }
+      ]
+    },
+    {
+      "type": "compact",
+      "image": "room-2",
+      "name": "高级双床房",
+      "summary": "有窗 大床 15-18m² 6-15层",
+      "price": 572
+    },
+    {
+      "type": "compact",
+      "image": "room-3",
+      "name": "园景大床房",
+      "summary": "有窗 大床 15-18m² 6-15层",
+      "price": 623
+    },
+    {
+      "type": "bookable",
+      "image": "room-4",
+      "name": "豪华江景套房",
+      "breakfast": "2份早餐",
+      "summary": "大床 2人入住 15-18m² 6-15层",
+      "cancelText": "18点00 分前可免费取消",
+      "benefitText": ["延迟退房", "住就送"],
+      "tags": ["立即确认", "协议价", "优享会"],
+      "price": 1250,
+      "buttonLabel": "预订",
+      "buttonHint": "企业支付"
+    },
+    {
+      "type": "bookable",
+      "image": "room-5",
+      "name": "行政公园全景房",
+      "breakfast": "2份早餐",
+      "summary": "大床 2人入住 15-18m² 6-15层",
+      "cancelText": "18点00 分前可免费取消",
+      "benefitText": ["延迟退房", "住就送"],
+      "tags": ["立即确认", "协议价", "优享会"],
+      "price": 1250,
+      "buttonLabel": "预订",
+      "buttonHint": "企业支付"
+    }
+  ],
+  "facilities": {
+    "title": "服务设施",
+    "items": [
+      {
+        "icon": "wifi",
+        "label": "免费wifi"
+      },
+      {
+        "icon": "restaurant",
+        "label": "自助餐厅"
+      },
+      {
+        "icon": "luggage",
+        "label": "行李寄存"
+      },
+      {
+        "icon": "parking",
+        "label": "免费停车"
+      },
+      {
+        "icon": "more",
+        "label": "查看更多"
+      }
+    ]
+  },
+  "introduction": {
+    "title": "酒店简介",
+    "content": "希尔顿国际酒店集团(HI)，为总部设于英国的希尔顿集团公司旗下分支，拥有除美国外全球范围内“希尔顿”商标的使用权。希尔顿国际酒店集团经营管理着多家面向商务与休闲旅客的国际酒店品牌。",
+    "actionLabel": "展开全部"
+  },
+  "policies": {
+    "title": "酒店政策",
+    "items": [
+      {
+        "icon": "time",
+        "title": "入离时间",
+        "columns": [
+          "入住时间： 15:00以后",
+          "离店时间： 12:00以前"
+        ]
+      },
+      {
+        "icon": "user",
+        "title": "可接待人群",
+        "content": "接待来自任何国家/地区的客人"
+      }
+    ]
+  }
+}

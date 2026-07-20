@@ -1,0 +1,54 @@
+{
+  "status": {
+    "title": "等待酒店确认",
+    "description": "该订单预计于10月24日22点确认。如您的行程紧张，可取消后预订带有立即确认标签的房型。"
+  },
+  "order": {
+    "hotelName": "上海城隍庙希尔顿酒店",
+    "rows": [
+      {
+        "label": "入住人员",
+        "value": "李冉"
+      },
+      {
+        "label": "入离时间",
+        "value": "11月01日入住-11月04日离店"
+      },
+      {
+        "label": "入住房型",
+        "value": "商务大床房"
+      }
+    ],
+    "pointsLabel": "企业版积分",
+    "pointsValue": "+30积分",
+    "actions": [
+      {
+        "label": "返回首页",
+        "icon": "home"
+      },
+      {
+        "label": "订单详情",
+        "icon": "clipboard"
+      }
+    ]
+  },
+  "flightBenefit": {
+    "bannerTitle": "机票联订福利",
+    "bannerDescription": "完成机票预订即可获得30积分",
+    "tripType": "差旅机票",
+    "tripDate": "11月1日出发",
+    "fromLabel": "出发城市",
+    "fromCity": "北京",
+    "toLabel": "到达城市",
+    "toCity": "上海",
+    "buttonLabel": "订机票·得积分"
+  },
+  "airportTransfer": {
+    "title": "接送机用车",
+    "highlights": [
+      "行程自动识别",
+      "航班延误免费等"
+    ],
+    "buttonLabel": "去预定"
+  }
+}

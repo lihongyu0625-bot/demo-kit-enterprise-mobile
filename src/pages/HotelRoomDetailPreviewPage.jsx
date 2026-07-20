@@ -1,5 +1,6 @@
 import pageSpec from '../page-specs/hotel-room-detail.json'
 import roomDetailData from '../mock-data/hotel-room-detail.mock.json'
+import { IPhoneBar } from '../components/common/IPhoneBar'
 import {
   HotelRoomDetailBackdrop,
   HotelRoomDetailBenefitCard,
@@ -39,6 +40,11 @@ function HotelRoomDetailPreviewPage() {
       className="hotel-room-detail-preview"
     >
       <div className="hotel-room-detail-shell">
+        <IPhoneBar
+          className="room-detail-statusbar"
+          transparent
+        />
+
         <div className="room-detail-screen">
           {pageSpec.topSections.map((sectionKey) => (
             <div key={sectionKey}>{topSectionComponentMap[sectionKey]}</div>

@@ -5,6 +5,14 @@
   background: #ffffff;
 }
 
+.iphone-bar--transparent {
+  background: transparent;
+}
+
+.iphone-bar--light .iphone-bar__time {
+  color: #ffffff;
+}
+
 .iphone-bar__time {
   position: absolute;
   top: 14px;
@@ -28,6 +36,10 @@
   flex: none;
 }
 
+.iphone-bar--light .iphone-bar__icon {
+  filter: brightness(0) invert(1);
+}
+
 .iphone-bar__icon--cellular {
   top: 17.67px;
   right: 64px;
@@ -47,4 +59,106 @@
   right: 14.34px;
   width: 24.33px;
   height: 11.33px;
+}
+
+.mobile-navbar {
+  width: 100%;
+}
+
+.mobile-navbar--solid {
+  background: #ffffff;
+}
+
+.mobile-navbar--transparent {
+  background: transparent;
+}
+
+.mobile-navbar__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+}
+
+.mobile-navbar__title {
+  max-width: 216px;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.84);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mobile-navbar__back,
+.mobile-navbar__more,
+.mobile-navbar__text-action {
+  position: absolute;
+  top: 12px;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.mobile-navbar__back {
+  left: 12px;
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-navbar__back-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-navbar__more {
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-navbar__more-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.mobile-navbar__more-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.84);
+}
+
+.mobile-navbar__text-action {
+  right: 16px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.iphone-footer {
+  position: relative;
+  width: 100%;
+  height: 34px;
+}
+
+.iphone-footer__indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 134px;
+  height: 5px;
+  border-radius: 2.5px;
+  background: #000000;
+  transform: translateX(-50%);
 }

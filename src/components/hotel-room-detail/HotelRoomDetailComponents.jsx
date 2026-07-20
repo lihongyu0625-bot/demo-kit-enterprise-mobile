@@ -11,6 +11,8 @@ import squareIcon from '../../assets/hotel-room-detail/icon-square.svg'
 import stairIcon from '../../assets/hotel-room-detail/icon-stair.svg'
 import userIcon from '../../assets/hotel-room-detail/icon-user.svg'
 import windowIcon from '../../assets/hotel-room-detail/icon-window.svg'
+import { HotelBookingButton } from '../hotel/HotelBookingButton'
+import { IPhoneFooter } from '../common/IPhoneFooter'
 import './hotel-room-detail.css'
 
 const facilityIconMap = {
@@ -30,10 +32,6 @@ function DetailCard({ children, gradient, title }) {
       {children}
     </section>
   )
-}
-
-function HomeIndicator() {
-  return <div className="room-detail-home-indicator" />
 }
 
 export function HotelRoomDetailBackdrop() {
@@ -266,17 +264,13 @@ export function HotelRoomDetailSubmitBar({ submitBar }) {
           <SubmitTags tags={submitBar.tags} />
         </div>
 
-        <div className="room-detail-submit__button-wrap">
-          <button
-            className="room-detail-submit__button"
-            type="button"
-          >
-            {submitBar.buttonLabel}
-          </button>
-          <p className="room-detail-submit__button-hint">{submitBar.buttonHint}</p>
-        </div>
+        <HotelBookingButton
+          className="room-detail-submit__booking-button"
+          hint={submitBar.buttonHint}
+          label={submitBar.buttonLabel}
+        />
       </div>
-      <HomeIndicator />
+      <IPhoneFooter />
     </div>
   )
 }

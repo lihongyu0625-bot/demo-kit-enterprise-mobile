@@ -1,0 +1,11 @@
+{
+  "pageType": "hotel-home-business",
+  "pageTitle": "酒店首页-因公",
+  "sections": [
+    "header-hero",
+    "application-card",
+    "guarantee-card",
+    "bottom-watermark",
+    "bottom-nav"
+  ]
+}

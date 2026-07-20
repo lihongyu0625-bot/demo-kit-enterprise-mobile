@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "title": "订单详情",
+    "actions": [
+      {
+        "label": "差旅单",
+        "icon": "trip"
+      },
+      {
+        "label": "分享",
+        "icon": "share"
+      }
+    ]
+  },
+  "status": {
+    "title": "预订成功",
+    "actions": [
+      "修改订单",
+      "取消订单"
+    ]
+  },
+  "payment": {
+    "title": "企业支付",
+    "amount": "600",
+    "tag": "因公",
+    "detailLabel": "费用明细",
+    "hint": "含平台使用费",
+    "orderNo": "1128140713528422",
+    "bullets": [
+      "取消规则: 2022年09月02日17点前，可免费取消",
+      "加床政策: 当前房型可加床"
+    ],
+    "linkLabel": "订房必读"
+  },
+  "hotel": {
+    "name": "上海城隍庙希尔顿酒店",
+    "address": "海淀区中关村软件园96号",
+    "image": "hotel-card",
+    "actions": [
+      {
+        "label": "地图",
+        "icon": "map"
+      },
+      {
+        "label": "联系酒店",
+        "icon": "phone"
+      }
+    ]
+  },
+  "bookingInfo": {
+    "title": "预订信息",
+    "rows": [
+      {
+        "label": "房间1",
+        "value": "张三（+86 150****2210）"
+      },
+      {
+        "label": "联系手机",
+        "value": "+86 150****2210"
+      },
+      {
+        "label": "订单号",
+        "value": "45012356876454",
+        "copy": true
+      },
+      {
+        "label": "预计到店",
+        "value": "18:00"
+      }
+    ],
+    "actionLabel": "发送确认单"
+  },
+  "stayInfo": {
+    "title": "入住信息",
+    "roomTitle": "豪华大床房 2间 3晚",
+    "roomLinkLabel": "房型信息",
+    "facilities": [
+      "1张大床房",
+      "2份早餐",
+      "禁烟",
+      "2人入住"
+    ],
+    "checkIn": {
+      "date": "2月26日 周五",
+      "timeHint": "14:00后入住"
+    },
+    "checkOut": {
+      "date": "2月28日 周日",
+      "timeHint": "12:00前离店"
+    }
+  },
+  "invoice": {
+    "title": "发票提示",
+    "message": "可在入住完成后点击【开发票】进行开具",
+    "actionLabel": "开发票"
+  },
+  "benefits": {
+    "title": "本单可享",
+    "points": {
+      "title": "企业版积分",
+      "badgeText": "返",
+      "total": "25积分",
+      "items": [
+        {
+          "label": "基础积分",
+          "hint": "完单后发放",
+          "value": "5积分"
+        },
+        {
+          "label": "省立返积分",
+          "hint": "离店后发放",
+          "value": "20积分",
+          "description": "预订低于企业差标20元以上房型，额外获得15积分"
+        }
+      ]
+    },
+    "privileges": {
+      "title": "专享权益",
+      "count": "2",
+      "unit": "项权益",
+      "items": [
+        {
+          "title": "延迟退房",
+          "description": "延迟退房至14点"
+        },
+        {
+          "title": "住就送",
+          "linkLabel": "详情",
+          "description": "20元闪购券包",
+          "bullets": [
+            {
+              "text": "满29减10元闪购券*1",
+              "status": "待使用"
+            },
+            {
+              "text": "满29减10元外卖券*2",
+              "status": "待使用"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

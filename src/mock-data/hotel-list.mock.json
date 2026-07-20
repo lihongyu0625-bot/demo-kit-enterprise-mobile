@@ -1,11 +1,159 @@
 {
-  "city": "上海",
-  "dateRange": "07-20 至 07-21",
+  "search": {
+    "city": "上海市",
+    "checkInLabel": "住",
+    "checkInDate": "09-23",
+    "checkOutLabel": "离",
+    "checkOutDate": "09-28",
+    "placeholder": "搜索酒店",
+    "mapLabel": "地图"
+  },
+  "sortTabs": [
+    {
+      "label": "智能排序",
+      "active": true
+    },
+    {
+      "label": "位置距离"
+    },
+    {
+      "label": "价格/星级"
+    },
+    {
+      "label": "筛选"
+    }
+  ],
+  "quickFilters": [
+    {
+      "label": "协议价",
+      "active": true,
+      "checked": true
+    },
+    {
+      "label": "亚朵轻居"
+    },
+    {
+      "label": "商旅尊享",
+      "icon": "benefit"
+    },
+    {
+      "label": "立即确认"
+    },
+    {
+      "label": "好打车"
+    },
+    {
+      "label": "集团积分"
+    }
+  ],
+  "promo": {
+    "title": "订酒店 · 比出商旅好价",
+    "detail": "商旅好价来自滴滴聚合供应商价格"
+  },
   "hotels": [
     {
-      "name": "全季酒店（浦东机场自贸区店）",
+      "name": "全季酒店(浦东机场自贸区店)",
+      "level": "高档型",
+      "score": "4.8",
+      "scoreLabel": "超棒",
+      "reviews": "1628点评",
+      "benefits": ["专享权益", "延迟退房", "住就送", "延迟退房"],
+      "location": "外滩｜外滩核心区",
+      "tags": [
+        {
+          "label": "立即确认",
+          "tone": "primary"
+        },
+        {
+          "label": "协议价"
+        },
+        {
+          "label": "优享会"
+        }
+      ],
       "price": 543,
-      "tags": ["协议价", "立即确认", "含早餐"]
+      "priceTag": "",
+      "image": "hotel-1"
+    },
+    {
+      "name": "上海宝华万豪酒店",
+      "level": "高档型",
+      "score": "4.7",
+      "scoreLabel": "超棒",
+      "reviews": "2348点评",
+      "benefits": ["专享权益", "集团积分", "住就送"],
+      "location": "大宁国际商业区",
+      "tags": [
+        {
+          "label": "好打车",
+          "tone": "primary",
+          "showInfo": true
+        },
+        {
+          "label": "协议价"
+        },
+        {
+          "label": "优享会"
+        },
+        {
+          "label": "健身房"
+        }
+      ],
+      "price": 821,
+      "priceTag": "省立返 | 企业特惠 | 立返¥30",
+      "image": "hotel-2"
+    },
+    {
+      "name": "上海SK简奢酒店 · 云澜(松江大学城万达广场店)",
+      "level": "高档型",
+      "score": "4.8",
+      "scoreLabel": "超棒",
+      "reviews": "1628点评",
+      "benefits": ["专享权益", "携程积分", "住就送", "延迟退房"],
+      "location": "外滩｜外滩核心区",
+      "tags": [
+        {
+          "label": "好打车",
+          "tone": "primary",
+          "showInfo": true
+        },
+        {
+          "label": "协议价"
+        },
+        {
+          "label": "接送机服务"
+        },
+        {
+          "label": "健身房"
+        }
+      ],
+      "price": 432,
+      "priceTag": "",
+      "image": "hotel-3"
+    },
+    {
+      "name": "上海浦发盛捷壹滨江公寓",
+      "level": "高档型",
+      "score": "4.8",
+      "scoreLabel": "超棒",
+      "reviews": "1628点评",
+      "benefits": ["专享权益", "延迟退房", "住就送", "延迟退房"],
+      "location": "外滩｜外滩核心区",
+      "tags": [
+        {
+          "label": "立即确认",
+          "tone": "primary"
+        },
+        {
+          "label": "协议价"
+        },
+        {
+          "label": "优享会"
+        }
+      ],
+      "price": 600,
+      "priceTag": "",
+      "image": "hotel-1"
     }
   ]
 }

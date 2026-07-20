@@ -1,4 +1,14 @@
-import { IPhoneBar } from '../common/IPhoneBar'
+import { MobileNavBar } from '../common/MobileNavBar'
+import chevronRightSmallIcon from '../../assets/hotel-form/icon-chevron-right-small.svg'
+import chevronRightSmallGrayIcon from '../../assets/hotel-form/icon-chevron-right-small-gray.svg'
+import chevronDownSmallGrayIcon from '../../assets/hotel-form/icon-chevron-down-small-gray.svg'
+import caretUpFilledIcon from '../../assets/hotel-form/icon-caret-up-filled.svg'
+import addCircleIcon from '../../assets/hotel-form/icon-add-circle.svg'
+import infoCircleIcon from '../../assets/hotel-form/icon-info-circle.svg'
+import prohibitedCircleIcon from '../../assets/hotel-form/icon-prohibited-circle.svg'
+import removeCircleIcon from '../../assets/hotel-form/icon-remove-circle.svg'
+import successCircleIcon from '../../assets/hotel-form/icon-success-circle.svg'
+import { IPhoneFooter } from '../common/IPhoneFooter'
 import './hotel-form.css'
 
 function cx(...classNames) {
@@ -32,6 +42,36 @@ function RightChevron() {
   return <span className="hotel-chevron">›</span>
 }
 
+function SmallRightChevron() {
+  return (
+    <img
+      className="hotel-chevron-icon hotel-chevron-icon--small"
+      src={chevronRightSmallIcon}
+      alt=""
+    />
+  )
+}
+
+function GrayRightChevron() {
+  return (
+    <img
+      className="hotel-chevron-icon hotel-chevron-icon--field"
+      src={chevronRightSmallGrayIcon}
+      alt=""
+    />
+  )
+}
+
+function GrayDownChevron() {
+  return (
+    <img
+      className="hotel-chevron-icon hotel-chevron-icon--field"
+      src={chevronDownSmallGrayIcon}
+      alt=""
+    />
+  )
+}
+
 function DownChevron() {
   return <span className="hotel-chevron hotel-chevron--down">⌄</span>
 }
@@ -41,9 +81,15 @@ function DotSeparator() {
 }
 
 function StatusBadge({ type, text }) {
+  const icon = type === 'warning' ? prohibitedCircleIcon : successCircleIcon
+
   return (
     <span className={cx('status-badge', `status-badge--${type}`)}>
-      <span className="status-badge__icon">{type === 'warning' ? '⊘' : '✓'}</span>
+      <img
+        className="status-badge__icon"
+        src={icon}
+        alt=""
+      />
       {text}
     </span>
   )
@@ -56,13 +102,13 @@ function NotesLink({ items }) {
         {items.map((item) => (
           <p key={item} className="notes-link__item">
             <span className="notes-link__bullet" />
-            <span>{item}</span>
+            <span className="notes-link__text">{item}</span>
           </p>
         ))}
       </div>
       <button className="notes-link__action" type="button">
         订房必读
-        <RightChevron />
+        <SmallRightChevron />
       </button>
     </div>
   )
@@ -96,12 +142,20 @@ function FieldRow({
 function CounterPill({ value }) {
   return (
     <div className="counter-pill">
-      <button className="icon-button icon-button--soft" type="button" aria-label="减少">
-        −
+      <button className="counter-pill__button" type="button" aria-label="减少">
+        <img
+          className="counter-pill__icon"
+          src={removeCircleIcon}
+          alt=""
+        />
       </button>
       <span className="counter-pill__value">{value}间</span>
-      <button className="icon-button icon-button--soft" type="button" aria-label="增加">
-        +
+      <button className="counter-pill__button" type="button" aria-label="增加">
+        <img
+          className="counter-pill__icon"
+          src={addCircleIcon}
+          alt=""
+        />
       </button>
     </div>
   )
@@ -112,6 +166,74 @@ function ToggleSwitch({ checked }) {
     <span className={cx('toggle-switch', checked && 'toggle-switch--checked')}>
       <span className="toggle-switch__thumb" />
     </span>
+  )
+}
+
+function StayFieldRow({ label, value, muted, strong }) {
+  return (
+    <div className="stay-field-row">
+      <p className="stay-field-row__label">{label}</p>
+      <div className="stay-field-row__value-wrap">
+        <p
+          className={cx(
+            'stay-field-row__value',
+            strong && 'stay-field-row__value--strong',
+            muted && 'stay-field-row__value--muted',
+          )}
+        >
+          {value}
+        </p>
+        <GrayRightChevron />
+      </div>
+    </div>
+  )
+}
+
+function ContactPhoneRow({ label, countryCode, value }) {
+  return (
+    <div className="contact-field-row">
+      <p className="contact-field-row__label">{label}</p>
+      <div className="contact-field-row__value-wrap">
+        <button className="contact-country-code" type="button">
+          <span>{countryCode}</span>
+          <GrayDownChevron />
+        </button>
+        <p className="contact-field-row__placeholder">{value}</p>
+      </div>
+    </div>
+  )
+}
+
+function ContactEmailRow({ label, optionalText, value }) {
+  return (
+    <div className="contact-email-row">
+      <div className="contact-email-row__label-group">
+        <p className="contact-email-row__label">{label}</p>
+        <p className="contact-email-row__optional">{optionalText}</p>
+      </div>
+      <p className="contact-email-row__placeholder">{value}</p>
+    </div>
+  )
+}
+
+function ApprovalFieldRow({ label, value }) {
+  return (
+    <div className="approval-field-row">
+      <p className="approval-field-row__label">{label}</p>
+      <div className="approval-field-row__value-wrap">
+        <p className="approval-field-row__value">{value}</p>
+        <GrayRightChevron />
+      </div>
+    </div>
+  )
+}
+
+function PlainDescriptionRow({ label, value }) {
+  return (
+    <div className="plain-description-row">
+      <p className="plain-description-row__label">{label}</p>
+      <p className="plain-description-row__value">{value}</p>
+    </div>
   )
 }
 
@@ -138,18 +260,15 @@ export function HotelFormGradientBackground() {
 
 export function HotelFormNavBar({ title, actionLabel }) {
   return (
-    <header className="hotel-nav">
-      <IPhoneBar className="hotel-statusbar" />
-      <div className="hotel-toolbar">
-        <button className="hotel-toolbar__back" type="button" aria-label="返回">
-          ‹
-        </button>
-        <p className="hotel-toolbar__title">{title}</p>
-        <button className="hotel-toolbar__action" type="button">
-          {actionLabel}
-        </button>
-      </div>
-    </header>
+    <MobileNavBar
+      className="hotel-nav"
+      title={title}
+      showBackIcon
+      showRightIcon={false}
+      showRightText={Boolean(actionLabel)}
+      rightText={actionLabel}
+      transparent
+    />
   )
 }
 
@@ -177,7 +296,7 @@ export function HotelRoomInfoCard({ room }) {
           <h3 className="hotel-card__title hotel-card__title--medium">{room.title}</h3>
           <button className="link-button" type="button">
             {room.detailLabel}
-            <RightChevron />
+            <SmallRightChevron />
           </button>
         </div>
         <div className="room-summary__tags">
@@ -220,23 +339,27 @@ export function HotelStayInfoCard({ stayInfo }) {
             </span>
             <span className="micro-copy">{stayInfo.guestPhone}</span>
           </div>
-          <p className="tiny-tip">
-            <span className="tiny-tip__icon">i</span>
+          <p className="tiny-tip tiny-tip--compact">
+            <img
+              className="tiny-tip__icon-image"
+              src={infoCircleIcon}
+              alt=""
+            />
             {stayInfo.priceNotice}
           </p>
         </div>
       </div>
       <CardDivider />
-      <FieldRow label="预计到店" value={stayInfo.arrivalPlaceholder} />
+      <StayFieldRow label="预计到店" value={stayInfo.arrivalPlaceholder} strong />
       <CardDivider />
-      <FieldRow label="住客备注" value={stayInfo.remarkPlaceholder} muted />
+      <StayFieldRow label="住客备注" value={stayInfo.remarkPlaceholder} muted />
       <CardDivider />
       <div className="switch-row">
         <div className="switch-row__copy">
           <p className="field-row__value field-row__value--strong">
             {stayInfo.confirmSmsTitle}
           </p>
-          <p className="field-row__detail">{stayInfo.confirmSmsHint}</p>
+          <p className="switch-row__hint">{stayInfo.confirmSmsHint}</p>
         </div>
         <ToggleSwitch checked={stayInfo.confirmSmsEnabled} />
       </div>
@@ -248,24 +371,16 @@ export function HotelContactInfoCard({ contactInfo }) {
   return (
     <CardShell title="联系信息">
       <CardDivider />
-      <FieldRow
+      <ContactPhoneRow
         label="联系电话"
+        countryCode={contactInfo.countryCode}
         value={contactInfo.phonePlaceholder}
-        muted
-        leading={
-          <button className="country-code" type="button">
-            {contactInfo.countryCode}
-            <DownChevron />
-          </button>
-        }
       />
       <CardDivider />
-      <FieldRow
+      <ContactEmailRow
         label="电子邮箱"
+        optionalText="(选填)"
         value={contactInfo.emailPlaceholder}
-        muted
-        detail="(选填)"
-        trailing={null}
       />
     </CardShell>
   )
@@ -273,9 +388,13 @@ export function HotelContactInfoCard({ contactInfo }) {
 
 export function HotelApprovalInfoCard({ approvalInfo }) {
   return (
-    <CardShell title="审批信息" subtitle={approvalInfo.hint}>
+    <CardShell>
+      <div className="approval-card__header">
+        <h3 className="approval-card__title">审批信息</h3>
+        <p className="approval-card__hint">{approvalInfo.hint}</p>
+      </div>
       <CardDivider />
-      <FieldRow label="审批人" value={approvalInfo.approverPlaceholder} muted />
+      <ApprovalFieldRow label="审批人" value={approvalInfo.approverPlaceholder} />
     </CardShell>
   )
 }
@@ -284,7 +403,7 @@ export function HotelCostCenterCard({ costCenter }) {
   return (
     <CardShell title="费用归属">
       <CardDivider />
-      <FieldRow label="成本中心" value={costCenter.placeholder} muted />
+      <ApprovalFieldRow label="成本中心" value={costCenter.placeholder} />
     </CardShell>
   )
 }
@@ -293,14 +412,9 @@ export function HotelTripNoteCard({ tripNote }) {
   return (
     <CardShell title="出行备注">
       <CardDivider />
-      <FieldRow label="出行目的" value={tripNote.purposePlaceholder} muted />
+      <ApprovalFieldRow label="出行目的" value={tripNote.purposePlaceholder} />
       <CardDivider />
-      <div className="field-row">
-        <p className="field-row__label">出行描述</p>
-        <p className="field-row__value field-row__value--muted field-row__value--fill">
-          {tripNote.descriptionPlaceholder}
-        </p>
-      </div>
+      <PlainDescriptionRow label="出行描述" value={tripNote.descriptionPlaceholder} />
     </CardShell>
   )
 }
@@ -312,20 +426,46 @@ function BenefitItem({ item }) {
         <p className="benefit-item__title">{item.title}</p>
         {item.mode === 'counter' ? (
           <div className="benefit-item__counter">
-            <button className="icon-button" type="button" aria-label="减少">
-              −
+            <button className="benefit-item__counter-button" type="button" aria-label="减少">
+              <img
+                className="benefit-item__counter-icon"
+                src={removeCircleIcon}
+                alt=""
+              />
             </button>
             <span className="benefit-item__counter-value">{item.quantity}</span>
-            <button className="icon-button" type="button" aria-label="增加">
-              +
+            <button className="benefit-item__counter-button" type="button" aria-label="增加">
+              <img
+                className="benefit-item__counter-icon"
+                src={addCircleIcon}
+                alt=""
+              />
             </button>
           </div>
         ) : (
           <Checkbox checked={item.checked} />
         )}
       </div>
-      <p className="micro-copy">{item.description}</p>
+      <p className="benefit-item__description">{item.description}</p>
     </div>
+  )
+}
+
+function GiftValueText({ value }) {
+  const match = value.match(/^([^0-9]*)([0-9]+)(.*)$/)
+
+  if (!match) {
+    return <span>{value}</span>
+  }
+
+  const [, prefix, highlight, suffix] = match
+
+  return (
+    <span className="gift-row__value-text">
+      {prefix ? <span>{prefix}</span> : null}
+      <span className="gift-row__value-highlight">{highlight}</span>
+      {suffix ? <span>{suffix}</span> : null}
+    </span>
   )
 }
 
@@ -335,9 +475,11 @@ export function HotelBenefitCard({ benefits }) {
       <div className="benefit-section">
         <div className="benefit-section__heading">
           <p className="benefit-section__title">{benefits.optionalBenefitsTitle}</p>
-          <button className="subtle-link-button" type="button">
+          <button className="subtle-link-button benefit-section__more" type="button">
             {benefits.allLabel}
-            <RightChevron />
+            <span className="benefit-section__more-icon">
+              <GrayRightChevron />
+            </span>
           </button>
         </div>
         <div className="benefit-grid">
@@ -350,8 +492,10 @@ export function HotelBenefitCard({ benefits }) {
       <div className="gift-row">
         <p className="benefit-section__title">{benefits.giftTitle}</p>
         <button className="gift-row__action" type="button">
-          {benefits.giftValue}
-          <RightChevron />
+          <GiftValueText value={benefits.giftValue} />
+          <span className="gift-row__icon">
+            <GrayRightChevron />
+          </span>
         </button>
       </div>
     </CardShell>
@@ -390,14 +534,18 @@ export function HotelSubmitBar({ payment }) {
         <div className="submit-bar__actions">
           <button className="detail-button" type="button">
             {payment.detailLabel}
-            <span className="detail-button__caret">⌃</span>
+            <img
+              className="detail-button__caret-icon"
+              src={caretUpFilledIcon}
+              alt=""
+            />
           </button>
           <button className="primary-button" type="button">
             {payment.buttonLabel}
           </button>
         </div>
       </div>
-      <div className="submit-bar__home-indicator" />
+      <IPhoneFooter />
     </div>
   )
 }
