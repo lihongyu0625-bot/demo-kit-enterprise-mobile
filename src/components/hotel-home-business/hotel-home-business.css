@@ -21,8 +21,7 @@
 .hotel-home-business-application__location-trigger,
 .hotel-home-business-application__tip,
 .hotel-home-business-application__occupancy,
-.hotel-home-business-application__submit,
-.hotel-home-business-bottom-nav__item {
+.hotel-home-business-application__submit {
   box-sizing: border-box;
 }
 
@@ -59,8 +58,7 @@
 .hotel-home-business-application__location-trigger,
 .hotel-home-business-application__tip,
 .hotel-home-business-application__occupancy,
-.hotel-home-business-application__submit,
-.hotel-home-business-bottom-nav__item {
+.hotel-home-business-application__submit {
   padding: 0;
   border: none;
   background: transparent;
@@ -75,10 +73,11 @@
   height: 24px;
 }
 
-.hotel-home-business-nav__back img {
+.hotel-home-business-nav__back-icon {
   display: block;
   width: 24px;
   height: 24px;
+  color: #ffffff;
 }
 
 .hotel-home-business-nav__policy {
@@ -94,10 +93,11 @@
   backdrop-filter: blur(10px);
 }
 
-.hotel-home-business-nav__policy img {
+.hotel-home-business-nav__policy-icon {
   display: block;
   width: 16px;
   height: 16px;
+  color: #ffffff;
 }
 
 .hotel-home-business-nav__policy span {
@@ -213,8 +213,7 @@
 .hotel-home-business-application__guest-row,
 .hotel-home-business-application__tip,
 .hotel-home-business-application__filter-row,
-.hotel-home-business-application__occupancy,
-.hotel-home-business-bottom-nav {
+.hotel-home-business-application__occupancy {
   display: flex;
 }
 
@@ -273,15 +272,16 @@
   flex: none;
 }
 
-.hotel-home-business-icon-button img {
+.hotel-home-business-icon-button__icon {
   display: block;
   width: 16px;
   height: 16px;
 }
 
-.hotel-home-business-icon-button--target img {
+.hotel-home-business-icon-button__target-icon {
   width: 20px;
   height: 20px;
+  color: #1473ff;
 }
 
 .hotel-home-business-application__subtext {
@@ -323,8 +323,8 @@
   line-height: 24px;
 }
 
-.hotel-home-business-application__location-trigger img,
-.hotel-home-business-application__occupancy img {
+.hotel-home-business-application__location-trigger-icon,
+.hotel-home-business-application__occupancy-icon {
   display: block;
   width: 16px;
   height: 16px;
@@ -375,18 +375,20 @@
   min-width: 0;
 }
 
-.hotel-home-business-application__tip img:first-child {
+.hotel-home-business-application__tip-icon {
   display: block;
   width: 14px;
   height: 14px;
   flex: none;
+  color: #09397f;
 }
 
-.hotel-home-business-application__tip img:last-child {
+.hotel-home-business-application__tip-arrow {
   display: block;
   width: 16px;
   height: 16px;
   flex: none;
+  color: #09397f;
 }
 
 .hotel-home-business-application__tip span {
@@ -621,30 +623,16 @@
   background: #ffffff;
 }
 
+.hotel-home-business-bottom-preview {
+  width: 375px;
+  background: #ffffff;
+}
+
 .hotel-home-business-bottom-nav {
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px 0;
-}
-
-.hotel-home-business-bottom-nav__item {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.hotel-home-business-bottom-nav__item img {
-  display: block;
-  width: 22px;
-  height: 22px;
-}
-
-.hotel-home-business-bottom-nav__item span {
-  color: #777777;
-  font-size: 10px;
-  line-height: 16px;
+  --page-bottom-nav-gap: 8px;
+  --page-bottom-nav-padding: 8px 12px 0;
+  --page-bottom-nav-icon-size: 22px;
+  --page-bottom-nav-label-color: #777777;
 }
 
 .hotel-home-business-footer {

@@ -15,28 +15,111 @@ function getInitialPreviewId() {
   return findPreviewById(hashValue) ? hashValue : defaultPreviewId
 }
 
-function PreviewNavTree({ items, activePreviewId, level = 0, onSelect }) {
+function collectExpandableGroups(items, level = 0, expandedGroups = {}) {
+  items.forEach((item) => {
+    if (item.type !== 'group') {
+      return
+    }
+
+    if (level >= 1) {
+      expandedGroups[item.id] = true
+    }
+
+    collectExpandableGroups(item.children, level + 1, expandedGroups)
+  })
+
+  return expandedGroups
+}
+
+function findParentGroupIds(items, targetId, parentGroups = []) {
+  for (const item of items) {
+    if (item.type === 'group') {
+      const groupTrail = [...parentGroups, item.id]
+      const matchedGroupIds = findParentGroupIds(item.children, targetId, groupTrail)
+
+      if (matchedGroupIds) {
+        return matchedGroupIds
+      }
+
+      continue
+    }
+
+    if (item.id === targetId) {
+      return parentGroups
+    }
+  }
+
+  return null
+}
+
+function PreviewNavTree({
+  items,
+  activePreviewId,
+  expandedGroups,
+  level = 0,
+  onSelect,
+  onToggleGroup,
+}) {
   return (
     <div className="preview-nav-tree">
       {items.map((item) => {
         if (item.type === 'group') {
+          const isCollapsible = level >= 1
+          const isCardGroup = level === 1
+          const isExpanded = isCollapsible ? expandedGroups[item.id] !== false : true
+
           return (
             <section
               className="preview-nav-group"
+              data-expanded={isExpanded}
+              data-level={level}
               key={item.id}
             >
               <div
                 className="preview-nav-group__label"
                 data-level={level}
               >
-                {item.label}
+                {isCollapsible ? (
+                  <button
+                    aria-expanded={isExpanded}
+                    className={`preview-nav-group__trigger${isCardGroup ? ' preview-nav-group__trigger--card' : ''}`}
+                    data-level={level}
+                    onClick={() => onToggleGroup(item.id)}
+                    type="button"
+                  >
+                    <span className="preview-nav-group__trigger-label">{item.label}</span>
+                    <span className="preview-nav-group__meta">
+                      {item.statusLabel ? (
+                        <span className="preview-nav-group__status">{item.statusLabel}</span>
+                      ) : null}
+                      <span
+                        aria-hidden="true"
+                        className="preview-nav-group__caret"
+                        data-expanded={isExpanded}
+                      >
+                        ▾
+                      </span>
+                    </span>
+                  </button>
+                ) : (
+                  item.label
+                )}
               </div>
-              <PreviewNavTree
-                items={item.children}
-                activePreviewId={activePreviewId}
-                level={level + 1}
-                onSelect={onSelect}
-              />
+              {isExpanded ? (
+                <div
+                  className="preview-nav-group__children"
+                  data-level={level + 1}
+                >
+                  <PreviewNavTree
+                    items={item.children}
+                    activePreviewId={activePreviewId}
+                    expandedGroups={expandedGroups}
+                    level={level + 1}
+                    onSelect={onSelect}
+                    onToggleGroup={onToggleGroup}
+                  />
+                </div>
+              ) : null}
             </section>
           )
         }
@@ -61,12 +144,38 @@ function PreviewNavTree({ items, activePreviewId, level = 0, onSelect }) {
 
 function App() {
   const [activePreviewId, setActivePreviewId] = useState(getInitialPreviewId)
+  const [expandedGroups, setExpandedGroups] = useState(() => collectExpandableGroups(previewNavigation))
   const activePreview = findPreviewById(activePreviewId) ?? findPreviewById(defaultPreviewId)
   const ActivePreviewComponent = activePreview.component
 
   useEffect(() => {
     window.history.replaceState(null, '', `#${activePreviewId}`)
   }, [activePreviewId])
+
+  useEffect(() => {
+    const parentGroupIds = findParentGroupIds(previewNavigation, activePreviewId) ?? []
+
+    setExpandedGroups((currentGroups) => {
+      let hasChanged = false
+      const nextGroups = { ...currentGroups }
+
+      parentGroupIds.forEach((groupId) => {
+        if (nextGroups[groupId] === false) {
+          nextGroups[groupId] = true
+          hasChanged = true
+        }
+      })
+
+      return hasChanged ? nextGroups : currentGroups
+    })
+  }, [activePreviewId])
+
+  function handleToggleGroup(groupId) {
+    setExpandedGroups((currentGroups) => ({
+      ...currentGroups,
+      [groupId]: currentGroups[groupId] === false,
+    }))
+  }
 
   return (
     <main className="preview-workspace">
@@ -86,16 +195,11 @@ function App() {
           <PreviewNavTree
             items={previewNavigation}
             activePreviewId={activePreviewId}
+            expandedGroups={expandedGroups}
             onSelect={setActivePreviewId}
+            onToggleGroup={handleToggleGroup}
           />
         </nav>
-
-        <div className="preview-sidebar__footer">
-          <p>维护建议</p>
-          <p>1. 新建预览组件</p>
-          <p>2. 在 `src/previews/previewRegistry.js` 里注册</p>
-          <p>3. 菜单和右侧预览会自动接入</p>
-        </div>
       </aside>
 
       <section className="preview-stage">

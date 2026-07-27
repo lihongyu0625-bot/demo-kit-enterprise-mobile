@@ -181,7 +181,7 @@
   line-height: 20px;
 }
 
-.hotel-booking-success-order__points-right img {
+.hotel-booking-success-order__points-icon {
   display: block;
   width: 16px;
   height: 16px;
@@ -230,10 +230,11 @@
   cursor: pointer;
 }
 
-.hotel-booking-success-order__action img {
+.hotel-booking-success-order__action-icon {
   display: block;
   width: 18px;
   height: 18px;
+  color: rgba(0, 0, 0, 0.84);
 }
 
 .hotel-booking-success-order__action span {
@@ -245,11 +246,12 @@
 .hotel-booking-success-flight {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .hotel-booking-success-flight__banner {
   position: relative;
-  width: 351px;
+  width: 100%;
   height: 78px;
   margin-bottom: -8px;
   border-radius: 8px 8px 0 0;
@@ -305,6 +307,7 @@
 .hotel-booking-success-flight__body {
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 .hotel-booking-success-flight__trip-head {
@@ -429,11 +432,12 @@
   gap: 2px;
 }
 
-.hotel-booking-success-transfer__highlight img {
+.hotel-booking-success-transfer__highlight-icon {
   display: block;
   width: 12px;
   height: 12px;
   flex: none;
+  color: #00b578;
 }
 
 .hotel-booking-success-transfer__button {

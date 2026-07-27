@@ -1,9 +1,4 @@
 import { Fragment } from 'react'
-import backIcon from '../../assets/hotel-home-business/icon-back-white.svg'
-import chevronDownFilledIcon from '../../assets/hotel-home-business/icon-chevron-down-filled.svg'
-import chevronDownIcon from '../../assets/hotel-home-business/icon-chevron-down.svg'
-import detailChevronRightIcon from '../../assets/hotel-home-business/icon-detail-chevron-right.svg'
-import chevronRightIcon from '../../assets/hotel-home-business/icon-chevron-right.svg'
 import guaranteeDiscountIcon from '../../assets/hotel-home-business/icon-guarantee-discount.png'
 import guaranteeFlightIcon from '../../assets/hotel-home-business/icon-guarantee-flight.png'
 import guaranteeLogoIcon from '../../assets/hotel-home-business/icon-guarantee-logo.png'
@@ -12,14 +7,14 @@ import guaranteeShieldIcon from '../../assets/hotel-home-business/icon-guarantee
 import guaranteeStampImage from '../../assets/hotel-home-business/guarantee-stamp.png'
 import headerBgImage from '../../assets/hotel-home-business/header-bg.png'
 import headphonesIcon from '../../assets/hotel-home-business/icon-headphones.svg'
-import infoBlueIcon from '../../assets/hotel-home-business/icon-info-blue.svg'
-import infoWhiteIcon from '../../assets/hotel-home-business/icon-info-white.svg'
 import ordersIcon from '../../assets/hotel-home-business/icon-orders.svg'
 import benefitsIcon from '../../assets/hotel-home-business/icon-benefits.svg'
-import targetIcon from '../../assets/hotel-home-business/icon-target.svg'
 import watermarkGroup451Image from '../../assets/hotel-home-business/watermark-group-451.svg'
+import { DirectionalIcon } from '../common/DirectionalIcon'
+import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneBar } from '../common/IPhoneBar'
 import { IPhoneFooter } from '../common/IPhoneFooter'
+import { PageBottomNav } from '../common/PageBottomNav'
 import './hotel-home-business.css'
 
 const footerIconMap = {
@@ -30,6 +25,24 @@ const footerIconMap = {
 
 function cx(...classNames) {
   return classNames.filter(Boolean).join(' ')
+}
+
+function HotelHomeBusinessDirectionalIcon({ className, name }) {
+  return (
+    <DirectionalIcon
+      className={className}
+      name={name}
+    />
+  )
+}
+
+function HotelHomeBusinessGlobalIcon({ className, name }) {
+  return (
+    <GlobalStyleIcon
+      className={className}
+      name={name}
+    />
+  )
 }
 
 function Divider({ vertical = false, className }) {
@@ -120,9 +133,9 @@ export function HotelHomeBusinessHeaderHero({ header, nav }) {
           className="hotel-home-business-nav__back"
           type="button"
         >
-          <img
-            alt=""
-            src={backIcon}
+          <HotelHomeBusinessGlobalIcon
+            className="hotel-home-business-nav__back-icon"
+            name="icon/directional/chevron-left-large/outlined"
           />
         </button>
 
@@ -130,9 +143,9 @@ export function HotelHomeBusinessHeaderHero({ header, nav }) {
           className="hotel-home-business-nav__policy"
           type="button"
         >
-          <img
-            alt=""
-            src={infoWhiteIcon}
+          <HotelHomeBusinessGlobalIcon
+            className="hotel-home-business-nav__policy-icon"
+            name="icon/status/info-circle/outlined"
           />
           <span>{nav.policyLabel}</span>
         </button>
@@ -197,9 +210,9 @@ export function HotelHomeBusinessApplicationCard({ application }) {
             className="hotel-home-business-icon-button"
             type="button"
           >
-            <img
-              alt=""
-              src={chevronRightIcon}
+            <HotelHomeBusinessDirectionalIcon
+              className="hotel-home-business-icon-button__icon"
+              name="icon/directional/chevron-right-small/outlined"
             />
           </button>
         </div>
@@ -217,9 +230,9 @@ export function HotelHomeBusinessApplicationCard({ application }) {
               type="button"
             >
               <span>{application.locationLabel}</span>
-              <img
-                alt=""
-                src={chevronDownFilledIcon}
+              <HotelHomeBusinessDirectionalIcon
+                className="hotel-home-business-application__location-trigger-icon"
+                name="icon/directional/chevron-down-small/filled"
               />
             </button>
             <span className="hotel-home-business-application__placeholder">{application.searchPlaceholder}</span>
@@ -229,9 +242,9 @@ export function HotelHomeBusinessApplicationCard({ application }) {
             className="hotel-home-business-icon-button hotel-home-business-icon-button--target"
             type="button"
           >
-            <img
-              alt=""
-              src={targetIcon}
+            <HotelHomeBusinessGlobalIcon
+              className="hotel-home-business-icon-button__target-icon"
+              name="icon/travel/target/outlined"
             />
           </button>
         </div>
@@ -261,17 +274,19 @@ export function HotelHomeBusinessApplicationCard({ application }) {
           className="hotel-home-business-application__tip"
           type="button"
         >
-          <img
-            alt=""
-            src={infoBlueIcon}
+          <HotelHomeBusinessGlobalIcon
+            className="hotel-home-business-application__tip-icon"
+            name="icon/status/info-circle/outlined"
           />
           <span>{application.guestTip}</span>
-          <img
-            alt=""
-            src={chevronRightIcon}
+          <HotelHomeBusinessDirectionalIcon
+            className="hotel-home-business-application__tip-arrow"
+            name="icon/directional/chevron-right-small/outlined"
           />
         </button>
       </div>
+
+      <Divider />
 
       <div className="hotel-home-business-application__filter-row">
         <span className="hotel-home-business-application__filter-text">{application.filterLabel}</span>
@@ -281,9 +296,9 @@ export function HotelHomeBusinessApplicationCard({ application }) {
         >
           <span>{application.roomCount}</span>
           <span>{application.adultCount}</span>
-          <img
-            alt=""
-            src={chevronDownIcon}
+          <HotelHomeBusinessDirectionalIcon
+            className="hotel-home-business-application__occupancy-icon"
+            name="icon/directional/chevron-down-small/outlined"
           />
         </button>
       </div>
@@ -335,10 +350,9 @@ export function HotelHomeBusinessGuaranteeCard() {
           type="button"
         >
           <span>详情</span>
-          <img
-            alt=""
+          <HotelHomeBusinessDirectionalIcon
             className="hotel-home-business-guarantee__detail-arrow"
-            src={detailChevronRightIcon}
+            name="icon/directional/chevron-right-small/outlined"
           />
         </button>
       </div>
@@ -407,21 +421,13 @@ export function HotelHomeBusinessBottomWatermark() {
 
 export function HotelHomeBusinessBottomNav({ items }) {
   return (
-    <div className="hotel-home-business-bottom-nav">
-      {items.map((item) => (
-        <button
-          className="hotel-home-business-bottom-nav__item"
-          key={item.label}
-          type="button"
-        >
-          <img
-            alt=""
-            src={footerIconMap[item.icon]}
-          />
-          <span>{item.label}</span>
-        </button>
-      ))}
-    </div>
+    <PageBottomNav
+      className="hotel-home-business-bottom-nav"
+      items={items.map((item) => ({
+        ...item,
+        iconSrc: footerIconMap[item.icon],
+      }))}
+    />
   )
 }
 

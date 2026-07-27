@@ -1,4 +1,4 @@
-import backIcon from '../../assets/hotel-list/icon-back.svg'
+import { GlobalStyleIcon } from './GlobalStyleIcon'
 import { IPhoneBar } from './IPhoneBar'
 
 function cx(...classNames) {
@@ -46,10 +46,9 @@ export function MobileNavBar({
             type="button"
             aria-label="返回"
           >
-            <img
+            <GlobalStyleIcon
               className="mobile-navbar__back-icon"
-              src={backIcon}
-              alt=""
+              name="icon/directional/chevron-left-large/outlined"
             />
           </button>
         ) : null}

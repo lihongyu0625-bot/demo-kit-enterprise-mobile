@@ -1,5 +1,18 @@
+import { Badge } from '../../components/common/Badge'
+import { CardDivider } from '../../components/common/CardDivider'
+import { ChevronAction } from '../../components/common/ChevronAction'
+import { IPhoneBar } from '../../components/common/IPhoneBar'
 import { MobileNavBar } from '../../components/common/MobileNavBar'
 import { IPhoneFooter } from '../../components/common/IPhoneFooter'
+import { PageBottomNav } from '../../components/common/PageBottomNav'
+import { PriceDisplay } from '../../components/common/PriceDisplay'
+import { Tag } from '../../components/common/Tag'
+import carHomeDefaultData from '../../mock-data/car-home-default.mock.json'
+import { CarHomeDefaultFooterRules } from '../../components/car-home-default/CarHomeDefaultComponents'
+import { HotelHomeBusinessBottomWatermark } from '../../components/hotel-home-business/HotelHomeBusinessComponents'
+import hotelBenefitsIcon from '../../assets/hotel-home-business/icon-benefits.svg'
+import hotelHeadphonesIcon from '../../assets/hotel-home-business/icon-headphones.svg'
+import hotelOrdersIcon from '../../assets/hotel-home-business/icon-orders.svg'
 
 const navBarSections = [
   {
@@ -147,7 +160,119 @@ const navBarSections = [
   },
 ]
 
-function CommonPreviewShell({ eyebrow, title, summary, children }) {
+const commonUsageMap = {
+  button: {
+    pages: ['暂无'],
+    components: ['当前还是预留预览位，尚未从酒店业务页面中抽离真实按钮组件。'],
+  },
+  switch: {
+    pages: ['暂无'],
+    components: ['当前还是预留预览位，尚未从酒店业务页面中抽离真实开关组件。'],
+  },
+  iphoneBar: {
+    pages: [
+      '酒店首页-因公',
+      '酒店列表页',
+      '酒店详情页',
+      '房型详情页',
+      '酒店填单页',
+      '酒店下单成功页',
+      '酒店订单详情页',
+    ],
+    components: [
+      '酒店首页-因公头部',
+      '酒店列表页头部',
+      '酒店详情页头图导航区',
+      '房型详情页顶部区域',
+      '酒店填单页顶部导航栏',
+      '酒店下单成功页顶部状态区',
+      '酒店订单详情页顶部导航栏',
+    ],
+  },
+  iphoneFooter: {
+    pages: [
+      '酒店首页-因公',
+      '酒店列表页',
+      '酒店详情页',
+      '房型详情页',
+      '酒店填单页',
+      '酒店下单成功页',
+      '酒店订单详情页',
+    ],
+    components: ['各页面吸底固定底部区域'],
+  },
+  pageBottomNav: {
+    pages: ['首页', '酒店首页-因公'],
+    components: ['用车首页底部导航（默认态 / 全态）', '酒店首页-因公底部导航'],
+  },
+  navBar: {
+    pages: ['酒店填单页', '酒店详情页'],
+    components: ['酒店填单页顶部导航栏', '酒店详情页导航栏'],
+  },
+  price: {
+    pages: ['酒店列表页', '酒店详情页', '房型详情页', '酒店填单页'],
+    components: ['酒店卡片价格区', '酒店预订按钮价格区', '房型卡片价格区', '酒店填单页底部提交栏'],
+  },
+  tag: {
+    pages: ['酒店详情页'],
+    components: ['酒店详情页筛选标签', '酒店详情页房型属性标签'],
+  },
+  badge: {
+    pages: ['酒店填单页', '酒店详情页'],
+    components: ['酒店填单页房型政策徽标', '酒店详情页协议酒店徽标'],
+  },
+  divider: {
+    pages: ['酒店填单页', '酒店详情页', '酒店首页-因公'],
+    components: ['酒店填单页各信息卡', '酒店详情页权益信息区', '酒店首页-因公省心住卡片'],
+  },
+  bottomWatermark: {
+    pages: ['酒店首页-因公', '首页'],
+    components: ['酒店首页-因公底部水印', '首页规则区底部品牌水印（默认态）'],
+  },
+  chevronAction: {
+    pages: ['酒店填单页'],
+    components: ['订房必读', '全部权益', '明细'],
+  },
+}
+
+const defaultPageBottomNavItems = [
+  { label: '首页', icon: 'home', active: true },
+  { label: '行程', icon: 'schedule', active: false },
+  { label: '小福包', icon: 'bag', active: false },
+  { label: '工作台', icon: 'workspace', active: false },
+  { label: '我的', icon: 'profile', active: false },
+]
+
+const scheduleActivePageBottomNavItems = [
+  { label: '首页', icon: 'home', active: false },
+  { label: '行程', icon: 'schedule', active: true },
+  { label: '小福包', icon: 'bag', active: false },
+  { label: '工作台', icon: 'workspace', active: false },
+  { label: '我的', icon: 'profile', active: false },
+]
+
+const hotelPageBottomNavItems = [
+  { label: '我的订单', icon: 'orders', iconSrc: hotelOrdersIcon, active: false },
+  { label: '品牌权益', icon: 'benefits', iconSrc: hotelBenefitsIcon, active: false },
+  { label: '联系客服', icon: 'headphones', iconSrc: hotelHeadphonesIcon, active: false },
+]
+
+function UsageNote({ pages, components }) {
+  return (
+    <div className="common-preview__usage">
+      <div className="common-preview__usage-row">
+        <span className="common-preview__usage-label">使用页面</span>
+        <p className="common-preview__usage-text">{pages.join('、')}</p>
+      </div>
+      <div className="common-preview__usage-row">
+        <span className="common-preview__usage-label">使用业务组件</span>
+        <p className="common-preview__usage-text">{components.join('、')}</p>
+      </div>
+    </div>
+  )
+}
+
+function CommonPreviewShell({ eyebrow, title, summary, usage, children }) {
   return (
     <section className="common-preview">
       <div className="common-preview__header">
@@ -156,6 +281,7 @@ function CommonPreviewShell({ eyebrow, title, summary, children }) {
         <p className="common-preview__summary">{summary}</p>
       </div>
       <div className="common-preview__surface">{children}</div>
+      {usage ? <UsageNote {...usage} /> : null}
     </section>
   )
 }
@@ -166,6 +292,7 @@ export function CommonButtonPreview() {
       eyebrow="通用组件"
       title="按钮预览"
       summary="这里先作为按钮能力的统一预览位，后续可以直接替换成真实按钮组件。"
+      usage={commonUsageMap.button}
     >
       <div className="common-button-grid">
         <button
@@ -203,6 +330,7 @@ export function CommonSwitchPreview() {
       eyebrow="通用组件"
       title="开关预览"
       summary="后续如果抽出真实开关组件，这里可以直接变成开关样式与状态的展示页。"
+      usage={commonUsageMap.switch}
     >
       <div className="common-switch-list">
         <div className="common-switch-row">
@@ -228,12 +356,111 @@ export function CommonSwitchPreview() {
   )
 }
 
+export function CommonIPhoneBarPreview() {
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="状态栏预览"
+      summary="统一展示 iPhone 状态栏的深色和浅色两种场景，后续页面顶部可以直接复用。"
+      usage={commonUsageMap.iphoneBar}
+    >
+      <div className="common-foundation-grid">
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">白底场景</span>
+          </div>
+          <div className="common-footer-card">
+            <IPhoneBar />
+          </div>
+        </article>
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">透明浅色场景</span>
+          </div>
+          <div className="common-footer-card common-footer-card--dark">
+            <IPhoneBar tone="light" transparent />
+          </div>
+        </article>
+      </div>
+    </CommonPreviewShell>
+  )
+}
+
+export function CommonIPhoneFooterPreview() {
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="底部指示条预览"
+      summary="统一展示页面吸底时使用的 iPhone 底部指示条组件。"
+      usage={commonUsageMap.iphoneFooter}
+    >
+      <div className="common-foundation-grid">
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">白底场景</span>
+          </div>
+          <div className="common-footer-card">
+            <IPhoneFooter />
+          </div>
+        </article>
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">浅灰背景场景</span>
+          </div>
+          <div className="common-footer-card common-footer-card--muted">
+            <IPhoneFooter />
+          </div>
+        </article>
+      </div>
+    </CommonPreviewShell>
+  )
+}
+
+export function CommonPageBottomNavPreview() {
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="页面底部导航预览"
+      summary="这里统一展示一级页面底部导航组件，包含五入口和三入口两种业务场景，本质上都是同一个通用组件。"
+      usage={commonUsageMap.pageBottomNav}
+    >
+      <div className="common-foundation-grid">
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">首页激活</span>
+          </div>
+          <div className="common-footer-card">
+            <PageBottomNav items={defaultPageBottomNavItems} />
+          </div>
+        </article>
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">行程激活</span>
+          </div>
+          <div className="common-footer-card">
+            <PageBottomNav items={scheduleActivePageBottomNavItems} />
+          </div>
+        </article>
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">酒店三入口</span>
+          </div>
+          <div className="common-footer-card">
+            <PageBottomNav className="hotel-home-business-bottom-nav" items={hotelPageBottomNavItems} />
+          </div>
+        </article>
+      </div>
+    </CommonPreviewShell>
+  )
+}
+
 export function CommonNavBarPreview() {
   return (
     <CommonPreviewShell
       eyebrow="通用组件"
       title="导航栏预览"
-      summary="这里按使用逻辑分层展示导航栏状态，并补充 iPhone footer 公共组件，方便头尾一起维护。"
+      summary="这里按使用逻辑分层展示导航栏状态，方便统一维护返回、标题和右侧操作。"
+      usage={commonUsageMap.navBar}
     >
       <div className="common-nav-sections">
         {navBarSections.map((section) => (
@@ -273,34 +500,154 @@ export function CommonNavBarPreview() {
             </div>
           </section>
         ))}
+      </div>
+    </CommonPreviewShell>
+  )
+}
 
-        <section className="common-nav-section">
-          <div className="common-nav-section__header">
-            <h4 className="common-nav-section__title">iPhone footer</h4>
-            <p className="common-nav-section__summary">
-              这里展示通用底部指示条组件，页面吸底操作区可以直接复用。
-            </p>
+export function CommonPriceDisplayPreview() {
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="价格组件预览"
+      summary="这里展示的是从酒店详情页价格样式里抽出来的真实价格组件状态。"
+      usage={commonUsageMap.price}
+    >
+      <div className="common-foundation-grid">
+        <article className="common-foundation-card common-foundation-card--tight">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">酒店列表 / 详情价格</span>
           </div>
+          <PriceDisplay amount="420" suffix="起" />
+        </article>
+        <article className="common-foundation-card common-foundation-card--tight">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">房型详情强调价</span>
+          </div>
+          <PriceDisplay amount="598" tone="orange" />
+        </article>
+        <article className="common-foundation-card common-foundation-card--tight">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">价格带弱化后缀</span>
+          </div>
+          <PriceDisplay amount="765" mutedSuffix suffix="起" />
+        </article>
+      </div>
+    </CommonPreviewShell>
+  )
+}
 
-          <div className="common-footer-grid">
-            <article className="common-nav-card">
-              <div className="common-nav-card__meta">
-                <span className="common-nav-card__label">白底场景</span>
-              </div>
-              <div className="common-footer-card">
-                <IPhoneFooter />
-              </div>
-            </article>
-            <article className="common-nav-card">
-              <div className="common-nav-card__meta">
-                <span className="common-nav-card__label">浅灰背景场景</span>
-              </div>
-              <div className="common-footer-card common-footer-card--muted">
-                <IPhoneFooter />
-              </div>
-            </article>
+export function CommonTagPreview() {
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="标签预览"
+      summary="这里展示的是从酒店详情页里抽出来的两类真实标签：筛选胶囊和房型小标签。"
+      usage={commonUsageMap.tag}
+    >
+      <div className="common-token-list">
+        <Tag>大床</Tag>
+        <Tag tone="muted">含早 / 免费取消</Tag>
+        <Tag variant="room">双早</Tag>
+        <Tag variant="room" tone="primary">立即确认</Tag>
+      </div>
+    </CommonPreviewShell>
+  )
+}
+
+export function CommonBadgePreview() {
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="徽标预览"
+      summary="这里展示的是从页面里抽出来的真实徽标样式：填单页状态徽标和详情页协议酒店徽标。"
+      usage={commonUsageMap.badge}
+    >
+      <div className="common-token-list">
+        <Badge statusType="success">免费取消</Badge>
+        <Badge statusType="warning">不可退</Badge>
+        <Badge variant="agreement">协议酒店</Badge>
+      </div>
+    </CommonPreviewShell>
+  )
+}
+
+export function CommonDividerPreview() {
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="分割线预览"
+      summary="这里展示的是填单页和详情页里已经实际使用的分割线样式。"
+      usage={commonUsageMap.divider}
+    >
+      <div className="common-divider-showcase">
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">填单页默认分割线</span>
           </div>
-        </section>
+          <div className="common-divider-panel">
+            <span>标题区域</span>
+            <CardDivider />
+            <span>内容区域</span>
+          </div>
+        </article>
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">详情页 / 权益竖分割线</span>
+          </div>
+          <div className="common-divider-panel common-divider-panel--row">
+            <span>权益一</span>
+            <CardDivider orientation="vertical" />
+            <span>权益二</span>
+          </div>
+        </article>
+      </div>
+    </CommonPreviewShell>
+  )
+}
+
+export function CommonBottomWatermarkPreview() {
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="底部水印预览"
+      summary="这里收拢页面底部弱感知品牌水印能力，明确区分酒店首页的权益水印和首页规则区的品牌水印。"
+      usage={commonUsageMap.bottomWatermark}
+    >
+      <div className="common-foundation-grid">
+        <article className="common-foundation-card common-foundation-card--wide">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">酒店底部水印</span>
+          </div>
+          <div className="common-watermark-surface common-watermark-surface--hotel">
+            <HotelHomeBusinessBottomWatermark />
+          </div>
+        </article>
+        <article className="common-foundation-card common-foundation-card--wide">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">首页规则水印</span>
+          </div>
+          <div className="common-watermark-surface common-watermark-surface--home">
+            <CarHomeDefaultFooterRules links={carHomeDefaultData.footerLinks} />
+          </div>
+        </article>
+      </div>
+    </CommonPreviewShell>
+  )
+}
+
+export function CommonChevronActionPreview() {
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="箭头动作预览"
+      summary="这里展示的是从酒店填单页里抽出来的真实箭头动作样式，不再使用自定义演示态。"
+      usage={commonUsageMap.chevronAction}
+    >
+      <div className="common-token-list common-token-list--actions">
+        <ChevronAction>订房必读</ChevronAction>
+        <ChevronAction variant="field">全部权益</ChevronAction>
+        <ChevronAction variant="detail">明细</ChevronAction>
       </div>
     </CommonPreviewShell>
   )

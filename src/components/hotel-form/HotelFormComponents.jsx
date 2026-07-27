@@ -1,13 +1,6 @@
 import { MobileNavBar } from '../common/MobileNavBar'
-import chevronRightSmallIcon from '../../assets/hotel-form/icon-chevron-right-small.svg'
-import chevronRightSmallGrayIcon from '../../assets/hotel-form/icon-chevron-right-small-gray.svg'
-import chevronDownSmallGrayIcon from '../../assets/hotel-form/icon-chevron-down-small-gray.svg'
-import caretUpFilledIcon from '../../assets/hotel-form/icon-caret-up-filled.svg'
-import addCircleIcon from '../../assets/hotel-form/icon-add-circle.svg'
-import infoCircleIcon from '../../assets/hotel-form/icon-info-circle.svg'
-import prohibitedCircleIcon from '../../assets/hotel-form/icon-prohibited-circle.svg'
-import removeCircleIcon from '../../assets/hotel-form/icon-remove-circle.svg'
-import successCircleIcon from '../../assets/hotel-form/icon-success-circle.svg'
+import { DirectionalIcon } from '../common/DirectionalIcon'
+import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import './hotel-form.css'
 
@@ -39,41 +32,48 @@ function CardShell({ title, subtitle, highlight, headerRight, children }) {
 }
 
 function RightChevron() {
-  return <span className="hotel-chevron">›</span>
+  return (
+    <DirectionalIcon
+      className="hotel-chevron"
+      name="icon/directional/chevron-right-small/outlined"
+    />
+  )
 }
 
 function SmallRightChevron() {
   return (
-    <img
+    <DirectionalIcon
       className="hotel-chevron-icon hotel-chevron-icon--small"
-      src={chevronRightSmallIcon}
-      alt=""
+      name="icon/directional/chevron-right-small/outlined"
     />
   )
 }
 
 function GrayRightChevron() {
   return (
-    <img
+    <DirectionalIcon
       className="hotel-chevron-icon hotel-chevron-icon--field"
-      src={chevronRightSmallGrayIcon}
-      alt=""
+      name="icon/directional/chevron-right-small/outlined"
     />
   )
 }
 
 function GrayDownChevron() {
   return (
-    <img
+    <DirectionalIcon
       className="hotel-chevron-icon hotel-chevron-icon--field"
-      src={chevronDownSmallGrayIcon}
-      alt=""
+      name="icon/directional/chevron-down-small/outlined"
     />
   )
 }
 
 function DownChevron() {
-  return <span className="hotel-chevron hotel-chevron--down">⌄</span>
+  return (
+    <DirectionalIcon
+      className="hotel-chevron hotel-chevron--down"
+      name="icon/directional/chevron-down-small/outlined"
+    />
+  )
 }
 
 function DotSeparator() {
@@ -81,14 +81,15 @@ function DotSeparator() {
 }
 
 function StatusBadge({ type, text }) {
-  const icon = type === 'warning' ? prohibitedCircleIcon : successCircleIcon
+  const iconName = type === 'warning'
+    ? 'icon/status/prohibited-circle/outlined'
+    : 'icon/status/success-circle/outlined'
 
   return (
     <span className={cx('status-badge', `status-badge--${type}`)}>
-      <img
+      <GlobalStyleIcon
         className="status-badge__icon"
-        src={icon}
-        alt=""
+        name={iconName}
       />
       {text}
     </span>
@@ -143,18 +144,16 @@ function CounterPill({ value }) {
   return (
     <div className="counter-pill">
       <button className="counter-pill__button" type="button" aria-label="减少">
-        <img
+        <GlobalStyleIcon
           className="counter-pill__icon"
-          src={removeCircleIcon}
-          alt=""
+          name="icon/action/remove-circle/outlined"
         />
       </button>
       <span className="counter-pill__value">{value}间</span>
       <button className="counter-pill__button" type="button" aria-label="增加">
-        <img
+        <GlobalStyleIcon
           className="counter-pill__icon"
-          src={addCircleIcon}
-          alt=""
+          name="icon/action/add-circle/outlined"
         />
       </button>
     </div>
@@ -340,10 +339,9 @@ export function HotelStayInfoCard({ stayInfo }) {
             <span className="micro-copy">{stayInfo.guestPhone}</span>
           </div>
           <p className="tiny-tip tiny-tip--compact">
-            <img
+            <GlobalStyleIcon
               className="tiny-tip__icon-image"
-              src={infoCircleIcon}
-              alt=""
+              name="icon/status/info-circle/filled"
             />
             {stayInfo.priceNotice}
           </p>
@@ -427,18 +425,16 @@ function BenefitItem({ item }) {
         {item.mode === 'counter' ? (
           <div className="benefit-item__counter">
             <button className="benefit-item__counter-button" type="button" aria-label="减少">
-              <img
+              <GlobalStyleIcon
                 className="benefit-item__counter-icon"
-                src={removeCircleIcon}
-                alt=""
+                name="icon/action/remove-circle/outlined"
               />
             </button>
             <span className="benefit-item__counter-value">{item.quantity}</span>
             <button className="benefit-item__counter-button" type="button" aria-label="增加">
-              <img
+              <GlobalStyleIcon
                 className="benefit-item__counter-icon"
-                src={addCircleIcon}
-                alt=""
+                name="icon/action/add-circle/outlined"
               />
             </button>
           </div>
@@ -534,10 +530,9 @@ export function HotelSubmitBar({ payment }) {
         <div className="submit-bar__actions">
           <button className="detail-button" type="button">
             {payment.detailLabel}
-            <img
+            <DirectionalIcon
               className="detail-button__caret-icon"
-              src={caretUpFilledIcon}
-              alt=""
+              name="icon/directional/caret-up/filled"
             />
           </button>
           <button className="primary-button" type="button">

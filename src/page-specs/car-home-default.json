@@ -1,0 +1,12 @@
+{
+  "pageType": "car-home-default",
+  "pageTitle": "首页-默认态",
+  "sections": [
+    "header-hero",
+    "service-card",
+    "quick-actions",
+    "operations-area",
+    "footer-rules",
+    "bottom-nav"
+  ]
+}

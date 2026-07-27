@@ -77,10 +77,11 @@
   cursor: pointer;
 }
 
-.room-detail-hero__close img {
+.room-detail-hero__close-icon {
   width: 24px;
   height: 24px;
   display: block;
+  color: #ffffff;
 }
 
 .room-detail-hero__counter {
@@ -99,7 +100,7 @@
   line-height: 16px;
 }
 
-.room-detail-hero__counter img {
+.room-detail-hero__counter-icon {
   width: 12px;
   height: 12px;
   display: block;
@@ -248,7 +249,7 @@
   cursor: pointer;
 }
 
-.room-detail-benefit-item__link img {
+.room-detail-benefit-item__link-icon {
   width: 12px;
   height: 12px;
   display: block;

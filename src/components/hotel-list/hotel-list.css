@@ -55,9 +55,10 @@
 .hotel-list-searchbar__back {
   width: 24px;
   height: 24px;
+  color: rgba(0, 0, 0, 0.84);
 }
 
-.hotel-list-searchbar__back img {
+.hotel-list-searchbar__back-icon {
   display: block;
   width: 24px;
   height: 24px;
@@ -73,7 +74,7 @@
   line-height: 20px;
 }
 
-.hotel-list-searchbar__map img {
+.hotel-list-searchbar__map-icon {
   width: 20px;
   height: 20px;
 }
@@ -104,7 +105,7 @@
   line-height: 20px;
 }
 
-.hotel-list-searchbox__city img {
+.hotel-list-searchbox__city-icon {
   width: 12px;
   height: 12px;
 }
@@ -142,7 +143,7 @@
   line-height: 20px;
 }
 
-.hotel-list-searchbox__placeholder img {
+.hotel-list-searchbox__placeholder-icon {
   width: 16px;
   height: 16px;
 }
@@ -178,7 +179,7 @@
   line-height: 20px;
 }
 
-.hotel-list-sort-tab img {
+.hotel-list-sort-tab__icon {
   width: 10px;
   height: 10px;
 }
@@ -237,9 +238,10 @@
   border-top-left-radius: 4px;
 }
 
-.hotel-list-filter-chip__check img {
+.hotel-list-filter-chip__check-icon {
   width: 8px;
   height: 8px;
+  color: #ffffff;
 }
 
 .hotel-list-promo-strip {
@@ -417,6 +419,7 @@
 .hotel-list-tag__info {
   width: 12px;
   height: 12px;
+  color: inherit;
 }
 
 .hotel-list-card__price-row {

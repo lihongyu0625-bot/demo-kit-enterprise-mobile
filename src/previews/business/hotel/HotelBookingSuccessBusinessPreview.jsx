@@ -32,14 +32,6 @@ const showcaseList = [
 function HotelBookingSuccessBusinessPreview() {
   return (
     <section className="catalog-preview">
-      <div className="catalog-preview__intro">
-        <p className="catalog-preview__eyebrow">业务组件 / 酒店</p>
-        <h3 className="catalog-preview__title">酒店下单成功页组件目录</h3>
-        <p className="catalog-preview__summary">
-          这里放的是从酒店下单成功页里拆出来的业务组件，方便后续继续维护状态区、订单卡片和联订福利模块。
-        </p>
-      </div>
-
       <div className="catalog-preview__grid">
         {showcaseList.map((item) => (
           <article

@@ -1,23 +1,39 @@
-import chevronDownIcon from '../../assets/hotel-booking-success/icon-chevron-down.svg'
-import checkIcon from '../../assets/hotel-booking-success/icon-check.svg'
-import clipboardIcon from '../../assets/hotel-booking-success/icon-clipboard.svg'
 import carIcon from '../../assets/hotel-booking-success/icon-car.svg'
 import flightBannerImage from '../../assets/hotel-booking-success/flight-banner.png'
 import flightRouteIcon from '../../assets/hotel-booking-success/icon-flight-route.png'
 import giftIcon from '../../assets/hotel-booking-success/icon-gift.png'
-import homeIcon from '../../assets/hotel-booking-success/icon-home.svg'
 import pendingIcon from '../../assets/hotel-booking-success/icon-status-pending.svg'
+import { DirectionalIcon } from '../common/DirectionalIcon'
+import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneBar } from '../common/IPhoneBar'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import './hotel-booking-success.css'
 
 const orderActionIconMap = {
-  clipboard: clipboardIcon,
-  home: homeIcon,
+  clipboard: 'icon/file/clipboard/outlined',
+  home: 'icon/action/home/outlined',
 }
 
 function cx(...classNames) {
   return classNames.filter(Boolean).join(' ')
+}
+
+function BookingSuccessDirectionalIcon({ className, name }) {
+  return (
+    <DirectionalIcon
+      className={className}
+      name={name}
+    />
+  )
+}
+
+function BookingSuccessGlobalIcon({ className, name }) {
+  return (
+    <GlobalStyleIcon
+      className={className}
+      name={name}
+    />
+  )
 }
 
 function SuccessCard({ children, className }) {
@@ -68,9 +84,9 @@ export function HotelBookingSuccessOrderCard({ order }) {
 
         <div className="hotel-booking-success-order__points-right">
           <span className="hotel-booking-success-order__points-value">{order.pointsValue}</span>
-          <img
-            alt=""
-            src={chevronDownIcon}
+          <BookingSuccessDirectionalIcon
+            className="hotel-booking-success-order__points-icon"
+            name="icon/directional/chevron-down-small/outlined"
           />
         </div>
       </button>
@@ -87,9 +103,9 @@ export function HotelBookingSuccessOrderCard({ order }) {
               className="hotel-booking-success-order__action"
               type="button"
             >
-              <img
-                alt=""
-                src={orderActionIconMap[item.icon]}
+              <BookingSuccessGlobalIcon
+                className="hotel-booking-success-order__action-icon"
+                name={orderActionIconMap[item.icon]}
               />
               <span>{item.label}</span>
             </button>
@@ -178,9 +194,9 @@ export function HotelBookingSuccessAirportTransferCard({ airportTransfer }) {
                 className="hotel-booking-success-transfer__highlight"
                 key={item}
               >
-                <img
-                  alt=""
-                  src={checkIcon}
+                <BookingSuccessGlobalIcon
+                  className="hotel-booking-success-transfer__highlight-icon"
+                  name="icon/status/check/filled"
                 />
                 <span>{item}</span>
               </div>

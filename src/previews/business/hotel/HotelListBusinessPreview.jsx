@@ -49,14 +49,6 @@ const componentShowcaseList = [
 function HotelListBusinessPreview() {
   return (
     <section className="catalog-preview">
-      <div className="catalog-preview__intro">
-        <p className="catalog-preview__eyebrow">业务组件 / 酒店</p>
-        <h3 className="catalog-preview__title">酒店列表页组件目录</h3>
-        <p className="catalog-preview__summary">
-          这里放的是从酒店列表页里拆出来的业务组件，方便后续在酒店搜索和选型链路里持续复用。
-        </p>
-      </div>
-
       <div className="catalog-preview__grid">
         {componentShowcaseList.map((item) => (
           <article

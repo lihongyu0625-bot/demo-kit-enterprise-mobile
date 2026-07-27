@@ -73,7 +73,11 @@
   height: 24px;
 }
 
-.hotel-order-detail-nav__back img {
+.hotel-order-detail-nav__back {
+  color: rgba(0, 0, 0, 0.84);
+}
+
+.hotel-order-detail-nav__back-icon {
   display: block;
   width: 24px;
   height: 24px;
@@ -93,10 +97,11 @@
   width: 30px;
 }
 
-.hotel-order-detail-nav__action img {
+.hotel-order-detail-nav__action-icon {
   display: block;
   width: 24px;
   height: 24px;
+  color: rgba(0, 0, 0, 0.84);
 }
 
 .hotel-order-detail-nav__action span {
@@ -126,10 +131,11 @@
   padding-left: 12px;
 }
 
-.hotel-order-detail-status__headline img {
+.hotel-order-detail-status__headline-icon {
   display: block;
   width: 32px;
   height: 32px;
+  color: #1473ff;
 }
 
 .hotel-order-detail-status__headline h1 {
@@ -267,8 +273,8 @@
   line-height: 20px;
 }
 
-.hotel-order-detail-link img,
-.hotel-order-detail-benefits__detail-link img {
+.hotel-order-detail-link__icon,
+.hotel-order-detail-benefits__detail-icon {
   display: block;
   width: 12px;
   height: 12px;
@@ -294,11 +300,12 @@
 }
 
 .hotel-order-detail-payment__copy,
-.hotel-order-detail-hotel__address img,
-.hotel-order-detail-info-row__value img {
+.hotel-order-detail-hotel__address-copy,
+.hotel-order-detail-info-row__copy-icon {
   display: block;
   width: 16px;
   height: 16px;
+  color: rgba(0, 0, 0, 0.36);
 }
 
 .hotel-order-detail-payment__footer {
@@ -399,7 +406,7 @@
   white-space: nowrap;
 }
 
-.hotel-order-detail-hotel__name-row img {
+.hotel-order-detail-hotel__name-icon {
   display: block;
   width: 22px;
   height: 22px;
@@ -449,10 +456,11 @@
   width: 100%;
 }
 
-.hotel-order-detail-hotel__action img {
+.hotel-order-detail-hotel__action-icon {
   display: block;
   width: 18px;
   height: 18px;
+  color: rgba(0, 0, 0, 0.84);
 }
 
 .hotel-order-detail-hotel__action span {
@@ -506,10 +514,11 @@
   background: #fafafa;
 }
 
-.hotel-order-detail-inline-action img {
+.hotel-order-detail-inline-action__icon {
   display: block;
   width: 16px;
   height: 16px;
+  color: rgba(0, 0, 0, 0.84);
 }
 
 .hotel-order-detail-inline-action span {

@@ -56,14 +56,6 @@ const showcaseList = [
 function HotelRoomDetailBusinessPreview() {
   return (
     <section className="catalog-preview">
-      <div className="catalog-preview__intro">
-        <p className="catalog-preview__eyebrow">业务组件 / 酒店</p>
-        <h3 className="catalog-preview__title">房型详情页组件目录</h3>
-        <p className="catalog-preview__summary">
-          这里放的是从房型详情页里拆出来的业务组件，方便后续在酒店详情链路里继续复用。
-        </p>
-      </div>
-
       <div className="catalog-preview__grid">
         {showcaseList.map((item) => (
           <article

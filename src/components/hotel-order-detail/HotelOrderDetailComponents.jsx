@@ -1,30 +1,13 @@
 import benefitBadgeImage from '../../assets/hotel-order-detail/benefit-badge-shengliban.png'
 import benefitHeaderBg from '../../assets/hotel-order-detail/benefit-header-bg.png'
-import backIcon from '../../assets/hotel-order-detail/icon-back.svg'
-import copyIcon from '../../assets/hotel-order-detail/icon-copy.svg'
-import mailIcon from '../../assets/hotel-order-detail/icon-mail.svg'
-import mapIcon from '../../assets/hotel-order-detail/icon-map.svg'
-import phoneIcon from '../../assets/hotel-order-detail/icon-phone.svg'
-import shareIcon from '../../assets/hotel-order-detail/icon-share.svg'
-import statusSuccessIcon from '../../assets/hotel-order-detail/icon-status-success.svg'
-import ticketIcon from '../../assets/hotel-order-detail/icon-ticket.svg'
 import tripIcon from '../../assets/hotel-order-detail/icon-trip.svg'
 import hotelCardBg from '../../assets/hotel-order-detail/hotel-card-bg.png'
 import hotelCardImage from '../../assets/hotel-order-detail/hotel-card.png'
-import chevronRightSmallIcon from '../../assets/hotel-detail/icon-chevron-right-small.svg'
+import { DirectionalIcon } from '../common/DirectionalIcon'
+import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneBar } from '../common/IPhoneBar'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import './hotel-order-detail.css'
-
-const navIconMap = {
-  share: shareIcon,
-  trip: tripIcon,
-}
-
-const infoIconMap = {
-  map: mapIcon,
-  phone: phoneIcon,
-}
 
 const imageMap = {
   'hotel-card': hotelCardImage,
@@ -32,6 +15,24 @@ const imageMap = {
 
 function cx(...classNames) {
   return classNames.filter(Boolean).join(' ')
+}
+
+function OrderDetailChevronIcon({ className }) {
+  return (
+    <DirectionalIcon
+      className={cx('hotel-order-detail-chevron-icon', className)}
+      name="icon/directional/chevron-right-small/outlined"
+    />
+  )
+}
+
+function OrderDetailGlobalIcon({ className, name }) {
+  return (
+    <GlobalStyleIcon
+      className={className}
+      name={name}
+    />
+  )
 }
 
 function OrderDetailCard({ children, className }) {
@@ -53,9 +54,9 @@ export function HotelOrderDetailNavBar({ nav }) {
           className="hotel-order-detail-nav__back"
           type="button"
         >
-          <img
-            alt=""
-            src={backIcon}
+          <OrderDetailGlobalIcon
+            className="hotel-order-detail-nav__back-icon"
+            name="icon/directional/chevron-left-large/outlined"
           />
         </button>
 
@@ -68,10 +69,18 @@ export function HotelOrderDetailNavBar({ nav }) {
               key={item.label}
               type="button"
             >
-              <img
-                alt=""
-                src={navIconMap[item.icon]}
-              />
+              {item.icon === 'share' ? (
+                <OrderDetailGlobalIcon
+                  className="hotel-order-detail-nav__action-icon"
+                  name="icon/action/share-forward/outlined"
+                />
+              ) : (
+                <img
+                  alt=""
+                  className="hotel-order-detail-nav__action-icon"
+                  src={tripIcon}
+                />
+              )}
               <span>{item.label}</span>
             </button>
           ))}
@@ -85,9 +94,9 @@ export function HotelOrderDetailStatusPanel({ status }) {
   return (
     <section className="hotel-order-detail-status">
       <div className="hotel-order-detail-status__headline">
-        <img
-          alt=""
-          src={statusSuccessIcon}
+        <OrderDetailGlobalIcon
+          className="hotel-order-detail-status__headline-icon"
+          name="icon/status/success-circle/filled"
         />
         <h1>{status.title}</h1>
       </div>
@@ -125,10 +134,7 @@ export function HotelOrderDetailPaymentCard({ payment }) {
           type="button"
         >
           <span>{payment.detailLabel}</span>
-          <img
-            alt=""
-            src={chevronRightSmallIcon}
-          />
+          <OrderDetailChevronIcon className="hotel-order-detail-link__icon" />
         </button>
       </div>
 
@@ -136,10 +142,9 @@ export function HotelOrderDetailPaymentCard({ payment }) {
 
       <div className="hotel-order-detail-payment__order-row">
         <span className="hotel-order-detail-payment__order-text">订单号: {payment.orderNo}</span>
-        <img
-          alt=""
+        <OrderDetailGlobalIcon
           className="hotel-order-detail-payment__copy"
-          src={copyIcon}
+          name="icon/action/copy/outlined"
         />
       </div>
 
@@ -161,10 +166,7 @@ export function HotelOrderDetailPaymentCard({ payment }) {
           type="button"
         >
           <span>{payment.linkLabel}</span>
-          <img
-            alt=""
-            src={chevronRightSmallIcon}
-          />
+          <OrderDetailChevronIcon className="hotel-order-detail-link__icon" />
         </button>
       </div>
     </OrderDetailCard>
@@ -190,17 +192,14 @@ export function HotelOrderDetailHotelCard({ hotel }) {
 
           <div className="hotel-order-detail-hotel__name-row">
             <h3>{hotel.name}</h3>
-            <img
-              alt=""
-              src={chevronRightSmallIcon}
-            />
+            <OrderDetailChevronIcon className="hotel-order-detail-hotel__name-icon" />
           </div>
 
           <div className="hotel-order-detail-hotel__address">
             <span>{hotel.address}</span>
-            <img
-              alt=""
-              src={copyIcon}
+            <OrderDetailGlobalIcon
+              className="hotel-order-detail-hotel__address-copy"
+              name="icon/action/copy/outlined"
             />
           </div>
         </div>
@@ -216,9 +215,9 @@ export function HotelOrderDetailHotelCard({ hotel }) {
               className="hotel-order-detail-hotel__action"
               type="button"
             >
-              <img
-                alt=""
-                src={infoIconMap[item.icon]}
+              <OrderDetailGlobalIcon
+                className="hotel-order-detail-hotel__action-icon"
+                name={item.icon === 'map' ? 'icon/travel/map/outlined' : 'icon/device/phone/outlined'}
               />
               <span>{item.label}</span>
             </button>
@@ -246,9 +245,9 @@ export function HotelOrderDetailBookingInfoCard({ bookingInfo }) {
             <div className="hotel-order-detail-info-row__value">
               <strong>{row.value}</strong>
               {row.copy ? (
-                <img
-                  alt=""
-                  src={copyIcon}
+                <OrderDetailGlobalIcon
+                  className="hotel-order-detail-info-row__copy-icon"
+                  name="icon/action/copy/outlined"
                 />
               ) : null}
             </div>
@@ -260,9 +259,9 @@ export function HotelOrderDetailBookingInfoCard({ bookingInfo }) {
         className="hotel-order-detail-inline-action"
         type="button"
       >
-        <img
-          alt=""
-          src={mailIcon}
+        <OrderDetailGlobalIcon
+          className="hotel-order-detail-inline-action__icon"
+          name="icon/file/mail/filled"
         />
         <span>{bookingInfo.actionLabel}</span>
       </button>
@@ -297,10 +296,7 @@ export function HotelOrderDetailStayInfoCard({ stayInfo }) {
           type="button"
         >
           <span>{stayInfo.roomLinkLabel}</span>
-          <img
-            alt=""
-            src={chevronRightSmallIcon}
-          />
+          <OrderDetailChevronIcon className="hotel-order-detail-link__icon" />
         </button>
       </div>
 
@@ -333,9 +329,9 @@ export function HotelOrderDetailInvoiceCard({ invoice }) {
         className="hotel-order-detail-inline-action"
         type="button"
       >
-        <img
-          alt=""
-          src={ticketIcon}
+        <OrderDetailGlobalIcon
+          className="hotel-order-detail-inline-action__icon"
+          name="icon/finance/ticket/filled"
         />
         <span>{invoice.actionLabel}</span>
       </button>
@@ -412,10 +408,7 @@ export function HotelOrderDetailBenefitsCard({ benefits }) {
                     type="button"
                   >
                     <span>{item.linkLabel}</span>
-                    <img
-                      alt=""
-                      src={chevronRightSmallIcon}
-                    />
+                    <OrderDetailChevronIcon className="hotel-order-detail-benefits__detail-icon" />
                   </button>
                 ) : null}
               </div>

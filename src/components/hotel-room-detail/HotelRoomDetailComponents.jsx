@@ -1,28 +1,38 @@
 import heroImage from '../../assets/hotel-room-detail/hero.jpg'
 import benefitIcon from '../../assets/hotel-room-detail/icon-benefit.svg'
-import bedIcon from '../../assets/hotel-room-detail/icon-bed.svg'
-import caretRightFilledIcon from '../../assets/hotel-room-detail/icon-caret-right-filled.svg'
-import chevronRightIcon from '../../assets/hotel-room-detail/icon-chevron-right.svg'
-import closeIcon from '../../assets/hotel-room-detail/icon-close.svg'
-import imageAltIcon from '../../assets/hotel-room-detail/icon-image-alt.svg'
-import restaurantIcon from '../../assets/hotel-room-detail/icon-restaurant.svg'
-import smokingIcon from '../../assets/hotel-room-detail/icon-smoking.svg'
-import squareIcon from '../../assets/hotel-room-detail/icon-square.svg'
-import stairIcon from '../../assets/hotel-room-detail/icon-stair.svg'
 import userIcon from '../../assets/hotel-room-detail/icon-user.svg'
-import windowIcon from '../../assets/hotel-room-detail/icon-window.svg'
+import { DirectionalIcon } from '../common/DirectionalIcon'
+import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { HotelBookingButton } from '../hotel/HotelBookingButton'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import './hotel-room-detail.css'
 
 const facilityIconMap = {
-  bed: bedIcon,
-  restaurant: restaurantIcon,
-  smoking: smokingIcon,
-  square: squareIcon,
-  stair: stairIcon,
+  bed: 'icon/travel/bed/outlined',
+  restaurant: 'icon/travel/restaurant2/outlined',
+  smoking: 'icon/symbol/smoking/outlined',
+  square: 'icon/symbol/square-meter/outlined',
+  stair: 'icon/travel/stair/outlined',
   user: userIcon,
-  window: windowIcon,
+  window: 'icon/travel/window/outlined',
+}
+
+function RoomDetailDirectionalIcon({ className, name }) {
+  return (
+    <DirectionalIcon
+      className={className}
+      name={name}
+    />
+  )
+}
+
+function RoomDetailGlobalIcon({ className, name }) {
+  return (
+    <GlobalStyleIcon
+      className={className}
+      name={name}
+    />
+  )
 }
 
 function DetailCard({ children, gradient, title }) {
@@ -51,15 +61,15 @@ export function HotelRoomDetailHeroCard({ hero }) {
         className="room-detail-hero__close"
         type="button"
       >
-        <img
-          alt=""
-          src={closeIcon}
+        <RoomDetailGlobalIcon
+          className="room-detail-hero__close-icon"
+          name="icon/action/close/outlined"
         />
       </button>
       <div className="room-detail-hero__counter">
-        <img
-          alt=""
-          src={imageAltIcon}
+        <RoomDetailGlobalIcon
+          className="room-detail-hero__counter-icon"
+          name="icon/media/image-alt/outlined"
         />
         <span>{hero.imageCount}</span>
       </div>
@@ -76,11 +86,18 @@ export function HotelRoomDetailFacilityCard({ facilityIntro }) {
             className="room-detail-facility-grid__item"
             key={`${item.icon}-${item.label}`}
           >
-            <img
-              alt=""
-              className="room-detail-facility-grid__icon"
-              src={facilityIconMap[item.icon]}
-            />
+            {item.icon === 'user' ? (
+              <img
+                alt=""
+                className="room-detail-facility-grid__icon"
+                src={facilityIconMap[item.icon]}
+              />
+            ) : (
+              <RoomDetailGlobalIcon
+                className="room-detail-facility-grid__icon"
+                name={facilityIconMap[item.icon]}
+              />
+            )}
             <span>{item.label}</span>
           </div>
         ))}
@@ -122,9 +139,9 @@ export function HotelRoomDetailBenefitCard({ benefits }) {
                   type="button"
                 >
                   <span>{item.linkLabel}</span>
-                  <img
-                    alt=""
-                    src={chevronRightIcon}
+                  <RoomDetailDirectionalIcon
+                    className="room-detail-benefit-item__link-icon"
+                    name="icon/directional/chevron-right-small/outlined"
                   />
                 </button>
               ) : null}
@@ -240,10 +257,9 @@ function SubmitTags({ tags }) {
           <span>{tag}</span>
           {index < tags.length - 1 ? <span className="room-detail-submit-tags__divider" /> : null}
           {index === tags.length - 1 ? (
-            <img
-              alt=""
+            <RoomDetailDirectionalIcon
               className="room-detail-submit-tags__caret"
-              src={caretRightFilledIcon}
+              name="icon/directional/caret-right/filled"
             />
           ) : null}
         </div>

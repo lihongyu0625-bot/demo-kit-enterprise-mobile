@@ -2,17 +2,9 @@ import promoBannerImage from '../../assets/hotel-list/promo-banner.png'
 import hotelImage1 from '../../assets/hotel-list/hotel-1.png'
 import hotelImage2 from '../../assets/hotel-list/hotel-2.png'
 import hotelImage3 from '../../assets/hotel-list/hotel-3.png'
-import backIcon from '../../assets/hotel-list/icon-back.svg'
 import businessBenefitIcon from '../../assets/hotel-list/icon-business-benefit.svg'
-import briefcaseIcon from '../../assets/hotel-list/icon-briefcase.svg'
-import caretDownIcon from '../../assets/hotel-list/icon-caret-down.svg'
-import checkFilledIcon from '../../assets/hotel-list/icon-check-filled.svg'
-import chevronDownActiveIcon from '../../assets/hotel-list/icon-chevron-down-active.svg'
-import chevronDownIcon from '../../assets/hotel-list/icon-chevron-down.svg'
-import infoIcon from '../../assets/hotel-list/icon-info.svg'
-import mapIcon from '../../assets/hotel-list/icon-map.svg'
-import searchIcon from '../../assets/hotel-list/icon-search.svg'
-import caretRightFilledIcon from '../../assets/hotel-room-detail/icon-caret-right-filled.svg'
+import { DirectionalIcon } from '../common/DirectionalIcon'
+import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import { IPhoneBar } from '../common/IPhoneBar'
 import { HotelBenefitStrip } from '../hotel/HotelBenefitStrip'
@@ -26,6 +18,24 @@ const hotelImageMap = {
 
 function cx(...classNames) {
   return classNames.filter(Boolean).join(' ')
+}
+
+function HotelListDirectionalIcon({ className, name }) {
+  return (
+    <DirectionalIcon
+      className={className}
+      name={name}
+    />
+  )
+}
+
+function HotelListGlobalIcon({ className, name }) {
+  return (
+    <GlobalStyleIcon
+      className={className}
+      name={name}
+    />
+  )
 }
 
 export function HotelListHeaderBackground() {
@@ -43,18 +53,18 @@ export function HotelListTopBar({ search }) {
           className="hotel-list-searchbar__back"
           type="button"
         >
-          <img
-            alt=""
-            src={backIcon}
+          <HotelListGlobalIcon
+            className="hotel-list-searchbar__back-icon"
+            name="icon/directional/chevron-left-large/outlined"
           />
         </button>
 
         <div className="hotel-list-searchbox">
           <div className="hotel-list-searchbox__city">
             <span>{search.city}</span>
-            <img
-              alt=""
-              src={caretDownIcon}
+            <HotelListDirectionalIcon
+              className="hotel-list-searchbox__city-icon"
+              name="icon/directional/caret-down/filled"
             />
           </div>
 
@@ -74,9 +84,9 @@ export function HotelListTopBar({ search }) {
           <span className="hotel-list-searchbox__divider" />
 
           <div className="hotel-list-searchbox__placeholder">
-            <img
-              alt=""
-              src={searchIcon}
+            <HotelListGlobalIcon
+              className="hotel-list-searchbox__placeholder-icon"
+              name="icon/action/search/outlined"
             />
             <span>{search.placeholder}</span>
           </div>
@@ -86,9 +96,9 @@ export function HotelListTopBar({ search }) {
           className="hotel-list-searchbar__map"
           type="button"
         >
-          <img
-            alt=""
-            src={mapIcon}
+          <HotelListGlobalIcon
+            className="hotel-list-searchbar__map-icon"
+            name="icon/travel/map/outlined"
           />
           <span>{search.mapLabel}</span>
         </button>
@@ -108,9 +118,9 @@ export function HotelListSortBar({ sortTabs, quickFilters }) {
             type="button"
           >
             <span>{item.label}</span>
-            <img
-              alt=""
-              src={item.active ? chevronDownActiveIcon : chevronDownIcon}
+            <HotelListDirectionalIcon
+              className="hotel-list-sort-tab__icon"
+              name="icon/directional/chevron-down-small/filled"
             />
           </button>
         ))}
@@ -136,9 +146,9 @@ export function HotelListSortBar({ sortTabs, quickFilters }) {
             <span>{item.label}</span>
             {item.checked ? (
               <span className="hotel-list-filter-chip__check">
-                <img
-                  alt=""
-                  src={checkFilledIcon}
+                <HotelListGlobalIcon
+                  className="hotel-list-filter-chip__check-icon"
+                  name="icon/status/check/filled"
                 />
               </span>
             ) : null}
@@ -170,10 +180,9 @@ function HotelTag({ tag }) {
     <span className={cx('hotel-list-tag', tag.tone === 'primary' && 'hotel-list-tag--primary')}>
       <span>{tag.label}</span>
       {tag.showInfo ? (
-        <img
-          alt=""
+        <HotelListGlobalIcon
           className="hotel-list-tag__info"
-          src={infoIcon}
+          name="icon/status/info-circle/outlined"
         />
       ) : null}
     </span>
@@ -197,10 +206,9 @@ function HotelPricePromo({ text }) {
           {index < items.length - 1 ? (
             <span className="hotel-list-card__promo-divider" />
           ) : (
-            <img
-              alt=""
+            <HotelListDirectionalIcon
               className="hotel-list-card__promo-caret"
-              src={caretRightFilledIcon}
+              name="icon/directional/caret-right/filled"
             />
           )}
         </div>
@@ -219,9 +227,9 @@ export function HotelListHotelCard({ hotel }) {
           src={hotelImageMap[hotel.image]}
         />
         <div className="hotel-list-card__agreement">
-          <img
-            alt=""
-            src={briefcaseIcon}
+          <HotelListGlobalIcon
+            className="hotel-list-card__agreement-icon"
+            name="icon/travel/briefcase/filled"
           />
           <span>协议酒店</span>
         </div>

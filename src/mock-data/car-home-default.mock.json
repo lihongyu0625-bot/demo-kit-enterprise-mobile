@@ -1,0 +1,114 @@
+{
+  "hero": {
+    "title": "超值商旅每一程",
+    "badge": "通勤9块9",
+    "tabs": [
+      {
+        "label": "因公",
+        "active": true
+      },
+      {
+        "label": "因私",
+        "active": false
+      }
+    ]
+  },
+  "categories": [
+    {
+      "label": "用车",
+      "active": true
+    },
+    {
+      "label": "机票",
+      "active": false
+    },
+    {
+      "label": "火车票",
+      "active": false
+    },
+    {
+      "label": "酒店",
+      "active": false
+    },
+    {
+      "label": "AI助手",
+      "active": false
+    }
+  ],
+  "notice": {
+    "tag": "V6会员",
+    "text": "本月可享3次快速应答"
+  },
+  "policyCards": [
+    {
+      "label": "加班",
+      "icon": "overtime"
+    },
+    {
+      "label": "定点通勤",
+      "icon": "commute"
+    },
+    {
+      "label": "个人垫付",
+      "icon": "personal"
+    },
+    {
+      "label": "自驾同行",
+      "icon": "drive"
+    }
+  ],
+  "quickActions": [
+    {
+      "label": "机票",
+      "icon": "flight"
+    },
+    {
+      "label": "酒店",
+      "icon": "hotel"
+    },
+    {
+      "label": "火车票",
+      "icon": "train"
+    },
+    {
+      "label": "代驾",
+      "icon": "chauffeur"
+    },
+    {
+      "label": "权益",
+      "icon": "benefit"
+    }
+  ],
+  "footerLinks": [
+    "证照信息",
+    "服务协议与规则",
+    "用户规则"
+  ],
+  "bottomTabs": [
+    {
+      "label": "首页",
+      "icon": "home",
+      "active": true
+    },
+    {
+      "label": "行程",
+      "icon": "schedule",
+      "active": false
+    },
+    {
+      "label": "小福包",
+      "icon": "bag",
+      "active": false
+    },
+    {
+      "label": "工作台",
+      "icon": "workspace",
+      "active": false
+    },
+    {
+      "label": "我的",
+      "icon": "profile",
+      "active": false
+    }
+  ]
+}

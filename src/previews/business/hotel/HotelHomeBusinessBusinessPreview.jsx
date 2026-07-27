@@ -3,6 +3,7 @@ import {
   HotelHomeBusinessApplicationCard,
   HotelHomeBusinessBottomNav,
   HotelHomeBusinessBottomWatermark,
+  HotelHomeBusinessFooter,
   HotelHomeBusinessGuaranteeCard,
   HotelHomeBusinessHeaderHero,
   HotelHomeBusinessHeroIntro,
@@ -47,21 +48,18 @@ const showcaseList = [
   {
     name: '底部导航',
     description: '展示我的订单、品牌权益和联系客服入口。',
-    render: <HotelHomeBusinessBottomNav items={homeBusinessData.footerNav} />,
+    render: (
+      <div className="hotel-home-business-bottom-preview">
+        <HotelHomeBusinessBottomNav items={homeBusinessData.footerNav} />
+        <HotelHomeBusinessFooter />
+      </div>
+    ),
   },
 ]
 
 function HotelHomeBusinessBusinessPreview() {
   return (
     <section className="catalog-preview">
-      <div className="catalog-preview__intro">
-        <p className="catalog-preview__eyebrow">业务组件 / 酒店</p>
-        <h3 className="catalog-preview__title">酒店首页-因公组件目录</h3>
-        <p className="catalog-preview__summary">
-          这里放的是酒店首页-因公里拆出来的业务组件，方便后续继续维护头部、填写卡片和底部权益模块。
-        </p>
-      </div>
-
       <div className="catalog-preview__grid">
         {showcaseList.map((item) => (
           <article

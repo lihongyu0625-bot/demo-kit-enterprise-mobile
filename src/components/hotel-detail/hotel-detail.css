@@ -70,9 +70,10 @@
   background: rgba(0, 0, 0, 0.6);
 }
 
-.hotel-detail-hero__back img {
+.hotel-detail-hero__back .hotel-detail-directional-icon {
   width: 28px;
   height: 28px;
+  color: #ffffff;
 }
 
 .hotel-detail-hero__favorite {
@@ -88,8 +89,8 @@
 }
 
 .hotel-detail-hero__favorite-icon {
-  width: 14.33px;
-  height: 12.44px;
+  width: 16px;
+  height: 16px;
   display: block;
   flex: none;
 }
@@ -113,7 +114,7 @@
   box-sizing: border-box;
 }
 
-.hotel-detail-hero__counter img {
+.hotel-detail-hero__counter-icon {
   width: 12px;
   height: 12px;
   display: block;
@@ -249,13 +250,13 @@
   line-height: 16px;
 }
 
-.hotel-detail-name-card__reviews img,
+.hotel-detail-name-card__reviews-icon,
 .hotel-detail-name-card__highlights-arrow,
-.hotel-detail-selector__guest img,
-.hotel-detail-room-summary__title img,
-.hotel-detail-room-summary__expand img,
-.hotel-detail-rate-plan__title img,
-.hotel-detail-introduction__action img {
+.hotel-detail-selector__guest-icon,
+.hotel-detail-room-summary__title-icon,
+.hotel-detail-room-summary__expand-icon,
+.hotel-detail-rate-plan__title-icon,
+.hotel-detail-introduction__action-icon {
   width: 12px;
   height: 12px;
 }
@@ -325,7 +326,7 @@
   line-height: 16px;
 }
 
-.hotel-detail-address-card__row img {
+.hotel-detail-address-card__row-icon {
   width: 14px;
   height: 14px;
   flex: none;
@@ -355,9 +356,14 @@
   background: #e5e9f4;
 }
 
-.hotel-detail-address-card__action-icon img {
+.hotel-detail-address-card__action-icon img,
+.hotel-detail-address-card__action-global-icon {
   width: 16px;
   height: 16px;
+}
+
+.hotel-detail-address-card__action-global-icon {
+  color: #0d50b2;
 }
 
 .hotel-detail-address-card__action-label {
@@ -723,9 +729,9 @@
   color: rgba(0, 0, 0, 0.84);
 }
 
-.hotel-detail-room-summary__title img,
-.hotel-detail-room-summary__expand img,
-.hotel-detail-rate-plan__title img {
+.hotel-detail-room-summary__title-icon,
+.hotel-detail-room-summary__expand-icon,
+.hotel-detail-rate-plan__title-icon {
   width: 16px;
   height: 16px;
   flex: none;
@@ -847,9 +853,10 @@
   background: #ffffff;
 }
 
-.hotel-detail-facility__icon img {
+.hotel-detail-facility__icon-glyph {
   width: 24px;
   height: 24px;
+  color: rgba(0, 0, 0, 0.84);
 }
 
 .hotel-detail-introduction__content {
@@ -886,9 +893,10 @@
   gap: 4px;
 }
 
-.hotel-detail-policy__header img {
+.hotel-detail-policy__header-icon {
   width: 16px;
   height: 16px;
+  color: rgba(0, 0, 0, 0.84);
 }
 
 .hotel-detail-policy__header h4 {

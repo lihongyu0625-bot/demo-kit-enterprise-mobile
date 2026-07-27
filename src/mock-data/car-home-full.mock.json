@@ -1,0 +1,232 @@
+{
+  "hero": {
+    "title": "超值商旅每一程",
+    "badge": "通勤9块9",
+    "tabs": [
+      {
+        "label": "因公",
+        "active": true
+      },
+      {
+        "label": "因私",
+        "active": false
+      }
+    ]
+  },
+  "categories": [
+    {
+      "label": "用车",
+      "active": true
+    },
+    {
+      "label": "机票",
+      "active": false
+    },
+    {
+      "label": "火车票",
+      "active": false
+    },
+    {
+      "label": "酒店",
+      "active": false
+    },
+    {
+      "label": "AI助手",
+      "active": false
+    }
+  ],
+  "notice": {
+    "tag": "V6会员",
+    "text": "本月可享3次快速应答"
+  },
+  "rideNotice": {
+    "badge": "加班打车",
+    "origin": "弘源·新时代东门",
+    "destination": "新龙城1区北门",
+    "priceTip": "远途立省 -5元",
+    "actionText": "去打车"
+  },
+  "policyCards": [
+    {
+      "label": "加班",
+      "icon": "overtime"
+    },
+    {
+      "label": "定点通勤",
+      "icon": "commute"
+    },
+    {
+      "label": "个人垫付",
+      "icon": "personal"
+    },
+    {
+      "label": "自驾同行",
+      "icon": "drive"
+    }
+  ],
+  "applyActions": [
+    {
+      "label": "申请用车",
+      "icon": "car"
+    },
+    {
+      "label": "申请差旅",
+      "icon": "travel"
+    }
+  ],
+  "driverBanner": {
+    "title": "快车·司机正在赶来",
+    "plate": "京CPA236",
+    "distance": "41米1分钟",
+    "actionText": "查看"
+  },
+  "pendingNotice": {
+    "status": "待支付",
+    "text": "您有1笔酒店订单待支付",
+    "actionText": "待支付"
+  },
+  "applicationsSummary": {
+    "title": "申请单",
+    "countText": "您近期还有共",
+    "count": "6个申请单"
+  },
+  "applications": [
+    {
+      "tone": "blue",
+      "badge": "用车单",
+      "title": "事由-拜访客户",
+      "status": "进行中",
+      "lines": [
+        {
+          "label": "行程",
+          "value": [
+            "城市不限",
+            "6月11日 8:00-16:00"
+          ]
+        },
+        {
+          "label": "额度",
+          "value": [
+            "剩余3000元",
+            "每单限额300元"
+          ]
+        },
+        {
+          "label": "次数",
+          "value": [
+            "剩余12次"
+          ]
+        },
+        {
+          "label": "出行人",
+          "value": [
+            "张三"
+          ]
+        }
+      ],
+      "actionText": "去打车"
+    },
+    {
+      "tone": "green",
+      "badge": "差旅单",
+      "title": "事由-部门出差调研",
+      "lines": [
+        {
+          "label": "行程",
+          "value": [
+            "北京-上海",
+            "7月1日-7月3日 3天"
+          ]
+        },
+        {
+          "label": "出行人",
+          "value": [
+            "张三、李四、王五等3人"
+          ]
+        }
+      ],
+      "links": [
+        "订机票",
+        "订酒店",
+        "订火车票",
+        "市内用车",
+        "接送机"
+      ]
+    }
+  ],
+  "tripsSummary": {
+    "title": "我的行程",
+    "countText": "您近期还有共",
+    "count": "6个行程"
+  },
+  "tripCard": {
+    "date": "07月21日出发",
+    "status": "已出票",
+    "flightNo": "中国国航·CA1819",
+    "duration": "2小时05分",
+    "fromTime": "19:20",
+    "fromPlace": "北京首都T2",
+    "toTime": "21:25",
+    "toPlace": "上海浦东T2",
+    "passengersLabel": "乘机人",
+    "passengers": "李志、张三等4人",
+    "benefits": [
+      "误机必赔",
+      "专车舒适又安心"
+    ],
+    "actionText": "去打车"
+  },
+  "promoCards": {
+    "main": {
+      "title": "首单订酒店",
+      "subtitle": "立减20元",
+      "actionText": "立即领取"
+    },
+    "secondary": [
+      {
+        "title": "用车制度",
+        "subtitle": "查看详情"
+      },
+      {
+        "title": "权益抢先知",
+        "subtitle": "查看详情"
+      },
+      {
+        "title": "建议与反馈",
+        "subtitle": "查看详情"
+      }
+    ]
+  },
+  "footerLinks": [
+    "证照信息",
+    "服务协议与规则",
+    "用户规则"
+  ],
+  "bottomTabs": [
+    {
+      "label": "首页",
+      "icon": "home",
+      "active": true
+    },
+    {
+      "label": "行程",
+      "icon": "schedule",
+      "active": false
+    },
+    {
+      "label": "小福包",
+      "icon": "bag",
+      "active": false
+    },
+    {
+      "label": "工作台",
+      "icon": "workspace",
+      "active": false
+    },
+    {
+      "label": "我的",
+      "icon": "profile",
+      "active": false
+    }
+  ]
+}

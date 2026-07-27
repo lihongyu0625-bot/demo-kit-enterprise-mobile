@@ -4,29 +4,14 @@ import roomImage2 from '../../assets/hotel-detail/room-2.jpg'
 import roomImage3 from '../../assets/hotel-detail/room-3.jpg'
 import roomImage4 from '../../assets/hotel-detail/room-4.jpg'
 import roomImage5 from '../../assets/hotel-detail/room-5.jpg'
-import airplaneIcon from '../../assets/hotel-detail/icon-airplane.svg'
 import addressCardBg from '../../assets/hotel-detail/address-card-bg.png'
 import benefitFilledIcon from '../../assets/hotel-detail/icon-benefit-filled.svg'
-import chevronCircleDownIcon from '../../assets/hotel-detail/icon-chevron-circle-down.svg'
-import chevronCircleUpIcon from '../../assets/hotel-detail/icon-chevron-circle-up.svg'
 import briefcaseFilledIcon from '../../assets/hotel-detail/icon-briefcase-filled.svg'
-import chevronDownSmallIcon from '../../assets/hotel-detail/icon-chevron-down-small.svg'
-import chevronLeftSmallIcon from '../../assets/hotel-detail/icon-chevron-left-small.svg'
-import chevronRightSmallIcon from '../../assets/hotel-detail/icon-chevron-right-small.svg'
-import destinationIcon from '../../assets/hotel-detail/icon-destination.svg'
-import favoriteAddIcon from '../../assets/hotel-detail/icon-favorite-add.svg'
-import imageAltIcon from '../../assets/hotel-detail/icon-image-alt.svg'
-import locationMarkerIcon from '../../assets/hotel-detail/icon-location-marker.svg'
-import luggageIcon from '../../assets/hotel-detail/icon-luggage.svg'
-import moreIcon from '../../assets/hotel-detail/icon-more.svg'
-import parkingIcon from '../../assets/hotel-detail/icon-parking.svg'
-import phoneIcon from '../../assets/hotel-detail/icon-phone.svg'
-import restaurantIcon from '../../assets/hotel-detail/icon-restaurant.svg'
-import timeCircleIcon from '../../assets/hotel-detail/icon-time-circle.svg'
 import userGroupIcon from '../../assets/hotel-detail/icon-user-group.svg'
-import wifiIcon from '../../assets/hotel-detail/icon-wifi.svg'
 import { HotelBenefitStrip } from '../hotel/HotelBenefitStrip'
 import { HotelBookingButton } from '../hotel/HotelBookingButton'
+import { DirectionalIcon } from '../common/DirectionalIcon'
+import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneBar } from '../common/IPhoneBar'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import './hotel-detail.css'
@@ -40,22 +25,45 @@ const roomImageMap = {
 }
 
 const detailIconMap = {
-  airplane: airplaneIcon,
+  airplane: 'icon/travel/airplane/outlined',
   benefit: benefitFilledIcon,
-  destination: destinationIcon,
-  location: locationMarkerIcon,
-  luggage: luggageIcon,
-  more: moreIcon,
-  parking: parkingIcon,
-  phone: phoneIcon,
-  restaurant: restaurantIcon,
-  time: timeCircleIcon,
+  destination: 'icon/travel/destination/outlined',
+  location: 'icon/travel/location-marker/outlined',
+  luggage: 'icon/travel/luggage/outlined',
+  more: 'icon/action/more/outlined',
+  parking: 'icon/travel/parking/outlined',
+  phone: 'icon/device/phone/outlined',
+  restaurant: 'icon/travel/restaurant1/outlined',
+  time: 'icon/status/time-circle/outlined',
   user: userGroupIcon,
-  wifi: wifiIcon,
+  wifi: 'icon/device/wifi/outlined',
+}
+
+const detailActionIconMap = {
+  location: 'icon/travel/location-marker/filled',
+  phone: 'icon/device/phone/filled',
 }
 
 function cx(...classNames) {
   return classNames.filter(Boolean).join(' ')
+}
+
+function HotelDetailDirectionalIcon({ className, name }) {
+  return (
+    <DirectionalIcon
+      className={cx('hotel-detail-directional-icon', className)}
+      name={name}
+    />
+  )
+}
+
+function HotelDetailGlobalIcon({ className, name }) {
+  return (
+    <GlobalStyleIcon
+      className={className}
+      name={name}
+    />
+  )
 }
 
 function PriceDisplay({
@@ -133,20 +141,16 @@ export function HotelDetailHero({ hero }) {
             className="hotel-detail-hero__back"
             type="button"
           >
-            <img
-              alt=""
-              src={chevronLeftSmallIcon}
-            />
+            <HotelDetailDirectionalIcon name="icon/directional/chevron-left-small/outlined" />
           </button>
 
           <button
             className="hotel-detail-hero__favorite"
             type="button"
           >
-            <img
-              alt=""
+            <HotelDetailGlobalIcon
               className="hotel-detail-hero__favorite-icon"
-              src={favoriteAddIcon}
+              name="icon/symbol/favorite-add/outlined"
             />
             <span>{hero.favoriteLabel}</span>
           </button>
@@ -154,9 +158,9 @@ export function HotelDetailHero({ hero }) {
       </div>
 
       <div className="hotel-detail-hero__counter">
-        <img
-          alt=""
-          src={imageAltIcon}
+        <HotelDetailGlobalIcon
+          className="hotel-detail-hero__counter-icon"
+          name="icon/media/image-alt/outlined"
         />
         <span className="hotel-detail-hero__counter-text">{hero.imageCount}</span>
       </div>
@@ -184,9 +188,9 @@ export function HotelDetailNameCard({ hotel }) {
               type="button"
             >
               <span>{hotel.reviews}</span>
-              <img
-                alt=""
-                src={chevronRightSmallIcon}
+              <HotelDetailDirectionalIcon
+                className="hotel-detail-name-card__reviews-icon"
+                name="icon/directional/chevron-right-small/outlined"
               />
             </button>
           </div>
@@ -201,10 +205,9 @@ export function HotelDetailNameCard({ hotel }) {
                 <span>{item}</span>
               </span>
             ))}
-            <img
-              alt=""
+            <HotelDetailDirectionalIcon
               className="hotel-detail-name-card__highlights-arrow"
-              src={chevronRightSmallIcon}
+              name="icon/directional/chevron-right-small/outlined"
             />
           </div>
         </div>
@@ -225,10 +228,18 @@ export function HotelDetailNameCard({ hotel }) {
               className="hotel-detail-address-card__row"
               key={item.text}
             >
-              <img
-                alt=""
-                src={detailIconMap[item.icon]}
-              />
+              {item.icon === 'benefit' || item.icon === 'user' ? (
+                <img
+                  alt=""
+                  className="hotel-detail-address-card__row-icon"
+                  src={detailIconMap[item.icon]}
+                />
+              ) : (
+                <HotelDetailGlobalIcon
+                  className="hotel-detail-address-card__row-icon"
+                  name={detailIconMap[item.icon]}
+                />
+              )}
               <span>{item.text}</span>
             </div>
           ))}
@@ -242,10 +253,17 @@ export function HotelDetailNameCard({ hotel }) {
               type="button"
             >
               <span className="hotel-detail-address-card__action-icon">
-                <img
-                  alt=""
-                  src={detailIconMap[action.icon]}
-                />
+                {action.icon === 'benefit' || action.icon === 'user' ? (
+                  <img
+                    alt=""
+                    src={detailIconMap[action.icon]}
+                  />
+                ) : (
+                  <HotelDetailGlobalIcon
+                    className="hotel-detail-address-card__action-global-icon"
+                    name={detailActionIconMap[action.icon] ?? detailIconMap[action.icon]}
+                  />
+                )}
               </span>
               <span className="hotel-detail-address-card__action-label">{action.label}</span>
             </button>
@@ -277,9 +295,9 @@ export function HotelDetailSelector({ selector }) {
           type="button"
         >
           <span>{selector.guestSummary}</span>
-          <img
-            alt=""
-            src={chevronRightSmallIcon}
+          <HotelDetailDirectionalIcon
+            className="hotel-detail-selector__guest-icon"
+            name="icon/directional/chevron-right-small/outlined"
           />
         </button>
       </div>
@@ -295,11 +313,18 @@ export function HotelDetailSelector({ selector }) {
             type="button"
           >
             {chip.icon ? (
-              <img
-                alt=""
-                className="hotel-detail-selector__chip-icon"
-                src={detailIconMap[chip.icon]}
-              />
+              chip.icon === 'benefit' || chip.icon === 'user' ? (
+                <img
+                  alt=""
+                  className="hotel-detail-selector__chip-icon"
+                  src={detailIconMap[chip.icon]}
+                />
+              ) : (
+                <HotelDetailGlobalIcon
+                  className="hotel-detail-selector__chip-icon"
+                  name={detailIconMap[chip.icon]}
+                />
+              )
             ) : null}
             <span>{chip.label}</span>
           </button>
@@ -314,10 +339,10 @@ function HotelDetailRoomSummary({
   expandIcon = 'small-down',
   price = room.startPrice ?? room.price,
 }) {
-  const expandIconSrc = {
-    'small-down': chevronDownSmallIcon,
-    'circle-down': chevronCircleDownIcon,
-    'circle-up': chevronCircleUpIcon,
+  const expandIconName = {
+    'small-down': 'icon/directional/chevron-down-small/outlined',
+    'circle-down': 'icon/directional/chevron-circle-down/outlined',
+    'circle-up': 'icon/directional/chevron-circle-up/outlined',
   }[expandIcon]
 
   return (
@@ -338,9 +363,9 @@ function HotelDetailRoomSummary({
             type="button"
           >
             <span>{room.name}</span>
-            <img
-              alt=""
-              src={chevronRightSmallIcon}
+            <HotelDetailDirectionalIcon
+              className="hotel-detail-room-summary__title-icon"
+              name="icon/directional/chevron-right-small/outlined"
             />
           </button>
 
@@ -348,9 +373,9 @@ function HotelDetailRoomSummary({
             className="hotel-detail-room-summary__expand"
             type="button"
           >
-            <img
-              alt=""
-              src={expandIconSrc}
+            <HotelDetailDirectionalIcon
+              className="hotel-detail-room-summary__expand-icon"
+              name={expandIconName}
             />
           </button>
         </div>
@@ -393,9 +418,9 @@ function HotelDetailRatePlan({ rate }) {
               ))
             : rate.title}
         </span>
-        <img
-          alt=""
-          src={chevronRightSmallIcon}
+        <HotelDetailDirectionalIcon
+          className="hotel-detail-rate-plan__title-icon"
+          name="icon/directional/chevron-right-small/outlined"
         />
       </button>
 
@@ -486,25 +511,25 @@ export function HotelDetailCompactRoomCard({ room }) {
         <div className="hotel-detail-room-summary__body">
           <div className="hotel-detail-room-summary__header">
             <button
-              className="hotel-detail-room-summary__title"
-              type="button"
-            >
-              <span>{room.name}</span>
-              <img
-                alt=""
-                src={chevronRightSmallIcon}
-              />
-            </button>
+            className="hotel-detail-room-summary__title"
+            type="button"
+          >
+            <span>{room.name}</span>
+            <HotelDetailDirectionalIcon
+              className="hotel-detail-room-summary__title-icon"
+              name="icon/directional/chevron-right-small/outlined"
+            />
+          </button>
 
             <button
-              className="hotel-detail-room-summary__expand"
-              type="button"
-            >
-              <img
-                alt=""
-                src={chevronCircleDownIcon}
-              />
-            </button>
+            className="hotel-detail-room-summary__expand"
+            type="button"
+          >
+            <HotelDetailDirectionalIcon
+              className="hotel-detail-room-summary__expand-icon"
+              name="icon/directional/chevron-circle-down/outlined"
+            />
+          </button>
           </div>
 
           <p className="hotel-detail-room-summary__meta">{room.summary}</p>
@@ -538,15 +563,15 @@ export function HotelDetailBookableRoomCard({ room }) {
         <div className="hotel-detail-bookable-card__body">
           <div className="hotel-detail-bookable-card__content">
             <button
-              className="hotel-detail-room-summary__title hotel-detail-room-summary__title--large"
-              type="button"
-            >
-              <span>{room.name}</span>
-              <img
-                alt=""
-                src={chevronRightSmallIcon}
-              />
-            </button>
+            className="hotel-detail-room-summary__title hotel-detail-room-summary__title--large"
+            type="button"
+          >
+            <span>{room.name}</span>
+            <HotelDetailDirectionalIcon
+              className="hotel-detail-room-summary__title-icon"
+              name="icon/directional/chevron-right-small/outlined"
+            />
+          </button>
 
             <div className="hotel-detail-bookable-card__copy">
               <p className="hotel-detail-bookable-card__breakfast">
@@ -630,9 +655,9 @@ export function HotelDetailFacilitiesCard({ facilities }) {
             key={item.label}
           >
             <div className="hotel-detail-facility__icon">
-              <img
-                alt=""
-                src={detailIconMap[item.icon]}
+              <HotelDetailGlobalIcon
+                className="hotel-detail-facility__icon-glyph"
+                name={detailIconMap[item.icon]}
               />
             </div>
             <span>{item.label}</span>
@@ -653,9 +678,9 @@ export function HotelDetailIntroductionCard({ introduction }) {
         type="button"
       >
         <span>{introduction.actionLabel}</span>
-        <img
-          alt=""
-          src={chevronDownSmallIcon}
+        <HotelDetailDirectionalIcon
+          className="hotel-detail-introduction__action-icon"
+          name="icon/directional/chevron-down-small/outlined"
         />
       </button>
     </HotelDetailCard>
@@ -666,30 +691,43 @@ export function HotelDetailPolicyCard({ policies }) {
   return (
     <HotelDetailCard title={policies.title}>
       <div className="hotel-detail-policy">
-        {policies.items.map((item) => (
-          <div
-            className="hotel-detail-policy__item"
-            key={item.title}
-          >
-            <div className="hotel-detail-policy__header">
-              <img
-                alt=""
-                src={detailIconMap[item.icon]}
-              />
-              <h4>{item.title}</h4>
-            </div>
+        {policies.items.map((item) => {
+          const policyIcon = detailIconMap[item.icon]
+          const useGlobalIcon = policyIcon?.startsWith('icon/')
 
-            {item.columns ? (
-              <div className="hotel-detail-policy__columns">
-                {item.columns.map((column) => (
-                  <span key={column}>{column}</span>
-                ))}
+          return (
+            <div
+              className="hotel-detail-policy__item"
+              key={item.title}
+            >
+              <div className="hotel-detail-policy__header">
+                {useGlobalIcon ? (
+                  <HotelDetailGlobalIcon
+                    className="hotel-detail-policy__header-icon"
+                    name={policyIcon}
+                  />
+                ) : (
+                  <img
+                    alt=""
+                    className="hotel-detail-policy__header-icon"
+                    src={policyIcon}
+                  />
+                )}
+                <h4>{item.title}</h4>
               </div>
-            ) : (
-              <p className="hotel-detail-policy__content">{item.content}</p>
-            )}
-          </div>
-        ))}
+
+              {item.columns ? (
+                <div className="hotel-detail-policy__columns">
+                  {item.columns.map((column) => (
+                    <span key={column}>{column}</span>
+                  ))}
+                </div>
+              ) : (
+                <p className="hotel-detail-policy__content">{item.content}</p>
+              )}
+            </div>
+          )
+        })}
       </div>
     </HotelDetailCard>
   )
