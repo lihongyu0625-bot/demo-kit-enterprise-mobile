@@ -31,15 +31,6 @@ function CardShell({ title, subtitle, highlight, headerRight, children }) {
   )
 }
 
-function RightChevron() {
-  return (
-    <DirectionalIcon
-      className="hotel-chevron"
-      name="icon/directional/chevron-right-small/outlined"
-    />
-  )
-}
-
 function SmallRightChevron() {
   return (
     <DirectionalIcon
@@ -62,15 +53,6 @@ function GrayDownChevron() {
   return (
     <DirectionalIcon
       className="hotel-chevron-icon hotel-chevron-icon--field"
-      name="icon/directional/chevron-down-small/outlined"
-    />
-  )
-}
-
-function DownChevron() {
-  return (
-    <DirectionalIcon
-      className="hotel-chevron hotel-chevron--down"
       name="icon/directional/chevron-down-small/outlined"
     />
   )
@@ -111,31 +93,6 @@ function NotesLink({ items }) {
         订房必读
         <SmallRightChevron />
       </button>
-    </div>
-  )
-}
-
-function FieldRow({
-  label,
-  value,
-  muted,
-  detail,
-  leading,
-  trailing = <RightChevron />,
-}) {
-  return (
-    <div className="field-row">
-      <p className="field-row__label">{label}</p>
-      <div className="field-row__value-wrap">
-        {leading ? <div className="field-row__leading">{leading}</div> : null}
-        <div className="field-row__copy">
-          <p className={cx('field-row__value', muted && 'field-row__value--muted')}>
-            {value}
-          </p>
-          {detail ? <p className="field-row__detail">{detail}</p> : null}
-        </div>
-        {trailing}
-      </div>
     </div>
   )
 }

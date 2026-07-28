@@ -112,7 +112,7 @@ function GuaranteeLogoIcon() {
   )
 }
 
-export function HotelHomeBusinessHeaderHero({ header, nav }) {
+export function HotelHomeBusinessHeaderHero({ nav }) {
   return (
     <section className="hotel-home-business-hero">
       <img

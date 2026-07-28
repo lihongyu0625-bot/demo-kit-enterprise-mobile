@@ -1,9 +1,11 @@
 import { PageBottomNav } from '../common/PageBottomNav'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import { DirectionalIcon } from '../common/DirectionalIcon'
+import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
+import applyCarImage from '../../assets/car-home-default/apply-car.png'
+import applyTravelImage from '../../assets/car-home-default/apply-travel.png'
 import flightPlaneIcon from '../../assets/hotel-booking-success/icon-flight-plane.svg'
 import carActionIcon from '../../assets/hotel-booking-success/icon-car.svg'
-import luggageIcon from '../../assets/hotel-detail/icon-luggage.svg'
 import quickBenefitImage from '../../assets/car-home-default/quick-benefit.png'
 import quickChauffeurImage from '../../assets/car-home-default/quick-chauffeur.png'
 import quickFlightImage from '../../assets/car-home-default/quick-flight.png'
@@ -11,13 +13,14 @@ import quickHotelImage from '../../assets/car-home-default/quick-hotel.png'
 import quickTrainImage from '../../assets/car-home-default/quick-train.png'
 
 const driverBannerCarImage = 'https://www.figma.com/api/mcp/asset/c5d6c7f4-1823-4b8b-88b0-5d4cc1427218'
+const driverBannerBackgroundImage = 'https://www.figma.com/api/mcp/asset/d47d688a-a28b-40e9-8803-a75e5f51b631'
+const driverBannerTitleLineImage = 'https://www.figma.com/api/mcp/asset/369e6f66-3545-4254-85ba-e3f6480c6533'
 const carApplicationPatternImage = 'https://www.figma.com/api/mcp/asset/ff32988a-28a8-442c-a61e-39a4ccb421db'
 const tripPlaneLineImage = 'https://www.figma.com/api/mcp/asset/57a6d3d4-df10-4573-86de-d32e1b3474d3'
 const hotelPromoImage = 'https://www.figma.com/api/mcp/asset/34e50ecb-abbb-4ea8-b551-6bcc92e8c882'
 const couponImage = 'https://www.figma.com/api/mcp/asset/bdfbbcd5-6aff-4225-8449-df81525b3fe8'
 const benefitCardImage = 'https://www.figma.com/api/mcp/asset/4250ce86-96ae-4997-86ec-8961da9e7f2a'
 const feedbackCardImage = 'https://www.figma.com/api/mcp/asset/5ea19e9a-68e8-4709-bbf3-c5843b8c525e'
-const rideNoticeCloseIcon = 'https://www.figma.com/api/mcp/asset/f247ebfa-7641-4a5f-a2ca-7d571cb6ac4b'
 
 const travelLinkIconMap = {
   '市内用车': quickChauffeurImage,
@@ -40,6 +43,37 @@ function CarHomeFullDirectionalIcon({ className, name }) {
   )
 }
 
+function CarHomeFullGlobalIcon({ className, name }) {
+  return (
+    <GlobalStyleIcon
+      className={className}
+      name={name}
+    />
+  )
+}
+
+function splitDriverPlate(plate) {
+  const prefix = plate.slice(0, 1)
+  const suffix = plate.slice(1)
+
+  return { prefix, suffix }
+}
+
+function splitDriverDistance(distance) {
+  const match = distance.match(/^(\d+)(米)(\d+)(分钟)$/)
+
+  if (!match) {
+    return null
+  }
+
+  return {
+    first: match[1],
+    firstUnit: match[2],
+    second: match[3],
+    secondUnit: match[4],
+  }
+}
+
 function CarHomeFullActionItem({ item }) {
   return (
     <button
@@ -50,7 +84,7 @@ function CarHomeFullActionItem({ item }) {
         <img
           alt=""
           className="car-home-full-actions__icon"
-          src={item.icon === 'car' ? carActionIcon : luggageIcon}
+          src={item.icon === 'car' ? applyCarImage : applyTravelImage}
         />
       </span>
       <span className="car-home-full-actions__label">{item.label}</span>
@@ -139,24 +173,25 @@ export function CarHomeFullRideNotice({ notice }) {
           className="car-home-full-ride-notice__close"
           type="button"
         >
-          <img
-            alt=""
+          <CarHomeFullGlobalIcon
             className="car-home-full-ride-notice__close-icon"
-            src={rideNoticeCloseIcon}
+            name="icon/action/close-large/outlined"
           />
         </button>
       </div>
       <div className="car-home-full-ride-notice__body">
-        <div className="car-home-full-ride-notice__content">
-          <div className="car-home-full-ride-notice__dot" />
-          <span className="car-home-full-ride-notice__destination">{notice.origin}</span>
-        </div>
-        <div className="car-home-full-ride-notice__content">
-          <div className="car-home-full-ride-notice__dot car-home-full-ride-notice__dot--dark" />
-          <span className="car-home-full-ride-notice__destination car-home-full-ride-notice__destination--strong">
-            {notice.destination}
-          </span>
-          <span className="car-home-full-ride-notice__price-tip">{notice.priceTip}</span>
+        <div className="car-home-full-ride-notice__locations">
+          <div className="car-home-full-ride-notice__content">
+            <div className="car-home-full-ride-notice__dot" />
+            <span className="car-home-full-ride-notice__destination">{notice.origin}</span>
+          </div>
+          <div className="car-home-full-ride-notice__content car-home-full-ride-notice__content--destination">
+            <div className="car-home-full-ride-notice__dot car-home-full-ride-notice__dot--accent" />
+            <span className="car-home-full-ride-notice__destination car-home-full-ride-notice__destination--strong">
+              {notice.destination}
+            </span>
+            <span className="car-home-full-ride-notice__price-tip">{notice.priceTip}</span>
+          </div>
         </div>
         <button
           className="car-home-full-ride-notice__action"
@@ -183,8 +218,21 @@ export function CarHomeFullActions({ items }) {
 }
 
 export function CarHomeFullDriverBanner({ banner }) {
+  const plate = splitDriverPlate(banner.plate)
+  const distance = splitDriverDistance(banner.distance)
+
   return (
     <section className="car-home-full-driver-banner">
+      <div
+        aria-hidden="true"
+        className="car-home-full-driver-banner__background"
+      >
+        <img
+          alt=""
+          className="car-home-full-driver-banner__background-image"
+          src={driverBannerBackgroundImage}
+        />
+      </div>
       <div className="car-home-full-driver-banner__media">
         <img
           alt=""
@@ -193,10 +241,30 @@ export function CarHomeFullDriverBanner({ banner }) {
         />
       </div>
       <div className="car-home-full-driver-banner__content">
-        <p className="car-home-full-driver-banner__title">{banner.title}</p>
+        <div className="car-home-full-driver-banner__title-wrap">
+          <p className="car-home-full-driver-banner__title">{banner.title}</p>
+          <img
+            alt=""
+            aria-hidden="true"
+            className="car-home-full-driver-banner__title-line"
+            src={driverBannerTitleLineImage}
+          />
+        </div>
         <div className="car-home-full-driver-banner__meta">
-          <span className="car-home-full-driver-banner__plate">{banner.plate}</span>
-          <span className="car-home-full-driver-banner__distance">{banner.distance}</span>
+          <span className="car-home-full-driver-banner__plate">
+            <span className="car-home-full-driver-banner__plate-prefix">{plate.prefix}</span>
+            <span className="car-home-full-driver-banner__plate-suffix">{plate.suffix}</span>
+          </span>
+          {distance ? (
+            <span className="car-home-full-driver-banner__distance">
+              <span className="car-home-full-driver-banner__distance-number">{distance.first}</span>
+              <span className="car-home-full-driver-banner__distance-unit">{distance.firstUnit}</span>
+              <span className="car-home-full-driver-banner__distance-number">{distance.second}</span>
+              <span className="car-home-full-driver-banner__distance-unit">{distance.secondUnit}</span>
+            </span>
+          ) : (
+            <span className="car-home-full-driver-banner__distance">{banner.distance}</span>
+          )}
         </div>
       </div>
       <button

@@ -3,6 +3,7 @@ import {
   CarHomeDefaultBottomNav,
   CarHomeDefaultFooterRules,
   CarHomeDefaultHero,
+  CarHomeDefaultOperationsArea,
   CarHomeCategoryTabs,
   CarHomePolicyPanel,
 } from '../components/car-home-default/CarHomeDefaultComponents'
@@ -11,7 +12,6 @@ import {
   CarHomeFullApplications,
   CarHomeFullDriverBanner,
   CarHomeFullPendingNotice,
-  CarHomeFullPromoCards,
   CarHomeFullRideNotice,
   CarHomeFullTrips,
 } from '../components/car-home-default/CarHomeFullComponents'
@@ -48,7 +48,7 @@ function CarHomeFullPreviewPage() {
               summary={carHomeFullData.tripsSummary}
               tripCard={carHomeFullData.tripCard}
             />
-            <CarHomeFullPromoCards cards={carHomeFullData.promoCards} />
+            <CarHomeDefaultOperationsArea />
           </div>
 
           <CarHomeDefaultFooterRules links={carHomeFullData.footerLinks} />

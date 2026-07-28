@@ -1,7 +1,7 @@
 .hotel-booking-success-preview {
   width: 375px;
   margin: 0 auto;
-  background: #f5f7fa;
+  background: var(--color-bg-gray-2);
 }
 
 .hotel-booking-success-shell {
@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   min-height: 812px;
-  background-color: #f5f7fa;
+  background-color: var(--color-bg-gray-2);
   background-image: url('../../assets/hotel-booking-success/page-bg.png');
   background-position: top center;
   background-repeat: no-repeat;
@@ -44,8 +44,8 @@
 
 .hotel-booking-success-card {
   padding: 12px;
-  border-radius: 8px;
-  background: #ffffff;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
 }
 
 .hotel-booking-success-status {
@@ -84,7 +84,7 @@
 
 .hotel-booking-success-status__headline h1 {
   margin: 0;
-  color: #000000;
+  color: var(--color-black);
   font-size: 18px;
   font-weight: 600;
   line-height: 26px;
@@ -92,14 +92,14 @@
 
 .hotel-booking-success-status__description {
   margin: 0;
-  color: #767676;
+  color: var(--color-neutral-620);
   font-size: 12px;
   line-height: 20px;
 }
 
 .hotel-booking-success-order__title {
   margin: 0;
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
@@ -112,7 +112,7 @@
 }
 
 .hotel-booking-success-order__row {
-  color: rgba(0, 0, 0, 0.36);
+  color: var(--color-alpha-black-36);
   font-size: 14px;
   line-height: 22px;
 }
@@ -132,8 +132,8 @@
   margin-top: 12px;
   padding: 8px;
   border: none;
-  border-radius: 8px;
-  background: #f5f7fa;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-gray-2);
   cursor: pointer;
 }
 
@@ -158,9 +158,9 @@
   justify-content: center;
   width: 12px;
   height: 12px;
-  border-radius: 3px;
-  background: linear-gradient(136deg, #ff5c24 19.692%, #ff7300 109.75%);
-  color: #ffffff;
+  border-radius: var(--radius-3);
+  background: linear-gradient(136deg, var(--color-orange-58) 19.692%, var(--color-orange-62) 109.75%);
+  color: var(--color-white);
   font-size: 8px;
   font-weight: 500;
   line-height: 8px;
@@ -168,14 +168,14 @@
 }
 
 .hotel-booking-success-order__points-label {
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-size: 12px;
   font-weight: 600;
   line-height: 20px;
 }
 
 .hotel-booking-success-order__points-value {
-  color: #ff7f41;
+  color: var(--color-orange-50);
   font-size: 12px;
   font-weight: 600;
   line-height: 20px;
@@ -190,7 +190,7 @@
 .hotel-booking-success-order__separator {
   height: 1px;
   margin-top: 12px;
-  background: rgba(0, 0, 0, 0.08);
+  background: var(--color-alpha-black-8);
   transform: scaleY(0.5);
   transform-origin: center top;
 }
@@ -215,7 +215,7 @@
   right: -4px;
   width: 1px;
   height: 12px;
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--color-alpha-black-10);
   transform: translateY(-50%);
 }
 
@@ -234,11 +234,11 @@
   display: block;
   width: 18px;
   height: 18px;
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
 }
 
 .hotel-booking-success-order__action span {
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-size: 14px;
   line-height: 22px;
 }
@@ -254,7 +254,7 @@
   width: 100%;
   height: 78px;
   margin-bottom: -8px;
-  border-radius: 8px 8px 0 0;
+  border-radius: var(--radius-8) var(--radius-8) 0 0;
   overflow: hidden;
 }
 
@@ -290,7 +290,7 @@
 
 .hotel-booking-success-flight__banner-title-row h3 {
   margin: 0;
-  color: #ffffff;
+  color: var(--color-white);
   font-size: 18px;
   font-weight: 600;
   line-height: 26px;
@@ -298,7 +298,7 @@
 
 .hotel-booking-success-flight__banner-copy p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-alpha-white-80);
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
@@ -317,7 +317,7 @@
 
 .hotel-booking-success-flight__trip-head h3 {
   margin: 0;
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
@@ -326,7 +326,7 @@
 .hotel-booking-success-flight__trip-head span,
 .hotel-booking-success-flight__city span,
 .hotel-booking-success-transfer__highlight span {
-  color: rgba(0, 0, 0, 0.36);
+  color: var(--color-alpha-black-36);
   font-size: 12px;
   line-height: 20px;
 }
@@ -350,7 +350,7 @@
 .hotel-booking-success-flight__city strong {
   display: block;
   margin-top: 0;
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-size: 18px;
   font-weight: 600;
   line-height: 26px;
@@ -369,9 +369,9 @@
   margin-top: 12px;
   padding: 8px 16px;
   border: none;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #438fff 0%, #1473ff 100%);
-  color: #ffffff;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-blue-40) 0%, var(--color-blue-50) 100%);
+  color: var(--color-white);
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
@@ -396,8 +396,8 @@
   align-items: center;
   justify-content: center;
   padding: 5px;
-  border-radius: 999px;
-  background: #e7f1ff;
+  border-radius: var(--radius-pill);
+  background: var(--color-blue-10);
   flex: none;
 }
 
@@ -414,7 +414,7 @@
 
 .hotel-booking-success-transfer__copy h3 {
   margin: 0;
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
@@ -437,15 +437,15 @@
   width: 12px;
   height: 12px;
   flex: none;
-  color: #00b578;
+  color: var(--color-green-60);
 }
 
 .hotel-booking-success-transfer__button {
   padding: 4px 14px;
   border: none;
-  border-radius: 999px;
-  background: linear-gradient(270deg, #1473ff 0%, #438fff 97.857%);
-  color: #ffffff;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(270deg, var(--color-blue-50) 0%, var(--color-blue-40) 97.857%);
+  color: var(--color-white);
   font-size: 12px;
   font-weight: 600;
   line-height: 20px;

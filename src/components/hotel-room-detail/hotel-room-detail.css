@@ -1,16 +1,16 @@
 .hotel-room-detail-preview {
   width: 375px;
-  background: #f5f7fa;
-  border: 1px solid rgba(18, 51, 84, 0.08);
+  background: var(--color-bg-gray-2);
+  border: 1px solid var(--color-line-soft);
   border-radius: 28px;
-  box-shadow: 0 24px 60px rgba(23, 45, 77, 0.14);
+  box-shadow: 0 24px 60px var(--color-shadow-card-strong);
   overflow: hidden;
 }
 
 .hotel-room-detail-shell {
   position: relative;
   min-height: 100vh;
-  background: #f5f7fa;
+  background: var(--color-bg-gray-2);
 }
 
 .room-detail-statusbar {
@@ -31,7 +31,7 @@
 .room-detail-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--color-alpha-black-60);
   z-index: 0;
 }
 
@@ -42,8 +42,8 @@
   flex-direction: column;
   gap: 8px;
   width: 375px;
-  background: #f5f7fa;
-  border-radius: 16px 16px 0 0;
+  background: var(--color-bg-gray-2);
+  border-radius: var(--radius-16) var(--radius-16) 0 0;
   overflow: hidden;
 }
 
@@ -51,7 +51,7 @@
   position: relative;
   height: 226px;
   overflow: hidden;
-  border-radius: 16px 16px 0 0;
+  border-radius: var(--radius-16) var(--radius-16) 0 0;
 }
 
 .room-detail-hero__image {
@@ -72,8 +72,8 @@
   height: 24px;
   padding: 0;
   border: none;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.6);
+  border-radius: var(--radius-pill);
+  background: var(--color-alpha-black-60);
   cursor: pointer;
 }
 
@@ -81,7 +81,7 @@
   width: 24px;
   height: 24px;
   display: block;
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .room-detail-hero__counter {
@@ -93,9 +93,9 @@
   gap: 2px;
   padding: 0 5px;
   height: 16px;
-  border-radius: 4px;
-  background: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  border-radius: var(--radius-4);
+  background: var(--color-alpha-black-60);
+  color: var(--color-white);
   font-size: 10px;
   line-height: 16px;
 }
@@ -116,17 +116,17 @@
 
 .room-detail-card {
   padding: 12px;
-  background: #ffffff;
-  border-radius: 8px;
+  background: var(--color-white);
+  border-radius: var(--radius-8);
 }
 
 .room-detail-card--gradient {
-  background: linear-gradient(180deg, #e7f1ff 0%, #f3f8ff 3.691%, #ffffff 18.456%);
+  background: linear-gradient(180deg, var(--color-blue-10) 0%, var(--color-blue-5) 3.691%, var(--color-white) 18.456%);
 }
 
 .room-detail-card__title {
   margin: 0;
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
@@ -138,8 +138,8 @@
   gap: 8px;
   margin-top: 12px;
   padding: 12px;
-  background: #fafafa;
-  border-radius: 6px;
+  background: var(--color-bg-gray-4);
+  border-radius: var(--radius-6);
 }
 
 .room-detail-facility-grid__item {
@@ -147,7 +147,7 @@
   align-items: center;
   gap: 2px;
   min-width: 0;
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-size: 12px;
   line-height: 20px;
 }
@@ -167,7 +167,7 @@
 
 .room-detail-remark__title {
   margin: 0;
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
@@ -180,7 +180,7 @@
 .room-detail-benefit-item__description,
 .room-detail-benefit-item__bullet-row {
   margin: 0;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-alpha-black-60);
   font-size: 12px;
   line-height: 20px;
 }
@@ -195,8 +195,8 @@
   display: grid;
   gap: 8px;
   padding: 12px;
-  background: #fafafa;
-  border-radius: 6px;
+  background: var(--color-bg-gray-4);
+  border-radius: var(--radius-6);
 }
 
 .room-detail-benefit-item__header,
@@ -231,7 +231,7 @@
 
 .room-detail-benefit-item__title {
   margin: 0;
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
@@ -243,7 +243,7 @@
   padding: 0;
   border: none;
   background: transparent;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-alpha-black-60);
   font-size: 12px;
   line-height: 20px;
   cursor: pointer;
@@ -270,7 +270,7 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.35);
+  background: var(--color-alpha-black-35);
   flex-shrink: 0;
 }
 
@@ -281,7 +281,7 @@
 }
 
 .room-detail-policy__highlight {
-  color: #ff7f41;
+  color: var(--color-orange-50);
 }
 
 .room-detail-provider__text {
@@ -304,9 +304,9 @@
   flex-shrink: 0;
   margin-top: 2px;
   padding: 0 3px;
-  border-radius: 3px;
-  background: linear-gradient(270deg, #ff6948 0%, #fe4f2a 100%);
-  color: #ffffff;
+  border-radius: var(--radius-3);
+  background: linear-gradient(270deg, var(--color-orange-45) 0%, var(--color-orange-55) 100%);
+  color: var(--color-white);
   font-size: 10px;
   line-height: 16px;
 }
@@ -324,24 +324,24 @@
 }
 
 .room-detail-fee-row__label {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--color-alpha-black-60);
   font-size: 12px;
   line-height: 20px;
 }
 
 .room-detail-fee-row__value {
-  color: rgba(0, 0, 0, 0.84);
+  color: var(--color-alpha-black-84);
   font-family: 'Barlow Semi Condensed', 'DIN Alternate', sans-serif;
   font-size: 16px;
   line-height: 20px;
 }
 
 .room-detail-fee-row__value--accent {
-  color: #ff7f41;
+  color: var(--color-orange-50);
 }
 
 .room-detail-submit {
-  background: #ffffff;
+  background: var(--color-white);
 }
 
 .room-detail-submit__inner {
@@ -361,7 +361,7 @@
 
 .room-detail-submit__price {
   align-items: flex-end;
-  color: #1473ff;
+  color: var(--color-blue-50);
   font-family: 'Barlow Semi Condensed', 'DIN Alternate', sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -382,10 +382,10 @@
   gap: 0;
   height: 16px;
   padding: 3px 1px 3px 4px;
-  border: 0.5px solid rgba(255, 96, 96, 0.1);
-  border-radius: 3px;
-  background: rgba(255, 96, 96, 0.08);
-  color: #ff4343;
+  border: 0.5px solid var(--color-overlay-red-10);
+  border-radius: var(--radius-3);
+  background: var(--color-overlay-red-8);
+  color: var(--color-red-40);
   font-size: 10px;
   line-height: 16px;
 }
@@ -398,7 +398,7 @@
 .room-detail-submit-tags__divider {
   width: 1px;
   height: 8px;
-  background: rgba(255, 67, 67, 0.35);
+  background: var(--color-overlay-red-35);
 }
 
 .room-detail-submit-tags__caret {
@@ -416,7 +416,7 @@
   position: sticky;
   bottom: 0;
   z-index: 3;
-  background: #ffffff;
+  background: var(--color-white);
 }
 
 .room-detail-home-indicator {
@@ -424,7 +424,7 @@
   height: 5px;
   margin: 8px auto 8px;
   border-radius: 2.5px;
-  background: #000000;
+  background: var(--color-black);
 }
 
 @media (max-width: 768px) {

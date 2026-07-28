@@ -1,4 +1,290 @@
 :root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-blue-5: #f3f8ff;
+  --color-blue-10: #e7f1ff;
+  --color-blue-20: #d0e3ff;
+  --color-blue-30: #89b9ff;
+  --color-blue-40: #438fff;
+  --color-blue-50: #1473ff;
+  --color-blue-60: #1167e5;
+  --color-blue-70: #0d50b2;
+  --color-blue-80: #09397f;
+  --color-blue-90: #05224c;
+
+  --color-cyan-5: #f5fbf7;
+  --color-cyan-10: #eaf8f0;
+  --color-cyan-20: #d6f1e2;
+  --color-cyan-30: #99ddb6;
+  --color-cyan-40: #5dc98a;
+  --color-cyan-50: #34b86d;
+  --color-cyan-60: #2ea761;
+  --color-cyan-70: #24824c;
+  --color-cyan-80: #195d36;
+
+  --color-orange-5: #fff8f5;
+  --color-orange-10: #fff2ec;
+  --color-orange-20: #ffe5d9;
+  --color-orange-30: #ffbfa0;
+  --color-orange-40: #ff9967;
+  --color-orange-50: #ff7f41;
+  --color-orange-60: #e5723a;
+  --color-orange-70: #b2582d;
+  --color-orange-80: #7f3f20;
+
+  --color-red-5: #fef5f4;
+  --color-red-10: #feebe8;
+  --color-red-20: #fed7d3;
+  --color-red-30: #fc9b90;
+  --color-red-40: #fa604e;
+  --color-red-60: #df321e;
+  --color-red-70: #ad2717;
+  --color-red-80: #7c1b10;
+
+  --color-gray-900: #292929;
+  --color-gray-800: #474747;
+  --color-gray-700: #666666;
+  --color-gray-500: #a3a3a3;
+  --color-gray-400: #b3b3b3;
+  --color-gray-200: #e0e0e0;
+  --color-gray-100: #f0f0f0;
+  --color-gray-50: #f5f5f5;
+  --color-bg-gray-1: #f7f9fa;
+  --color-bg-gray-2: #f5f7fa;
+  --color-bg-gray-3: #f3f4f5;
+  --color-bg-gray-4: #fafafa;
+  --color-bg-gray-5: #f5f6fa;
+
+  --color-alpha-black-100: rgba(0, 0, 0, 1);
+  --color-alpha-black-84: rgba(0, 0, 0, 0.84);
+  --color-alpha-black-72: rgba(0, 0, 0, 0.72);
+  --color-alpha-black-60: rgba(0, 0, 0, 0.6);
+  --color-alpha-black-56: rgba(0, 0, 0, 0.56);
+  --color-alpha-black-36: rgba(0, 0, 0, 0.36);
+  --color-alpha-black-35: rgba(0, 0, 0, 0.35);
+  --color-alpha-black-30: rgba(0, 0, 0, 0.3);
+  --color-alpha-black-24: rgba(0, 0, 0, 0.24);
+  --color-alpha-black-16: rgba(0, 0, 0, 0.16);
+  --color-alpha-black-12: rgba(0, 0, 0, 0.12);
+  --color-alpha-black-10: rgba(0, 0, 0, 0.1);
+  --color-alpha-black-8: rgba(0, 0, 0, 0.08);
+  --color-alpha-black-6: rgba(0, 0, 0, 0.06);
+  --color-alpha-black-4: rgba(0, 0, 0, 0.04);
+  --color-alpha-black-2: rgba(0, 0, 0, 0.02);
+
+  --color-alpha-white-96: rgba(255, 255, 255, 0.96);
+  --color-alpha-white-92: rgba(255, 255, 255, 0.92);
+  --color-alpha-white-90: rgba(255, 255, 255, 0.9);
+  --color-alpha-white-85: rgba(255, 255, 255, 0.85);
+  --color-alpha-white-84: rgba(255, 255, 255, 0.84);
+  --color-alpha-white-82: rgba(255, 255, 255, 0.82);
+  --color-alpha-white-80: rgba(255, 255, 255, 0.8);
+  --color-alpha-white-72: rgba(255, 255, 255, 0.72);
+  --color-alpha-white-68: rgba(255, 255, 255, 0.68);
+  --color-alpha-white-60: rgba(255, 255, 255, 0.6);
+  --color-alpha-white-50: rgba(255, 255, 255, 0.5);
+  --color-alpha-white-35: rgba(255, 255, 255, 0.35);
+  --color-alpha-white-18: rgba(255, 255, 255, 0.18);
+  --color-alpha-white-0: rgba(255, 255, 255, 0);
+
+  --color-blue-12: #eef5fe;
+  --color-blue-14: #e3edff;
+  --color-blue-16: #e7f0fd;
+  --color-blue-17: #e5e9f4;
+  --color-blue-18: #e5f1ff;
+  --color-blue-22: #cedfff;
+  --color-blue-25: #c2d9fc;
+  --color-blue-26: #d5e4ff;
+  --color-blue-27: #d7e8ff;
+  --color-blue-28: #b3cfff;
+  --color-blue-31: #eef2ff;
+  --color-blue-32: #75aeff;
+  --color-blue-34: #3686ff;
+  --color-blue-41: #edf5ff;
+  --color-blue-accent-1: #0052c4;
+  --color-blue-accent-2: #0066f6;
+  --color-blue-accent-3: #1b3788;
+  --color-blue-accent-4: #3e5ea9;
+  --color-blue-accent-5: #4360a3;
+  --color-blue-accent-6: #2c32a2;
+  --color-blue-accent-7: #00033a;
+  --color-blue-accent-8: #4b49ff;
+  --color-blue-accent-9: #8688f7;
+  --color-blue-accent-10: #6270ff;
+  --color-blue-accent-11: #5d92ff;
+  --color-blue-accent-12: #5d83ff;
+  --color-blue-accent-13: #566df6;
+  --color-blue-accent-14: #5d5dff;
+
+  --color-orange-6: #fff4ec;
+  --color-orange-7: #fff9f4;
+  --color-orange-8: #fff2e9;
+  --color-orange-45: #ff6948;
+  --color-orange-52: #ff8448;
+  --color-orange-54: #ff5e2c;
+  --color-orange-55: #fe4f2a;
+  --color-orange-58: #ff5c24;
+  --color-orange-62: #ff7300;
+
+  --color-green-10: #effaf4;
+  --color-green-12: #e9f8ed;
+  --color-green-14: #f5fff9;
+  --color-green-50: #34c759;
+  --color-green-60: #00b578;
+
+  --color-yellow-5: #fffdf5;
+  --color-yellow-10: #fff9e8;
+
+  --color-neutral-950: #202020;
+  --color-neutral-900-alt: #272a32;
+  --color-neutral-880: #19293e;
+  --color-neutral-870: #1c2431;
+  --color-neutral-850: #333333;
+  --color-neutral-800-alt: #3f4d70;
+  --color-neutral-760: #3d516c;
+  --color-neutral-750: #444444;
+  --color-neutral-700-alt: #69718e;
+  --color-neutral-650: #777777;
+  --color-neutral-620: #767676;
+  --color-neutral-450: #999999;
+
+  --color-text-primary: var(--color-alpha-black-84);
+  --color-text-secondary: var(--color-alpha-black-60);
+  --color-text-tertiary: var(--color-alpha-black-36);
+  --color-text-disabled: rgba(29, 36, 51, 0.42);
+  --color-text-inverse: var(--color-white);
+  --color-text-brand: var(--color-blue-50);
+  --color-text-brand-strong: var(--color-blue-90);
+
+  --color-surface-primary: var(--color-white);
+  --color-surface-secondary: var(--color-bg-gray-2);
+  --color-surface-tertiary: var(--color-blue-5);
+  --color-surface-brand-soft: var(--color-blue-10);
+  --color-surface-brand-subtle: #eff5ff;
+  --color-surface-brand-muted: #e9f2ff;
+  --color-surface-brand-tint: #f6f9ff;
+  --color-surface-brand-tint-2: #f6f9fd;
+  --color-surface-success-soft: var(--color-cyan-5);
+  --color-surface-warning-soft: var(--color-orange-5);
+  --color-surface-danger-soft: var(--color-red-5);
+
+  --color-line-soft: rgba(18, 51, 84, 0.08);
+  --color-line-default: var(--color-alpha-black-12);
+  --color-line-strong: rgba(18, 51, 84, 0.12);
+  --color-line-brand: rgba(20, 115, 255, 0.3);
+  --color-line-brand-strong: rgba(20, 115, 255, 0.22);
+
+  --color-shadow-card: rgba(19, 45, 77, 0.08);
+  --color-shadow-card-strong: rgba(23, 45, 77, 0.14);
+  --color-shadow-pop: rgba(19, 45, 77, 0.18);
+  --color-shadow-brand: rgba(20, 115, 255, 0.12);
+  --color-shadow-brand-strong: rgba(20, 115, 255, 0.24);
+  --color-shadow-brand-soft: rgba(0, 49, 99, 0.12);
+
+  --color-overlay-brand-10: rgba(20, 115, 255, 0.1);
+  --color-overlay-brand-12: rgba(20, 115, 255, 0.12);
+  --color-overlay-brand-16: rgba(20, 115, 255, 0.16);
+  --color-overlay-brand-20: rgba(20, 115, 255, 0.2);
+  --color-overlay-brand-24: rgba(20, 115, 255, 0.24);
+  --color-overlay-brand-27: rgba(20, 115, 255, 0.27);
+  --color-overlay-info-16: rgba(15, 108, 189, 0.16);
+  --color-overlay-hero: rgba(208, 227, 255, 0.9);
+  --color-overlay-blue-25: rgba(166, 190, 255, 0.25);
+  --color-overlay-blue-80: rgba(227, 240, 255, 0.8);
+  --color-overlay-blue-85: rgba(220, 235, 255, 0.85);
+  --color-overlay-blue-90: rgba(242, 248, 255, 0.9);
+  --color-overlay-blue-98: rgba(239, 246, 255, 0.98);
+  --color-overlay-blue-98-2: rgba(227, 240, 255, 0.98);
+  --color-overlay-blue-96: rgba(246, 247, 255, 0.96);
+  --color-overlay-blue-96-2: rgba(236, 240, 255, 0.96);
+  --color-overlay-blue-0: rgba(227, 237, 255, 0);
+  --color-overlay-slate-30: rgba(61, 81, 108, 0.3);
+  --color-overlay-indigo-10: rgba(93, 93, 255, 0.1);
+  --color-overlay-indigo-20: rgba(73, 98, 255, 0.2);
+  --color-overlay-red-10: rgba(255, 96, 96, 0.1);
+  --color-overlay-red-8: rgba(255, 96, 96, 0.08);
+  --color-overlay-red-35: rgba(255, 67, 67, 0.35);
+  --color-overlay-red-40: rgba(255, 96, 96, 0.4);
+  --color-overlay-orange-96: rgba(255, 247, 240, 0.96);
+  --color-overlay-orange-96-2: rgba(255, 250, 246, 0.96);
+  --color-overlay-orange-40: rgba(255, 127, 65, 0.4);
+  --color-overlay-green-32: rgba(90, 173, 118, 0.32);
+  --color-overlay-blue-50: rgba(39, 75, 159, 0.5);
+  --color-overlay-page-0: rgba(245, 247, 250, 0);
+
+  --font-family-ui-cn: 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+  --font-family-ui-ios-number: 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-ui-android-number: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-ui-number: 'Barlow Semi Condensed', 'Barlow', 'Arial Narrow', sans-serif;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-headline-sm: 24px;
+  --line-height-headline-sm: 32px;
+  --font-size-headline-xs: 22px;
+  --line-height-headline-xs: 30px;
+  --font-size-title-xl: 20px;
+  --line-height-title-xl: 28px;
+  --font-size-title-lg: 18px;
+  --line-height-title-lg: 26px;
+  --font-size-title-md: 16px;
+  --line-height-title-md: 24px;
+  --font-size-title-sm: 14px;
+  --line-height-title-sm: 22px;
+  --font-size-title-xs: 12px;
+  --line-height-title-xs: 20px;
+  --font-size-title-xxs: 10px;
+  --line-height-title-xxs: 16px;
+
+  --font-size-body-lg: 16px;
+  --line-height-body-lg: 24px;
+  --font-size-body-md: 14px;
+  --line-height-body-md: 22px;
+  --font-size-body-sm: 12px;
+  --line-height-body-sm: 20px;
+  --font-size-body-xs: 10px;
+  --line-height-body-xs: 16px;
+  --font-size-body-xxs: 9px;
+  --line-height-body-xxs: 16px;
+
+  --font-size-number-lg: 24px;
+  --line-height-number-lg: 26px;
+  --font-size-number-md: 16px;
+  --line-height-number-md: 20px;
+  --font-size-number-sm: 10px;
+  --line-height-number-sm: 16px;
+
+  --radius-3: 3px;
+  --radius-4: 4px;
+  --radius-6: 6px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-16: 16px;
+  --radius-pill: 999px;
+
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  --grid-mobile-width: 375px;
+  --grid-mobile-column: 22px;
+  --grid-mobile-gutter: 8px;
+  --grid-mobile-padding: 12px;
+  --grid-mobile-container: 351px;
+
+  --font-size-ui-time: 15px;
+  --line-height-ui-time: 18px;
+
   font-family:
     'Noto Sans SC',
     'PingFang SC',
@@ -6,10 +292,10 @@
     sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #1d2433;
+  color: var(--color-text-primary);
   background:
-    radial-gradient(circle at top left, rgba(15, 108, 189, 0.16), transparent 24%),
-    linear-gradient(180deg, #f7fbff 0%, #eef3f8 100%);
+    radial-gradient(circle at top left, var(--color-overlay-info-16), transparent 24%),
+    linear-gradient(180deg, var(--color-bg-gray-1) 0%, #eef3f8 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

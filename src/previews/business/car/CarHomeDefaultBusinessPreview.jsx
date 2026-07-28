@@ -14,7 +14,6 @@ import {
   CarHomeFullApplications,
   CarHomeFullDriverBanner,
   CarHomeFullPendingNotice,
-  CarHomeFullPromoCards,
   CarHomeFullRideNotice,
   CarHomeFullTrips,
 } from '../../../components/car-home-default/CarHomeFullComponents'
@@ -59,13 +58,13 @@ const showcaseList = [
     ),
   },
   {
-    name: '默认态专用 · 金刚位入口',
-    description: '默认态使用的五个金刚位入口，展示机票、酒店、火车票、代驾和权益。',
+    name: '通用复用 · 金刚位入口',
+    description: '用于首页通用展示的五个金刚位入口，承接机票、酒店、火车票、代驾和权益。',
     render: <CarHomeDefaultQuickActions items={carHomeDefaultData.quickActions} />,
   },
   {
-    name: '默认态专用 · 运营区',
-    description: '默认态使用的运营内容区域，承接首页活动信息和推荐内容。',
+    name: '通用复用 · 运营区',
+    description: '用于首页通用展示的运营内容区域，承接活动信息和推荐内容。',
     render: <CarHomeDefaultOperationsArea />,
   },
   {
@@ -107,11 +106,6 @@ const showcaseList = [
         tripCard={carHomeFullData.tripCard}
       />
     ),
-  },
-  {
-    name: '全态新增 · 营销推荐卡组',
-    description: '全态新增的酒店首单福利和辅助入口卡组，用于活动承接与引导。',
-    render: <CarHomeFullPromoCards cards={carHomeFullData.promoCards} />,
   },
   {
     name: '通用复用 · 规则区',

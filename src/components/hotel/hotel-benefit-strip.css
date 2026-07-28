@@ -4,9 +4,9 @@
   gap: 3px;
   width: fit-content;
   min-height: 16px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, #e3edff 0%, rgba(227, 237, 255, 0) 100%);
-  color: #3f4d70;
+  border-radius: var(--radius-3);
+  background: linear-gradient(90deg, var(--color-blue-14) 0%, var(--color-overlay-blue-0) 100%);
+  color: var(--color-neutral-800-alt);
   font-size: 10px;
   line-height: 16px;
 }
@@ -16,9 +16,9 @@
   align-items: center;
   gap: 2px;
   padding: 0 5px 0 3px;
-  border-radius: 3px 0 0 3px;
-  background: linear-gradient(90deg, #272a32 0%, #69718e 100%);
-  color: #ffffff;
+  border-radius: var(--radius-3) 0 0 var(--radius-3);
+  background: linear-gradient(90deg, var(--color-neutral-900-alt) 0%, var(--color-neutral-700-alt) 100%);
+  color: var(--color-white);
 }
 
 .hotel-benefit-strip__icon {
@@ -29,7 +29,7 @@
 }
 
 .hotel-benefit-strip__badge-text {
-  color: #ffffff;
+  color: var(--color-white);
   font-size: 10px;
   font-weight: 600;
   line-height: 16px;
@@ -46,6 +46,6 @@
   width: 1px;
   height: 6px;
   margin: 0 4px 0 1px;
-  background: rgba(61, 81, 108, 0.3);
+  background: var(--color-overlay-slate-30);
   vertical-align: middle;
 }
