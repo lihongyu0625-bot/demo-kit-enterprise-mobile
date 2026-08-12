@@ -1,0 +1,686 @@
+.flight-order-detail-preview {
+  width: 375px;
+  margin: 0 auto;
+  background: var(--color-bg-gray-2);
+}
+
+.flight-order-detail-shell {
+  position: relative;
+  min-height: 1514px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+}
+
+.flight-order-detail-shell,
+.flight-order-detail-shell *,
+.flight-order-detail-business-sample,
+.flight-order-detail-business-sample *,
+.flight-order-detail-top button,
+.flight-order-detail-notice,
+.flight-order-detail-actions button,
+.flight-order-detail-link,
+.flight-order-detail-payment-card__carbon,
+.flight-order-detail-payment-card__rule,
+.flight-order-detail-info-card__actions button,
+.flight-order-detail-travel-service__card {
+  box-sizing: border-box;
+}
+
+.flight-order-detail-background {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 320px;
+  overflow: hidden;
+}
+
+.flight-order-detail-background img {
+  display: block;
+  width: 375px;
+  height: 320px;
+  object-fit: cover;
+}
+
+.flight-order-detail-business-sample {
+  position: relative;
+  width: 351px;
+  overflow: hidden;
+  border-radius: var(--radius-8);
+  background: var(--color-bg-gray-2);
+}
+
+.flight-order-detail-business-sample--background {
+  height: 180px;
+}
+
+.flight-order-detail-business-sample--background .flight-order-detail-background {
+  height: 180px;
+}
+
+.flight-order-detail-business-sample--background .flight-order-detail-background img {
+  height: 180px;
+}
+
+.flight-order-detail-business-sample--nav {
+  height: 92px;
+  background: linear-gradient(180deg, #b9d4ff 0%, #dce9fc 100%);
+}
+
+.flight-order-detail-business-sample--status,
+.flight-order-detail-business-sample--payment,
+.flight-order-detail-business-sample--info,
+.flight-order-detail-business-sample--service,
+.flight-order-detail-business-sample--package {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+.flight-order-detail-business-sample--status {
+  background: linear-gradient(180deg, #dce9fc 0%, var(--color-bg-gray-2) 100%);
+}
+
+.flight-order-detail-top {
+  position: relative;
+  z-index: 2;
+  height: 92px;
+}
+
+.flight-order-detail-top__statusbar {
+  background: transparent;
+}
+
+.flight-order-detail-top__bar {
+  position: absolute;
+  top: 44px;
+  right: 0;
+  left: 0;
+  height: 48px;
+}
+
+.flight-order-detail-top__back {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.flight-order-detail-top__back-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-alpha-black-84);
+}
+
+.flight-order-detail-top h1 {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  color: var(--color-text-primary);
+  font-size: 18px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.flight-order-detail-main {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  width: 351px;
+  margin: 16px auto 0;
+  padding-bottom: 49px;
+}
+
+.flight-order-detail-status-panel {
+  display: grid;
+  gap: 8px;
+}
+
+.flight-order-detail-status-panel__headline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding-left: 12px;
+}
+
+.flight-order-detail-status-panel__icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-blue-50);
+}
+
+.flight-order-detail-status-panel__headline h1 {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 22px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 30px;
+}
+
+.flight-order-detail-notice {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 351px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-8);
+  padding: 0 12px;
+  background: linear-gradient(90deg, #fff2ec 0%, var(--color-white) 100%);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.flight-order-detail-notice__icon {
+  width: 16px;
+  height: 16px;
+  color: #ff7f41;
+  flex: none;
+}
+
+.flight-order-detail-notice span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.flight-order-detail-notice__arrow {
+  width: 16px;
+  height: 16px;
+  color: var(--color-alpha-black-36);
+  flex: none;
+}
+
+.flight-order-detail-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  width: 351px;
+  height: 40px;
+}
+
+.flight-order-detail-actions button {
+  border: none;
+  border-radius: var(--radius-8);
+  padding: 0 12px;
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+}
+
+.flight-order-detail-card {
+  width: 351px;
+  border-radius: var(--radius-8);
+  padding: 12px;
+  background: var(--color-white);
+}
+
+.flight-order-detail-card__title {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+}
+
+.flight-order-detail-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--color-line-default);
+  transform: scaleY(0.5);
+  transform-origin: center;
+}
+
+.flight-order-detail-divider--vertical {
+  width: 1px;
+  height: 12px;
+  transform: scaleX(0.5);
+}
+
+.flight-order-detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: var(--color-blue-50);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.flight-order-detail-link__icon {
+  width: 12px;
+  height: 12px;
+  color: var(--color-alpha-black-36);
+}
+
+.flight-order-detail-payment-card {
+  display: grid;
+  gap: 12px;
+  background: linear-gradient(180deg, var(--color-blue-10) 0%, var(--color-white) 35%, var(--color-white) 100%);
+}
+
+.flight-order-detail-payment-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.flight-order-detail-payment-card__summary {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 4px;
+  min-width: 0;
+}
+
+.flight-order-detail-payment-card__summary > span {
+  color: var(--color-text-primary);
+  font-size: 18px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 26px;
+}
+
+.flight-order-detail-payment-card__price.common-price-display {
+  align-items: flex-end;
+  height: 26px;
+}
+
+.flight-order-detail-payment-card__summary em {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 17px;
+  margin-bottom: 3px;
+  border: 0.5px solid var(--color-blue-90);
+  border-radius: var(--radius-3);
+  padding: 0 3px;
+  color: var(--color-blue-90);
+  font-size: 10px;
+  font-style: normal;
+  line-height: 16px;
+}
+
+.flight-order-detail-payment-card__order {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.flight-order-detail-payment-card__copy {
+  width: 16px;
+  height: 16px;
+  color: var(--color-alpha-black-36);
+}
+
+.flight-order-detail-payment-card__flight-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+.flight-order-detail-payment-card__flight-title span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  border-radius: var(--radius-3);
+  padding: 0 5px;
+  background: linear-gradient(270deg, var(--color-blue-40) 0%, var(--color-blue-50) 100%);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 16px;
+}
+
+.flight-order-detail-payment-card__flight-title strong {
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+}
+
+.flight-order-detail-payment-card__arrow {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-84);
+}
+
+.flight-order-detail-route {
+  display: grid;
+  grid-template-columns: 47px 8px minmax(0, 1fr);
+  gap: 8px;
+  min-height: 92px;
+}
+
+.flight-order-detail-route__times {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  color: var(--color-text-primary);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.flight-order-detail-route__times strong {
+  font-family: var(--font-family-ui-number);
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  line-height: 20px;
+}
+
+.flight-order-detail-route__times span {
+  color: var(--color-text-tertiary);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.flight-order-detail-route__line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7px 0;
+}
+
+.flight-order-detail-route__line i {
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--color-alpha-black-24);
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  flex: none;
+}
+
+.flight-order-detail-route__line span {
+  width: 1px;
+  min-height: 56px;
+  background: var(--color-alpha-black-12);
+  flex: 1;
+}
+
+.flight-order-detail-route__content {
+  display: grid;
+  align-content: space-between;
+  min-width: 0;
+  color: var(--color-text-primary);
+}
+
+.flight-order-detail-route__content > strong {
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+}
+
+.flight-order-detail-route__flight-meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 244px;
+  border-radius: var(--radius-4);
+  padding: 8px;
+  background: var(--color-alpha-black-2);
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.flight-order-detail-route__flight-meta img {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-pill);
+  object-fit: contain;
+  flex: none;
+}
+
+.flight-order-detail-payment-card__carbon,
+.flight-order-detail-payment-card__rule {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.flight-order-detail-payment-card__carbon {
+  color: #16a766;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.flight-order-detail-payment-card__carbon-icon,
+.flight-order-detail-payment-card__rule-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-alpha-black-36);
+}
+
+.flight-order-detail-info-card {
+  display: grid;
+  gap: 12px;
+}
+
+.flight-order-detail-info-card__rows {
+  display: grid;
+  gap: 12px;
+}
+
+.flight-order-detail-info-card__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 22px;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.flight-order-detail-info-card__row span {
+  width: 56px;
+  color: var(--color-text-tertiary);
+  font-weight: var(--font-weight-regular);
+  flex: none;
+}
+
+.flight-order-detail-info-card__row strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-regular);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.flight-order-detail-info-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flight-order-detail-info-card__action-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.flight-order-detail-info-card__actions button {
+  width: 100%;
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: var(--color-blue-50);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.flight-order-detail-travel-service {
+  display: grid;
+  width: 351px;
+}
+
+.flight-order-detail-travel-service__ribbon {
+  display: flex;
+  align-items: center;
+  height: 46px;
+  margin-bottom: -8px;
+  border-radius: var(--radius-8) var(--radius-8) 0 0;
+  padding: 8px 12px 16px;
+  background: linear-gradient(90deg, var(--color-blue-10) 0%, var(--color-white) 100%);
+}
+
+.flight-order-detail-travel-service__ribbon img {
+  width: 58px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.flight-order-detail-travel-service__card {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 351px;
+  border: none;
+  border-radius: var(--radius-8);
+  padding: 12px;
+  background: var(--color-white);
+  text-align: left;
+}
+
+.flight-order-detail-travel-service__title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.flight-order-detail-travel-service__title strong {
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+}
+
+.flight-order-detail-travel-service__info {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-36);
+}
+
+.flight-order-detail-travel-service p {
+  margin: 4px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.flight-order-detail-travel-service__chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--color-alpha-black-36);
+  flex: none;
+}
+
+.flight-order-detail-package-card {
+  display: grid;
+  gap: 12px;
+}
+
+.flight-order-detail-package-card__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.flight-order-detail-package-card__main > strong {
+  color: var(--color-text-primary);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+}
+
+.flight-order-detail-package-card__quantity {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text-primary);
+}
+
+.flight-order-detail-package-card__quantity .global-style-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-alpha-black-84);
+}
+
+.flight-order-detail-package-card__quantity span {
+  font-family: var(--font-family-ui-number);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.flight-order-detail-package-card__quantity em {
+  font-size: 14px;
+  font-style: normal;
+  line-height: 22px;
+}
+
+.flight-order-detail-package-card__rows {
+  display: grid;
+  gap: 12px;
+  color: var(--color-text-tertiary);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.flight-order-detail-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+}
+
+@media (max-width: 375px) {
+  .flight-order-detail-preview {
+    width: 100%;
+  }
+
+  .flight-order-detail-main,
+  .flight-order-detail-card,
+  .flight-order-detail-notice,
+  .flight-order-detail-actions,
+  .flight-order-detail-travel-service,
+  .flight-order-detail-travel-service__card {
+    width: calc(100% - 24px);
+  }
+}

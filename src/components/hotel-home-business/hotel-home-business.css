@@ -124,6 +124,10 @@
   line-height: 32px;
 }
 
+.hotel-home-business-hero__title {
+  padding-left: 12px;
+}
+
 .hotel-home-business-hero__title p {
   margin: 4px 0 0;
   color: var(--color-blue-80);
@@ -188,7 +192,7 @@
 .hotel-home-business-application {
   display: grid;
   gap: 12px;
-  padding: 16px 12px;
+  padding: 16px;
   border-radius: var(--radius-8);
   background: var(--color-white);
 }
@@ -411,6 +415,9 @@
 }
 
 .hotel-home-business-application__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   padding: 10px 100px;
   border-radius: var(--radius-pill);
@@ -419,6 +426,7 @@
   font-weight: 600;
   line-height: 24px;
   color: var(--color-white);
+  white-space: nowrap;
 }
 
 .hotel-home-business-guarantee {
@@ -568,42 +576,8 @@
   object-fit: cover;
 }
 
-.hotel-home-business-watermark {
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  padding: 0;
-}
-
-.hotel-home-business-watermark__headline {
-  justify-content: center;
-  width: 100%;
-  height: 16px;
-}
-
-.hotel-home-business-watermark__headline-image {
-  display: block;
+.hotel-home-business-watermark .common-bottom-watermark__headline-image {
   width: 172px;
-  height: 16px;
-  flex: none;
-  object-fit: contain;
-}
-
-.hotel-home-business-watermark__items {
-  justify-content: center;
-  gap: 12px;
-  color: var(--color-alpha-black-24);
-  font-size: 10px;
-  line-height: 22px;
-}
-
-.hotel-home-business-watermark__divider {
-  display: block;
-  width: 1px;
-  height: 8px;
-  flex: none;
-  background: var(--color-alpha-black-12);
-  border-radius: var(--radius-pill);
 }
 
 .hotel-home-business-watermark-wrap {
@@ -632,7 +606,7 @@
   --page-bottom-nav-gap: 8px;
   --page-bottom-nav-padding: 8px 12px 0;
   --page-bottom-nav-icon-size: 22px;
-  --page-bottom-nav-label-color: var(--color-neutral-650);
+  --page-bottom-nav-label-color: var(--color-alpha-black-84);
 }
 
 .hotel-home-business-footer {

@@ -1,0 +1,202 @@
+{
+  "nav": {
+    "fromCity": "北京",
+    "toCity": "上海",
+    "policyLabel": "差旅制度"
+  },
+  "dateFilters": {
+    "calendarLabel": "日期筛选",
+    "items": [
+      {
+        "label": "今天",
+        "date": "07-10",
+        "active": true
+      },
+      {
+        "label": "明天",
+        "date": "11"
+      },
+      {
+        "label": "后天",
+        "date": "12"
+      },
+      {
+        "label": "周五",
+        "date": "13"
+      },
+      {
+        "label": "周六",
+        "date": "14"
+      }
+    ]
+  },
+  "filters": [
+    {
+      "label": "筛选",
+      "iconName": "icon/action/filter/outlined",
+      "type": "filter"
+    },
+    {
+      "label": "符合差标"
+    },
+    {
+      "label": "仅看直飞",
+      "selected": true
+    },
+    {
+      "label": "大型机"
+    },
+    {
+      "label": "积分里程"
+    }
+  ],
+  "cards": [
+    {
+      "airlineLogo": "blue-red",
+      "departTime": "07:00",
+      "departAirport": "首都T2",
+      "arriveTime": "09:20",
+      "arriveAirport": "浦东T2",
+      "duration": "2h20m",
+      "price": 600,
+      "cabin": "经济舱5.5折",
+      "flightNo": "国航MU3863",
+      "aircraft": "波音737(大)",
+      "meal": true,
+      "punctuality": "准点89%",
+      "codeshare": true
+    },
+    {
+      "airlineLogo": "blue-red",
+      "departTime": "07:00",
+      "departAirport": "首都T2",
+      "arriveTime": "09:20",
+      "arriveAirport": "浦东T2",
+      "duration": "2h20m",
+      "price": 600,
+      "cabin": "经济舱5.5折",
+      "flightNo": "国航MU3863",
+      "aircraft": "波音737(大)",
+      "meal": true,
+      "punctuality": "准点89%",
+      "codeshare": true,
+      "promoTags": [
+        {
+          "label": "贵必赔",
+          "tone": "blue"
+        },
+        {
+          "label": "省立返15积分",
+          "tone": "red"
+        },
+        {
+          "label": "碳排+25%",
+          "tone": "outline-blue"
+        }
+      ],
+      "promoNote": "赠8折滴滴打车券"
+    },
+    {
+      "airlineLogo": "blue-red",
+      "departTime": "07:00",
+      "departAirport": "首都T2",
+      "arriveTime": "09:20",
+      "arriveAirport": "浦东T2",
+      "duration": "2h20m",
+      "price": 600,
+      "cabin": "经济舱5.5折",
+      "flightNo": "国航MU3863",
+      "aircraft": "波音737(大)",
+      "meal": true,
+      "punctuality": "准点89%",
+      "codeshare": true,
+      "topBadge": {
+        "label": "协议价",
+        "tone": "agreement"
+      }
+    },
+    {
+      "airlineLogo": "blue-red",
+      "departTime": "07:00",
+      "departAirport": "首都T2",
+      "arriveTime": "09:20",
+      "arriveAirport": "浦东T2",
+      "duration": "2h20m",
+      "price": 600,
+      "cabin": "经济舱5.5折",
+      "flightNo": "国航MU3863",
+      "aircraft": "波音737(大)",
+      "meal": true,
+      "punctuality": "准点89%",
+      "codeshare": true,
+      "topBadge": {
+        "label": "协议价",
+        "tone": "agreement"
+      },
+      "promoTags": [
+        {
+          "label": "贵必赔",
+          "tone": "blue"
+        },
+        {
+          "label": "省立返15积分",
+          "tone": "red"
+        },
+        {
+          "label": "碳排+25%",
+          "tone": "outline-blue"
+        }
+      ],
+      "promoNote": "赠8折滴滴打车券"
+    },
+    {
+      "airlineLogo": "red",
+      "departTime": "08:00",
+      "departAirport": "首都T2",
+      "arriveTime": "11:30",
+      "arriveAirport": "浦东T2",
+      "duration": "2h20m",
+      "price": 600,
+      "cabin": "经济舱5.5折",
+      "flightNo": "国航MU3863",
+      "aircraft": "波音737(大)",
+      "meal": true,
+      "punctuality": "准点89%",
+      "codeshare": true,
+      "topBadge": {
+        "label": "协议价",
+        "tone": "agreement"
+      }
+    },
+    {
+      "airlineLogo": "red",
+      "departTime": "08:00",
+      "departAirport": "首都T2",
+      "arriveTime": "11:30",
+      "arriveAirport": "浦东T2",
+      "duration": "2h20m",
+      "price": 600,
+      "cabin": "经济舱5.5折",
+      "flightNo": "国航MU3863",
+      "aircraft": "波音737(大)",
+      "meal": true,
+      "punctuality": "准点89%",
+      "codeshare": true,
+      "topBadge": {
+        "label": "协议价",
+        "tone": "agreement"
+      }
+    }
+  ],
+  "bottomSortTabs": [
+    {
+      "label": "出发早-晚"
+    },
+    {
+      "label": "价格优先"
+    },
+    {
+      "label": "飞行耗时"
+    }
+  ]
+}

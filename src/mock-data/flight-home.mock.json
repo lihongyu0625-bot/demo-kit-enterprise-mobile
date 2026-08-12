@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "policyLabel": "差旅制度"
+  },
+  "header": {
+    "title": "机票",
+    "subtitle": "安心出行，放心飞",
+    "tabs": [
+      {
+        "label": "因公",
+        "active": true
+      },
+      {
+        "label": "因私",
+        "active": false
+      }
+    ]
+  },
+  "application": {
+    "notice": {
+      "badge": "省立返",
+      "text": "提前预订或选低价航班，额外奖励积分"
+    },
+    "plan": {
+      "title": "申请单/制度",
+      "placeholder": "暂无可用的申旅单/制度"
+    },
+    "route": {
+      "fromCity": "北京",
+      "toCity": "上海"
+    },
+    "dates": {
+      "departDate": "11月27日",
+      "departWeekday": "周二",
+      "returnDate": "11月30日",
+      "returnWeekday": "周五"
+    },
+    "tripTypes": [
+      {
+        "label": "单程",
+        "active": false
+      },
+      {
+        "label": "往返",
+        "active": true
+      }
+    ],
+    "travelerLabel": "选择出行人",
+    "cabinLabel": "舱位不限",
+    "buttonLabel": "因公机票"
+  },
+  "guarantee": {
+    "title": "省心飞·保障中",
+    "detailLabel": "详情",
+    "features": [
+      {
+        "title": "贵必赔",
+        "description": "买贵赔双倍",
+        "icon": "discount"
+      },
+      {
+        "title": "航变无忧退",
+        "description": "航变免费退房",
+        "icon": "flight"
+      },
+      {
+        "title": "超时赔",
+        "description": "超10分钟出票赔",
+        "icon": "priceDrop"
+      },
+      {
+        "title": "无航班赔",
+        "description": "资源全覆盖",
+        "icon": "shield"
+      }
+    ],
+    "highlights": ["省立返", "企业版积分"]
+  },
+  "benefits": {
+    "title": "订机票·省心飞",
+    "items": ["贵必赔", "航变无忧退", "省立返"]
+  },
+  "bottomTabs": [
+    {
+      "label": "我的订单",
+      "iconName": "icon/file/file-text/outlined-1"
+    },
+    {
+      "label": "联系客服",
+      "iconName": "icon/media/headphones-alt/outlined"
+    }
+  ]
+}

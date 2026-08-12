@@ -1,0 +1,174 @@
+{
+  "nav": {
+    "title": "订单填写"
+  },
+  "notice": {
+    "iconName": "icon/media/volume-high/outlined",
+    "text": "温馨提示：关于旅客携带充电宝紧急通知"
+  },
+  "flight": {
+    "badge": "单程",
+    "route": "北京-香港",
+    "date": "06-19 周四 08:30",
+    "detailsLabel": "详情",
+    "prices": [
+      {
+        "label": "成人票",
+        "price": "¥239"
+      },
+      {
+        "label": "机建燃油",
+        "price": "¥120"
+      },
+      {
+        "label": "飞行保障包",
+        "price": "¥20"
+      }
+    ],
+    "ruleLabel": "退改签、行李额说明"
+  },
+  "passenger": {
+    "title": "乘机人信息",
+    "name": "李申",
+    "idLabel": "身份证 1301**********59G",
+    "selectLabel": "选择乘机人",
+    "requiredFields": [
+      {
+        "label": "联系电话",
+        "prefix": "+86",
+        "value": "13576549876",
+        "action": "选择"
+      }
+    ],
+    "optionalFields": [
+      {
+        "label": "其他联系人",
+        "prefix": "+86",
+        "value": "该邮箱用于接收确认函(选填)"
+      },
+      {
+        "label": "联系邮箱",
+        "value": "lihhhuhgkljhn@didiglobal.com"
+      }
+    ],
+    "tips": "仅接受境内手机号用于出票、退票、改签、动态、紧急联络"
+  },
+  "travelService": {
+    "title": "出行服务",
+    "subtitle": "天气多变，添加保障更安心",
+    "insurance": {
+      "title": "航意保障",
+      "price": "¥38",
+      "unit": "/人",
+      "recommendTag": "超值推荐",
+      "recommendText": "快车券6折，航意保障¥300万",
+      "options": [
+        {
+          "title": "基础保障",
+          "price": "¥38",
+          "features": [
+            "快车券 8.5折",
+            "航意保障 ¥100万"
+          ]
+        },
+        {
+          "title": "专业保障",
+          "price": "¥38",
+          "selected": true,
+          "features": [
+            "快车券 8.5折",
+            "航意保障 ¥300万"
+          ]
+        },
+        {
+          "title": "尊享保障",
+          "price": "¥38",
+          "features": [
+            "快车券 7折",
+            "航意保障 ¥300万"
+          ]
+        }
+      ]
+    },
+    "rows": [
+      {
+        "title": "延误保障",
+        "price": "¥38/人",
+        "description": "快车券6折，航意保障¥300万"
+      },
+      {
+        "title": "退改无忧",
+        "price": "¥58/人",
+        "description": "改签券100%，退票减免40%"
+      }
+    ],
+    "footerText": "请选择您认为适合本次保障的服务，服务由航司、产品承运商提供，如因航班变动等原因取消订单，请同时申请退款。"
+  },
+  "formCards": [
+    {
+      "title": "审批信息",
+      "rows": [
+        {
+          "label": "审批人",
+          "value": "郑恒大",
+          "actionable": true
+        },
+        {
+          "label": "差旅单",
+          "value": "市场部拜访客户"
+        },
+        {
+          "label": "申请原因",
+          "value": "经批准可不选择最低价"
+        }
+      ]
+    },
+    {
+      "title": "差旅备注",
+      "rows": [
+        {
+          "label": "出行目的",
+          "value": "",
+          "actionable": true
+        },
+        {
+          "label": "出行描述",
+          "value": "请输入出行原因",
+          "placeholder": true
+        }
+      ]
+    },
+    {
+      "title": "支付报销",
+      "rows": [
+        {
+          "label": "支付方式",
+          "value": "企业支付",
+          "actionable": true
+        },
+        {
+          "label": "成本中心",
+          "value": "滴滴CDX"
+        },
+        {
+          "label": "报销凭证",
+          "value": "纸质普票"
+        },
+        {
+          "label": "配送方式",
+          "value": "统一配送到公司"
+        }
+      ]
+    }
+  ],
+  "agreement": {
+    "prefix": "我已阅读并同意",
+    "links": "《购票须知》《XX国内旅客》《行李运输…"
+  },
+  "submit": {
+    "payLabel": "企业支付",
+    "amount": "600",
+    "detailLabel": "明细",
+    "buttonLabel": "提交订单"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "pageType": "flight-list",
+  "pageTitle": "航班列表页",
+  "sections": [
+    "header-background",
+    "top-nav",
+    "date-filter",
+    "filter-bar",
+    "card-list",
+    "bottom-sort-bar"
+  ]
+}

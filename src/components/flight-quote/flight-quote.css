@@ -1,0 +1,674 @@
+.flight-quote-preview {
+  width: 375px;
+  margin: 0 auto;
+  background: var(--color-bg-gray-2);
+}
+
+.flight-quote-shell {
+  position: relative;
+  min-height: 812px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+}
+
+.flight-quote-shell,
+.flight-quote-shell *,
+.flight-quote-top button,
+.flight-quote-card__button,
+.flight-quote-cabin-tab,
+.flight-quote-filter {
+  box-sizing: border-box;
+}
+
+.flight-quote-background {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 264px;
+  background: linear-gradient(180deg, #c1d8ff 0%, #dce9fc 54%, #f3f4f6 100%);
+}
+
+.flight-quote-business-sample {
+  position: relative;
+  width: 351px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--color-bg-gray-2);
+}
+
+.flight-quote-business-sample--background {
+  height: 160px;
+}
+
+.flight-quote-business-sample--background .flight-quote-background {
+  height: 160px;
+}
+
+.flight-quote-business-sample--nav {
+  height: 92px;
+  background: linear-gradient(180deg, #c1d8ff 0%, #dce9fc 100%);
+}
+
+.flight-quote-business-sample--notice,
+.flight-quote-business-sample--summary,
+.flight-quote-business-sample--tabs,
+.flight-quote-business-sample--filter,
+.flight-quote-business-sample--cards {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+.flight-quote-business-sample--notice,
+.flight-quote-business-sample--tabs,
+.flight-quote-business-sample--filter {
+  background: linear-gradient(180deg, #dce9fc 0%, var(--color-bg-gray-2) 100%);
+}
+
+.flight-quote-business-sample--cards {
+  width: 375px;
+  border-radius: 0;
+}
+
+.flight-quote-top {
+  position: relative;
+  z-index: 2;
+  height: 92px;
+}
+
+.flight-quote-top__statusbar {
+  background: transparent;
+}
+
+.flight-quote-top__bar {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  height: 48px;
+}
+
+.flight-quote-top__back,
+.flight-quote-top__policy {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.flight-quote-top__back {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 24px;
+  height: 24px;
+}
+
+.flight-quote-top__back-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-alpha-black-84);
+}
+
+.flight-quote-top__title {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  transform: translateX(-50%);
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-cn);
+  font-size: 18px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.flight-quote-top__title-arrow {
+  font-family: var(--font-family-ui-number);
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+}
+
+.flight-quote-top__policy {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  display: grid;
+  justify-items: center;
+  gap: 0;
+  width: 40px;
+}
+
+.flight-quote-top__policy-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-alpha-black-84);
+}
+
+.flight-quote-top__policy span {
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-cn);
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.flight-quote-main {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  width: 351px;
+  margin-left: 12px;
+  padding-bottom: 44px;
+}
+
+.flight-quote-notice {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.56);
+  color: var(--color-alpha-black-60);
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.flight-quote-notice__icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-blue-50);
+  flex: none;
+}
+
+.flight-quote-notice__arrow {
+  width: 12px;
+  height: 12px;
+  margin-left: auto;
+  color: var(--color-alpha-black-36);
+  flex: none;
+}
+
+.flight-quote-flight-summary {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.flight-quote-flight-summary__heading {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 18px;
+  color: var(--color-alpha-black-72);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.flight-quote-flight-summary__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 3px;
+  background: var(--color-blue-50);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 16px;
+}
+
+.flight-quote-flight-summary__route {
+  display: grid;
+  grid-template-columns: 97px minmax(0, 1fr) 97px;
+  align-items: center;
+  gap: 8px;
+}
+
+.flight-quote-flight-summary__time-block {
+  display: grid;
+  color: var(--color-alpha-black-84);
+  white-space: nowrap;
+}
+
+.flight-quote-flight-summary__time-block--end {
+  justify-items: end;
+  text-align: right;
+}
+
+.flight-quote-flight-summary__time-block strong {
+  font-family: var(--font-family-ui-number);
+  font-size: 24px;
+  font-weight: var(--font-weight-medium);
+  line-height: 26px;
+}
+
+.flight-quote-flight-summary__time-block span {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.flight-quote-route {
+  display: grid;
+  justify-items: center;
+  gap: 0;
+  color: var(--color-alpha-black-36);
+}
+
+.flight-quote-route__duration,
+.flight-quote-route__carbon {
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.flight-quote-route__track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 14px;
+  overflow: hidden;
+}
+
+.flight-quote-route__line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-blue-20);
+  flex: none;
+}
+
+.flight-quote-route__line--reverse {
+  transform: rotate(180deg);
+}
+
+.flight-quote-route__plane {
+  width: 48px;
+  height: 12px;
+  object-fit: contain;
+  opacity: 0.9;
+  flex: none;
+}
+
+.flight-quote-route__carbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.flight-quote-route__carbon .global-style-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--color-alpha-black-36);
+}
+
+.flight-quote-flight-summary__meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  color: var(--color-alpha-black-36);
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.flight-quote-flight-summary__meta i {
+  display: block;
+  width: 1px;
+  height: 8px;
+  background: var(--color-alpha-black-12);
+  flex: none;
+}
+
+.flight-quote-flight-summary__meta .global-style-icon {
+  width: 10px;
+  height: 10px;
+  color: var(--color-alpha-black-36);
+  flex: none;
+}
+
+.flight-quote-flight-summary__logo {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  object-fit: contain;
+  flex: none;
+}
+
+.flight-quote-cabin-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  height: 58px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.56);
+}
+
+.flight-quote-cabin-tab {
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-alpha-black-84);
+  cursor: pointer;
+}
+
+.flight-quote-cabin-tab strong {
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.flight-quote-cabin-tab span {
+  color: var(--color-alpha-black-60);
+  font-family: var(--font-family-ui-number);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.flight-quote-cabin-tab em {
+  font-family: var(--font-family-ui-cn);
+  font-size: 10px;
+  font-style: normal;
+}
+
+.flight-quote-cabin-tab--active::after {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 48px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--color-blue-40) 0%, var(--color-blue-50) 100%);
+  content: '';
+  transform: translateX(-50%);
+}
+
+.flight-quote-filter-bar {
+  display: flex;
+  gap: 4px;
+  height: 26px;
+  overflow: hidden;
+}
+
+.flight-quote-filter {
+  flex: none;
+  height: 26px;
+  padding: 3px 10px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.56);
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.flight-quote-card-list {
+  display: grid;
+  gap: 8px;
+}
+
+.flight-quote-card {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  padding: 20px 12px 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.flight-quote-card:not(.flight-quote-card--with-benefits) {
+  padding-top: 20px;
+}
+
+.flight-quote-card--with-benefits {
+  padding-bottom: 8px;
+}
+
+.flight-quote-card__badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 10px;
+  border-radius: 0 0 6px 0;
+  background: linear-gradient(90deg, var(--color-blue-10) 0%, var(--color-blue-5) 100%);
+  color: var(--color-blue-50);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 16px;
+}
+
+.flight-quote-card__body {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 60px;
+}
+
+.flight-quote-card__price {
+  display: flex;
+  align-items: flex-end;
+  width: 76px;
+  color: var(--color-blue-50);
+  font-family: var(--font-family-ui-number);
+  white-space: nowrap;
+}
+
+.flight-quote-card__price span {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.flight-quote-card__price strong {
+  font-size: 24px;
+  font-weight: var(--font-weight-medium);
+  line-height: 26px;
+}
+
+.flight-quote-card__details {
+  display: grid;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.flight-quote-card__details p,
+.flight-quote-card__details div {
+  margin: 0;
+}
+
+.flight-quote-card__details > div:not(.flight-quote-card__limit) {
+  display: flex;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.flight-quote-card__details i {
+  display: block;
+  width: 1px;
+  height: 8px;
+  margin-top: 6px;
+  background: var(--color-alpha-black-12);
+}
+
+.flight-quote-card__limit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-alpha-black-60);
+}
+
+.flight-quote-card__limit b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--color-orange-50);
+  color: var(--color-white);
+  font-size: 8px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 12px;
+}
+
+.flight-quote-card__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-height: 44px;
+  padding: 2px;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-blue-50);
+  color: var(--color-white);
+}
+
+.flight-quote-card__button strong {
+  font-size: 18px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 26px;
+}
+
+.flight-quote-card__button span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  min-height: 14px;
+  border-radius: 0 0 6px 6px;
+  background: var(--color-white);
+  color: var(--color-blue-50);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 16px;
+}
+
+.flight-quote-benefits {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #fffafa 0%, #ffedec 100%);
+  color: #6d3e1e;
+}
+
+.flight-quote-benefits__left {
+  display: grid;
+  gap: 8px;
+}
+
+.flight-quote-benefits__title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 10px;
+}
+
+.flight-quote-benefits__title > span:first-child {
+  padding: 2px;
+  border-radius: 3px;
+  background: linear-gradient(135deg, #ffb3b0 0%, #ec655f 100%);
+  color: var(--color-white);
+  font-size: 8px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 8px;
+}
+
+.flight-quote-benefits__spark {
+  display: block;
+  width: 43px;
+  height: 10px;
+  background: linear-gradient(105deg, transparent 0 10%, #f39e98 10% 16%, transparent 16% 28%, #f39e98 28% 34%, transparent 34% 46%, #f39e98 46% 52%, transparent 52% 64%, #f39e98 64% 70%, transparent 70%);
+  transform: skewX(-16deg);
+}
+
+.flight-quote-benefits__change {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding-left: 16px;
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.flight-quote-benefits__change i {
+  width: 1px;
+  height: 6px;
+  background: rgba(112, 64, 32, 0.36);
+}
+
+.flight-quote-benefits__change .global-style-icon {
+  width: 10px;
+  height: 10px;
+  color: #704020;
+}
+
+.flight-quote-benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.flight-quote-benefits__grid span {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.flight-quote-benefits__grid .global-style-icon {
+  width: 16px;
+  height: 16px;
+  color: #f0a9a2;
+  flex: none;
+}
+
+.flight-quote-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  height: 34px;
+  background: transparent;
+}
+
+@media (max-width: 375px) {
+  .flight-quote-preview {
+    width: 100%;
+  }
+
+  .flight-quote-main {
+    width: calc(100% - 24px);
+  }
+}

@@ -1,0 +1,547 @@
+.flight-list-preview {
+  width: 375px;
+  margin: 0 auto;
+  background: var(--color-bg-gray-2);
+}
+
+.flight-list-shell {
+  position: relative;
+  min-height: 812px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+}
+
+.flight-list-shell,
+.flight-list-shell *,
+.flight-list-top__back,
+.flight-list-top__policy,
+.flight-list-date-filter__item,
+.flight-list-date-filter__calendar,
+.flight-list-filter-bar__chip,
+.flight-list-bottom-sort__item button {
+  box-sizing: border-box;
+}
+
+.flight-list-header-background {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 180px;
+}
+
+.flight-list-header-background__image {
+  display: block;
+  width: 375px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.flight-list-top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+}
+
+.flight-list-top__statusbar {
+  position: absolute;
+  inset: 0 0 auto;
+  background: transparent;
+}
+
+.flight-list-top__bar {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  height: 48px;
+}
+
+.flight-list-top__back,
+.flight-list-top__policy,
+.flight-list-date-filter__item,
+.flight-list-date-filter__calendar,
+.flight-list-filter-bar__chip,
+.flight-list-bottom-sort__item button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.flight-list-top__back {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 24px;
+  height: 24px;
+}
+
+.flight-list-top__back-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: var(--color-alpha-black-84);
+}
+
+.flight-list-top__title {
+  position: absolute;
+  top: 11px;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  transform: translateX(-50%);
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-cn);
+  font-size: 18px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 26px;
+  white-space: nowrap;
+}
+
+.flight-list-top__title-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-alpha-black-84);
+}
+
+.flight-list-top__policy {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  display: grid;
+  justify-items: center;
+  gap: 0;
+  width: 40px;
+}
+
+.flight-list-top__policy-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-alpha-black-84);
+}
+
+.flight-list-top__policy span {
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-cn);
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.flight-list-main {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  width: 351px;
+  margin-left: 12px;
+  padding-top: 92px;
+  padding-bottom: 78px;
+}
+
+.flight-list-date-filter {
+  display: flex;
+  align-items: center;
+  width: 351px;
+}
+
+.flight-list-date-filter__scroller {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  gap: 8px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.flight-list-date-filter__scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.flight-list-date-filter__item {
+  display: grid;
+  justify-items: center;
+  width: 60px;
+  height: 40px;
+  padding: 3px 12px;
+  border-radius: var(--radius-8);
+  color: var(--color-alpha-black-84);
+  flex: none;
+}
+
+.flight-list-date-filter__item--active {
+  background: linear-gradient(90deg, var(--color-blue-32) 0%, var(--color-blue-50) 100%);
+  color: var(--color-white);
+  box-shadow: 0 4px 10px var(--color-shadow-brand);
+}
+
+.flight-list-date-filter__label {
+  margin-bottom: -4px;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.flight-list-date-filter__date {
+  font-family: var(--font-family-ui-number);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+}
+
+.flight-list-date-filter__fade {
+  position: sticky;
+  right: 0;
+  width: 12px;
+  height: 40px;
+  margin-left: -12px;
+  background: linear-gradient(90deg, rgba(227, 237, 255, 0) 0%, rgba(151, 184, 232, 0.5) 100%);
+  pointer-events: none;
+  flex: none;
+}
+
+.flight-list-date-filter__calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 40px;
+  padding: 0 12px;
+  gap: 0;
+  flex: none;
+}
+
+.flight-list-date-filter__calendar-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-alpha-black-84);
+}
+
+.flight-list-date-filter__calendar-caret {
+  width: 10px;
+  height: 10px;
+  margin-top: -2px;
+  color: var(--color-alpha-black-60);
+}
+
+.flight-list-filter-bar {
+  display: flex;
+  gap: 4px;
+  width: 351px;
+  padding: 4px;
+  overflow-x: auto;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+  scrollbar-width: none;
+}
+
+.flight-list-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.flight-list-filter-bar__chip {
+  flex: none;
+}
+
+.flight-list-filter-bar__tag.common-tag--selectable {
+  height: 26px;
+}
+
+.flight-list-filter-bar__tag .common-tag__icon-image--tag {
+  width: 14px;
+  height: 14px;
+}
+
+.flight-list-card-list {
+  display: grid;
+  gap: 8px;
+  width: 351px;
+}
+
+.flight-list-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 12px 8px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+  box-shadow: 0 4px 14px rgba(19, 45, 77, 0.04);
+}
+
+.flight-list-card--with-promo {
+  padding: 12px;
+}
+
+.flight-list-card--with-badge {
+  padding-top: 16px;
+}
+
+.flight-list-card--with-badge:not(.flight-list-card--with-promo) {
+  padding-bottom: 8px;
+}
+
+.flight-list-card--with-badge.flight-list-card--with-promo {
+  padding-bottom: 12px;
+}
+
+.flight-list-card__top-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 18px;
+  padding: 0;
+  border-radius: 0 8px 0 8px;
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 18px;
+}
+
+.flight-list-card__top-badge--agreement {
+  background: linear-gradient(180deg, #e7f1ff 0%, #cfe3ff 100%);
+  color: var(--color-blue-50);
+}
+
+.flight-list-card__top-badge--warning {
+  background: var(--color-orange-6);
+  color: var(--color-orange-54);
+}
+
+.flight-list-card__logo {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  object-fit: contain;
+  flex: none;
+}
+
+.flight-list-card__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.flight-list-card__timeline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.flight-list-card__time-block {
+  display: grid;
+  width: 54px;
+  color: var(--color-alpha-black-84);
+  white-space: nowrap;
+}
+
+.flight-list-card__time-block strong {
+  font-family: var(--font-family-ui-number);
+  font-size: 22px;
+  font-weight: var(--font-weight-medium);
+  line-height: 24px;
+}
+
+.flight-list-card__time-block span {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.flight-list-card__route {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  flex: none;
+}
+
+.flight-list-card__route-duration {
+  display: block;
+  width: 100%;
+  color: var(--color-alpha-black-60);
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.flight-list-card__route-line {
+  display: block;
+  width: 50px;
+  height: 4px;
+  object-fit: contain;
+}
+
+.flight-list-card__price-area {
+  display: grid;
+  justify-items: end;
+  gap: 4px;
+  flex: none;
+  white-space: nowrap;
+}
+
+.flight-list-card__price {
+  color: var(--color-blue-50);
+}
+
+.flight-list-card__cabin {
+  color: var(--color-alpha-black-60);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.flight-list-card__meta,
+.flight-list-card__meta-share,
+.flight-list-card__promo {
+  display: flex;
+  align-items: center;
+}
+
+.flight-list-card__meta {
+  gap: 4px;
+  width: 100%;
+  height: 16px;
+  padding-left: 30px;
+  flex-wrap: nowrap;
+}
+
+.flight-list-card__meta-item {
+  color: var(--color-alpha-black-36);
+  font-size: 9px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.flight-list-card__meta-divider {
+  display: block;
+  width: 1px;
+  height: 8px;
+  background: var(--color-alpha-black-12);
+  flex: none;
+}
+
+.flight-list-card__meta-icon {
+  width: 10px;
+  height: 10px;
+  color: var(--color-alpha-black-36);
+}
+
+.flight-list-card__meta-share {
+  gap: 0;
+}
+
+.flight-list-card__meta-share-icon {
+  width: 10px;
+  height: 10px;
+  color: var(--color-alpha-black-36);
+}
+
+.flight-list-card__promo {
+  gap: 4px;
+  width: 100%;
+  padding-left: 30px;
+  flex-wrap: wrap;
+}
+
+.flight-list-card__promo-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 16px;
+  padding: 0 3px;
+  border-radius: var(--radius-3);
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.flight-list-card__promo-tag--blue {
+  background: #f1f4fd;
+  color: var(--color-blue-50);
+  font-weight: var(--font-weight-semibold);
+}
+
+.flight-list-card__promo-tag--orange {
+  background: var(--color-red-10);
+  color: var(--color-orange-50);
+  font-weight: var(--font-weight-semibold);
+}
+
+.flight-list-card__promo-tag--red {
+  background: var(--color-red-10);
+  color: var(--color-red-40);
+}
+
+.flight-list-card__promo-tag--outline-blue {
+  border: 0.5px solid var(--color-alpha-black-12);
+  color: var(--color-blue-80);
+}
+
+.flight-list-card__promo-note {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 16px;
+  padding: 0 3px;
+  border: 0.5px solid var(--color-alpha-black-12);
+  border-radius: var(--radius-3);
+  color: var(--color-alpha-black-36);
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.flight-list-bottom-sort {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--color-white);
+  border-radius: 12px 12px 0 0;
+}
+
+.flight-list-bottom-sort__bar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  padding: 12px 12px 0;
+}
+
+.flight-list-bottom-sort__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
+}
+
+.flight-list-bottom-sort__item button {
+  width: 100%;
+  color: #333333;
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 20px;
+  text-align: center;
+}
+
+.flight-list-bottom-sort__divider {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 0.5px;
+  height: 9.5px;
+  background: var(--color-alpha-black-12);
+  transform: translateY(-50%);
+}
+
+.flight-list-bottom-sort__footer {
+  background: var(--color-white);
+}

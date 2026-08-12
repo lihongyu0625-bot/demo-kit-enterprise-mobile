@@ -1,0 +1,44 @@
+{
+  "pageType": "flight-form",
+  "pageTitle": "机票订单填写页",
+  "platform": "mobile",
+  "business": "flight",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeId": "880:10318"
+  },
+  "sections": [
+    "gradientBackground",
+    "topNavigation",
+    "notice",
+    "flightFareCard",
+    "passengerInfo",
+    "travelService",
+    "approvalInfo",
+    "travelRemark",
+    "paymentReimbursement",
+    "agreement",
+    "submitBar"
+  ],
+  "actions": [
+    "back",
+    "viewNotice",
+    "viewFlightDetail",
+    "selectPassenger",
+    "selectContact",
+    "viewFareRules",
+    "submitOrder"
+  ],
+  "componentHints": [
+    "FlightFormBackground",
+    "FlightFormTopNav",
+    "FlightFormNotice",
+    "FlightFormFlightCard",
+    "FlightFormPassengerCard",
+    "FlightFormTravelService",
+    "FlightFormInfoCard",
+    "FlightFormAgreementBar",
+    "FlightFormSubmitBar"
+  ],
+  "outputMode": "react"
+}

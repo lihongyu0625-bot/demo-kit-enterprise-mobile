@@ -7,6 +7,7 @@ import { DirectionalIcon } from '../common/DirectionalIcon'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import { IPhoneBar } from '../common/IPhoneBar'
+import { Tag } from '../common/Tag'
 import { HotelBenefitStrip } from '../hotel/HotelBenefitStrip'
 import './hotel-list.css'
 
@@ -129,29 +130,27 @@ export function HotelListSortBar({ sortTabs, quickFilters }) {
       <div className="hotel-list-filter-row">
         {quickFilters.map((item) => (
           <button
-            className={cx(
-              'hotel-list-filter-chip',
-              item.active && 'hotel-list-filter-chip--active',
-            )}
+            className="hotel-list-filter-chip"
             key={item.label}
             type="button"
           >
-            {item.icon === 'benefit' ? (
-              <img
-                alt=""
-                className="hotel-list-filter-chip__icon"
-                src={businessBenefitIcon}
-              />
-            ) : null}
-            <span>{item.label}</span>
-            {item.checked ? (
-              <span className="hotel-list-filter-chip__check">
-                <HotelListGlobalIcon
-                  className="hotel-list-filter-chip__check-icon"
-                  name="icon/status/check/filled"
-                />
-              </span>
-            ) : null}
+            <Tag
+              className="hotel-list-filter-chip__tag"
+              icon={
+                item.icon === 'benefit' ? (
+                  <img
+                    alt=""
+                    className="hotel-list-filter-chip__icon"
+                    src={businessBenefitIcon}
+                  />
+                ) : null
+              }
+              selectableStyle="light"
+              selected={Boolean(item.checked || item.active)}
+              variant="selectable"
+            >
+              {item.label}
+            </Tag>
           </button>
         ))}
       </div>

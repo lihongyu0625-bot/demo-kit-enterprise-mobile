@@ -16,8 +16,8 @@ export function Badge({
     variant === 'agreement'
       ? null
       : statusType === 'warning'
-        ? 'icon/status/prohibited-circle/filled'
-        : 'icon/status/success-circle/filled'
+        ? 'icon/status/prohibited-circle/outlined'
+        : 'icon/status/success-circle/outlined'
 
   return (
     <span

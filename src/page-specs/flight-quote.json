@@ -1,0 +1,12 @@
+{
+  "pageType": "flight-quote",
+  "pageTitle": "航班报价页",
+  "sections": [
+    "top-nav",
+    "notice",
+    "flight-summary",
+    "cabin-tabs",
+    "filter-bar",
+    "quote-list"
+  ]
+}

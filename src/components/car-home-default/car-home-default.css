@@ -78,6 +78,8 @@
   height: 20px;
   flex: none;
   color: var(--color-white);
+  -webkit-mask-size: cover;
+  mask-size: cover;
 }
 
 .car-home-default-hero__content {
@@ -696,6 +698,7 @@
 
 .car-home-full-driver-banner {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
   gap: 8px;
   padding: 2px 12px;
@@ -709,6 +712,7 @@
   position: absolute;
   top: 50%;
   right: -0.23px;
+  z-index: 0;
   width: 230.728px;
   height: 64px;
   transform: translateY(-50%);
@@ -723,6 +727,8 @@
 }
 
 .car-home-full-driver-banner__media {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -748,25 +754,32 @@
 }
 
 .car-home-full-driver-banner__title-wrap {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  display: inline-flex;
   align-items: flex-start;
+  width: fit-content;
 }
 
 .car-home-full-driver-banner__title {
-  color: var(--color-alpha-black-84);
+  position: relative;
+  z-index: 1;
+  color: var(--color-text-primary);
   font-size: 12px;
   font-weight: 600;
   line-height: 20px;
-  margin-bottom: -6.316px;
   white-space: nowrap;
 }
 
 .car-home-full-driver-banner__title-line {
+  position: absolute;
+  bottom: 3px;
+  left: 0;
+  z-index: 0;
   display: block;
   width: 100%;
   height: 6.316px;
   object-fit: cover;
+  pointer-events: none;
 }
 
 .car-home-full-driver-banner__meta {
@@ -779,16 +792,16 @@
 
 .car-home-full-driver-banner__plate {
   display: inline-flex;
-  align-items: baseline;
+  align-items: flex-end;
   overflow: hidden;
-  color: var(--color-alpha-black-84);
+  color: var(--color-text-primary);
 }
 
 .car-home-full-driver-banner__distance {
   display: inline-flex;
   align-items: baseline;
   overflow: hidden;
-  color: var(--color-alpha-black-60);
+  color: var(--color-text-primary);
 }
 
 .car-home-full-driver-banner__plate-prefix {
@@ -801,7 +814,7 @@
   font-family: 'Barlow Semi Condensed', sans-serif;
   font-size: 22px;
   font-weight: 500;
-  line-height: normal;
+  line-height: 26px;
 }
 
 .car-home-full-driver-banner__distance-number {
@@ -816,39 +829,88 @@
   line-height: 20px;
 }
 
-.car-home-full-driver-banner__action,
-.car-home-full-pending-notice__action {
+.car-home-full-driver-banner__action {
+  position: relative;
+  z-index: 1;
+  overflow: clip;
   width: 60px;
   height: 28px;
   padding: 3px 10px;
   border-radius: var(--radius-pill);
-  background: var(--color-blue-50);
+  background: linear-gradient(180deg, var(--color-blue-50) 0%, var(--color-blue-40) 100%);
+  opacity: 1;
   color: var(--color-white);
-  font-size: 14px;
+  font-size: 12px;
+  font-family: inherit;
   font-weight: 600;
   line-height: 20px;
+  white-space: nowrap;
+}
+
+.car-home-full-pending-notice__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 60px;
+  height: 28px;
+  padding: 3px 10px;
+  overflow: clip;
+  border-radius: 20px;
+  background: linear-gradient(180deg, var(--color-orange-54) 0%, var(--color-orange-52) 100%);
+  color: var(--color-white);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
 }
 
 .car-home-full-pending-notice {
+  display: flex;
+  align-items: center;
   gap: 8px;
   padding: 12px;
   border: 0.5px solid var(--color-overlay-orange-40);
   border-radius: var(--radius-8);
-  background: linear-gradient(180deg, var(--color-overlay-orange-96) 0%, var(--color-overlay-orange-96-2) 100%);
+  background: #fff5f0;
+}
+
+.car-home-full-pending-notice__content {
+  display: flex;
+  flex: 1 0 0;
+  gap: 4px;
+  align-items: center;
+  min-width: 0;
 }
 
 .car-home-full-pending-notice__status {
   color: var(--color-orange-50);
-  font-size: 12px;
+  flex: none;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 20px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.car-home-full-pending-notice__divider {
+  width: 1px;
+  height: 8px;
+  flex: none;
+  background: var(--color-alpha-black-12);
 }
 
 .car-home-full-pending-notice__text {
-  flex: 1 1 auto;
-  color: var(--color-alpha-black-84);
+  flex: 1 0 0;
+  min-width: 0;
+  color: var(--color-text-primary);
   font-size: 14px;
+  font-weight: 400;
   line-height: 22px;
+  white-space: nowrap;
+}
+
+.car-home-full-pending-notice__count {
+  color: var(--color-orange-50);
 }
 
 .car-home-full-applications,
@@ -895,6 +957,7 @@
 .car-home-full-summary__chevron {
   width: 14px;
   height: 14px;
+  color: var(--color-alpha-black-36);
 }
 
 .car-home-full-application-card,
@@ -908,48 +971,81 @@
   display: grid;
   gap: 12px;
   padding: 12px;
+  isolation: isolate;
 }
 
 .car-home-full-application-card--blue {
   border: 1px solid var(--color-blue-16);
-  background: linear-gradient(180deg, var(--color-blue-18) 0%, var(--color-white) 84%);
+  background: linear-gradient(180deg, #e1f0ff 0%, var(--color-white) 84.331%);
 }
 
 .car-home-full-application-card--green {
   border: 0.5px solid var(--color-overlay-green-32);
-  background: linear-gradient(180deg, var(--color-green-14) 0%, var(--color-white) 62%);
+  background: linear-gradient(180deg, var(--color-green-14) 0%, var(--color-white) 62.128%);
 }
 
 .car-home-full-application-card__pattern {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 188px;
-  height: 168px;
-  opacity: 0.9;
+  top: -1px;
+  right: -1px;
+  z-index: 0;
+  width: 351px;
+  height: 167px;
   pointer-events: none;
 }
 
 .car-home-full-application-card__header {
+  display: flex;
   justify-content: space-between;
-  gap: 12px;
+  gap: 4px;
   position: relative;
   z-index: 1;
 }
 
 .car-home-full-application-card__header-main {
   display: inline-flex;
-  gap: 5px;
+  gap: 4px;
   align-items: center;
   min-width: 0;
 }
 
 .car-home-full-application-card__badge,
 .car-home-full-application-card__title {
-  color: var(--color-alpha-black-84);
+  color: var(--color-text-primary);
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
+  white-space: nowrap;
+}
+
+.car-home-full-car-application-card__badge-image {
+  display: block;
+  width: 42px;
+  height: 14px;
+  flex: none;
+  object-fit: cover;
+}
+
+.car-home-full-travel-application-card__badge-image {
+  display: block;
+  width: 39.667px;
+  height: 14px;
+  flex: none;
+  object-fit: cover;
+}
+
+.car-home-full-travel-application-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 14px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #6fc98c 0%, #34bb6d 100%);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 14px;
   white-space: nowrap;
 }
 
@@ -967,7 +1063,40 @@
   line-height: 20px;
 }
 
+.car-home-full-car-application-card__status-corner {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  z-index: 2;
+  width: 60px;
+  height: 24px;
+}
+
+.car-home-full-car-application-card__status-corner-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-home-full-car-application-card__status-corner-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  height: 20px;
+  transform: translateX(3px);
+  color: var(--color-blue-50);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
 .car-home-full-application-card__body {
+  position: relative;
+  z-index: 1;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -992,7 +1121,7 @@
 .car-home-full-application-card__field-label {
   flex: none;
   width: 36px;
-  color: var(--color-alpha-black-36);
+  color: var(--color-text-tertiary);
   font-size: 12px;
   line-height: 20px;
 }
@@ -1001,7 +1130,7 @@
   display: grid;
   gap: 0;
   min-width: 0;
-  color: var(--color-alpha-black-84);
+  color: var(--color-text-primary);
   font-size: 12px;
   line-height: 20px;
 }
@@ -1012,48 +1141,87 @@
   align-items: center;
 }
 
-.car-home-full-application-card__cta,
-.car-home-full-trip-card__cta {
+.car-home-full-taxi-button {
+  appearance: none;
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 4px;
   min-width: 84px;
   height: 32px;
   padding: 0 12px;
+  border: none;
   border-radius: var(--radius-pill);
   background: linear-gradient(180deg, var(--color-blue-34) 0%, var(--color-blue-50) 100%);
-  box-shadow: 0 4px 12px var(--color-line-brand-strong);
+  box-shadow: 0 2.813px 2.813px rgba(20, 115, 255, 0.27);
   color: var(--color-white);
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
 }
 
-.car-home-full-application-card__cta-icon,
-.car-home-full-trip-card__cta-icon {
+.car-home-full-car-application-card__cta,
+.car-home-full-trip-card__cta {
+  padding: 5px 12px;
+  border-radius: 46.875px;
+  background: linear-gradient(270deg, var(--color-blue-50) 0%, #408dff 97.857%);
+  box-shadow: 0 2.813px 2.813px rgba(20, 115, 255, 0.27);
+  font-size: 12px;
+}
+
+.car-home-full-travel-application-card__fields {
+  width: 100%;
+}
+
+.car-home-full-taxi-button__icon {
+  display: inline-block;
+  flex: none;
   width: 14px;
   height: 14px;
 }
 
 .car-home-full-travel-links {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  display: flex;
+  gap: 0;
+  align-items: center;
+  width: 100%;
+  height: auto;
   padding-top: 12px;
   border-top: 1px dashed var(--color-alpha-black-12);
 }
 
 .car-home-full-travel-links__item {
-  display: grid;
+  position: relative;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
   gap: 4px;
-  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.car-home-full-travel-links__item + .car-home-full-travel-links__item::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 12px;
+  background: var(--color-alpha-black-12);
+  transform: translateY(-50%);
 }
 
 .car-home-full-travel-links__icon {
   width: 22px;
   height: 22px;
-  object-fit: contain;
+  color: var(--color-alpha-black-84);
 }
 
 .car-home-full-travel-links__label {
-  color: var(--color-alpha-black-84);
+  color: var(--color-text-primary);
   font-size: 12px;
   line-height: 20px;
   text-align: center;
@@ -1061,27 +1229,28 @@
 }
 
 .car-home-full-trip-card {
-  display: grid;
-  gap: 12px;
-  padding: 0 12px 12px;
-  border: 1px solid var(--color-blue-27);
-  background:
-    radial-gradient(circle at top right, var(--color-overlay-blue-85) 0%, var(--color-alpha-white-0) 45%),
-    linear-gradient(180deg, var(--color-overlay-blue-90) 0%, var(--color-white) 32%);
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid rgba(0, 127, 255, 0.24);
+  background: transparent;
+  isolation: isolate;
 }
 
 .car-home-full-trip-card__top {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin: 0 -12px;
-  padding: 6px 12px;
-  background: var(--color-overlay-blue-80);
+  margin-bottom: -8px;
+  padding: 8px 12px 16px;
+  background: #eaf5ff;
+  border-radius: var(--radius-8) var(--radius-8) 0 0;
 }
 
 .car-home-full-trip-card__date {
   display: inline-flex;
   gap: 4px;
   align-items: center;
-  color: var(--color-alpha-black-60);
+  color: #666;
   font-size: 12px;
   line-height: 20px;
 }
@@ -1092,25 +1261,63 @@
 }
 
 .car-home-full-trip-card__status {
-  color: var(--color-alpha-black-60);
+  color: #666;
   font-size: 12px;
   line-height: 20px;
 }
 
-.car-home-full-trip-card__route {
+.car-home-full-trip-card__content {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 109px minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px;
+  overflow: hidden;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+  box-shadow: 0 -4px 7px rgba(0, 0, 0, 0.01);
+  isolation: isolate;
+}
+
+.car-home-full-trip-card__texture {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  z-index: 0;
+  width: 225.418px;
+  height: 95px;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.car-home-full-trip-card__texture-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-home-full-trip-card__route {
+  position: relative;
+  z-index: 1;
+  display: flex;
   gap: 8px;
   align-items: center;
+  min-height: 59.621px;
 }
 
 .car-home-full-trip-card__airport {
+  position: relative;
+  z-index: 1;
   display: grid;
+  flex: 1 1 0;
   gap: 0;
+  min-width: 0;
 }
 
 .car-home-full-trip-card__airport--right {
   text-align: right;
+  justify-items: end;
 }
 
 .car-home-full-trip-card__time {
@@ -1128,59 +1335,92 @@
 }
 
 .car-home-full-trip-card__flight {
+  position: relative;
+  z-index: 1;
   display: grid;
+  flex: none;
+  width: 109px;
   justify-items: center;
-  gap: 2px;
+  gap: 0;
 }
 
 .car-home-full-trip-card__flight-no {
-  color: var(--color-alpha-black-60);
+  color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
   line-height: 20px;
+  white-space: nowrap;
 }
 
 .car-home-full-trip-card__flight-line {
   display: block;
   width: 109px;
-  height: 25px;
-  object-fit: contain;
+  height: auto;
+  object-fit: cover;
 }
 
 .car-home-full-trip-card__duration {
-  color: var(--color-alpha-black-36);
+  min-width: 100%;
+  height: 16px;
+  color: rgba(0, 0, 0, 0.36);
   font-size: 10px;
   line-height: 16px;
-}
-
-.car-home-full-trip-card__bottom {
-  gap: 8px;
-  flex-wrap: wrap;
+  text-align: center;
 }
 
 .car-home-full-trip-card__passengers {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
-  gap: 8px;
+  gap: 12px;
   align-items: center;
-  color: var(--color-alpha-black-84);
+  color: rgba(0, 0, 0, 0.84);
   font-size: 12px;
   line-height: 20px;
 }
 
 .car-home-full-trip-card__passengers-label {
-  color: var(--color-alpha-black-36);
+  color: rgba(0, 0, 0, 0.36);
+}
+
+.car-home-full-trip-card__benefit-strip {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 38px;
+  padding: 4px 4px 4px 8px;
+  border-radius: var(--radius-6);
+  background: linear-gradient(90deg, rgba(244, 244, 244, 0.67) 0%, rgba(225, 241, 255, 0) 100%);
 }
 
 .car-home-full-trip-card__benefits {
   display: inline-flex;
-  gap: 12px;
-  align-items: center;
   flex: 1 1 auto;
+  gap: 0;
+  align-items: center;
+  min-width: 0;
+}
+
+.car-home-full-trip-card__benefit-item {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  min-width: 0;
+}
+
+.car-home-full-trip-card__benefit-divider {
+  width: 1px;
+  height: 8px;
+  flex: none;
+  background: var(--color-alpha-black-12);
 }
 
 .car-home-full-trip-card__benefit {
-  color: var(--color-blue-50);
+  color: #09397f;
   font-size: 12px;
   line-height: 20px;
+  white-space: nowrap;
 }
 
 .car-home-full-promo {

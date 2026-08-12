@@ -1,0 +1,44 @@
+{
+  "pickup": {
+    "badge": "推荐上车点",
+    "photoLabel": "图文步导",
+    "name": "南站西侧停车场"
+  },
+  "mapLabel": {
+    "name": "南站西侧停车场-",
+    "detail": "夹(M)层-F3通道"
+  },
+  "inputCard": {
+    "tabs": [
+      {
+        "label": "现在",
+        "active": true
+      },
+      {
+        "label": "预约",
+        "active": false
+      },
+      {
+        "label": "接送机",
+        "active": false
+      },
+      {
+        "label": "接送站",
+        "active": false
+      }
+    ],
+    "originPrefix": "你将从",
+    "origin": "北京南站",
+    "originSuffix": "上车",
+    "destinationPlaceholder": "您想去哪儿？",
+    "destinationSuggestion": "去：滴滴新橙海大厦"
+  },
+  "safetyGuide": {
+    "eyebrow": "滴滴安全指南，保证您的行程安全",
+    "title": [
+      "滴滴安全指南",
+      "关爱您的每次出行"
+    ],
+    "action": "查看教程"
+  }
+}

@@ -10,6 +10,7 @@ import headphonesIcon from '../../assets/hotel-home-business/icon-headphones.svg
 import ordersIcon from '../../assets/hotel-home-business/icon-orders.svg'
 import benefitsIcon from '../../assets/hotel-home-business/icon-benefits.svg'
 import watermarkGroup451Image from '../../assets/hotel-home-business/watermark-group-451.svg'
+import { BottomWatermark } from '../common/BottomWatermark'
 import { DirectionalIcon } from '../common/DirectionalIcon'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneBar } from '../common/IPhoneBar'
@@ -399,23 +400,12 @@ export function HotelHomeBusinessGuaranteeCard() {
 
 export function HotelHomeBusinessBottomWatermark() {
   return (
-    <div className="hotel-home-business-watermark">
-      <div className="hotel-home-business-watermark__headline">
-        <img
-          alt="订酒店·省心住"
-          className="hotel-home-business-watermark__headline-image"
-          src={watermarkGroup451Image}
-        />
-      </div>
-
-      <div className="hotel-home-business-watermark__items">
-        <span>贵必赔</span>
-        <span aria-hidden="true" className="hotel-home-business-watermark__divider" />
-        <span>降价退</span>
-        <span aria-hidden="true" className="hotel-home-business-watermark__divider" />
-        <span>省立返</span>
-      </div>
-    </div>
+    <BottomWatermark
+      className="hotel-home-business-watermark"
+      headlineAlt="订酒店·省心住"
+      headlineSrc={watermarkGroup451Image}
+      items={['贵必赔', '降价退', '省立返']}
+    />
   )
 }
 

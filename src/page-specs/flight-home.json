@@ -1,0 +1,13 @@
+{
+  "pageType": "flight-home",
+  "pageTitle": "机票首页-因公",
+  "sections": [
+    "hero-background",
+    "top-nav",
+    "hero-intro",
+    "application-card",
+    "guarantee-card",
+    "benefit-strip",
+    "bottom-nav"
+  ]
+}

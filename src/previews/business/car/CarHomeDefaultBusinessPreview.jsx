@@ -12,10 +12,12 @@ import {
 import {
   CarHomeFullActions,
   CarHomeFullApplications,
+  CarHomeFullCarApplicationCard,
   CarHomeFullDriverBanner,
   CarHomeFullPendingNotice,
   CarHomeFullRideNotice,
   CarHomeFullTrips,
+  CarHomeFullTravelApplicationCard,
 } from '../../../components/car-home-default/CarHomeFullComponents'
 
 const showcaseList = [
@@ -88,8 +90,18 @@ const showcaseList = [
     render: <CarHomeFullPendingNotice notice={carHomeFullData.pendingNotice} />,
   },
   {
+    name: '全态新增 · 用车申请单',
+    description: '全态新增的用车申请单组件，展示事由、额度、次数、出行人和去打车动作。',
+    render: <CarHomeFullCarApplicationCard application={carHomeFullData.applications[0]} />,
+  },
+  {
+    name: '全态新增 · 差旅申请单',
+    description: '全态新增的差旅申请单组件，展示差旅行程、出行人和关联的出行入口。',
+    render: <CarHomeFullTravelApplicationCard application={carHomeFullData.applications[1]} />,
+  },
+  {
     name: '全态新增 · 申请单卡组',
-    description: '全态新增的申请单标题条与两张业务卡片，包含用车单和差旅单。',
+    description: '页面内仍按申请单标题条加两张独立业务卡片组合展示，用于首页全态完整预览。',
     render: (
       <CarHomeFullApplications
         applications={carHomeFullData.applications}

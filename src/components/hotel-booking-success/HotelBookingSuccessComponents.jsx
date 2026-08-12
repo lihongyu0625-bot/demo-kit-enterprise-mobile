@@ -10,6 +10,7 @@ import { IPhoneFooter } from '../common/IPhoneFooter'
 import './hotel-booking-success.css'
 
 const orderActionIconMap = {
+  airplane: 'icon/travel/airplane/outlined',
   clipboard: 'icon/file/clipboard/outlined',
   home: 'icon/action/home/outlined',
 }
@@ -40,6 +41,14 @@ function SuccessCard({ children, className }) {
   return <section className={cx('hotel-booking-success-card', className)}>{children}</section>
 }
 
+function getOrderTitle(order) {
+  return order.title || order.hotelName
+}
+
+function getOrderActionIcon(iconName) {
+  return orderActionIconMap[iconName] || iconName
+}
+
 export function HotelBookingSuccessStatus({ status }) {
   return (
     <section className="hotel-booking-success-status">
@@ -56,10 +65,13 @@ export function HotelBookingSuccessStatus({ status }) {
   )
 }
 
-export function HotelBookingSuccessOrderCard({ order }) {
+export function HotelBookingSuccessOrderCard({ order, variant }) {
   return (
-    <SuccessCard className="hotel-booking-success-order">
-      <h2 className="hotel-booking-success-order__title">{order.hotelName}</h2>
+    <SuccessCard className={cx('hotel-booking-success-order', variant && `hotel-booking-success-order--${variant}`)}>
+      <div className="hotel-booking-success-order__title-row">
+        {order.badge ? <span className="hotel-booking-success-order__badge">{order.badge}</span> : null}
+        <h2 className="hotel-booking-success-order__title">{getOrderTitle(order)}</h2>
+      </div>
 
       <div className="hotel-booking-success-order__rows">
         {order.rows.map((row) => (
@@ -105,15 +117,24 @@ export function HotelBookingSuccessOrderCard({ order }) {
             >
               <BookingSuccessGlobalIcon
                 className="hotel-booking-success-order__action-icon"
-                name={orderActionIconMap[item.icon]}
+                name={getOrderActionIcon(item.icon)}
               />
               <span>{item.label}</span>
             </button>
-            {index === 0 ? <span className="hotel-booking-success-order__divider" /> : null}
+            {index < order.actions.length - 1 ? <span className="hotel-booking-success-order__divider" /> : null}
           </div>
         ))}
       </div>
     </SuccessCard>
+  )
+}
+
+export function HotelBookingSuccessTips({ tips }) {
+  return (
+    <section className="hotel-booking-success-tips">
+      <h2>{tips.title}</h2>
+      <p>{tips.description}</p>
+    </section>
   )
 }
 
@@ -231,3 +252,11 @@ export function HotelBookingSuccessFooter({ className }) {
     </div>
   )
 }
+
+export const OrderSuccessAirportTransferCard = HotelBookingSuccessAirportTransferCard
+export const OrderSuccessFlightBenefitCard = HotelBookingSuccessFlightBenefitCard
+export const OrderSuccessFooter = HotelBookingSuccessFooter
+export const OrderSuccessOrderCard = HotelBookingSuccessOrderCard
+export const OrderSuccessPageChrome = HotelBookingSuccessPageChrome
+export const OrderSuccessStatus = HotelBookingSuccessStatus
+export const OrderSuccessTips = HotelBookingSuccessTips

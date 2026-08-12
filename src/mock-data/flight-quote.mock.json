@@ -1,0 +1,94 @@
+{
+  "nav": {
+    "fromCity": "北京",
+    "toCity": "上海",
+    "policyLabel": "差旅制度"
+  },
+  "notice": {
+    "iconName": "icon/media/volume-high/outlined",
+    "text": "温馨提示：关于旅客携带充电宝紧急通知"
+  },
+  "flight": {
+    "badge": "单程",
+    "date": "07月10日 周四",
+    "departTime": "07:30",
+    "departAirport": "PEK 首都机场T2",
+    "arriveTime": "10:40",
+    "arriveAirport": "PVG 浦东机场T2",
+    "duration": "2h10m",
+    "airline": "东航MU3863",
+    "aircraft": "波音737(中)",
+    "punctuality": "准点率97%",
+    "meal": true,
+    "wifi": true,
+    "express": "东航快线"
+  },
+  "cabins": [
+    {
+      "label": "经济舱",
+      "price": "¥1300",
+      "active": true
+    },
+    {
+      "label": "超级经济舱",
+      "price": "¥1523"
+    },
+    {
+      "label": "公务/头等舱",
+      "price": "¥2456"
+    }
+  ],
+  "filters": [
+    "赠送里程",
+    "赠打车券",
+    "免费退改",
+    "有行李额"
+  ],
+  "quotes": [
+    {
+      "price": "1350",
+      "cabin": "经济舱5.5折",
+      "refund": "退改¥320起",
+      "baggage": "托运行李20KG",
+      "buttonLabel": "订",
+      "buttonMeta": "特价低价"
+    },
+    {
+      "price": "1650",
+      "badge": "协议价",
+      "cabin": "经济舱5.5折",
+      "refund": "退改¥320起",
+      "baggage": "托运行李20KG",
+      "limitNote": "起飞前2小时出票",
+      "benefits": [
+        "打车券 ¥10*3张",
+        "意外保障320万",
+        "酒店券 ¥20*1张",
+        "火车券 ¥10*1张"
+      ],
+      "returnLabel": "+¥40",
+      "returnAction": "更换",
+      "benefitsTitle": "航意保障"
+    },
+    {
+      "price": "1850",
+      "badge": "协议价",
+      "cabin": "经济舱5.5折",
+      "refund": "退改¥320起",
+      "baggage": "托运行李20KG",
+      "limitNote": "起飞前2小时出票",
+      "buttonLabel": "订",
+      "buttonMeta": "剩1张"
+    },
+    {
+      "price": "1850",
+      "badge": "协议价",
+      "cabin": "经济舱5.5折",
+      "refund": "退改¥320起",
+      "baggage": "托运行李20KG",
+      "limitNote": "起飞前2小时出票",
+      "buttonLabel": "订",
+      "buttonMeta": "剩1张"
+    }
+  ]
+}

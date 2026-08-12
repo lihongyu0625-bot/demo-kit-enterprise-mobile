@@ -1,0 +1,28 @@
+{
+  "pageType": "car-location-input",
+  "pageTitle": "用车起终点输入页",
+  "platform": "mobile",
+  "business": "car",
+  "sections": [
+    "map",
+    "floating-actions",
+    "pickup-marker",
+    "route-input-card",
+    "safety-guide",
+    "footer"
+  ],
+  "actions": [
+    "返回",
+    "安全中心",
+    "定位",
+    "查看教程"
+  ],
+  "componentHints": [
+    "复用通用状态栏",
+    "复用通用底部指示条",
+    "复用全局图标组件",
+    "新增用车地图页浮层组件",
+    "新增用车起终点输入卡片组件"
+  ],
+  "outputMode": "React"
+}

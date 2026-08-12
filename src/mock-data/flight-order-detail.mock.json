@@ -1,0 +1,122 @@
+{
+  "nav": {
+    "title": "订单详情"
+  },
+  "status": {
+    "title": "已出票",
+    "notice": {
+      "iconName": "icon/status/warning-circle/outlined",
+      "text": "反诈提醒：航班故障等诈骗频发，牢记“三不一核实原则”"
+    },
+    "actions": [
+      "联系客服",
+      "我要退票",
+      "我要改签"
+    ]
+  },
+  "payment": {
+    "payLabel": "企业支付",
+    "amount": "940",
+    "tag": "因公",
+    "recordLabel": "交易记录",
+    "orderNo": "1128140713528422",
+    "flight": {
+      "badge": "单程",
+      "date": "6月26日",
+      "weekday": "周三",
+      "fromCity": "北京",
+      "toCity": "上海",
+      "departTime": "06:35",
+      "duration": "12小时10分",
+      "arriveTime": "16:45",
+      "departAirport": "北京 首都T2",
+      "arriveAirport": "上海 浦东机场T2",
+      "airline": "东方航空MU3863",
+      "aircraft": "波音737(中)",
+      "meal": "无餐食",
+      "carbon": "绿色之选，减少碳排放量-6%"
+    },
+    "ruleLabel": "退改签、行李额说明"
+  },
+  "tripInfo": {
+    "title": "出行信息",
+    "rows": [
+      {
+        "label": "乘机人",
+        "value": "张晓明、王菁、张瞳等5人"
+      },
+      {
+        "label": "联系信息",
+        "value": "+86 18810808380"
+      },
+      {
+        "label": "联系邮箱",
+        "value": "xiao****@163.com"
+      }
+    ],
+    "actions": [
+      "查看证件、票号",
+      "修改联系信息",
+      "发送确认单"
+    ]
+  },
+  "travelService": {
+    "title": "出行服务",
+    "serviceName": "出行尊享",
+    "description": "100元机场贵宾厅*1次"
+  },
+  "packageInfo": {
+    "title": "套餐",
+    "name": "出行无忧套餐",
+    "quantity": "2",
+    "rows": [
+      {
+        "label": "成本中心"
+      },
+      {
+        "label": "报销凭证"
+      },
+      {
+        "label": "配送方式"
+      }
+    ]
+  },
+  "reimbursementInfo": {
+    "title": "报销信息",
+    "rows": [
+      {
+        "label": "支付方式",
+        "value": "企业支付"
+      },
+      {
+        "label": "成本中心",
+        "value": "滴滴CDX"
+      },
+      {
+        "label": "报销凭证",
+        "value": "纸质普票"
+      },
+      {
+        "label": "配送方式",
+        "value": "统一配送到公司"
+      }
+    ]
+  },
+  "approvalInfo": {
+    "title": "审批信息",
+    "rows": [
+      {
+        "label": "审批人",
+        "value": "郑恒大"
+      },
+      {
+        "label": "差旅单",
+        "value": "市场部拜访客户"
+      },
+      {
+        "label": "申请原因",
+        "value": "经批准可不选择最低价"
+      }
+    ]
+  }
+}

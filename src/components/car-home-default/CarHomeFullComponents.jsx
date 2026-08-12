@@ -4,30 +4,26 @@ import { DirectionalIcon } from '../common/DirectionalIcon'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import applyCarImage from '../../assets/car-home-default/apply-car.png'
 import applyTravelImage from '../../assets/car-home-default/apply-travel.png'
-import flightPlaneIcon from '../../assets/hotel-booking-success/icon-flight-plane.svg'
-import carActionIcon from '../../assets/hotel-booking-success/icon-car.svg'
-import quickBenefitImage from '../../assets/car-home-default/quick-benefit.png'
-import quickChauffeurImage from '../../assets/car-home-default/quick-chauffeur.png'
-import quickFlightImage from '../../assets/car-home-default/quick-flight.png'
-import quickHotelImage from '../../assets/car-home-default/quick-hotel.png'
-import quickTrainImage from '../../assets/car-home-default/quick-train.png'
+import carApplicationBadgeImage from '../../assets/car-home-default/car-application-badge.png'
+import carApplicationPatternImage from '../../assets/car-home-default/car-application-pattern.png'
+import carApplicationStatusRibbonImage from '../../assets/car-home-default/car-application-status-ribbon.svg'
+import driverBannerCarLocalImage from '../../assets/car-home-default/driver-banner-car.png'
+import driverBannerBackgroundImage from '../../assets/car-home-default/driver-banner-background.png'
+import driverBannerTitleLineImage from '../../assets/car-home-default/driver-banner-title-line.svg'
+import promoBenefitImage from '../../assets/car-home-default/promo-side-benefit.svg'
+import promoCouponImage from '../../assets/car-home-default/promo-side-coupon.svg'
+import promoFeedbackImage from '../../assets/car-home-default/promo-side-feedback.svg'
+import promoHotelImage from '../../assets/car-home-default/promo-main-hotel.svg'
+import tripCardDateIconImage from '../../assets/car-home-default/trip-card-date-icon.svg'
+import tripCardRouteImage from '../../assets/car-home-default/trip-card-route.svg'
+import tripCardTextureImage from '../../assets/car-home-default/trip-card-texture.svg'
 
-const driverBannerCarImage = 'https://www.figma.com/api/mcp/asset/c5d6c7f4-1823-4b8b-88b0-5d4cc1427218'
-const driverBannerBackgroundImage = 'https://www.figma.com/api/mcp/asset/d47d688a-a28b-40e9-8803-a75e5f51b631'
-const driverBannerTitleLineImage = 'https://www.figma.com/api/mcp/asset/369e6f66-3545-4254-85ba-e3f6480c6533'
-const carApplicationPatternImage = 'https://www.figma.com/api/mcp/asset/ff32988a-28a8-442c-a61e-39a4ccb421db'
-const tripPlaneLineImage = 'https://www.figma.com/api/mcp/asset/57a6d3d4-df10-4573-86de-d32e1b3474d3'
-const hotelPromoImage = 'https://www.figma.com/api/mcp/asset/34e50ecb-abbb-4ea8-b551-6bcc92e8c882'
-const couponImage = 'https://www.figma.com/api/mcp/asset/bdfbbcd5-6aff-4225-8449-df81525b3fe8'
-const benefitCardImage = 'https://www.figma.com/api/mcp/asset/4250ce86-96ae-4997-86ec-8961da9e7f2a'
-const feedbackCardImage = 'https://www.figma.com/api/mcp/asset/5ea19e9a-68e8-4709-bbf3-c5843b8c525e'
-
-const travelLinkIconMap = {
-  '市内用车': quickChauffeurImage,
-  '接送机': quickBenefitImage,
-  '订机票': quickFlightImage,
-  '订火车票': quickTrainImage,
-  '订酒店': quickHotelImage,
+const travelLinkConfigMap = {
+  '订机票': { name: 'icon/travel/airplane/outlined', tone: 'plane' },
+  '订酒店': { name: 'icon/travel/hotel-tower2/outlined', tone: 'hotel' },
+  '订火车票': { name: 'icon/travel/train-2/outlined', tone: 'train' },
+  '市内用车': { name: 'icon/travel/car2/outlined', tone: 'car' },
+  '接送机': { name: 'icon/travel/transfer/outlined', tone: 'transfer' },
 }
 
 function cx(...classNames) {
@@ -71,6 +67,39 @@ function splitDriverDistance(distance) {
     firstUnit: match[2],
     second: match[3],
     secondUnit: match[4],
+  }
+}
+
+function CarHomeFullTaxiButton({ className, text }) {
+  return (
+    <button
+      className={cx('car-home-full-taxi-button', className)}
+      type="button"
+    >
+      <CarHomeFullGlobalIcon
+        className="car-home-full-taxi-button__icon"
+        name="icon/travel/car2/outlined"
+      />
+      <span>{text}</span>
+    </button>
+  )
+}
+
+function splitPendingNoticeText(text) {
+  const match = text.match(/^(.*?)(\d+)(.*)$/)
+
+  if (!match) {
+    return {
+      beforeCount: text,
+      count: '',
+      afterCount: '',
+    }
+  }
+
+  return {
+    beforeCount: match[1],
+    count: match[2],
+    afterCount: match[3],
   }
 }
 
@@ -135,12 +164,13 @@ function CarHomeFullApplicationField({ field }) {
 }
 
 function CarHomeFullTravelLink({ label }) {
+  const config = travelLinkConfigMap[label]
+
   return (
     <div className="car-home-full-travel-links__item">
-      <img
-        alt=""
-        className="car-home-full-travel-links__icon"
-        src={travelLinkIconMap[label]}
+      <CarHomeFullGlobalIcon
+        className={cx('car-home-full-travel-links__icon', config && `car-home-full-travel-links__icon--${config.tone}`)}
+        name={config?.name}
       />
       <span className="car-home-full-travel-links__label">{label}</span>
     </div>
@@ -157,10 +187,14 @@ function CarHomeFullPromoSideCard({ item, index }) {
       <img
         alt=""
         className="car-home-full-promo__side-figure"
-        src={index === 0 ? couponImage : index === 1 ? benefitCardImage : feedbackCardImage}
+        src={index === 0 ? promoCouponImage : index === 1 ? promoBenefitImage : promoFeedbackImage}
       />
     </article>
   )
+}
+
+function CarHomeFullTravelBadge({ label }) {
+  return <span className="car-home-full-travel-application-card__badge">{label}</span>
 }
 
 export function CarHomeFullRideNotice({ notice }) {
@@ -237,7 +271,7 @@ export function CarHomeFullDriverBanner({ banner }) {
         <img
           alt=""
           className="car-home-full-driver-banner__car"
-          src={driverBannerCarImage}
+          src={driverBannerCarLocalImage}
         />
       </div>
       <div className="car-home-full-driver-banner__content">
@@ -278,10 +312,22 @@ export function CarHomeFullDriverBanner({ banner }) {
 }
 
 export function CarHomeFullPendingNotice({ notice }) {
+  const textParts = splitPendingNoticeText(notice.text)
+
   return (
     <section className="car-home-full-pending-notice">
-      <span className="car-home-full-pending-notice__status">{notice.status}</span>
-      <span className="car-home-full-pending-notice__text">{notice.text}</span>
+      <div className="car-home-full-pending-notice__content">
+        <span className="car-home-full-pending-notice__status">{notice.status}</span>
+        <span
+          aria-hidden="true"
+          className="car-home-full-pending-notice__divider"
+        />
+        <p className="car-home-full-pending-notice__text">
+          <span>{textParts.beforeCount}</span>
+          {textParts.count ? <span className="car-home-full-pending-notice__count">{textParts.count}</span> : null}
+          <span>{textParts.afterCount}</span>
+        </p>
+      </div>
       <button
         className="car-home-full-pending-notice__action"
         type="button"
@@ -297,69 +343,84 @@ export function CarHomeFullApplications({ applications, summary }) {
     <section className="car-home-full-applications">
       <CarHomeFullSummary summary={summary} />
 
-      <article className="car-home-full-application-card car-home-full-application-card--blue">
+      <CarHomeFullCarApplicationCard application={applications[0]} />
+      <CarHomeFullTravelApplicationCard application={applications[1]} />
+    </section>
+  )
+}
+
+export function CarHomeFullCarApplicationCard({ application }) {
+  return (
+    <article className="car-home-full-application-card car-home-full-application-card--blue">
+      <img
+        alt=""
+        className="car-home-full-application-card__pattern"
+        src={carApplicationPatternImage}
+      />
+      <div className="car-home-full-car-application-card__status-corner">
         <img
           alt=""
-          className="car-home-full-application-card__pattern"
-          src={carApplicationPatternImage}
+          className="car-home-full-car-application-card__status-corner-image"
+          src={carApplicationStatusRibbonImage}
         />
-        <div className="car-home-full-application-card__header">
-          <div className="car-home-full-application-card__header-main">
-            <span className="car-home-full-application-card__badge">{applications[0].badge}</span>
-            <span className="car-home-full-application-card__badge-divider" />
-            <span className="car-home-full-application-card__title">{applications[0].title}</span>
-          </div>
-          <span className="car-home-full-application-card__status">{applications[0].status}</span>
+        <span className="car-home-full-car-application-card__status-corner-text">{application.status}</span>
+      </div>
+      <div className="car-home-full-application-card__header">
+        <div className="car-home-full-application-card__header-main">
+          <img
+            alt={application.badge}
+            className="car-home-full-car-application-card__badge-image"
+            src={carApplicationBadgeImage}
+          />
+          <span className="car-home-full-application-card__badge-divider" />
+          <span className="car-home-full-application-card__title">{application.title}</span>
         </div>
-        <div className="car-home-full-application-card__body">
-          <div className="car-home-full-application-card__fields">
-            {applications[0].lines.map((field) => (
-              <CarHomeFullApplicationField
-                field={field}
-                key={field.label}
-              />
-            ))}
-          </div>
-          <button
-            className="car-home-full-application-card__cta"
-            type="button"
-          >
-            <img
-              alt=""
-              className="car-home-full-application-card__cta-icon"
-              src={carActionIcon}
-            />
-            {applications[0].actionText}
-          </button>
-        </div>
-      </article>
-
-      <article className="car-home-full-application-card car-home-full-application-card--green">
-        <div className="car-home-full-application-card__header">
-          <div className="car-home-full-application-card__header-main">
-            <span className="car-home-full-application-card__badge">{applications[1].badge}</span>
-            <span className="car-home-full-application-card__badge-divider" />
-            <span className="car-home-full-application-card__title">{applications[1].title}</span>
-          </div>
-        </div>
+      </div>
+      <div className="car-home-full-application-card__body">
         <div className="car-home-full-application-card__fields">
-          {applications[1].lines.map((field) => (
+          {application.lines.map((field) => (
             <CarHomeFullApplicationField
               field={field}
               key={field.label}
             />
           ))}
         </div>
-        <div className="car-home-full-travel-links">
-          {applications[1].links.map((label) => (
-            <CarHomeFullTravelLink
-              key={label}
-              label={label}
-            />
-          ))}
+        <CarHomeFullTaxiButton
+          className="car-home-full-car-application-card__cta"
+          text={application.actionText}
+        />
+      </div>
+    </article>
+  )
+}
+
+export function CarHomeFullTravelApplicationCard({ application }) {
+  return (
+    <article className="car-home-full-application-card car-home-full-application-card--green car-home-full-travel-application-card">
+      <div className="car-home-full-application-card__header">
+        <div className="car-home-full-application-card__header-main">
+          <CarHomeFullTravelBadge label={application.badge} />
+          <span className="car-home-full-application-card__badge-divider" />
+          <span className="car-home-full-application-card__title">{application.title}</span>
         </div>
-      </article>
-    </section>
+      </div>
+      <div className="car-home-full-application-card__fields car-home-full-travel-application-card__fields">
+        {application.lines.map((field) => (
+          <CarHomeFullApplicationField
+            field={field}
+            key={field.label}
+          />
+        ))}
+      </div>
+      <div className="car-home-full-travel-links">
+        {application.links.map((label) => (
+          <CarHomeFullTravelLink
+            key={label}
+            label={label}
+          />
+        ))}
+      </div>
+    </article>
   )
 }
 
@@ -374,61 +435,69 @@ export function CarHomeFullTrips({ summary, tripCard }) {
             <img
               alt=""
               className="car-home-full-trip-card__date-icon"
-              src={flightPlaneIcon}
+              src={tripCardDateIconImage}
             />
             <span>{tripCard.date}</span>
           </div>
           <span className="car-home-full-trip-card__status">{tripCard.status}</span>
         </div>
 
-        <div className="car-home-full-trip-card__route">
-          <div className="car-home-full-trip-card__airport car-home-full-trip-card__airport--left">
-            <span className="car-home-full-trip-card__time">{tripCard.fromTime}</span>
-            <span className="car-home-full-trip-card__place">{tripCard.fromPlace}</span>
-          </div>
-
-          <div className="car-home-full-trip-card__flight">
-            <span className="car-home-full-trip-card__flight-no">{tripCard.flightNo}</span>
+        <div className="car-home-full-trip-card__content">
+          <div
+            aria-hidden="true"
+            className="car-home-full-trip-card__texture"
+          >
             <img
               alt=""
-              className="car-home-full-trip-card__flight-line"
-              src={tripPlaneLineImage}
+              className="car-home-full-trip-card__texture-image"
+              src={tripCardTextureImage}
             />
-            <span className="car-home-full-trip-card__duration">{tripCard.duration}</span>
           </div>
 
-          <div className="car-home-full-trip-card__airport car-home-full-trip-card__airport--right">
-            <span className="car-home-full-trip-card__time">{tripCard.toTime}</span>
-            <span className="car-home-full-trip-card__place">{tripCard.toPlace}</span>
-          </div>
-        </div>
+          <div className="car-home-full-trip-card__route">
+            <div className="car-home-full-trip-card__airport car-home-full-trip-card__airport--left">
+              <span className="car-home-full-trip-card__time">{tripCard.fromTime}</span>
+              <span className="car-home-full-trip-card__place">{tripCard.fromPlace}</span>
+            </div>
 
-        <div className="car-home-full-trip-card__bottom">
+            <div className="car-home-full-trip-card__flight">
+              <span className="car-home-full-trip-card__flight-no">{tripCard.flightNo}</span>
+              <img
+                alt=""
+                className="car-home-full-trip-card__flight-line"
+                src={tripCardRouteImage}
+              />
+              <span className="car-home-full-trip-card__duration">{tripCard.duration}</span>
+            </div>
+
+            <div className="car-home-full-trip-card__airport car-home-full-trip-card__airport--right">
+              <span className="car-home-full-trip-card__time">{tripCard.toTime}</span>
+              <span className="car-home-full-trip-card__place">{tripCard.toPlace}</span>
+            </div>
+          </div>
+
           <div className="car-home-full-trip-card__passengers">
             <span className="car-home-full-trip-card__passengers-label">{tripCard.passengersLabel}</span>
             <span className="car-home-full-trip-card__passengers-value">{tripCard.passengers}</span>
           </div>
-          <div className="car-home-full-trip-card__benefits">
-            {tripCard.benefits.map((item) => (
-              <span
-                className="car-home-full-trip-card__benefit"
-                key={item}
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-          <button
-            className="car-home-full-trip-card__cta"
-            type="button"
-          >
-            <img
-              alt=""
-              className="car-home-full-trip-card__cta-icon"
-              src={carActionIcon}
+
+          <div className="car-home-full-trip-card__benefit-strip">
+            <div className="car-home-full-trip-card__benefits">
+              {tripCard.benefits.map((item, index) => (
+                <span
+                  className="car-home-full-trip-card__benefit-item"
+                  key={item}
+                >
+                  {index > 0 ? <span aria-hidden="true" className="car-home-full-trip-card__benefit-divider" /> : null}
+                  <span className="car-home-full-trip-card__benefit">{item}</span>
+                </span>
+              ))}
+            </div>
+            <CarHomeFullTaxiButton
+              className="car-home-full-trip-card__cta"
+              text={tripCard.actionText}
             />
-            {tripCard.actionText}
-          </button>
+          </div>
         </div>
       </article>
     </section>
@@ -446,7 +515,7 @@ export function CarHomeFullPromoCards({ cards }) {
         <img
           alt=""
           className="car-home-full-promo__main-figure"
-          src={hotelPromoImage}
+          src={promoHotelImage}
         />
         <button
           className="car-home-full-promo__main-action"

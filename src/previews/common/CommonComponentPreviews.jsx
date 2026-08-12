@@ -3,12 +3,14 @@ import { CardDivider } from '../../components/common/CardDivider'
 import { ChevronAction } from '../../components/common/ChevronAction'
 import { IPhoneBar } from '../../components/common/IPhoneBar'
 import { MobileNavBar } from '../../components/common/MobileNavBar'
+import { BottomWatermark } from '../../components/common/BottomWatermark'
 import { IPhoneFooter } from '../../components/common/IPhoneFooter'
 import { PageBottomNav } from '../../components/common/PageBottomNav'
 import { PriceDisplay } from '../../components/common/PriceDisplay'
 import { Tag } from '../../components/common/Tag'
 import carHomeDefaultData from '../../mock-data/car-home-default.mock.json'
 import { CarHomeDefaultFooterRules } from '../../components/car-home-default/CarHomeDefaultComponents'
+import bottomWatermarkFlightImage from '../../assets/flight-home/bottom-watermark-flight.svg'
 import { HotelHomeBusinessBottomWatermark } from '../../components/hotel-home-business/HotelHomeBusinessComponents'
 import hotelBenefitsIcon from '../../assets/hotel-home-business/icon-benefits.svg'
 import hotelHeadphonesIcon from '../../assets/hotel-home-business/icon-headphones.svg'
@@ -214,8 +216,8 @@ const commonUsageMap = {
     components: ['酒店卡片价格区', '酒店预订按钮价格区', '房型卡片价格区', '酒店填单页底部提交栏'],
   },
   tag: {
-    pages: ['酒店详情页'],
-    components: ['酒店详情页筛选标签', '酒店详情页房型属性标签'],
+    pages: ['酒店详情页', '通用筛选场景'],
+    components: ['酒店详情页筛选标签', '酒店详情页房型属性标签', '设计稿新增可选标签'],
   },
   badge: {
     pages: ['酒店填单页', '酒店详情页'],
@@ -226,8 +228,8 @@ const commonUsageMap = {
     components: ['酒店填单页各信息卡', '酒店详情页权益信息区', '酒店首页-因公省心住卡片'],
   },
   bottomWatermark: {
-    pages: ['酒店首页-因公', '首页'],
-    components: ['酒店首页-因公底部水印', '首页规则区底部品牌水印（默认态）'],
+    pages: ['酒店首页-因公', '机票首页-因公', '首页'],
+    components: ['酒店首页-因公底部水印', '机票首页-因公底部水印', '首页规则区底部品牌水印（默认态）'],
   },
   chevronAction: {
     pages: ['酒店填单页'],
@@ -542,14 +544,146 @@ export function CommonTagPreview() {
     <CommonPreviewShell
       eyebrow="通用组件"
       title="标签预览"
-      summary="这里展示的是从酒店详情页里抽出来的两类真实标签：筛选胶囊和房型小标签。"
+      summary="这里展示的是当前通用标签体系里的三类真实样式：筛选胶囊、房型属性标签，以及支持选择的可选标签。"
       usage={commonUsageMap.tag}
     >
-      <div className="common-token-list">
-        <Tag>大床</Tag>
-        <Tag tone="muted">含早 / 免费取消</Tag>
-        <Tag variant="room">双早</Tag>
-        <Tag variant="room" tone="primary">立即确认</Tag>
+      <div className="common-tag-showcase">
+        <article className="common-foundation-card common-tag-showcase__section">
+          <div className="common-tag-showcase__section-header">
+            <div>
+              <p className="common-tag-showcase__eyebrow">基础标签</p>
+              <h4 className="common-tag-showcase__title">业务里已经落地的常规标签</h4>
+            </div>
+            <p className="common-tag-showcase__copy">适合展示筛选条件和房型属性，重点看语义和信息密度。</p>
+          </div>
+          <div className="common-tag-showcase__basic-grid">
+            <article className="common-tag-showcase__group">
+              <div className="common-tag-showcase__group-header">
+                <h5 className="common-tag-showcase__group-title">筛选胶囊</h5>
+                <p className="common-tag-showcase__group-copy">弱强调、信息轻，适合筛选区和说明性状态。</p>
+              </div>
+              <div className="common-token-list">
+                <Tag>大床</Tag>
+                <Tag tone="muted">含早 / 免费取消</Tag>
+              </div>
+            </article>
+            <article className="common-tag-showcase__group">
+              <div className="common-tag-showcase__group-header">
+                <h5 className="common-tag-showcase__group-title">房型属性</h5>
+                <p className="common-tag-showcase__group-copy">更紧凑的描边样式，适合列表中的高频属性信息。</p>
+              </div>
+              <div className="common-token-list">
+                <Tag variant="room">双早</Tag>
+                <Tag variant="room" tone="primary">立即确认</Tag>
+              </div>
+            </article>
+          </div>
+        </article>
+
+        <article className="common-foundation-card common-tag-showcase__section">
+          <div className="common-tag-showcase__section-header">
+            <div>
+              <p className="common-tag-showcase__eyebrow">可选标签</p>
+              <h4 className="common-tag-showcase__title">支持选中反馈的筛选标签</h4>
+            </div>
+            <p className="common-tag-showcase__copy">按样式拆成亮色和描边两组，每组再区分纯文字与带图标状态。</p>
+          </div>
+          <div className="common-tag-showcase__selectable-grid">
+            <article className="common-tag-showcase__variant">
+              <div className="common-tag-showcase__variant-header">
+                <h5 className="common-tag-showcase__group-title">亮色样式</h5>
+                <p className="common-tag-showcase__group-copy">选中后使用浅蓝底，适合更轻快的筛选场景。</p>
+              </div>
+              <div className="common-tag-showcase__rows">
+                <div className="common-tag-showcase__row">
+                  <span className="common-tag-showcase__row-label">纯文字</span>
+                  <div className="common-multi-select-tag-row">
+                    <Tag
+                      selectableStyle="light"
+                      selected
+                      variant="selectable"
+                    >
+                      航班友好
+                    </Tag>
+                    <Tag
+                      selectableStyle="light"
+                      variant="selectable"
+                    >
+                      职场附近
+                    </Tag>
+                  </div>
+                </div>
+                <div className="common-tag-showcase__row">
+                  <span className="common-tag-showcase__row-label">带图标</span>
+                  <div className="common-multi-select-tag-row">
+                    <Tag
+                      iconName="icon/travel/destination/outlined"
+                      selectableStyle="light"
+                      selected
+                      variant="selectable"
+                    >
+                      航班友好
+                    </Tag>
+                    <Tag
+                      iconName="icon/travel/destination/outlined"
+                      selectableStyle="light"
+                      variant="selectable"
+                    >
+                      职场附近
+                    </Tag>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article className="common-tag-showcase__variant">
+              <div className="common-tag-showcase__variant-header">
+                <h5 className="common-tag-showcase__group-title">描边样式</h5>
+                <p className="common-tag-showcase__group-copy">选中后保留白底和蓝色描边，更适合规则感更强的界面。</p>
+              </div>
+              <div className="common-tag-showcase__rows">
+                <div className="common-tag-showcase__row">
+                  <span className="common-tag-showcase__row-label">纯文字</span>
+                  <div className="common-multi-select-tag-row">
+                    <Tag
+                      selectableStyle="outline"
+                      selected
+                      variant="selectable"
+                    >
+                      航班友好
+                    </Tag>
+                    <Tag
+                      selectableStyle="outline"
+                      variant="selectable"
+                    >
+                      职场附近
+                    </Tag>
+                  </div>
+                </div>
+                <div className="common-tag-showcase__row">
+                  <span className="common-tag-showcase__row-label">带图标</span>
+                  <div className="common-multi-select-tag-row">
+                    <Tag
+                      iconName="icon/travel/destination/outlined"
+                      selectableStyle="outline"
+                      selected
+                      variant="selectable"
+                    >
+                      航班友好
+                    </Tag>
+                    <Tag
+                      iconName="icon/travel/destination/outlined"
+                      selectableStyle="outline"
+                      variant="selectable"
+                    >
+                      职场附近
+                    </Tag>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </article>
       </div>
     </CommonPreviewShell>
   )
@@ -621,6 +755,19 @@ export function CommonBottomWatermarkPreview() {
           </div>
           <div className="common-watermark-surface common-watermark-surface--hotel">
             <HotelHomeBusinessBottomWatermark />
+          </div>
+        </article>
+        <article className="common-foundation-card common-foundation-card--wide">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">机票底部水印</span>
+          </div>
+          <div className="common-watermark-surface common-watermark-surface--flight">
+            <BottomWatermark
+              headlineAlt="订机票·省心飞"
+              headlineSrc={bottomWatermarkFlightImage}
+              items={['贵必赔', '航变无忧退', '省立返']}
+              tone="flight"
+            />
           </div>
         </article>
         <article className="common-foundation-card common-foundation-card--wide">

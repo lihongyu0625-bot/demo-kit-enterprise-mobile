@@ -4,6 +4,8 @@ import { PageBottomNav } from '../common/PageBottomNav'
 import policyCommuteImage from '../../assets/car-home-default/policy-commute.png'
 import policyDriveImage from '../../assets/car-home-default/policy-drive.png'
 import footerBrandImage from '../../assets/car-home-default/footer-brand.svg'
+import heroBackgroundImage from '../../assets/car-home-default/hero-background.png'
+import operationsImage from '../../assets/car-home-default/operations-area.png'
 import policyOvertimeImage from '../../assets/car-home-default/policy-overtime.png'
 import policyPersonalImage from '../../assets/car-home-default/policy-personal.png'
 import quickBenefitImage from '../../assets/car-home-default/quick-benefit.png'
@@ -15,9 +17,6 @@ import v6MemberTagImage from '../../assets/car-home-default/v6-member-tag.png'
 import { DirectionalIcon } from '../common/DirectionalIcon'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import './car-home-default.css'
-
-const heroBackgroundImage = 'https://www.figma.com/api/mcp/asset/3b29dc4e-fc71-4d2c-966c-b41433c44e4f'
-const operationsImage = 'https://www.figma.com/api/mcp/asset/15b24077-ab00-4687-bfed-cf5095943ff8'
 
 const policyIconMap = {
   commute: policyCommuteImage,
@@ -167,7 +166,7 @@ export function CarHomeDefaultHero({ hero }) {
         >
           <CarHomeGlobalIcon
             className="car-home-default-hero__action-icon"
-            name="icon/media/headphones-alt/outlined"
+            name="icon/media/headphones-alt/filled"
           />
         </button>
         <button
@@ -176,7 +175,7 @@ export function CarHomeDefaultHero({ hero }) {
         >
           <CarHomeGlobalIcon
             className="car-home-default-hero__action-icon"
-            name="icon/message/messages/outlined"
+            name="icon/message/message-text/filled"
           />
         </button>
       </div>

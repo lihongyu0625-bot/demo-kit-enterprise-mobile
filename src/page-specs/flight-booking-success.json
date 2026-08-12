@@ -1,0 +1,24 @@
+{
+  "pageType": "flight-booking-success",
+  "pageTitle": "机票下单成功页",
+  "platform": "mobile",
+  "business": "flight",
+  "sections": [
+    "status",
+    "order-card",
+    "tips",
+    "footer"
+  ],
+  "actions": [
+    "返回首页",
+    "预订返程",
+    "订单详情"
+  ],
+  "componentHints": [
+    "复用下单成功页状态区组件",
+    "复用下单成功页订单卡片组件",
+    "复用下单成功页底部设备组件",
+    "新增下单成功页温馨提示组件"
+  ],
+  "outputMode": "React"
+}

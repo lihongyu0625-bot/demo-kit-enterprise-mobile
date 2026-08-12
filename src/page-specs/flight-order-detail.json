@@ -1,0 +1,48 @@
+{
+  "pageType": "flight-order-detail",
+  "pageTitle": "机票订单详情页",
+  "platform": "mobile",
+  "business": "flight",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeId": "880:11854"
+  },
+  "sections": [
+    "pageBackground",
+    "topNavigation",
+    "ticketStatus",
+    "fraudNotice",
+    "orderActions",
+    "paymentFlightCard",
+    "tripInfo",
+    "travelService",
+    "packageInfo",
+    "reimbursementInfo",
+    "approvalInfo",
+    "iphoneFooter"
+  ],
+  "actions": [
+    "back",
+    "contactService",
+    "refundTicket",
+    "changeTicket",
+    "viewTransactionRecords",
+    "copyOrderNo",
+    "viewRules",
+    "viewPassengerTicketNo",
+    "editContact",
+    "sendConfirmation"
+  ],
+  "componentHints": [
+    "FlightOrderDetailBackground",
+    "FlightOrderDetailTopNav",
+    "FlightOrderDetailStatusPanel",
+    "FlightOrderDetailNotice",
+    "FlightOrderDetailActionBar",
+    "FlightOrderDetailPaymentCard",
+    "FlightOrderDetailInfoCard",
+    "FlightOrderDetailTravelService",
+    "FlightOrderDetailPackageCard"
+  ],
+  "outputMode": "react"
+}

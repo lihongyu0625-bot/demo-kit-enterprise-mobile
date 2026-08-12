@@ -22,6 +22,13 @@ import {
   CommonTagPreview,
 } from './common/CommonComponentPreviews'
 import CarHomeDefaultBusinessPreview from './business/car/CarHomeDefaultBusinessPreview'
+import CarLocationInputBusinessPreview from './business/car/CarLocationInputBusinessPreview'
+import FlightFormBusinessPreview from './business/flight/FlightFormBusinessPreview'
+import FlightBookingSuccessBusinessPreview from './business/flight/FlightBookingSuccessBusinessPreview'
+import FlightHomeBusinessPreview from './business/flight/FlightHomeBusinessPreview'
+import FlightListBusinessPreview from './business/flight/FlightListBusinessPreview'
+import FlightOrderDetailBusinessPreview from './business/flight/FlightOrderDetailBusinessPreview'
+import FlightQuoteBusinessPreview from './business/flight/FlightQuoteBusinessPreview'
 import HotelFormBusinessPreview from './business/hotel/HotelFormBusinessPreview'
 import HotelBookingSuccessBusinessPreview from './business/hotel/HotelBookingSuccessBusinessPreview'
 import HotelDetailBusinessPreview from './business/hotel/HotelDetailBusinessPreview'
@@ -30,6 +37,13 @@ import HotelListBusinessPreview from './business/hotel/HotelListBusinessPreview'
 import HotelOrderDetailBusinessPreview from './business/hotel/HotelOrderDetailBusinessPreview'
 import HotelRoomDetailBusinessPreview from './business/hotel/HotelRoomDetailBusinessPreview'
 import CarHomeDefaultCasePreview from './page-cases/car/CarHomeDefaultCasePreview'
+import CarLocationInputCasePreview from './page-cases/car/CarLocationInputCasePreview'
+import FlightFormCasePreview from './page-cases/flight/FlightFormCasePreview'
+import FlightBookingSuccessCasePreview from './page-cases/flight/FlightBookingSuccessCasePreview'
+import FlightHomeCasePreview from './page-cases/flight/FlightHomeCasePreview'
+import FlightListCasePreview from './page-cases/flight/FlightListCasePreview'
+import FlightOrderDetailCasePreview from './page-cases/flight/FlightOrderDetailCasePreview'
+import FlightQuoteCasePreview from './page-cases/flight/FlightQuoteCasePreview'
 import HotelBookingSuccessCasePreview from './page-cases/hotel/HotelBookingSuccessCasePreview'
 import HotelDetailCasePreview from './page-cases/hotel/HotelDetailCasePreview'
 import HotelFormCasePreview from './page-cases/hotel/HotelFormCasePreview'
@@ -184,9 +198,9 @@ export const previewNavigation = [
         type: 'item',
         title: '标签',
         pathLabel: '通用组件 / 标签',
-        description: '统一维护轻量标签组件，适合筛选项、状态项和房型属性展示。',
+        description: '统一维护轻量标签组件，适合筛选项、状态项、房型属性以及多选标签展示。',
         statusLabel: '已接入',
-        maintenanceHint: '适合后续补充主次语义色和图标态。',
+        maintenanceHint: '适合后续补充主次语义色、图标态和更多筛选交互变体。',
         component: CommonTagPreview,
       },
       {
@@ -364,33 +378,90 @@ export const previewNavigation = [
             maintenanceHint: '当前挂载的是用车首页默认态与全态统一整理后的业务组件。',
             component: CarHomeDefaultBusinessPreview,
           },
+          {
+            id: 'business-car-location-input',
+            label: '起终点输入页',
+            type: 'item',
+            title: '起终点输入页组件预览',
+            pathLabel: '业务组件 / 用车 / 起终点输入页',
+            description: '这里展示用车起终点输入页拆出来的地图背景、推荐上车点、悬浮按钮、输入卡片和安全指南卡。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是起终点输入页拆分后的业务组件。',
+            component: CarLocationInputBusinessPreview,
+          },
         ],
       },
       {
         id: 'group-business-flight',
         label: '机票',
-        statusLabel: '待补充',
+        statusLabel: '已接入',
         type: 'group',
         children: [
           {
-            id: 'business-flight-placeholder',
-            label: '预留位',
+            id: 'business-flight-home',
+            label: '首页',
             type: 'item',
-            title: '机票业务组件',
-            pathLabel: '业务组件 / 机票',
-            description: '机票业务组件的目录位已经预留，适合后续沉淀航班卡、乘机人卡和支付区。',
-            statusLabel: '待补充',
-            maintenanceHint: '建议后续按航班信息、出行信息、结算信息拆分。',
-            component: createPlaceholderItem({
-              badge: '业务组件',
-              title: '机票业务组件预留位',
-              summary: '这里是机票业务组件的后续挂载位置，现在先保留结构。',
-              nextSteps: [
-                '1. 新建机票业务组件预览文件',
-                '2. 注册到预览配置里',
-                '3. 统一在这里查看预览',
-              ],
-            }),
+            title: '首页组件预览',
+            pathLabel: '业务组件 / 机票 / 首页',
+            description: '这里统一展示机票首页拆出来的业务组件，适合按头图区、填写卡片、保障卡和底部导航持续维护。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是机票首页-因公拆分后的业务组件。',
+            component: FlightHomeBusinessPreview,
+          },
+          {
+            id: 'business-flight-list',
+            label: '航班列表页',
+            type: 'item',
+            title: '航班列表页组件预览',
+            pathLabel: '业务组件 / 机票 / 航班列表页',
+            description: '这里统一展示航班列表页拆出来的业务组件，适合按顶部导航、日期筛选、航班卡片和底部排序栏持续维护。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是航班列表页拆分后的业务组件。',
+            component: FlightListBusinessPreview,
+          },
+          {
+            id: 'business-flight-quote',
+            label: '航班报价页',
+            type: 'item',
+            title: '航班报价页组件预览',
+            pathLabel: '业务组件 / 机票 / 航班报价页',
+            description: '这里统一展示航班报价页拆出来的业务组件，适合按航班概要、舱等切换、筛选标签和报价卡片持续维护。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是航班报价页拆分后的业务组件。',
+            component: FlightQuoteBusinessPreview,
+          },
+          {
+            id: 'business-flight-form',
+            label: '机票填单页',
+            type: 'item',
+            title: '机票填单页组件预览',
+            pathLabel: '业务组件 / 机票 / 机票填单页',
+            description: '这里统一展示机票填单页拆出来的业务组件，适合按导航、提示、费用卡、乘机人、出行服务和提交栏持续维护。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是机票填单页拆分后的业务组件。',
+            component: FlightFormBusinessPreview,
+          },
+          {
+            id: 'business-flight-order-detail',
+            label: '机票订单详情页',
+            type: 'item',
+            title: '机票订单详情页组件预览',
+            pathLabel: '业务组件 / 机票 / 机票订单详情页',
+            description: '这里统一展示机票订单详情页拆出来的业务组件，适合按状态区、支付航班卡、出行信息、增值服务和审批报销信息持续维护。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是机票订单详情页拆分后的业务组件。',
+            component: FlightOrderDetailBusinessPreview,
+          },
+          {
+            id: 'business-flight-booking-success',
+            label: '机票下单成功页',
+            type: 'item',
+            title: '机票下单成功页组件预览',
+            pathLabel: '业务组件 / 机票 / 机票下单成功页',
+            description: '这里展示机票下单成功页里拆出来的成功状态、订单卡片和温馨提示组件，并复用下单成功页同一套组件能力。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是下单成功页通用组件在机票场景下的拆分预览。',
+            component: FlightBookingSuccessBusinessPreview,
           },
         ],
       },
@@ -531,33 +602,90 @@ export const previewNavigation = [
             maintenanceHint: '当前挂载的是用车首页默认态与全态的整页预览。',
             component: CarHomeDefaultCasePreview,
           },
+          {
+            id: 'page-car-location-input',
+            label: '起终点输入页',
+            type: 'item',
+            title: '起终点输入页整页案例',
+            pathLabel: '页面案例 / 用车 / 起终点输入页',
+            description: '这里展示用车起终点输入页整页组装后的最终效果，适合从页面层级核对地图、上车点和底部输入卡片的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车起终点输入页完整预览。',
+            component: CarLocationInputCasePreview,
+          },
         ],
       },
       {
         id: 'group-pages-flight',
         label: '机票',
-        statusLabel: '待补充',
+        statusLabel: '已接入',
         type: 'group',
         children: [
           {
-            id: 'pages-flight-placeholder',
-            label: '预留位',
+            id: 'page-flight-home',
+            label: '机票首页-因公',
             type: 'item',
-            title: '机票页面案例',
-            pathLabel: '页面案例 / 机票',
-            description: '机票页面案例的目录位已经预留，后续可以接入整页预览和案例说明。',
-            statusLabel: '待补充',
-            maintenanceHint: '建议后续把完整机票页面挂到这里统一查看。',
-            component: createPlaceholderItem({
-              badge: '页面案例',
-              title: '机票页面案例预留位',
-              summary: '这里用于承接机票相关完整页面的最终预览效果。',
-              nextSteps: [
-                '1. 新建机票页面预览组件',
-                '2. 在注册表里绑定到这里',
-                '3. 用整页视角核对最终效果',
-              ],
-            }),
+            title: '机票首页-因公整页案例',
+            pathLabel: '页面案例 / 机票 / 机票首页-因公',
+            description: '这里展示机票首页-因公整页组装后的最终效果，适合从页面层级核对头图、填写卡片、保障卡和底部导航的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是机票首页-因公完整预览。',
+            component: FlightHomeCasePreview,
+          },
+          {
+            id: 'page-flight-list',
+            label: '航班列表页',
+            type: 'item',
+            title: '航班列表页整页案例',
+            pathLabel: '页面案例 / 机票 / 航班列表页',
+            description: '这里展示航班列表页整页组装后的最终效果，适合从页面层级核对顶部筛选、卡片密度和底部排序区的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是航班列表页完整预览。',
+            component: FlightListCasePreview,
+          },
+          {
+            id: 'page-flight-quote',
+            label: '航班报价页',
+            type: 'item',
+            title: '航班报价页整页案例',
+            pathLabel: '页面案例 / 机票 / 航班报价页',
+            description: '这里展示航班报价页整页组装后的最终效果，适合从页面层级核对航班概要、舱等切换和多种报价卡片状态。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是航班报价页完整预览。',
+            component: FlightQuoteCasePreview,
+          },
+          {
+            id: 'page-flight-form',
+            label: '机票填单页',
+            type: 'item',
+            title: '机票填单页整页案例',
+            pathLabel: '页面案例 / 机票 / 机票填单页',
+            description: '这里展示机票填单页整页组装后的最终效果，适合从页面层级核对表单模块、出行服务和吸底提交区的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是机票填单页完整预览。',
+            component: FlightFormCasePreview,
+          },
+          {
+            id: 'page-flight-order-detail',
+            label: '机票订单详情页',
+            type: 'item',
+            title: '机票订单详情页整页案例',
+            pathLabel: '页面案例 / 机票 / 机票订单详情页',
+            description: '这里展示机票订单详情页整页组装后的最终效果，适合从页面层级核对出票状态、支付航班卡和订单信息的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是机票订单详情页完整预览。',
+            component: FlightOrderDetailCasePreview,
+          },
+          {
+            id: 'page-flight-booking-success',
+            label: '机票下单成功页',
+            type: 'item',
+            title: '机票下单成功页整页案例',
+            pathLabel: '页面案例 / 机票 / 机票下单成功页',
+            description: '这里展示机票下单成功页整页组装后的最终效果，适合从页面层级核对等待出票、订单信息和温馨提示的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是复用下单成功页通用组件后的机票完整预览。',
+            component: FlightBookingSuccessCasePreview,
           },
         ],
       },
