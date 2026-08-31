@@ -46,7 +46,11 @@ function OrderDetailSectionTitle({ children }) {
 export function HotelOrderDetailNavBar({ nav }) {
   return (
     <header className="hotel-order-detail-nav">
-      <IPhoneBar className="hotel-order-detail-nav__statusbar" transparent />
+      <IPhoneBar
+        className="hotel-order-detail-nav__statusbar"
+        reserveSpace
+        transparent
+      />
 
       <div className="hotel-order-detail-nav__bar">
         <button
@@ -442,7 +446,7 @@ export function HotelOrderDetailBenefitsCard({ benefits }) {
 export function HotelOrderDetailFooter({ className }) {
   return (
     <div className={cx('hotel-order-detail-footer', className)}>
-      <IPhoneFooter />
+      <IPhoneFooter transparent />
     </div>
   )
 }

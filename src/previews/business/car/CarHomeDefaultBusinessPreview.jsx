@@ -3,7 +3,6 @@ import carHomeFullData from '../../../mock-data/car-home-full.mock.json'
 import {
   CarHomeDefaultBottomNav,
   CarHomeCategoryTabs,
-  CarHomeDefaultFooterRules,
   CarHomeDefaultHero,
   CarHomeDefaultOperationsArea,
   CarHomeDefaultQuickActions,
@@ -120,11 +119,6 @@ const showcaseList = [
     ),
   },
   {
-    name: '通用复用 · 规则区',
-    description: '用于默认态、全态，展示底部品牌文案和规则链接。',
-    render: <CarHomeDefaultFooterRules links={carHomeDefaultData.footerLinks} />,
-  },
-  {
     name: '通用复用 · 底部导航',
     description: '用于默认态、全态，展示一级页面底部导航和 iPhone 底部指示条。',
     render: (
@@ -159,5 +153,7 @@ function CarHomeDefaultBusinessPreview() {
     </section>
   )
 }
+
+CarHomeDefaultBusinessPreview.showcaseList = showcaseList
 
 export default CarHomeDefaultBusinessPreview

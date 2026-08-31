@@ -89,8 +89,8 @@ const showcaseList = [
     ),
   },
   {
-    name: '机票填单页 · 阅读条款',
-    description: '单独维护吸底提交前的协议确认条。',
+    name: '机票填单页 · 条款栏',
+    description: '复用酒店填单页的条款栏，用于吸底提交前的协议确认。',
     render: (
       <ComponentSample tone="agreement">
         <FlightFormAgreementBar agreement={flightFormData.agreement} />
@@ -129,5 +129,7 @@ function FlightFormBusinessPreview() {
     </section>
   )
 }
+
+FlightFormBusinessPreview.showcaseList = showcaseList
 
 export default FlightFormBusinessPreview

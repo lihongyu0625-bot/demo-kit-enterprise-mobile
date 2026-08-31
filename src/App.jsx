@@ -4,6 +4,7 @@ import {
   defaultPreviewId,
   findPreviewById,
   previewNavigation,
+  resolvePreviewId,
 } from './previews/previewRegistry.jsx'
 
 function getInitialPreviewId() {
@@ -11,8 +12,27 @@ function getInitialPreviewId() {
     return defaultPreviewId
   }
 
+  const { previewId: resolvedPreviewId } = getPreviewHashState()
+  return findPreviewById(resolvedPreviewId) ? resolvedPreviewId : defaultPreviewId
+}
+
+function getInitialFocusId() {
+  if (typeof window === 'undefined') {
+    return null
+  }
+
+  return getPreviewHashState().focusId
+}
+
+function getPreviewHashState() {
   const hashValue = window.location.hash.replace('#', '')
-  return findPreviewById(hashValue) ? hashValue : defaultPreviewId
+  const [previewIdValue, queryValue = ''] = hashValue.split('?')
+  const queryParams = new URLSearchParams(queryValue)
+
+  return {
+    focusId: queryParams.get('focus'),
+    previewId: resolvePreviewId(previewIdValue),
+  }
 }
 
 function collectExpandableGroups(items, level = 0, expandedGroups = {}) {
@@ -62,7 +82,7 @@ function PreviewNavTree({
 }) {
   return (
     <div className="preview-nav-tree">
-      {items.map((item) => {
+      {items.filter((item) => !item.hidden).map((item) => {
         if (item.type === 'group') {
           const isCollapsible = level >= 1
           const isCardGroup = level === 1
@@ -145,15 +165,69 @@ function PreviewNavTree({
 function App() {
   const [activePreviewId, setActivePreviewId] = useState(getInitialPreviewId)
   const [expandedGroups, setExpandedGroups] = useState(() => collectExpandableGroups(previewNavigation))
-  const activePreview = findPreviewById(activePreviewId) ?? findPreviewById(defaultPreviewId)
+  const [pendingFocusId, setPendingFocusId] = useState(getInitialFocusId)
+  const resolvedActivePreviewId = resolvePreviewId(activePreviewId)
+  const activePreview = findPreviewById(resolvedActivePreviewId) ?? findPreviewById(defaultPreviewId)
   const ActivePreviewComponent = activePreview.component
 
   useEffect(() => {
-    window.history.replaceState(null, '', `#${activePreviewId}`)
-  }, [activePreviewId])
+    const targetHash = `#${resolvedActivePreviewId}`
+
+    // 由浏览器返回/前进触发的 hashchange 已经更新了地址，这里避免重复压栈
+    if (window.location.hash !== targetHash) {
+      window.history.pushState(null, '', targetHash)
+    }
+  }, [resolvedActivePreviewId])
 
   useEffect(() => {
-    const parentGroupIds = findParentGroupIds(previewNavigation, activePreviewId) ?? []
+    function syncPreviewFromHash() {
+      const { focusId, previewId: resolvedPreviewId } = getPreviewHashState()
+
+      if (findPreviewById(resolvedPreviewId)) {
+        setActivePreviewId(resolvedPreviewId)
+      }
+
+      setPendingFocusId(focusId)
+    }
+
+    window.addEventListener('hashchange', syncPreviewFromHash)
+
+    return () => {
+      window.removeEventListener('hashchange', syncPreviewFromHash)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!pendingFocusId) {
+      return undefined
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      const targetElement = document.getElementById(pendingFocusId)
+
+      if (!targetElement) {
+        setPendingFocusId(null)
+        return
+      }
+
+      document.querySelectorAll('.preview-anchor--active').forEach((element) => {
+        element.classList.remove('preview-anchor--active')
+      })
+      targetElement.scrollIntoView({ block: 'center', behavior: 'smooth' })
+      targetElement.classList.add('preview-anchor--active')
+      window.setTimeout(() => {
+        targetElement.classList.remove('preview-anchor--active')
+      }, 1600)
+      setPendingFocusId(null)
+    })
+
+    return () => {
+      window.cancelAnimationFrame(frameId)
+    }
+  }, [pendingFocusId, resolvedActivePreviewId])
+
+  useEffect(() => {
+    const parentGroupIds = findParentGroupIds(previewNavigation, resolvedActivePreviewId) ?? []
 
     setExpandedGroups((currentGroups) => {
       let hasChanged = false
@@ -168,7 +242,7 @@ function App() {
 
       return hasChanged ? nextGroups : currentGroups
     })
-  }, [activePreviewId])
+  }, [resolvedActivePreviewId])
 
   function handleToggleGroup(groupId) {
     setExpandedGroups((currentGroups) => ({
@@ -184,7 +258,7 @@ function App() {
           <p className="preview-sidebar__eyebrow">组件与页面目录</p>
           <h1 className="preview-sidebar__title">演示组件套件预览台</h1>
           <p className="preview-sidebar__copy">
-            左侧统一维护目录，右侧负责实际预览。后续新增组件时，只要补预览组件并在注册表里加一项即可。
+            左侧按全局、通用、业务和页面案例维护目录。业务组件按酒店、用车、机票、火车票归类，页面案例单独核对整页编排。
           </p>
         </div>
 
@@ -194,7 +268,7 @@ function App() {
         >
           <PreviewNavTree
             items={previewNavigation}
-            activePreviewId={activePreviewId}
+            activePreviewId={resolvedActivePreviewId}
             expandedGroups={expandedGroups}
             onSelect={setActivePreviewId}
             onToggleGroup={handleToggleGroup}
@@ -216,7 +290,7 @@ function App() {
         </header>
 
         <div className="preview-stage__canvas">
-          <ActivePreviewComponent />
+          <ActivePreviewComponent {...activePreview.previewProps} />
         </div>
       </section>
     </main>

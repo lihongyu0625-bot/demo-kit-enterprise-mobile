@@ -1,0 +1,17 @@
+{
+  "points": 376,
+  "rideMission": {
+    "remainingOrders": 1,
+    "reward": 20,
+    "deadline": "23小时56分"
+  },
+  "activityTasks": [
+    "浏览酒店列表页",
+    "浏览机票列表页",
+    "浏览火车票列表页"
+  ],
+  "bookingTasks": [
+    "完成因私酒店预订",
+    "完成因私机票预订"
+  ]
+}

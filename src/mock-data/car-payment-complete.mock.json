@@ -1,0 +1,26 @@
+{
+  "route": {
+    "origin": "弘源新时代",
+    "destination": "天空之城A座"
+  },
+  "policy": {
+    "label": "滴滴办公区"
+  },
+  "payment": {
+    "actualLabel": "本次行程实际花费",
+    "actualAmount": "20.00",
+    "orderTotalLabel": "订单总额",
+    "orderTotalAmount": "24.00",
+    "discountLabel": "尊享立减",
+    "discountAmount": "-4.00"
+  },
+  "rewards": {
+    "memberLabel": "V3会员",
+    "memberPrefix": "里程值+",
+    "memberAmount": "9.00",
+    "pointsLabel": "本单积分",
+    "pointsPrefix": "+",
+    "pointsAmount": "200",
+    "expenseLabel": "费用明细"
+  }
+}

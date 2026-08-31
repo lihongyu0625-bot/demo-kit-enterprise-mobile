@@ -1751,6 +1751,44 @@
   transform: translateX(22px);
 }
 
+.common-multi-select-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.common-multi-select-card {
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--color-line-soft);
+  border-radius: 16px;
+  padding: 16px;
+  background: var(--color-white);
+}
+
+.common-multi-select-card__title {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.common-multi-select-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.common-multi-select-card__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 20px;
+}
+
 .common-nav-sections {
   display: grid;
   gap: 24px;
@@ -1763,6 +1801,11 @@
   border-radius: 18px;
   background: var(--color-alpha-white-72);
   border: 1px solid var(--color-line-soft);
+}
+
+/* 透明底导航栏容器用灰色，方便观察内部组件是否真透明 */
+.common-nav-section--transparent {
+  background: var(--color-bg-gray-2);
 }
 
 .common-nav-section__header {
@@ -1898,6 +1941,13 @@
 
 .common-footer-card--dark {
   background: linear-gradient(180deg, #465d84 0%, #263550 100%);
+}
+
+.common-footer-card--transparent {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.45) 25%, transparent 25%) 0 0 / 16px 16px,
+    linear-gradient(135deg, transparent 75%, rgba(255, 255, 255, 0.45) 75%) 0 0 / 16px 16px,
+    #d9e8ff;
 }
 
 .common-token-list {
@@ -2068,6 +2118,20 @@
   line-height: 18px;
 }
 
+.usage-link {
+  color: var(--color-text-brand);
+  text-decoration: none;
+}
+
+.usage-link:hover,
+.usage-link:focus-visible {
+  text-decoration: underline;
+}
+
+.usage-link__separator {
+  color: rgba(18, 51, 84, 0.36);
+}
+
 .common-divider-panel {
   display: grid;
   gap: 12px;
@@ -2137,6 +2201,169 @@
   align-items: start;
 }
 
+.business-catalog {
+  display: grid;
+  gap: 24px;
+}
+
+.business-catalog__section {
+  display: grid;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid var(--color-line-soft);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top left, rgba(55, 128, 255, 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(247, 250, 255, 0.9) 100%);
+  box-shadow: 0 14px 36px rgba(20, 54, 92, 0.08);
+}
+
+.business-catalog__section-header {
+  display: grid;
+  gap: 8px;
+}
+
+.business-catalog__eyebrow {
+  margin: 0;
+  color: var(--color-text-brand);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.business-catalog__title {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.business-catalog__summary {
+  max-width: 720px;
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.business-catalog__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: start;
+}
+
+.business-catalog__block {
+  align-self: flex-start;
+  scroll-margin: 32px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.business-catalog__block.preview-anchor--active {
+  border-color: rgba(38, 126, 255, 0.72);
+  box-shadow:
+    0 0 0 3px rgba(38, 126, 255, 0.16),
+    0 18px 44px rgba(31, 96, 168, 0.16);
+  transform: translateY(-2px);
+}
+
+.business-catalog__usage {
+  display: grid;
+  gap: 8px;
+  width: 375px;
+  max-width: 375px;
+  margin-top: -4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-line-soft);
+}
+
+.business-catalog__usage-row {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+}
+
+.business-catalog__usage-label {
+  color: rgba(18, 51, 84, 0.44);
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.business-catalog__usage-text {
+  margin: 0;
+  color: rgba(18, 51, 84, 0.72);
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.car-shared-floating-demo {
+  display: grid;
+  gap: 12px;
+  width: 375px;
+}
+
+.car-shared-floating-demo__state {
+  display: grid;
+  gap: 8px;
+  box-sizing: border-box;
+  border: 1px solid var(--color-line-soft);
+  border-radius: 16px;
+  padding: 12px;
+  background: var(--color-bg-gray-2);
+}
+
+.car-shared-floating-demo__state > span {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.car-shared-floating-demo__state--single {
+  justify-items: start;
+}
+
+.car-shared-floating-demo .car-location-input-floating-actions {
+  width: 100%;
+}
+
+.car-shared-service-demo {
+  width: 375px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  padding: 16px;
+  background: var(--color-bg-gray-2);
+}
+
+.car-shared-payment-action-demo {
+  display: grid;
+  gap: 12px;
+  width: 375px;
+}
+
+.car-shared-payment-action-demo__state {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  box-sizing: border-box;
+  border: 1px solid var(--color-line-soft);
+  border-radius: 16px;
+  padding: 12px;
+  background: var(--color-bg-gray-2);
+}
+
+.car-shared-payment-action-demo__state > span {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
 .catalog-block {
   display: inline-grid;
   flex: 0 0 auto;
@@ -2156,10 +2383,12 @@
 }
 
 .catalog-block__surface {
+  position: relative;
   display: grid;
   justify-items: start;
   gap: 12px;
   width: fit-content;
+  overflow: hidden;
   padding: 16px;
   border-radius: 18px;
   background:
@@ -2168,8 +2397,11 @@
 }
 
 .catalog-device-frame {
+  position: relative;
   width: 375px;
   max-width: 375px;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 .catalog-device-frame > * {
@@ -2188,6 +2420,26 @@
 .catalog-surface--nav {
   width: 375px;
   min-height: 108px;
+}
+
+.catalog-surface--transparent-nav {
+  background: transparent;
+}
+
+.catalog-surface--hotel-list-bg,
+.catalog-surface--hotel-form-bg,
+.catalog-surface--success-bg {
+  width: 375px;
+  background: var(--color-bg-gray-2);
+}
+
+.catalog-surface--hotel-list-bg {
+  height: 160px;
+}
+
+.catalog-surface--hotel-form-bg,
+.catalog-surface--success-bg {
+  height: 320px;
 }
 
 .catalog-surface--backdrop {
@@ -2210,6 +2462,145 @@
   display: flex;
   justify-content: center;
   padding: 8px 0 24px;
+}
+
+.page-case-viewport {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  flex: none;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  contain: paint;
+  transform: translateZ(0);
+}
+
+.page-case-viewport__scroll {
+  width: 375px;
+  height: 812px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-alpha-black-24) transparent;
+}
+
+.page-case-viewport__scroll > * {
+  width: 375px;
+  min-height: 812px;
+  border-radius: 0;
+}
+
+.page-case-viewport [class$="-preview"] {
+  border: 0;
+  border-radius: 0 !important;
+  box-shadow: none;
+}
+
+.page-case-viewport .iphone-bar {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.page-case-viewport .iphone-bar__spacer {
+  display: block;
+  width: 100%;
+  height: 44px;
+}
+
+.page-case-viewport .iphone-footer {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--color-white);
+}
+
+.page-case-viewport .iphone-footer--transparent {
+  background: transparent;
+}
+
+/* 业务底部导航位于 iPhone 底部安全区之上。 */
+.page-case-viewport .car-home-default-bottom,
+.page-case-viewport .car-home-full-bottom,
+.page-case-viewport .car-bubble-bottom,
+.page-case-viewport .flight-home-bottom-nav,
+.page-case-viewport .flight-list-bottom-sort,
+.page-case-viewport .hotel-home-business-bottom,
+.page-case-viewport .points-lucky-bag-shell > .points-lucky-bottom {
+  position: fixed;
+  z-index: 90;
+  right: 0;
+  bottom: 34px;
+  left: 0;
+}
+
+.page-case-viewport .car-bubble-bottom {
+  bottom: 0;
+  z-index: 100;
+}
+
+.page-case-viewport .hotel-home-business-bottom {
+  top: auto;
+  bottom: 0;
+  z-index: 100;
+}
+
+/* 带业务操作的底部区域与 iPhone 安全区作为一个整体吸底。 */
+.page-case-viewport .hotel-form-footer,
+.page-case-viewport .flight-form-bottom-dock,
+.page-case-viewport .room-detail-footer {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.page-case-viewport .points-product-detail-overlay__footer-dock {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.page-case-viewport .points-exchange-success-overlay__footer-dock {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* 酒店详情页的固定底部安全区不参与文档流，补足可滚动区域。 */
+.page-case-viewport .hotel-detail-content {
+  padding-bottom: 34px;
+}
+
+/* 组合式底部操作区的安全区应跟随容器整体吸底。 */
+.page-case-viewport .car-bubble-bottom .iphone-footer,
+.page-case-viewport .hotel-home-business-bottom .iphone-footer,
+.page-case-viewport .hotel-form-footer .iphone-footer,
+.page-case-viewport .flight-form-bottom-dock .iphone-footer,
+.page-case-viewport .room-detail-footer .iphone-footer,
+.page-case-viewport .points-product-detail-overlay__footer-dock .iphone-footer,
+.page-case-viewport .points-exchange-success-overlay__footer-dock .iphone-footer {
+  position: relative;
+  z-index: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+}
+
+.page-case-viewport .page-bottom-nav,
+.page-case-viewport .hotel-form-footer,
+.page-case-viewport .room-detail-footer {
+  z-index: 90;
 }
 
 .case-preview__stack {

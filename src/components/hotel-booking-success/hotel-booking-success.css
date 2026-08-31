@@ -9,11 +9,20 @@
   display: flex;
   flex-direction: column;
   min-height: 812px;
+  overflow: hidden;
   background-color: var(--color-bg-gray-2);
+}
+
+.hotel-booking-success-background {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 0;
+  height: 320px;
   background-image: url('../../assets/hotel-booking-success/page-bg.png');
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 375px 320px;
+  pointer-events: none;
 }
 
 .hotel-booking-success-shell,
@@ -26,10 +35,14 @@
 }
 
 .hotel-booking-success-statusbar {
+  position: relative;
+  z-index: 1;
   background: transparent;
 }
 
 .hotel-booking-success-main {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 32px;
   width: 351px;

@@ -1,8 +1,9 @@
 import pageSpec from '../page-specs/car-home-default.json'
 import carHomeDefaultData from '../mock-data/car-home-default.mock.json'
+import footerBrandImage from '../assets/car-home-default/footer-brand.svg'
+import { BottomWatermark } from '../components/common/BottomWatermark'
 import {
   CarHomeDefaultBottomNav,
-  CarHomeDefaultFooterRules,
   CarHomeDefaultHero,
   CarHomeDefaultOperationsArea,
   CarHomeDefaultQuickActions,
@@ -12,7 +13,14 @@ import {
 
 const sectionComponentMap = {
   'bottom-nav': <CarHomeDefaultBottomNav items={carHomeDefaultData.bottomTabs} />,
-  'footer-rules': <CarHomeDefaultFooterRules links={carHomeDefaultData.footerLinks} />,
+  'footer-rules': (
+    <BottomWatermark
+      className="car-home-default-footer-rules"
+      headlineAlt={carHomeDefaultData.hero.title}
+      headlineSrc={footerBrandImage}
+      items={carHomeDefaultData.footerLinks}
+    />
+  ),
   'header-hero': <CarHomeDefaultHero hero={carHomeDefaultData.hero} />,
   'operations-area': <CarHomeDefaultOperationsArea />,
   'quick-actions': <CarHomeDefaultQuickActions items={carHomeDefaultData.quickActions} />,

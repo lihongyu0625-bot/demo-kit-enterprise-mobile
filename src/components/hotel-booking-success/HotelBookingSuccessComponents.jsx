@@ -49,6 +49,10 @@ function getOrderActionIcon(iconName) {
   return orderActionIconMap[iconName] || iconName
 }
 
+export function HotelBookingSuccessPageBackground({ className }) {
+  return <div className={cx('hotel-booking-success-background', className)} />
+}
+
 export function HotelBookingSuccessStatus({ status }) {
   return (
     <section className="hotel-booking-success-status">
@@ -239,7 +243,11 @@ export function HotelBookingSuccessAirportTransferCard({ airportTransfer }) {
 export function HotelBookingSuccessPageChrome({ children }) {
   return (
     <>
-      <IPhoneBar className="hotel-booking-success-statusbar" transparent />
+      <IPhoneBar
+        className="hotel-booking-success-statusbar"
+        reserveSpace
+        transparent
+      />
       {children}
     </>
   )
@@ -248,7 +256,7 @@ export function HotelBookingSuccessPageChrome({ children }) {
 export function HotelBookingSuccessFooter({ className }) {
   return (
     <div className={cx('hotel-booking-success-footer', className)}>
-      <IPhoneFooter />
+      <IPhoneFooter transparent />
     </div>
   )
 }
@@ -257,6 +265,7 @@ export const OrderSuccessAirportTransferCard = HotelBookingSuccessAirportTransfe
 export const OrderSuccessFlightBenefitCard = HotelBookingSuccessFlightBenefitCard
 export const OrderSuccessFooter = HotelBookingSuccessFooter
 export const OrderSuccessOrderCard = HotelBookingSuccessOrderCard
+export const OrderSuccessPageBackground = HotelBookingSuccessPageBackground
 export const OrderSuccessPageChrome = HotelBookingSuccessPageChrome
 export const OrderSuccessStatus = HotelBookingSuccessStatus
 export const OrderSuccessTips = HotelBookingSuccessTips

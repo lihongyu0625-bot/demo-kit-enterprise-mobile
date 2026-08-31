@@ -3,18 +3,20 @@ import { CardDivider } from '../../components/common/CardDivider'
 import { ChevronAction } from '../../components/common/ChevronAction'
 import { IPhoneBar } from '../../components/common/IPhoneBar'
 import { MobileNavBar } from '../../components/common/MobileNavBar'
+import { MultiSelect } from '../../components/common/MultiSelect'
 import { BottomWatermark } from '../../components/common/BottomWatermark'
 import { IPhoneFooter } from '../../components/common/IPhoneFooter'
 import { PageBottomNav } from '../../components/common/PageBottomNav'
 import { PriceDisplay } from '../../components/common/PriceDisplay'
 import { Tag } from '../../components/common/Tag'
 import carHomeDefaultData from '../../mock-data/car-home-default.mock.json'
-import { CarHomeDefaultFooterRules } from '../../components/car-home-default/CarHomeDefaultComponents'
+import footerBrandImage from '../../assets/car-home-default/footer-brand.svg'
 import bottomWatermarkFlightImage from '../../assets/flight-home/bottom-watermark-flight.svg'
-import { HotelHomeBusinessBottomWatermark } from '../../components/hotel-home-business/HotelHomeBusinessComponents'
+import watermarkGroup451Image from '../../assets/hotel-home-business/watermark-group-451.svg'
 import hotelBenefitsIcon from '../../assets/hotel-home-business/icon-benefits.svg'
 import hotelHeadphonesIcon from '../../assets/hotel-home-business/icon-headphones.svg'
 import hotelOrdersIcon from '../../assets/hotel-home-business/icon-orders.svg'
+import { UsageLinkList } from '../UsageLinks'
 
 const navBarSections = [
   {
@@ -84,10 +86,47 @@ const navBarSections = [
           },
         ],
       },
+      {
+        title: '无标题',
+        badge: '标题隐藏',
+        items: [
+          {
+            label: '返回与更多',
+            props: {
+              showBackIcon: true,
+              showRightIcon: true,
+              showRightText: false,
+              showTitle: false,
+              transparent: false,
+            },
+          },
+          {
+            label: '仅右侧文字',
+            props: {
+              showBackIcon: false,
+              showRightIcon: false,
+              showRightText: true,
+              showTitle: false,
+              transparent: false,
+            },
+          },
+          {
+            label: '仅返回',
+            props: {
+              showBackIcon: true,
+              showRightIcon: false,
+              showRightText: false,
+              showTitle: false,
+              transparent: false,
+            },
+          },
+        ],
+      },
     ],
   },
   {
     title: '透明底导航栏',
+    theme: 'transparent',
     description: '适合叠在渐变头图或首屏背景上，状态组合与白底保持一致。',
     groups: [
       {
@@ -100,7 +139,7 @@ const navBarSections = [
               showBackIcon: true,
               showRightIcon: true,
               showRightText: false,
-              statusBarTone: 'light',
+              statusBarTone: 'dark',
               transparent: true,
             },
           },
@@ -110,7 +149,7 @@ const navBarSections = [
               showBackIcon: false,
               showRightIcon: true,
               showRightText: false,
-              statusBarTone: 'light',
+              statusBarTone: 'dark',
               transparent: true,
             },
           },
@@ -126,7 +165,7 @@ const navBarSections = [
               showBackIcon: true,
               showRightIcon: false,
               showRightText: true,
-              statusBarTone: 'light',
+              statusBarTone: 'dark',
               transparent: true,
             },
           },
@@ -136,7 +175,7 @@ const navBarSections = [
               showBackIcon: false,
               showRightIcon: false,
               showRightText: true,
-              statusBarTone: 'light',
+              statusBarTone: 'dark',
               transparent: true,
             },
           },
@@ -152,7 +191,46 @@ const navBarSections = [
               showBackIcon: true,
               showRightIcon: false,
               showRightText: false,
-              statusBarTone: 'light',
+              statusBarTone: 'dark',
+              transparent: true,
+            },
+          },
+        ],
+      },
+      {
+        title: '无标题',
+        badge: '标题隐藏',
+        items: [
+          {
+            label: '返回与更多',
+            props: {
+              showBackIcon: true,
+              showRightIcon: true,
+              showRightText: false,
+              showTitle: false,
+              statusBarTone: 'dark',
+              transparent: true,
+            },
+          },
+          {
+            label: '仅右侧文字',
+            props: {
+              showBackIcon: false,
+              showRightIcon: false,
+              showRightText: true,
+              showTitle: false,
+              statusBarTone: 'dark',
+              transparent: true,
+            },
+          },
+          {
+            label: '仅返回',
+            props: {
+              showBackIcon: true,
+              showRightIcon: false,
+              showRightText: false,
+              showTitle: false,
+              statusBarTone: 'dark',
               transparent: true,
             },
           },
@@ -165,11 +243,15 @@ const navBarSections = [
 const commonUsageMap = {
   button: {
     pages: ['暂无'],
-    components: ['当前还是预留预览位，尚未从酒店业务页面中抽离真实按钮组件。'],
+    components: [],
   },
   switch: {
     pages: ['暂无'],
-    components: ['当前还是预留预览位，尚未从酒店业务页面中抽离真实开关组件。'],
+    components: [],
+  },
+  multiSelect: {
+    pages: ['酒店填单页', '机票填单页', '用车冒泡页', '航班列表页'],
+    components: ['条款栏勾选框', '乘机人选择框', '车型价格勾选态', '筛选多选标签'],
   },
   iphoneBar: {
     pages: [
@@ -204,8 +286,8 @@ const commonUsageMap = {
     components: ['各页面吸底固定底部区域'],
   },
   pageBottomNav: {
-    pages: ['首页', '酒店首页-因公'],
-    components: ['用车首页底部导航（默认态 / 全态）', '酒店首页-因公底部导航'],
+    pages: ['首页', '小福包', '酒店首页-因公'],
+    components: ['用车首页底部导航（默认态 / 全态）', '小福包底部标签栏', '酒店首页-因公底部导航'],
   },
   navBar: {
     pages: ['酒店填单页', '酒店详情页'],
@@ -229,7 +311,7 @@ const commonUsageMap = {
   },
   bottomWatermark: {
     pages: ['酒店首页-因公', '机票首页-因公', '首页'],
-    components: ['酒店首页-因公底部水印', '机票首页-因公底部水印', '首页规则区底部品牌水印（默认态）'],
+    components: [],
   },
   chevronAction: {
     pages: ['酒店填单页'],
@@ -253,6 +335,14 @@ const scheduleActivePageBottomNavItems = [
   { label: '我的', icon: 'profile', active: false },
 ]
 
+const luckyBagActivePageBottomNavItems = [
+  { label: '首页', icon: 'home', active: false },
+  { label: '行程', icon: 'schedule', active: false },
+  { label: '小福包', icon: 'bag', active: true },
+  { label: '工作台', icon: 'workspace', active: false },
+  { label: '我的', icon: 'profile', active: false },
+]
+
 const hotelPageBottomNavItems = [
   { label: '我的订单', icon: 'orders', iconSrc: hotelOrdersIcon, active: false },
   { label: '品牌权益', icon: 'benefits', iconSrc: hotelBenefitsIcon, active: false },
@@ -260,16 +350,27 @@ const hotelPageBottomNavItems = [
 ]
 
 function UsageNote({ pages, components }) {
+  const visiblePages = pages || []
+  const visibleComponents = components || []
+
   return (
     <div className="common-preview__usage">
-      <div className="common-preview__usage-row">
-        <span className="common-preview__usage-label">使用页面</span>
-        <p className="common-preview__usage-text">{pages.join('、')}</p>
-      </div>
-      <div className="common-preview__usage-row">
-        <span className="common-preview__usage-label">使用业务组件</span>
-        <p className="common-preview__usage-text">{components.join('、')}</p>
-      </div>
+      {visiblePages.length ? (
+        <div className="common-preview__usage-row">
+          <span className="common-preview__usage-label">使用页面</span>
+          <p className="common-preview__usage-text">
+            <UsageLinkList items={visiblePages} type="page" />
+          </p>
+        </div>
+      ) : null}
+      {visibleComponents.length ? (
+        <div className="common-preview__usage-row">
+          <span className="common-preview__usage-label">使用业务组件</span>
+          <p className="common-preview__usage-text">
+            <UsageLinkList items={visibleComponents} type="component" />
+          </p>
+        </div>
+      ) : null}
     </div>
   )
 }
@@ -358,6 +459,54 @@ export function CommonSwitchPreview() {
   )
 }
 
+export function CommonMultiSelectPreview() {
+  const states = [
+    { label: '选中', checked: true },
+    { label: '未选中', checked: false },
+    { label: '选中禁用', checked: true, disabled: true },
+    { label: '未选禁用', checked: false, disabled: true },
+  ]
+
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="多选预览"
+      summary="对齐设计稿中的 18px 多选框，支持品牌色、深色、选中、未选中和禁用状态。"
+      usage={commonUsageMap.multiSelect}
+    >
+      <div className="common-multi-select-showcase">
+        {[
+          { title: '品牌色', tone: 'brand' },
+          { title: '深色', tone: 'dark' },
+        ].map((group) => (
+          <article
+            className="common-multi-select-card"
+            key={group.tone}
+          >
+            <h4 className="common-multi-select-card__title">{group.title}</h4>
+            <div className="common-multi-select-card__grid">
+              {states.map((state) => (
+                <div
+                  className="common-multi-select-card__item"
+                  key={`${group.tone}-${state.label}`}
+                >
+                  <MultiSelect
+                    checked={state.checked}
+                    disabled={state.disabled}
+                    label={`${group.title}${state.label}`}
+                    tone={group.tone}
+                  />
+                  <span>{state.label}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </CommonPreviewShell>
+  )
+}
+
 export function CommonIPhoneBarPreview() {
   return (
     <CommonPreviewShell
@@ -413,6 +562,14 @@ export function CommonIPhoneFooterPreview() {
             <IPhoneFooter />
           </div>
         </article>
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">透明底场景</span>
+          </div>
+          <div className="common-footer-card common-footer-card--transparent">
+            <IPhoneFooter transparent />
+          </div>
+        </article>
       </div>
     </CommonPreviewShell>
   )
@@ -445,6 +602,14 @@ export function CommonPageBottomNavPreview() {
         </article>
         <article className="common-foundation-card">
           <div className="common-nav-card__meta">
+            <span className="common-nav-card__label">小福包激活</span>
+          </div>
+          <div className="common-footer-card">
+            <PageBottomNav items={luckyBagActivePageBottomNavItems} />
+          </div>
+        </article>
+        <article className="common-foundation-card">
+          <div className="common-nav-card__meta">
             <span className="common-nav-card__label">酒店三入口</span>
           </div>
           <div className="common-footer-card">
@@ -461,12 +626,15 @@ export function CommonNavBarPreview() {
     <CommonPreviewShell
       eyebrow="通用组件"
       title="导航栏预览"
-      summary="这里按使用逻辑分层展示导航栏状态，方便统一维护返回、标题和右侧操作。"
+      summary="这里按使用逻辑分层展示导航栏状态，方便统一维护返回、标题显隐和右侧操作。"
       usage={commonUsageMap.navBar}
     >
       <div className="common-nav-sections">
         {navBarSections.map((section) => (
-          <section className="common-nav-section" key={section.title}>
+          <section
+            className={`common-nav-section${section.theme === 'transparent' ? ' common-nav-section--transparent' : ''}`}
+            key={section.title}
+          >
             <div className="common-nav-section__header">
               <h4 className="common-nav-section__title">{section.title}</h4>
               <p className="common-nav-section__summary">{section.description}</p>
@@ -487,7 +655,13 @@ export function CommonNavBarPreview() {
                           <span className="common-nav-card__label">{item.label}</span>
                         </div>
 
-                        <div className="common-nav-card__surface">
+                        <div
+                          className={
+                            item.props.transparent
+                              ? 'common-nav-card__surface common-nav-card__surface--transparent'
+                              : 'common-nav-card__surface'
+                          }
+                        >
                           <MobileNavBar
                             title="滴滴企业版"
                             rightText="预订须知"
@@ -754,7 +928,12 @@ export function CommonBottomWatermarkPreview() {
             <span className="common-nav-card__label">酒店底部水印</span>
           </div>
           <div className="common-watermark-surface common-watermark-surface--hotel">
-            <HotelHomeBusinessBottomWatermark />
+            <BottomWatermark
+              className="hotel-home-business-watermark"
+              headlineAlt="订酒店·省心住"
+              headlineSrc={watermarkGroup451Image}
+              items={['贵必赔', '降价退', '省立返']}
+            />
           </div>
         </article>
         <article className="common-foundation-card common-foundation-card--wide">
@@ -775,7 +954,12 @@ export function CommonBottomWatermarkPreview() {
             <span className="common-nav-card__label">首页规则水印</span>
           </div>
           <div className="common-watermark-surface common-watermark-surface--home">
-            <CarHomeDefaultFooterRules links={carHomeDefaultData.footerLinks} />
+            <BottomWatermark
+              className="car-home-default-footer-rules"
+              headlineAlt={carHomeDefaultData.hero.title}
+              headlineSrc={footerBrandImage}
+              items={carHomeDefaultData.footerLinks}
+            />
           </div>
         </article>
       </div>

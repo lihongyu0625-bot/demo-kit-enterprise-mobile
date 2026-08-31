@@ -17,6 +17,7 @@ import promoHotelImage from '../../assets/car-home-default/promo-main-hotel.svg'
 import tripCardDateIconImage from '../../assets/car-home-default/trip-card-date-icon.svg'
 import tripCardRouteImage from '../../assets/car-home-default/trip-card-route.svg'
 import tripCardTextureImage from '../../assets/car-home-default/trip-card-texture.svg'
+import travelApplicationBadgeImage from '../../assets/car-home-default/travel-application-badge.png'
 
 const travelLinkConfigMap = {
   '订机票': { name: 'icon/travel/airplane/outlined', tone: 'plane' },
@@ -194,7 +195,13 @@ function CarHomeFullPromoSideCard({ item, index }) {
 }
 
 function CarHomeFullTravelBadge({ label }) {
-  return <span className="car-home-full-travel-application-card__badge">{label}</span>
+  return (
+    <img
+      alt={label}
+      className="car-home-full-travel-application-card__badge-image"
+      src={travelApplicationBadgeImage}
+    />
+  )
 }
 
 export function CarHomeFullRideNotice({ notice }) {

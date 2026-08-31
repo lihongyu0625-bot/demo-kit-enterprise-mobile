@@ -89,4 +89,6 @@ function FlightListBusinessPreview() {
   )
 }
 
+FlightListBusinessPreview.showcaseList = showcaseList
+
 export default FlightListBusinessPreview

@@ -1,0 +1,83 @@
+.points-benefit-title {
+  --points-benefit-title-main-color: #6a4647;
+  --points-benefit-title-action-color: rgba(106, 70, 71, 0.6);
+
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--points-benefit-title-main-color);
+}
+
+.points-benefit-title[data-variant='task'] {
+  --points-benefit-title-main-color: var(--color-blue-80);
+  --points-benefit-title-action-color: rgba(5, 34, 76, 0.6);
+}
+
+.points-benefit-title__heading {
+  margin: 0;
+  color: var(--points-benefit-title-main-color);
+  font-family: var(--font-family-points-title);
+  font-size: 24px;
+  font-weight: 700;
+  font-variation-settings: 'wght' 700, 'BEVL' 1;
+  letter-spacing: 0.96px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.points-benefit-title__entry,
+.points-benefit-title__score,
+.points-benefit-title__action {
+  display: inline-flex;
+  align-items: center;
+}
+
+.points-benefit-title__entry {
+  height: 18px;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+}
+
+.points-benefit-title__score {
+  gap: 4px;
+}
+
+.points-benefit-title__score img {
+  display: block;
+  width: 14px;
+  height: 14px;
+}
+
+.points-benefit-title__score strong {
+  padding-bottom: 2px;
+  color: var(--points-benefit-title-main-color);
+  font-family: var(--font-family-ui-number);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.points-benefit-title__divider {
+  width: 1px;
+  height: 8px;
+  background: var(--color-alpha-black-12);
+}
+
+.points-benefit-title__action {
+  color: var(--points-benefit-title-action-color);
+  font-family: var(--font-family-ui-cn);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-benefit-title .points-benefit-title__arrow {
+  width: 14px;
+  height: 14px;
+  color: var(--points-benefit-title-action-color);
+}

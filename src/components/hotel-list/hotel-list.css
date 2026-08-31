@@ -490,7 +490,7 @@
   bottom: 0;
   z-index: 3;
   padding: 10px 0 8px;
-  background: var(--color-white);
+  background: transparent;
 }
 
 .hotel-list-home-indicator {

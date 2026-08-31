@@ -1,9 +1,10 @@
 import homeBusinessData from '../mock-data/hotel-home-business.mock.json'
 import pageSpec from '../page-specs/hotel-home-business.json'
+import watermarkGroup451Image from '../assets/hotel-home-business/watermark-group-451.svg'
+import { BottomWatermark } from '../components/common/BottomWatermark'
 import {
   HotelHomeBusinessApplicationCard,
   HotelHomeBusinessBottomNav,
-  HotelHomeBusinessBottomWatermark,
   HotelHomeBusinessFooter,
   HotelHomeBusinessGuaranteeCard,
   HotelHomeBusinessHeaderHero,
@@ -13,7 +14,14 @@ import {
 const sectionComponentMap = {
   'application-card': <HotelHomeBusinessApplicationCard application={homeBusinessData.application} />,
   'bottom-nav': <HotelHomeBusinessBottomNav items={homeBusinessData.footerNav} />,
-  'bottom-watermark': <HotelHomeBusinessBottomWatermark />,
+  'bottom-watermark': (
+    <BottomWatermark
+      className="hotel-home-business-watermark"
+      headlineAlt="订酒店·省心住"
+      headlineSrc={watermarkGroup451Image}
+      items={['贵必赔', '降价退', '省立返']}
+    />
+  ),
   'guarantee-card': <HotelHomeBusinessGuaranteeCard />,
   'header-hero': <HotelHomeBusinessHeaderHero header={homeBusinessData.header} nav={homeBusinessData.nav} />,
   'header-intro': <HotelHomeBusinessHeroIntro header={homeBusinessData.header} />,

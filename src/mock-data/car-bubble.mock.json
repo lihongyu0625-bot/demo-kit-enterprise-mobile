@@ -1,0 +1,118 @@
+{
+  "route": {
+    "origin": "弘源新时代B座",
+    "destination": "北京首都国际机场T3航站楼",
+    "distance": "33",
+    "duration": "52"
+  },
+  "summary": {
+    "prefix": "预估应答率",
+    "rate": "91%",
+    "suffix": "多勾更快出发"
+  },
+  "vehicles": [
+    {
+      "id": "carpool",
+      "name": "拼车",
+      "eta": "15秒",
+      "subtitle": "一口价",
+      "priceParts": [
+        { "label": "未拼成企业付", "amount": "12.6", "tone": "muted" },
+        { "label": "拼成企业付", "amount": "11.9", "tone": "muted" }
+      ],
+      "imageKey": "raw-image-1"
+    },
+    {
+      "id": "saving",
+      "name": "远必省",
+      "eta": "15秒",
+      "subtitle": "特价折上折",
+      "priceParts": [
+        { "label": "预估", "payType": "企业付", "amount": "12.9", "tone": "company" }
+      ],
+      "coupon": "远途立省-5元",
+      "imageKey": "raw-image-3"
+    },
+    {
+      "id": "express-special",
+      "name": "企业特价 · 快车",
+      "eta": "15秒",
+      "selected": true,
+      "highlight": true,
+      "priceParts": [
+        { "label": "预估", "payType": "企业付", "amount": "13.9", "tone": "company" }
+      ],
+      "coupon": "远途立省-5元",
+      "imageKey": "raw-image-4"
+    },
+    {
+      "id": "express",
+      "name": "快车",
+      "eta": "15秒",
+      "priceParts": [
+        { "label": "预估", "payType": "企业付", "amount": "13.9", "tone": "company" }
+      ],
+      "imageKey": "raw-image-1"
+    },
+    {
+      "id": "more",
+      "name": "更多品牌",
+      "subtitle": "已选0/3",
+      "hasArrow": true,
+      "priceParts": [
+        { "label": "预估", "payType": "企业付", "amount": "12.5~15", "tone": "company" }
+      ],
+      "imageKey": "raw-image-5"
+    },
+    {
+      "id": "taxi",
+      "name": "出租车",
+      "eta": "15秒",
+      "priceParts": [
+        { "label": "打表计价 · 预估", "payType": "企业付", "amount": "15.9", "tone": "company" }
+      ],
+      "imageKey": "raw-image-7"
+    },
+    {
+      "id": "comfort",
+      "name": "轻享",
+      "upgrade": "升舱",
+      "eta": "15秒",
+      "priceParts": [
+        { "label": "预估", "payType": "企业付", "amount": "13.9", "tone": "company" },
+        { "label": "预估", "payType": "个人付", "amount": "12.2", "tone": "personal" }
+      ],
+      "imageKey": "raw-image-8"
+    },
+    {
+      "id": "premium",
+      "name": "专车",
+      "upgrade": "升舱",
+      "eta": "15秒",
+      "priceParts": [
+        { "label": "预估", "payType": "企业付", "amount": "13.9", "tone": "company" },
+        { "label": "预估", "payType": "个人付", "amount": "17.9", "tone": "personal" }
+      ],
+      "imageKey": "raw-image-9"
+    },
+    {
+      "id": "luxury",
+      "name": "豪华车",
+      "upgrade": "升舱",
+      "eta": "15秒",
+      "priceParts": [
+        { "label": "预估", "payType": "企业付", "amount": "13.9", "tone": "company" },
+        { "label": "预估", "payType": "个人付", "amount": "25.9", "tone": "personal" }
+      ],
+      "imageKey": "raw-image-10"
+    }
+  ],
+  "bottomEntries": ["预约出发", "乘车人", "用车备注"],
+  "callBar": {
+    "prefix": "预估",
+    "payType": "企业付",
+    "amount": "13.2",
+    "unit": "元",
+    "action": "呼叫1种车型"
+  }
+}

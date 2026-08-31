@@ -4,7 +4,6 @@ import {
   HotelBenefitCard,
   HotelContactInfoCard,
   HotelCostCenterCard,
-  HotelFormGradientBackground,
   HotelFormNavBar,
   HotelInvoiceTipCard,
   HotelRoomInfoCard,
@@ -19,8 +18,7 @@ const componentShowcaseList = [
     name: '导航栏',
     description: '页面顶部返回、标题与操作区。',
     render: (
-      <div className="catalog-surface catalog-surface--nav">
-        <HotelFormGradientBackground />
+      <div className="catalog-surface catalog-surface--nav catalog-surface--transparent-nav">
         <HotelFormNavBar
           title={hotelFormData.hotelName}
           actionLabel={hotelFormData.navAction}
@@ -104,5 +102,7 @@ function HotelFormBusinessPreview() {
     </section>
   )
 }
+
+HotelFormBusinessPreview.showcaseList = componentShowcaseList
 
 export default HotelFormBusinessPreview

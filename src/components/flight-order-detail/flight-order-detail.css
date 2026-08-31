@@ -173,7 +173,7 @@
   border: none;
   border-radius: var(--radius-8);
   padding: 0 12px;
-  background: linear-gradient(90deg, #fff2ec 0%, var(--color-white) 100%);
+  background: linear-gradient(90deg, var(--color-orange-10) 0%, var(--color-white) 100%);
   color: var(--color-text-secondary);
   font-size: 12px;
   line-height: 20px;
@@ -184,7 +184,7 @@
 .flight-order-detail-notice__icon {
   width: 16px;
   height: 16px;
-  color: #ff7f41;
+  color: var(--color-orange-50);
   flex: none;
 }
 
@@ -213,7 +213,7 @@
   border: none;
   border-radius: var(--radius-8);
   padding: 0 12px;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--color-alpha-white-60);
   color: var(--color-text-primary);
   font-size: 14px;
   font-weight: var(--font-weight-semibold);

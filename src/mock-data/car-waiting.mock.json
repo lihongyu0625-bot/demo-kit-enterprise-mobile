@@ -1,0 +1,99 @@
+{
+  "route": {
+    "origin": "滴滴新橙海大厦C...",
+    "destination": "奥林匹克地铁站B..."
+  },
+  "status": {
+    "title": "正在全力为你寻找司机",
+    "action": "取消叫车",
+    "selected": "已选5种车型",
+    "companyPay": "预计企业27.3元",
+    "personalPay": "个人20.6元",
+    "rank": "快车 第6位/共10位 努力呼叫中",
+    "message": "高峰叫车中,请稍等一会儿"
+  },
+  "benefits": {
+    "title": "加速权益",
+    "items": [
+      {
+        "title": "快速应答",
+        "tag": "快3分钟",
+        "description": "剩快车5次",
+        "action": "立即使用",
+        "primary": true
+      },
+      {
+        "title": "优惠坐特快",
+        "tag": "快3分钟",
+        "description": "优惠4元 · 预计24元 · 剩5次",
+        "action": "去使用"
+      }
+    ]
+  },
+  "addMore": {
+    "title": "追加更快车型",
+    "speed": "快7分钟上车",
+    "selectAll": "全选",
+    "vehicles": [
+      {
+        "id": "carpool",
+        "name": "拼车",
+        "eta": "15秒",
+        "subtitle": "一口价",
+        "priceParts": [
+          { "label": "未拼成企业付", "amount": "12.6", "tone": "muted" },
+          { "label": "拼成企业付", "amount": "11.9", "tone": "muted" }
+        ],
+        "imageKey": "raw-image-1"
+      },
+      {
+        "id": "express",
+        "name": "快车",
+        "eta": "15秒",
+        "selected": true,
+        "highlight": true,
+        "priceParts": [
+          { "label": "预估", "payType": "企业付", "amount": "13.9", "tone": "company" }
+        ],
+        "imageKey": "raw-image-1"
+      },
+      {
+        "id": "more",
+        "name": "更多品牌",
+        "subtitle": "已选0/3",
+        "hasArrow": true,
+        "priceParts": [
+          { "label": "预估", "payType": "企业付", "amount": "12.5~15", "tone": "company" }
+        ],
+        "imageKey": "raw-image-5"
+      },
+      {
+        "id": "taxi",
+        "name": "出租车",
+        "eta": "15秒",
+        "priceParts": [
+          { "label": "打表计价 · 预估", "payType": "企业付", "amount": "15.9", "tone": "company" }
+        ],
+        "imageKey": "raw-image-7"
+      },
+      {
+        "id": "comfort",
+        "name": "轻享",
+        "upgrade": "升舱",
+        "eta": "15秒",
+        "priceParts": [
+          { "label": "预估", "payType": "企业付", "amount": "13.9", "tone": "company" },
+          { "label": "预估", "payType": "个人付", "amount": "12.2", "tone": "personal" }
+        ],
+        "imageKey": "raw-image-8"
+      }
+    ],
+    "footer": {
+      "prefix": "预计",
+      "amount": "26.68",
+      "unit": "元",
+      "selected": "已选2种车型",
+      "action": "确认追加"
+    }
+  }
+}

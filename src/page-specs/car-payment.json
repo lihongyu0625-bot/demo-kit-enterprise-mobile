@@ -1,0 +1,46 @@
+{
+  "pageId": "car-payment",
+  "pageTitle": "用车待支付页",
+  "business": "car",
+  "source": {
+    "type": "figma",
+    "fileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "nodeId": "1196:36027"
+  },
+  "taskType": "compose-new-page",
+  "reuseLevel": "component-library-composition",
+  "sections": [
+    "mapLayer",
+    "routeOverlay",
+    "floatingSafetyButton",
+    "policyBar",
+    "paymentSummary",
+    "orderDetails",
+    "paymentActions",
+    "submitBar"
+  ],
+  "reusedSections": [
+    "IPhoneBar",
+    "IPhoneFooter",
+    "carLocationMapBackground",
+    "carLocationSafetyButton",
+    "GlobalStyleIcon",
+    "DirectionalIcon"
+  ],
+  "newDrawnSections": [
+    "routeOverlay",
+    "paymentCard"
+  ],
+  "componentEvidence": [
+    "src/components/car-location-input/CarLocationInputComponents.jsx",
+    "src/components/common/DirectionalIcon.jsx",
+    "src/components/common/GlobalStyleIcon.jsx",
+    "src/components/common/IPhoneBar.jsx",
+    "src/components/common/IPhoneFooter.jsx"
+  ],
+  "assetEvidence": [
+    "src/assets/car-pickup/map-background.png",
+    "src/assets/car-payment/route.svg",
+    "src/assets/car-payment/enterprise-pay.png"
+  ]
+}

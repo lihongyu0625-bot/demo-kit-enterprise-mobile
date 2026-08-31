@@ -195,7 +195,7 @@
   width: 12px;
   height: 40px;
   margin-left: -12px;
-  background: linear-gradient(90deg, rgba(227, 237, 255, 0) 0%, rgba(151, 184, 232, 0.5) 100%);
+  background: linear-gradient(90deg, var(--color-overlay-blue-0) 0%, rgba(151, 184, 232, 0.5) 100%);
   pointer-events: none;
   flex: none;
 }
@@ -303,7 +303,7 @@
 }
 
 .flight-list-card__top-badge--agreement {
-  background: linear-gradient(180deg, #e7f1ff 0%, #cfe3ff 100%);
+  background: linear-gradient(180deg, var(--color-blue-10) 0%, #cfe3ff 100%);
   color: var(--color-blue-50);
 }
 
@@ -525,7 +525,7 @@
 
 .flight-list-bottom-sort__item button {
   width: 100%;
-  color: #333333;
+  color: var(--color-neutral-850);
   font-size: 12px;
   font-weight: var(--font-weight-semibold);
   line-height: 20px;

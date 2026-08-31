@@ -84,4 +84,6 @@ function CarLocationInputBusinessPreview() {
   )
 }
 
+CarLocationInputBusinessPreview.showcaseList = showcaseList
+
 export default CarLocationInputBusinessPreview

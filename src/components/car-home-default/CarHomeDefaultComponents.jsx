@@ -3,7 +3,6 @@ import { IPhoneFooter } from '../common/IPhoneFooter'
 import { PageBottomNav } from '../common/PageBottomNav'
 import policyCommuteImage from '../../assets/car-home-default/policy-commute.png'
 import policyDriveImage from '../../assets/car-home-default/policy-drive.png'
-import footerBrandImage from '../../assets/car-home-default/footer-brand.svg'
 import heroBackgroundImage from '../../assets/car-home-default/hero-background.png'
 import operationsImage from '../../assets/car-home-default/operations-area.png'
 import policyOvertimeImage from '../../assets/car-home-default/policy-overtime.png'
@@ -237,30 +236,6 @@ export function CarHomeDefaultOperationsArea() {
         className="car-home-default-operations__image"
         src={operationsImage}
       />
-    </section>
-  )
-}
-
-export function CarHomeDefaultFooterRules({ links }) {
-  return (
-    <section className="car-home-default-footer-rules">
-      <img
-        alt=""
-        className="car-home-default-footer-rules__brand-image"
-        src={footerBrandImage}
-      />
-
-      <div className="car-home-default-footer-rules__links">
-        {links.map((item, index) => (
-          <div
-            className="car-home-default-footer-rules__link-wrap"
-            key={item}
-          >
-            <span className="car-home-default-footer-rules__link">{item}</span>
-            {index < links.length - 1 ? <span className="car-home-default-footer-rules__divider" /> : null}
-          </div>
-        ))}
-      </div>
     </section>
   )
 }

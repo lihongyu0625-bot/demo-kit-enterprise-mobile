@@ -1,0 +1,28 @@
+{
+  "distance": {
+    "tag": "企业",
+    "label": "距您1.5公里",
+    "time": "5分钟"
+  },
+  "driver": {
+    "plateProvince": "京",
+    "plateNumber": "HN6290",
+    "serviceTag": "快车",
+    "vehicle": "大众速腾 · 银色",
+    "name": "韩师傅",
+    "rating": "5.0",
+    "orders": "1750单"
+  },
+  "actions": [
+    { "id": "alarm", "label": "110报警", "icon": "action-alarm.svg" },
+    { "id": "message", "label": "发消息", "icon": "action-message.svg" },
+    { "id": "phone", "label": "打电话", "icon": "action-phone.svg" },
+    { "id": "share", "label": "行程分享", "icon": "action-share.svg" },
+    { "id": "cancel", "label": "取消行程", "icon": "action-cancel.svg" },
+    { "id": "more", "label": "更多", "icon": "action-more.svg" }
+  ],
+  "service": {
+    "title": "遇到问题了吗？",
+    "action": "VIP客服"
+  }
+}

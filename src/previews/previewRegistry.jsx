@@ -1,4 +1,29 @@
 import PlaceholderPreview from './PlaceholderPreview'
+import CarBusinessComponentsPreview from './business/CarBusinessComponentsPreview'
+import CarBubbleBusinessPreview from './business/car/CarBubbleBusinessPreview'
+import CarHomeDefaultBusinessPreview from './business/car/CarHomeDefaultBusinessPreview'
+import CarLocationInputBusinessPreview from './business/car/CarLocationInputBusinessPreview'
+import CarPaymentBusinessPreview from './business/car/CarPaymentBusinessPreview'
+import CarPaymentCompleteBusinessPreview from './business/car/CarPaymentCompleteBusinessPreview'
+import CarPickupBusinessPreview from './business/car/CarPickupBusinessPreview'
+import CarSendBusinessPreview from './business/car/CarSendBusinessPreview'
+import CarWaitingBusinessPreview from './business/car/CarWaitingBusinessPreview'
+import FlightBookingSuccessBusinessPreview from './business/flight/FlightBookingSuccessBusinessPreview'
+import FlightBusinessComponentsPreview from './business/FlightBusinessComponentsPreview'
+import FlightFormBusinessPreview from './business/flight/FlightFormBusinessPreview'
+import FlightHomeBusinessPreview from './business/flight/FlightHomeBusinessPreview'
+import FlightListBusinessPreview from './business/flight/FlightListBusinessPreview'
+import FlightOrderDetailBusinessPreview from './business/flight/FlightOrderDetailBusinessPreview'
+import FlightQuoteBusinessPreview from './business/flight/FlightQuoteBusinessPreview'
+import HotelBookingSuccessBusinessPreview from './business/hotel/HotelBookingSuccessBusinessPreview'
+import HotelBusinessComponentsPreview from './business/HotelBusinessComponentsPreview'
+import HotelDetailBusinessPreview from './business/hotel/HotelDetailBusinessPreview'
+import HotelFormBusinessPreview from './business/hotel/HotelFormBusinessPreview'
+import HotelHomeBusinessBusinessPreview from './business/hotel/HotelHomeBusinessBusinessPreview'
+import HotelListBusinessPreview from './business/hotel/HotelListBusinessPreview'
+import HotelOrderDetailBusinessPreview from './business/hotel/HotelOrderDetailBusinessPreview'
+import HotelRoomDetailBusinessPreview from './business/hotel/HotelRoomDetailBusinessPreview'
+import PointsBusinessComponentsPreview from './business/PointsBusinessComponentsPreview'
 import {
   GlobalColorPreview,
   GlobalIconPreview,
@@ -15,29 +40,21 @@ import {
   CommonDividerPreview,
   CommonIPhoneBarPreview,
   CommonIPhoneFooterPreview,
+  CommonMultiSelectPreview,
   CommonNavBarPreview,
   CommonPageBottomNavPreview,
   CommonPriceDisplayPreview,
   CommonSwitchPreview,
   CommonTagPreview,
 } from './common/CommonComponentPreviews'
-import CarHomeDefaultBusinessPreview from './business/car/CarHomeDefaultBusinessPreview'
-import CarLocationInputBusinessPreview from './business/car/CarLocationInputBusinessPreview'
-import FlightFormBusinessPreview from './business/flight/FlightFormBusinessPreview'
-import FlightBookingSuccessBusinessPreview from './business/flight/FlightBookingSuccessBusinessPreview'
-import FlightHomeBusinessPreview from './business/flight/FlightHomeBusinessPreview'
-import FlightListBusinessPreview from './business/flight/FlightListBusinessPreview'
-import FlightOrderDetailBusinessPreview from './business/flight/FlightOrderDetailBusinessPreview'
-import FlightQuoteBusinessPreview from './business/flight/FlightQuoteBusinessPreview'
-import HotelFormBusinessPreview from './business/hotel/HotelFormBusinessPreview'
-import HotelBookingSuccessBusinessPreview from './business/hotel/HotelBookingSuccessBusinessPreview'
-import HotelDetailBusinessPreview from './business/hotel/HotelDetailBusinessPreview'
-import HotelHomeBusinessBusinessPreview from './business/hotel/HotelHomeBusinessBusinessPreview'
-import HotelListBusinessPreview from './business/hotel/HotelListBusinessPreview'
-import HotelOrderDetailBusinessPreview from './business/hotel/HotelOrderDetailBusinessPreview'
-import HotelRoomDetailBusinessPreview from './business/hotel/HotelRoomDetailBusinessPreview'
 import CarHomeDefaultCasePreview from './page-cases/car/CarHomeDefaultCasePreview'
+import CarBubbleCasePreview from './page-cases/car/CarBubbleCasePreview'
 import CarLocationInputCasePreview from './page-cases/car/CarLocationInputCasePreview'
+import CarPaymentCasePreview from './page-cases/car/CarPaymentCasePreview'
+import CarPaymentCompleteCasePreview from './page-cases/car/CarPaymentCompleteCasePreview'
+import CarSendCasePreview from './page-cases/car/CarSendCasePreview'
+import CarPickupCasePreview from './page-cases/car/CarPickupCasePreview'
+import CarWaitingCasePreview from './page-cases/car/CarWaitingCasePreview'
 import FlightFormCasePreview from './page-cases/flight/FlightFormCasePreview'
 import FlightBookingSuccessCasePreview from './page-cases/flight/FlightBookingSuccessCasePreview'
 import FlightHomeCasePreview from './page-cases/flight/FlightHomeCasePreview'
@@ -51,6 +68,11 @@ import HotelHomeBusinessCasePreview from './page-cases/hotel/HotelHomeBusinessCa
 import HotelListCasePreview from './page-cases/hotel/HotelListCasePreview'
 import HotelOrderDetailCasePreview from './page-cases/hotel/HotelOrderDetailCasePreview'
 import HotelRoomDetailCasePreview from './page-cases/hotel/HotelRoomDetailCasePreview'
+import PointsLuckyBagCasePreview from './page-cases/points/PointsLuckyBagCasePreview'
+import PointsEarnTasksCasePreview from './page-cases/points/PointsEarnTasksCasePreview'
+import PointsProductDetailOverlayCasePreview from './page-cases/points/PointsProductDetailOverlayCasePreview'
+import PointsExchangeSuccessOverlayCasePreview from './page-cases/points/PointsExchangeSuccessOverlayCasePreview'
+import PointsMallCasePreview from './page-cases/points/PointsMallCasePreview'
 
 function createPlaceholderItem(config) {
   return function PlaceholderItem() {
@@ -269,6 +291,17 @@ export const previewNavigation = [
         maintenanceHint: '适合后续沉淀默认态、选中态、禁用态。',
         component: CommonSwitchPreview,
       },
+      {
+        id: 'common-multi-select',
+        label: '多选',
+        type: 'item',
+        title: '多选',
+        pathLabel: '通用组件 / 多选',
+        description: '统一维护多选框组件，适合条款确认、人员选择、筛选勾选等场景。',
+        statusLabel: '已接入',
+        maintenanceHint: '适合后续接入真实表单状态和批量选择交互。',
+        component: CommonMultiSelectPreview,
+      },
     ],
   },
   {
@@ -277,8 +310,73 @@ export const previewNavigation = [
     type: 'group',
     children: [
       {
+        id: 'business-hotel-components',
+        label: '酒店',
+        type: 'item',
+        title: '酒店业务组件',
+        pathLabel: '业务组件 / 酒店',
+        description: '这里集中展示酒店业务下所有可复用组件，不再按酒店首页、列表页或详情页拆分目录。',
+        statusLabel: '已接入',
+        maintenanceHint: '按酒店业务统一维护，组件可被多个酒店页面案例复用。',
+        component: HotelBusinessComponentsPreview,
+      },
+      {
+        id: 'business-car-components',
+        label: '用车',
+        type: 'item',
+        title: '用车业务组件',
+        pathLabel: '业务组件 / 用车',
+        description: '这里集中展示用车业务下所有可复用组件，不再按首页、等待接驾页或支付页拆分目录。',
+        statusLabel: '已接入',
+        maintenanceHint: '按用车业务统一维护，组件可被多个用车页面案例复用。',
+        component: CarBusinessComponentsPreview,
+      },
+      {
+        id: 'business-points-components',
+        label: '积分权益',
+        type: 'item',
+        title: '积分权益业务组件',
+        pathLabel: '业务组件 / 积分权益',
+        description: '这里集中展示积分权益业务下所有可复用组件，当前接入小福包、积分商城相关模块。',
+        statusLabel: '已接入',
+        maintenanceHint: '按积分权益业务统一维护，后续积分、任务、权益模块直接归入这里。',
+        component: PointsBusinessComponentsPreview,
+      },
+      {
+        id: 'business-flight-components',
+        label: '机票',
+        type: 'item',
+        title: '机票业务组件',
+        pathLabel: '业务组件 / 机票',
+        description: '这里集中展示机票业务下所有可复用组件，不再按首页、列表页或填单页拆分目录。',
+        statusLabel: '已接入',
+        maintenanceHint: '按机票业务统一维护，组件可被多个机票页面案例复用。',
+        component: FlightBusinessComponentsPreview,
+      },
+      {
+        id: 'business-train-components',
+        label: '火车票',
+        type: 'item',
+        title: '火车票业务组件',
+        pathLabel: '业务组件 / 火车票',
+        description: '这里集中预留火车票业务组件目录，后续组件直接归入火车票业务下维护。',
+        statusLabel: '待补充',
+        maintenanceHint: '建议后续按车次信息、乘客信息和支付信息拆分。',
+        component: createPlaceholderItem({
+          badge: '业务组件',
+          title: '火车票业务组件预留位',
+          summary: '这里已经为火车票业务组件预留好了统一入口。',
+          nextSteps: [
+            '1. 新建火车票业务预览文件',
+            '2. 注册到预览配置里',
+            '3. 按统一结构维护',
+          ],
+        }),
+      },
+      {
         id: 'group-business-hotel',
         label: '酒店',
+        hidden: true,
         type: 'group',
         statusLabel: '已接入',
         children: [
@@ -364,6 +462,7 @@ export const previewNavigation = [
       {
         id: 'group-business-car',
         label: '用车',
+        hidden: true,
         statusLabel: '已接入',
         type: 'group',
         children: [
@@ -389,11 +488,78 @@ export const previewNavigation = [
             maintenanceHint: '当前挂载的是起终点输入页拆分后的业务组件。',
             component: CarLocationInputBusinessPreview,
           },
+          {
+            id: 'business-car-bubble',
+            label: '冒泡页',
+            type: 'item',
+            title: '冒泡页组件预览',
+            pathLabel: '业务组件 / 用车 / 冒泡页',
+            description: '这里展示用车冒泡页拆出来的地图背景、路线信息、车型选择面板和底部呼叫区。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车冒泡页拆分后的业务组件。',
+            component: CarBubbleBusinessPreview,
+          },
+          {
+            id: 'business-car-waiting',
+            label: '等待应答页',
+            type: 'item',
+            title: '等待应答页组件预览',
+            pathLabel: '业务组件 / 用车 / 等待应答页',
+            description: '这里展示用车等待应答页拆出来的顶部状态区、加速权益卡和追加更快车型卡。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车等待应答页拆分后的业务组件。',
+            component: CarWaitingBusinessPreview,
+          },
+          {
+            id: 'business-car-pickup',
+            label: '等待接驾页',
+            type: 'item',
+            title: '等待接驾页组件预览',
+            pathLabel: '业务组件 / 用车 / 等待接驾页',
+            description: '这里展示用车等待接驾页拆出来的地图接驾状态、悬浮按钮、司机卡片和客服卡片。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车等待接驾页拆分后的业务组件。',
+            component: CarPickupBusinessPreview,
+          },
+          {
+            id: 'business-car-send',
+            label: '送驾页',
+            type: 'item',
+            title: '送驾页组件预览',
+            pathLabel: '业务组件 / 用车 / 送驾页',
+            description: '这里展示用车送驾页拆出来的地图送驾状态、悬浮按钮、司机卡片和客服卡片。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车送驾页拆分后的业务组件。',
+            component: CarSendBusinessPreview,
+          },
+          {
+            id: 'business-car-payment',
+            label: '待支付页',
+            type: 'item',
+            title: '待支付页组件预览',
+            pathLabel: '业务组件 / 用车 / 待支付页',
+            description: '这里展示用车待支付页拆出来的路线、支付卡和企业支付确认组件。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车待支付页拆分后的业务组件。',
+            component: CarPaymentBusinessPreview,
+          },
+          {
+            id: 'business-car-payment-complete',
+            label: '支付完成页',
+            type: 'item',
+            title: '支付完成页组件预览',
+            pathLabel: '业务组件 / 用车 / 支付完成页',
+            description: '这里展示用车支付完成页拆出来的评价卡、支付完成卡和会员权益组件。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车支付完成页拆分后的业务组件。',
+            component: CarPaymentCompleteBusinessPreview,
+          },
         ],
       },
       {
         id: 'group-business-flight',
         label: '机票',
+        hidden: true,
         statusLabel: '已接入',
         type: 'group',
         children: [
@@ -462,34 +628,6 @@ export const previewNavigation = [
             statusLabel: '已接入',
             maintenanceHint: '当前挂载的是下单成功页通用组件在机票场景下的拆分预览。',
             component: FlightBookingSuccessBusinessPreview,
-          },
-        ],
-      },
-      {
-        id: 'group-business-train',
-        label: '火车票',
-        statusLabel: '待补充',
-        type: 'group',
-        children: [
-          {
-            id: 'business-train-placeholder',
-            label: '预留位',
-            type: 'item',
-            title: '火车票业务组件',
-            pathLabel: '业务组件 / 火车票',
-            description: '火车票业务组件的目录位已经预留，后续可以继续扩充席位卡、乘车人卡和提交区。',
-            statusLabel: '待补充',
-            maintenanceHint: '建议后续按车次信息、乘客信息、支付信息拆分。',
-            component: createPlaceholderItem({
-              badge: '业务组件',
-              title: '火车票业务组件预留位',
-              summary: '这里已经为火车票业务组件预留好了统一入口。',
-              nextSteps: [
-                '1. 新建火车票业务组件预览文件',
-                '2. 注册到预览配置里',
-                '3. 按统一结构维护',
-              ],
-            }),
           },
         ],
       },
@@ -613,6 +751,72 @@ export const previewNavigation = [
             maintenanceHint: '当前挂载的是用车起终点输入页完整预览。',
             component: CarLocationInputCasePreview,
           },
+          {
+            id: 'page-car-bubble',
+            label: '冒泡页',
+            type: 'item',
+            title: '冒泡页整页案例',
+            pathLabel: '页面案例 / 用车 / 冒泡页',
+            description: '这里展示用车冒泡页整页组装后的最终效果，适合从页面层级核对地图、车型列表和吸底呼叫区。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车冒泡页完整预览。',
+            component: CarBubbleCasePreview,
+          },
+          {
+            id: 'page-car-waiting',
+            label: '等待应答页',
+            type: 'item',
+            title: '等待应答页整页案例',
+            pathLabel: '页面案例 / 用车 / 等待应答页',
+            description: '这里展示用车等待应答页整页组装后的最终效果，适合核对寻找司机、加速权益和追加车型流程。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车等待应答页完整预览。',
+            component: CarWaitingCasePreview,
+          },
+          {
+            id: 'page-car-pickup',
+            label: '等待接驾页',
+            type: 'item',
+            title: '等待接驾页整页案例',
+            pathLabel: '页面案例 / 用车 / 等待接驾页',
+            description: '这里展示用车等待接驾页整页组装后的最终效果，适合核对地图接驾、司机信息和客服入口。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车等待接驾页完整预览。',
+            component: CarPickupCasePreview,
+          },
+          {
+            id: 'page-car-send',
+            label: '送驾页',
+            type: 'item',
+            title: '送驾页整页案例',
+            pathLabel: '页面案例 / 用车 / 送驾页',
+            description: '这里展示用车送驾页整页组装后的最终效果，适合核对地图送驾、司机信息和客服入口。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车送驾页完整预览。',
+            component: CarSendCasePreview,
+          },
+          {
+            id: 'page-car-payment',
+            label: '待支付页',
+            type: 'item',
+            title: '待支付页整页案例',
+            pathLabel: '页面案例 / 用车 / 待支付页',
+            description: '这里展示用车待支付页整页组装后的最终效果，适合核对地图路线、费用明细和企业支付确认。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车待支付页完整预览。',
+            component: CarPaymentCasePreview,
+          },
+          {
+            id: 'page-car-payment-complete',
+            label: '支付完成页',
+            type: 'item',
+            title: '支付完成页整页案例',
+            pathLabel: '页面案例 / 用车 / 支付完成页',
+            description: '这里展示用车支付完成页整页组装后的最终效果，适合核对评价入口、费用明细和会员权益。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是用车支付完成页完整预览。',
+            component: CarPaymentCompleteCasePreview,
+          },
         ],
       },
       {
@@ -690,6 +894,69 @@ export const previewNavigation = [
         ],
       },
       {
+        id: 'group-pages-points',
+        label: '积分权益',
+        statusLabel: '已接入',
+        type: 'group',
+        children: [
+          {
+            id: 'page-points-lucky-bag',
+            label: '小福包',
+            type: 'item',
+            title: '小福包整页案例',
+            pathLabel: '页面案例 / 积分权益 / 小福包',
+            description: '这里展示积分权益业务的小福包整页组装效果，适合核对积分抽券、兑换好礼、赚积分任务和权益模块。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是小福包默认场景长图拆分后的完整预览。',
+            component: PointsLuckyBagCasePreview,
+          },
+          {
+            id: 'page-points-earn-tasks',
+            label: '做任务赚积分',
+            type: 'item',
+            title: '做任务赚积分整页案例',
+            pathLabel: '页面案例 / 积分权益 / 做任务赚积分',
+            description: '这里展示积分权益业务的任务积分页，包含用车阶梯任务、任务列表、省立返积分规则和积分获取示例。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是做任务赚积分的完整长页预览。',
+            component: PointsEarnTasksCasePreview,
+          },
+          {
+            id: 'page-points-mall',
+            label: '积分商城',
+            type: 'item',
+            title: '积分商城整页案例',
+            pathLabel: '页面案例 / 积分权益 / 积分商城',
+            description: '这里展示积分权益业务的积分商城整页组装效果，适合核对顶部积分入口、限时秒杀、特惠专区、任务卡和兑换好礼模块。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是积分商城默认场景长图拆分后的完整预览。',
+            component: PointsMallCasePreview,
+          },
+          {
+            id: 'page-points-product-detail-overlay',
+            label: '商品详情浮层',
+            type: 'item',
+            title: '商品详情浮层整页案例',
+            pathLabel: '页面案例 / 积分权益 / 商品详情浮层',
+            description: '这里展示积分权益业务的商品详情浮层，适合核对商品头图、套餐包含、使用须知、购买规则和底部兑换按钮。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是商品详情浮层完整预览。',
+            component: PointsProductDetailOverlayCasePreview,
+          },
+          {
+            id: 'page-points-exchange-success-overlay',
+            label: '兑换成功浮层',
+            type: 'item',
+            title: '兑换成功浮层整页案例',
+            pathLabel: '页面案例 / 积分权益 / 兑换成功浮层',
+            description: '这里展示积分权益业务的兑换成功浮层，适合核对成功反馈、商品信息卡片和底部双按钮操作区。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是兑换成功浮层完整预览。',
+            component: PointsExchangeSuccessOverlayCasePreview,
+          },
+        ],
+      },
+      {
         id: 'group-pages-train',
         label: '火车票',
         statusLabel: '待补充',
@@ -739,6 +1006,44 @@ function collectPreviewItems(items, collected = []) {
 const previewItemMap = new Map(
   collectPreviewItems(previewNavigation).map((item) => [item.id, item]),
 )
+
+const previewIdAliases = {
+  'business-hotel-home-business': 'business-hotel-components',
+  'business-hotel-list': 'business-hotel-components',
+  'business-hotel-detail': 'business-hotel-components',
+  'business-hotel-room-detail': 'business-hotel-components',
+  'business-hotel-form': 'business-hotel-components',
+  'business-hotel-booking-success': 'business-hotel-components',
+  'business-hotel-order-detail': 'business-hotel-components',
+  'business-car-home-default': 'business-car-components',
+  'business-car-location-input': 'business-car-components',
+  'business-car-bubble': 'business-car-components',
+  'business-car-waiting': 'business-car-components',
+  'business-car-pickup': 'business-car-components',
+  'business-car-send': 'business-car-components',
+  'business-car-payment': 'business-car-components',
+  'business-car-payment-complete': 'business-car-components',
+  'business-flight-home': 'business-flight-components',
+  'business-flight-list': 'business-flight-components',
+  'business-flight-quote': 'business-flight-components',
+  'business-flight-form': 'business-flight-components',
+  'business-flight-order-detail': 'business-flight-components',
+  'business-flight-booking-success': 'business-flight-components',
+}
+
+export function resolvePreviewId(id) {
+  if (previewIdAliases[id]) {
+    return previewIdAliases[id]
+  }
+
+  const generatedBusinessComponentId = /^business-(hotel|car|flight|points)-.+-\d+$/.exec(id)
+
+  if (generatedBusinessComponentId) {
+    return `business-${generatedBusinessComponentId[1]}-components`
+  }
+
+  return id
+}
 
 export function findPreviewById(id) {
   return previewItemMap.get(id)

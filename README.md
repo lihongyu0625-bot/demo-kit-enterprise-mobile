@@ -4,9 +4,9 @@
 
 ## 先看这里
 
-- [组件清单](/Users/didi/Documents/demo-kit（演示组件套件）/docs/01-组件清单.md)
-- [组件使用规则](/Users/didi/Documents/demo-kit（演示组件套件）/docs/02-组件使用规则.md)
-- [云端上传准备步骤](/Users/didi/Documents/demo-kit（演示组件套件）/docs/03-云端上传准备步骤.md)
+- [组件清单](./docs/01-组件清单.md)
+- [组件使用规则](./docs/02-组件使用规则.md)
+- [云端上传准备步骤](./docs/03-云端上传准备步骤.md)
 
 ## 现在已经有的内容
 

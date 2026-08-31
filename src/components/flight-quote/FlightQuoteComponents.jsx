@@ -1,7 +1,7 @@
 import airlineLogoBlueRed from '../../assets/flight-list/airline-logo-blue-red.png'
 import routePlaneImage from '../../assets/flight-quote/route-plane.png'
+import { FlightNoticeBar, FlightTopNav } from '../flight/FlightSharedComponents'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
-import { IPhoneBar } from '../common/IPhoneBar'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import './flight-quote.css'
 
@@ -24,57 +24,11 @@ export function FlightQuoteBackground({ className }) {
 }
 
 export function FlightQuoteTopNav({ nav }) {
-  return (
-    <header className="flight-quote-top">
-      <IPhoneBar
-        className="flight-quote-top__statusbar"
-        transparent
-      />
-      <div className="flight-quote-top__bar">
-        <button
-          aria-label="返回"
-          className="flight-quote-top__back"
-          type="button"
-        >
-          <FlightQuoteIcon
-            className="flight-quote-top__back-icon"
-            name="icon/directional/chevron-left-large/outlined"
-          />
-        </button>
-        <div className="flight-quote-top__title">
-          <span>{nav.fromCity}</span>
-          <span className="flight-quote-top__title-arrow">→</span>
-          <span>{nav.toCity}</span>
-        </div>
-        <button
-          className="flight-quote-top__policy"
-          type="button"
-        >
-          <FlightQuoteIcon
-            className="flight-quote-top__policy-icon"
-            name="icon/status/info-circle/outlined"
-          />
-          <span>{nav.policyLabel}</span>
-        </button>
-      </div>
-    </header>
-  )
+  return <FlightTopNav classPrefix="flight-quote" nav={nav} routeArrow="text" />
 }
 
 export function FlightQuoteNotice({ notice }) {
-  return (
-    <div className="flight-quote-notice">
-      <FlightQuoteIcon
-        className="flight-quote-notice__icon"
-        name={notice.iconName}
-      />
-      <span>{notice.text}</span>
-      <FlightQuoteIcon
-        className="flight-quote-notice__arrow"
-        name="icon/directional/chevron-right-small/outlined"
-      />
-    </div>
-  )
+  return <FlightNoticeBar as="div" classPrefix="flight-quote" notice={notice} />
 }
 
 function FlightQuoteRoute({ flight }) {
@@ -278,7 +232,7 @@ export function FlightQuotePreviewFrame({ data }) {
           <FlightQuoteFilterBar filters={data.filters} />
           <FlightQuoteCardList quotes={data.quotes} />
         </main>
-        <IPhoneFooter className="flight-quote-footer" />
+        <IPhoneFooter className="flight-quote-footer" transparent />
       </div>
     </div>
   )

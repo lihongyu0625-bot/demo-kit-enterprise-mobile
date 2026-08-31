@@ -1,0 +1,42 @@
+{
+  "pageId": "car-bubble",
+  "pageTitle": "用车冒泡页",
+  "business": "car",
+  "source": {
+    "type": "figma",
+    "fileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "nodeId": "1075:20835"
+  },
+  "taskType": "draw-new-page",
+  "reuseLevel": "component-and-asset-reuse",
+  "sections": [
+    "mapLayer",
+    "topChrome",
+    "routeLayer",
+    "vehiclePanel",
+    "bottomActions"
+  ],
+  "newDrawnSections": [
+    "routeLayer",
+    "vehiclePanel",
+    "bottomActions"
+  ],
+  "componentEvidence": [
+    "src/components/car-location-input/CarLocationInputComponents.jsx",
+    "src/components/common/DirectionalIcon.jsx",
+    "src/components/common/IPhoneBar.jsx",
+    "src/components/common/IPhoneFooter.jsx"
+  ],
+  "assetEvidence": [
+    "src/assets/car-bubble/page-export.png",
+    "src/assets/car-bubble/raw-image-1.png",
+    "src/assets/car-bubble/raw-image-2.jpeg",
+    "src/assets/car-bubble/raw-image-3.png",
+    "src/assets/car-bubble/raw-image-4.png",
+    "src/assets/car-bubble/raw-image-5.png",
+    "src/assets/car-bubble/raw-image-7.png",
+    "src/assets/car-bubble/raw-image-8.png",
+    "src/assets/car-bubble/raw-image-9.png",
+    "src/assets/car-bubble/raw-image-10.png"
+  ]
+}

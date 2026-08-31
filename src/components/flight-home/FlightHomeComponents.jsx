@@ -1,16 +1,14 @@
-import { Fragment } from 'react'
 import guaranteeDiscountIcon from '../../assets/hotel-home-business/icon-guarantee-discount.png'
 import guaranteeFlightIcon from '../../assets/hotel-home-business/icon-guarantee-flight.png'
 import guaranteeLogoIcon from '../../assets/hotel-home-business/icon-guarantee-logo.png'
 import guaranteePriceDropIcon from '../../assets/hotel-home-business/icon-guarantee-price-drop.png'
 import guaranteeShieldIcon from '../../assets/hotel-home-business/icon-guarantee-shield.png'
-import bottomWatermarkFlightImage from '../../assets/flight-home/bottom-watermark-flight.svg'
 import headerBgImage from '../../assets/flight-home/header-bg.png'
 import guaranteeWatermarkImage from '../../assets/flight-home/guarantee-watermark.png'
 import routeSwapGradientIcon from '../../assets/flight-home/icon-route-swap-gradient.svg'
-import { BottomWatermark } from '../common/BottomWatermark'
+import { BusinessGuaranteeCard } from '../business/BusinessGuaranteeCard'
+import { FlightTopNav } from '../flight/FlightSharedComponents'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
-import { IPhoneBar } from '../common/IPhoneBar'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import './flight-home.css'
 
@@ -62,39 +60,7 @@ export function FlightHomeHeroBackground() {
 }
 
 export function FlightHomeTopNav({ nav }) {
-  return (
-    <div className="flight-home-top">
-      <IPhoneBar
-        className="flight-home-top__statusbar"
-        tone="light"
-        transparent
-      />
-
-      <div className="flight-home-top__nav">
-        <button
-          aria-label="返回"
-          className="flight-home-top__back"
-          type="button"
-        >
-          <FlightHomeIcon
-            className="flight-home-top__back-icon"
-            name="icon/directional/chevron-left-large/outlined"
-          />
-        </button>
-
-        <button
-          className="flight-home-top__policy"
-          type="button"
-        >
-          <FlightHomeIcon
-            className="flight-home-top__policy-icon"
-            name="icon/status/info-circle/outlined"
-          />
-          <span>{nav.policyLabel}</span>
-        </button>
-      </div>
-    </div>
-  )
+  return <FlightTopNav classPrefix="flight-home" nav={nav} statusbarTone="light" />
 }
 
 export function FlightHomeHeroIntro({ header }) {
@@ -222,85 +188,36 @@ export function FlightHomeApplicationCard({ application }) {
 
 export function FlightHomeGuaranteeCard({ guarantee }) {
   return (
-    <section className="flight-home-guarantee">
-      <img
-        alt=""
-        className="flight-home-guarantee__watermark"
-        src={guaranteeWatermarkImage}
-      />
-
-      <div className="flight-home-guarantee__header">
-        <div className="flight-home-guarantee__title-group">
-          <img
-            alt=""
-            aria-hidden="true"
-            className="flight-home-guarantee__logo"
-            src={guaranteeLogoIcon}
-          />
-          <p className="flight-home-guarantee__title">{guarantee.title}</p>
-        </div>
-
-        <button
-          className="flight-home-guarantee__detail"
-          type="button"
-        >
-          <span>{guarantee.detailLabel}</span>
-          <FlightHomeIcon
-            className="flight-home-guarantee__detail-icon"
-            name="icon/directional/chevron-right-small/outlined"
-          />
-        </button>
-      </div>
-
-      <div className="flight-home-guarantee__features">
-        {guarantee.features.map((item, index) => (
-          <Fragment key={item.title}>
-            <div
-              className={cx(
-                'flight-home-guarantee__feature',
-                index === guarantee.features.length - 1 && 'flight-home-guarantee__feature--align-end',
-              )}
-            >
-              <div className="flight-home-guarantee__feature-title-row">
-                <GuaranteeFeatureIcon icon={item.icon} />
-                <span className="flight-home-guarantee__feature-title">{item.title}</span>
-              </div>
-              <p className="flight-home-guarantee__feature-copy">{item.description}</p>
-            </div>
-
-            {index < guarantee.features.length - 1 ? (
-              <Divider
-                className="flight-home-guarantee__feature-divider"
-                vertical
-              />
-            ) : null}
-          </Fragment>
-        ))}
-      </div>
-
-      <div className="flight-home-guarantee__footer">
-        {guarantee.highlights.map((item) => (
-          <div
-            className="flight-home-guarantee__footer-item"
-            key={item}
-          >
-            <span className="flight-home-guarantee__footer-dot" />
-            <span>{item}</span>
-          </div>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-export function FlightHomeBenefitStrip({ benefits }) {
-  return (
-    <BottomWatermark
-      className="flight-home-benefit-strip"
-      headlineAlt={benefits.title}
-      headlineSrc={bottomWatermarkFlightImage}
-      items={benefits.items}
-      tone="flight"
+    <BusinessGuaranteeCard
+      classPrefix="flight-home"
+      detailIcon={(
+        <FlightHomeIcon
+          className="flight-home-guarantee__detail-icon"
+          name="icon/directional/chevron-right-small/outlined"
+        />
+      )}
+      detailLabel={guarantee.detailLabel}
+      features={guarantee.features.map((item) => ({
+        ...item,
+        icon: <GuaranteeFeatureIcon icon={item.icon} />,
+      }))}
+      footerHighlights={guarantee.highlights}
+      logo={(
+        <img
+          alt=""
+          aria-hidden="true"
+          className="flight-home-guarantee__logo"
+          src={guaranteeLogoIcon}
+        />
+      )}
+      title={guarantee.title}
+      watermark={(
+        <img
+          alt=""
+          className="flight-home-guarantee__watermark"
+          src={guaranteeWatermarkImage}
+        />
+      )}
     />
   )
 }

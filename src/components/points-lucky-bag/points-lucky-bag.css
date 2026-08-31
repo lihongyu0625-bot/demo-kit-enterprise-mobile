@@ -1,0 +1,1439 @@
+.points-lucky-bag-shell,
+.points-lucky-bag-shell * {
+  box-sizing: border-box;
+}
+
+.points-lucky-bag-shell {
+  position: relative;
+  width: 375px;
+  height: 3425px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  color: var(--color-blue-90);
+  font-family: var(--font-family-ui-cn);
+}
+
+.points-lucky-bag-shell img {
+  display: block;
+  user-select: none;
+}
+
+.points-lucky-hero {
+  position: relative;
+  width: 375px;
+  height: 560px;
+  overflow: hidden;
+}
+
+.points-lucky-bag-shell > .points-lucky-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.points-lucky-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 375px;
+  height: 560px;
+  object-fit: cover;
+}
+
+.points-lucky-hero__bag {
+  position: absolute;
+  top: 118px;
+  left: 0;
+  width: 375px;
+  height: 308px;
+  object-fit: cover;
+}
+
+.points-lucky-hero h1 {
+  position: absolute;
+  top: 118px;
+  left: 108px;
+  width: 159px;
+  margin: 0;
+  color: var(--color-white);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: center;
+}
+
+.points-lucky-top {
+  position: relative;
+  z-index: 5;
+  width: 375px;
+  color: var(--color-white);
+}
+
+.points-lucky-bag-shell > .points-lucky-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.points-lucky-top__info {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 375px;
+  height: 64px;
+  padding: 8px 16px;
+}
+
+.points-lucky-top__main {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.points-lucky-top__score-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.points-lucky-top__coin {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+.points-lucky-top__score {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+}
+
+.points-lucky-top__score strong {
+  padding-bottom: 2px;
+  font-family: var(--font-family-ui-number);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 19px;
+}
+
+.points-lucky-top__score span {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.points-lucky-top__score-row em {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-alpha-white-60);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-lucky-top__level {
+  width: 64px;
+  height: 16px;
+}
+
+.points-lucky-top__links {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.points-lucky-top__links button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-white);
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.points-lucky-top__links span {
+  width: 1px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.points-lucky-task-card {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 351px;
+  height: 78px;
+  overflow: hidden;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.points-lucky-bag-shell > .points-lucky-task-card {
+  position: absolute;
+  top: 404px;
+  left: 12px;
+}
+
+.points-lucky-task-card__bg {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 351px;
+  height: 42.9px;
+  object-fit: cover;
+}
+
+.points-lucky-task-card__main {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.points-lucky-task-card__icon {
+  width: 54px;
+  height: 54px;
+  flex: none;
+}
+
+.points-lucky-task-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.points-lucky-task-card__content p {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  color: var(--color-blue-90);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.points-lucky-task-card__content span {
+  color: #1c78ff;
+}
+
+.points-lucky-task-card__content strong {
+  color: #ff6923;
+  font-family: var(--font-family-ui-number);
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.points-lucky-task-card__content small {
+  display: block;
+  color: rgba(5, 34, 76, 0.5);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-lucky-task-card button,
+.points-lucky-earn__mission button,
+.points-lucky-earn-task__action button,
+.points-lucky-gift-card__bottom button {
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(270deg, var(--color-blue-50) 0%, var(--color-blue-40) 97.86%);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.points-lucky-task-card button {
+  position: relative;
+  flex: none;
+  height: 34px;
+  padding: 6px 16px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.points-lucky-tabs {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  align-items: flex-start;
+  width: 375px;
+  height: 102px;
+  padding: 0 12px 50px;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(180deg, #fbfdff 0%, var(--color-bg-gray-2) 100%);
+}
+
+.points-lucky-bag-shell > .points-lucky-tabs {
+  position: absolute;
+  top: 490px;
+  left: 0;
+}
+
+.points-lucky-tabs button {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(5, 34, 76, 0.7);
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.points-lucky-tabs__item--active {
+  color: var(--color-blue-90) !important;
+  font-weight: 600;
+}
+
+.points-lucky-tabs__star {
+  width: 11.02px;
+  height: 9.92px;
+  flex: none;
+  object-fit: contain;
+}
+
+.points-lucky-tabs__underline {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  width: 17px;
+  height: 3px;
+  transform: translateX(-50%);
+}
+
+.points-lucky-bag-content {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  gap: 8px;
+  width: 351px;
+}
+
+.points-lucky-bag-shell > .points-lucky-bag-content {
+  position: absolute;
+  top: 546px;
+  left: 12px;
+}
+
+.points-lucky-card {
+  position: relative;
+  width: 351px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.points-lucky-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 327px;
+  height: 22px;
+}
+
+.points-lucky-section-title__main {
+  display: inline-flex;
+  align-items: center;
+}
+
+.points-lucky-section-title__main span:first-child {
+  color: var(--color-blue-90);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.points-lucky-section-title__spark {
+  width: 11.02px;
+  height: 9.92px;
+  flex: none;
+  margin-left: 3px;
+  object-fit: contain;
+}
+
+.points-lucky-section-title__more {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-alpha-black-36);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-lucky-section-title__more-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-36);
+}
+
+.points-lucky-flash-sale {
+  height: 186px;
+  overflow: hidden;
+}
+
+.points-lucky-flash-sale--compact {
+  height: 188px;
+}
+
+.points-lucky-flash-sale__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 327px;
+}
+
+.points-lucky-flash-sale__title--compact {
+  gap: 0;
+}
+
+.points-lucky-flash-sale__title--compact span {
+  color: var(--color-blue-90);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.points-lucky-flash-sale__title > img {
+  width: 62.33px;
+  height: 22px;
+  flex: none;
+}
+
+.points-lucky-flash-sale__title--compact .points-lucky-flash-sale__spark {
+  width: 11.02px;
+  height: 9.92px;
+  flex: none;
+  margin-left: 3px;
+  object-fit: contain;
+}
+
+.points-lucky-flash-sale__times {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+  color: #a95806;
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-lucky-flash-sale__times span:first-child,
+.points-lucky-flash-sale__times strong {
+  color: #ff5306;
+  font-weight: 600;
+}
+
+.points-lucky-flash-sale__times i {
+  width: 1px;
+  height: 8px;
+  background: rgba(169, 88, 6, 0.18);
+}
+
+.points-lucky-flash-sale__scroller {
+  display: flex;
+  gap: 6px;
+  width: 327px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.points-lucky-flash-coupon {
+  display: flex;
+  width: 100px;
+  flex: none;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  border: 0.5px solid #e7e8f1;
+  border-radius: 6px;
+  background: linear-gradient(180deg, var(--color-white) 0%, var(--color-blue-5) 100%);
+}
+
+.points-lucky-flash-coupon__image {
+  width: 84px;
+  height: 68px;
+  object-fit: cover;
+}
+
+.points-lucky-flash-button {
+  position: relative;
+  width: 84px;
+  height: 28px;
+}
+
+.points-lucky-flash-button__base {
+  position: absolute;
+  inset: 0;
+  width: 84px;
+  height: 28px;
+}
+
+.points-lucky-flash-button__points {
+  position: absolute;
+  top: 4px;
+  left: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 45px;
+  color: var(--color-blue-50);
+  white-space: nowrap;
+}
+
+.points-lucky-flash-button__points span {
+  font-family: var(--font-family-ui-number);
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.points-lucky-flash-button__points em {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.points-lucky-flash-button__grab {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 28px;
+}
+
+.points-lucky-flash-button__grab img:first-child {
+  width: 30px;
+  height: 28px;
+}
+
+.points-lucky-flash-button__grab img:last-child {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  width: 13px;
+  height: 13px;
+}
+
+.points-lucky-gift-exchange {
+  display: flex;
+  min-height: 733.75px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.points-lucky-filter-tabs {
+  display: flex;
+  gap: 4px;
+  width: 327px;
+  border-radius: 6px;
+}
+
+.points-lucky-filter-tabs button {
+  height: 24px;
+  padding: 2px 10px;
+  border: 0.5px solid var(--color-alpha-black-6);
+  border-radius: 4px;
+  background: var(--color-white);
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-lucky-filter-tabs__item--active {
+  border-color: var(--color-blue-10) !important;
+  background: var(--color-blue-10) !important;
+  color: var(--color-blue-50) !important;
+  font-weight: 600;
+}
+
+.points-lucky-gift-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 327px;
+}
+
+.points-lucky-gift-card {
+  overflow: hidden;
+  border: 0.5px solid #e7ebf1;
+  border-radius: 6px;
+  background: var(--color-white);
+}
+
+.points-lucky-gift-card__image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.points-lucky-gift-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 12px 12px;
+  background: var(--color-white);
+}
+
+.points-lucky-gift-card__name {
+  height: 22px;
+  margin: 0;
+  overflow: hidden;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.points-lucky-gift-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.points-lucky-price {
+  display: flex;
+  align-items: flex-end;
+  color: #fe6f2e;
+  white-space: nowrap;
+}
+
+.points-lucky-price span {
+  font-family: var(--font-family-ui-number);
+  font-weight: 500;
+}
+
+.points-lucky-price--large span {
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.points-lucky-price--small span:first-child {
+  font-size: 16px;
+  line-height: 21px;
+}
+
+.points-lucky-price--small span {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.points-lucky-price em {
+  font-size: 12px;
+  font-style: normal;
+  line-height: 20px;
+}
+
+.points-lucky-price--small em {
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.points-lucky-price i {
+  font-size: 10px;
+  font-style: normal;
+  line-height: 18px;
+}
+
+.points-lucky-gift-card__bottom button {
+  display: grid;
+  min-width: 52px;
+  height: 28px;
+  place-items: center;
+  padding: 3px 12px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.points-lucky-gift-card__button--free img {
+  width: 40.85px;
+  height: 13px;
+}
+
+.points-lucky-more {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(5, 34, 76, 0.5);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-lucky-more__icon {
+  width: 12px;
+  height: 12px;
+  color: rgba(5, 34, 76, 0.5);
+}
+
+.points-lucky-earn {
+  display: flex;
+  min-height: 466px;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.points-lucky-earn--compact {
+  min-height: 0;
+  height: 178px;
+}
+
+.points-lucky-earn__mission {
+  display: flex;
+  width: 327px;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 12px;
+  border: 0.5px solid #e7ebf1;
+  border-radius: 6px;
+  background: linear-gradient(0deg, var(--color-blue-5) 0%, var(--color-white) 100%);
+}
+
+.points-lucky-earn__mission-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.points-lucky-earn__mission p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: var(--color-blue-90);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.points-lucky-earn__mission p strong {
+  margin: 0 2px;
+  color: #f8600d;
+  font-family: var(--font-family-ui-number);
+  font-size: 16px;
+}
+
+.points-lucky-question-icon {
+  width: 13.33px;
+  height: 13.33px;
+  margin-left: 2px;
+  color: var(--color-alpha-black-24);
+}
+
+.points-lucky-earn__mission small {
+  display: block;
+  color: rgba(5, 34, 76, 0.5);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.points-lucky-earn__mission button {
+  width: 60px;
+  height: 24px;
+  padding: 2px 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-lucky-earn__progress {
+  position: relative;
+  width: 303px;
+  height: 42px;
+}
+
+.points-lucky-earn__track {
+  position: absolute;
+  top: 13px;
+  left: 1px;
+  width: 301px;
+  height: 4px;
+  border-radius: 101px;
+  background: rgba(255, 113, 37, 0.2);
+}
+
+.points-lucky-earn__track span {
+  display: block;
+  width: 90px;
+  height: 4px;
+  border-radius: 65px;
+  background: linear-gradient(270deg, #ff6923 0%, #ffaa2b 100%);
+}
+
+.points-lucky-earn__node {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+}
+
+.points-lucky-earn__node img {
+  width: 24px;
+  height: 24px;
+}
+
+.points-lucky-earn__node--done {
+  left: 61px;
+}
+
+.points-lucky-earn__node--done img {
+  width: 70px;
+  height: 24px;
+}
+
+.points-lucky-earn__node--1 {
+  left: 140px;
+  width: 26px;
+}
+
+.points-lucky-earn__node--2 {
+  left: 208.33px;
+}
+
+.points-lucky-earn__node--3 {
+  left: 277px;
+}
+
+.points-lucky-earn__node strong {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  color: #ffefde;
+  font-family: var(--font-family-ui-number);
+  font-size: 13.61px;
+  line-height: 17.69px;
+  text-shadow: 0 4px 10px #f67c13;
+  transform: translateX(-50%);
+}
+
+.points-lucky-earn__node small {
+  color: rgba(5, 34, 76, 0.5);
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.points-lucky-earn__tasks {
+  display: flex;
+  flex: none;
+  width: 327px;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px 12px;
+  border: 0.5px solid #e7ebf1;
+  border-radius: 6px;
+  background: linear-gradient(0deg, var(--color-blue-5) 0%, var(--color-white) 100%);
+}
+
+.points-lucky-earn-task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.points-lucky-earn-task__left {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.points-lucky-earn-task__icon {
+  width: 46px;
+  height: 46px;
+  flex: none;
+}
+
+.points-lucky-earn-task p {
+  margin: 2px 0 0;
+  color: var(--color-blue-90);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.points-lucky-earn-task small {
+  display: flex;
+  align-items: center;
+  color: rgba(5, 34, 76, 0.4);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-lucky-question-icon--small {
+  width: 12px;
+  height: 12px;
+  margin-left: 2px;
+}
+
+.points-lucky-earn-task em {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  border: 0.5px solid var(--color-blue-30);
+  border-radius: 3px;
+  color: var(--color-blue-50);
+  font-size: 10px;
+  font-style: normal;
+  line-height: 16px;
+}
+
+.points-lucky-earn-task__action {
+  display: flex;
+  width: 60px;
+  flex: none;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.points-lucky-earn-task__action span {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.points-lucky-earn-task__action span img {
+  width: 18px;
+  height: 18px;
+}
+
+.points-lucky-earn-task__action strong {
+  color: #ff6923;
+  font-family: var(--font-family-ui-number);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.points-lucky-earn-task__action button {
+  width: 60px;
+  height: 24px;
+  padding: 2px 12px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-lucky-rebate {
+  height: 140px;
+  overflow: hidden;
+}
+
+.points-lucky-rebate__body {
+  position: relative;
+  width: 327px;
+  height: 82px;
+  margin-top: 12px;
+}
+
+.points-lucky-rebate__main {
+  width: 327px;
+  height: 82px;
+  object-fit: cover;
+}
+
+.points-lucky-rebate__coin {
+  position: absolute;
+  top: -33.5px;
+  right: -15px;
+  width: 174px;
+  height: 175px;
+  object-fit: cover;
+}
+
+.points-lucky-enterprise {
+  width: 351px;
+  height: 495px;
+}
+
+.points-lucky-enterprise__hero {
+  position: relative;
+  z-index: 1;
+  width: 351px;
+  height: 113px;
+  overflow: hidden;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.points-lucky-enterprise__card {
+  top: -12px;
+  height: 394px;
+  overflow: hidden;
+  border: 1px solid var(--color-white);
+  border-radius: 0 0 8px 8px;
+}
+
+.points-lucky-enterprise__card-bg {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 351px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.points-lucky-enterprise__card > *:not(.points-lucky-enterprise__card-bg) {
+  position: relative;
+}
+
+.points-lucky-enterprise__level {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 327px;
+  height: 20px;
+  margin-top: 4px;
+  color: rgba(5, 34, 76, 0.5);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-lucky-enterprise__level img {
+  width: 64px;
+  height: 16px;
+}
+
+.points-lucky-enterprise__level strong {
+  color: #5f55c3;
+  font-family: var(--font-family-ui-number);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.points-lucky-enterprise__level em {
+  font-style: normal;
+}
+
+.points-lucky-enterprise__large-card {
+  position: relative;
+  width: 327px;
+  height: 96px;
+  margin-top: 12px;
+  overflow: hidden;
+  padding: 12px;
+  border: 0.5px solid #e7ebf1;
+  border-radius: 6px;
+}
+
+.points-lucky-enterprise__large-bg {
+  position: absolute;
+  inset: 0;
+  width: 327px;
+  height: 96px;
+  object-fit: cover;
+}
+
+.points-lucky-enterprise__corner,
+.points-lucky-benefit-corner {
+  position: absolute;
+  top: -0.5px;
+  right: -0.5px;
+  width: 20px;
+  height: 14px;
+}
+
+.points-lucky-enterprise__large-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.points-lucky-enterprise__large-title img {
+  width: 77.67px;
+  height: 12px;
+}
+
+.points-lucky-enterprise__large-title img:last-child {
+  transform: rotate(180deg) scaleY(-1);
+}
+
+.points-lucky-enterprise__large-title p {
+  margin: 0;
+  color: var(--color-blue-90);
+  font-family: 'Alimama ShuHeiTi', var(--font-family-ui-cn);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.points-lucky-enterprise__large-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 8px;
+  text-align: center;
+}
+
+.points-lucky-enterprise__large-grid div {
+  display: grid;
+  gap: 0;
+}
+
+.points-lucky-enterprise__large-grid strong {
+  color: var(--color-blue-50);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.points-lucky-enterprise__large-grid b {
+  font-family: var(--font-family-ui-number);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.points-lucky-enterprise__large-grid span {
+  color: var(--color-blue-30);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.points-lucky-enterprise__grid,
+.points-lucky-business__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  width: 327px;
+  margin-top: 6px;
+}
+
+.points-lucky-benefit-small-card,
+.points-lucky-business__grid article,
+.points-lucky-service article {
+  position: relative;
+  min-height: 68px;
+  overflow: hidden;
+  padding: 12px;
+  border: 0.5px solid #e7ebf1;
+  border-radius: 6px;
+}
+
+.points-lucky-benefit-card-bg,
+.points-lucky-business__bg,
+.points-lucky-service__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.points-lucky-benefit-small-card p,
+.points-lucky-business__grid p,
+.points-lucky-service p {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: var(--color-blue-90);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-lucky-inline-chevron {
+  width: 12px;
+  height: 12px;
+  color: rgba(5, 34, 76, 0.5);
+}
+
+.points-lucky-benefit-small-card span,
+.points-lucky-business__grid small,
+.points-lucky-service span {
+  position: relative;
+  display: block;
+  color: rgba(5, 34, 76, 0.7);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-lucky-business {
+  display: flex;
+  height: 232px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.points-lucky-business__grid article {
+  min-height: 68px;
+}
+
+.points-lucky-business__item--image {
+  padding-top: 48px !important;
+}
+
+.points-lucky-business__cover {
+  position: absolute;
+  top: 0;
+  left: -0.5px;
+  width: calc(100% + 1px);
+  height: 62px;
+  object-fit: cover;
+}
+
+.points-lucky-membership {
+  display: flex;
+  height: 284px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.points-lucky-membership__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.points-lucky-membership__grid {
+  display: flex;
+  gap: 6px;
+  width: 327px;
+}
+
+.points-lucky-membership__item {
+  position: relative;
+  display: flex;
+  width: 105px;
+  height: 154px;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  overflow: hidden;
+  padding: 8px 12px 12px;
+  border: 0.5px solid #e7ebf1;
+  border-radius: 6px;
+}
+
+.points-lucky-membership__bg {
+  position: absolute;
+  inset: 0;
+  width: 105px;
+  height: 154px;
+  object-fit: cover;
+}
+
+.points-lucky-membership__logo {
+  position: relative;
+  width: 80px;
+  height: 28px;
+  object-fit: cover;
+}
+
+.points-lucky-membership__item p {
+  position: relative;
+  margin: 0;
+  color: var(--color-blue-90);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.points-lucky-membership__item span {
+  position: relative;
+  color: rgba(9, 25, 59, 0.7);
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.points-lucky-membership__bind {
+  position: relative;
+  display: flex;
+  width: 327px;
+  height: 68px;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  padding: 12px;
+  border: 0.5px solid #e7ebf1;
+  border-radius: 6px;
+}
+
+.points-lucky-membership__bind-bg {
+  position: absolute;
+  inset: 0;
+  width: 327px;
+  height: 68px;
+  object-fit: cover;
+}
+
+.points-lucky-membership__bind div {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.points-lucky-membership__bind p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: #09193b;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-lucky-membership__bind span {
+  display: block;
+  overflow: hidden;
+  color: rgba(5, 34, 76, 0.7);
+  font-size: 12px;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.points-lucky-membership__bind button {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(5, 34, 76, 0.7);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-lucky-service {
+  display: flex;
+  height: 124px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.points-lucky-service__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  width: 327px;
+}
+
+.points-lucky-service article {
+  width: 160.5px;
+  height: 68px;
+}
+
+.points-lucky-watermark {
+  display: flex;
+  width: 351px;
+  height: 48px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 32px;
+}
+
+.points-lucky-watermark img {
+  width: 191.03px;
+  height: 16px;
+}
+
+.points-lucky-bottom {
+  position: relative;
+  z-index: 8;
+  width: 375px;
+  height: 52px;
+  overflow: hidden;
+  background: var(--color-white);
+}
+
+.points-lucky-bag-shell > .points-lucky-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.points-lucky-bottom__nav {
+  --page-bottom-nav-label-color: var(--color-alpha-black-60);
+}
+
+.points-lucky-bag-business-sample {
+  width: 375px;
+}
+
+.points-lucky-bag-business-sample--header {
+  overflow: hidden;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #4a96ff 0%, #65b3ff 100%);
+}
+
+.points-lucky-bag-business-sample--compact {
+  width: 351px;
+  height: 78px;
+}
+
+.points-lucky-bag-business-sample--compact .points-lucky-task-card {
+  position: relative;
+  top: auto;
+  left: auto;
+}
+
+.points-lucky-bag-business-sample--stack {
+  display: grid;
+  gap: 8px;
+  width: 351px;
+}
+
+.points-lucky-bag-business-state {
+  display: grid;
+  gap: 8px;
+}
+
+.points-lucky-bag-business-state__label {
+  color: rgba(5, 34, 76, 0.5);
+  font-size: 12px;
+  line-height: 20px;
+}

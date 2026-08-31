@@ -107,4 +107,6 @@ function FlightQuoteBusinessPreview() {
   )
 }
 
+FlightQuoteBusinessPreview.showcaseList = showcaseList
+
 export default FlightQuoteBusinessPreview

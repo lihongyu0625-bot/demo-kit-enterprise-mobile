@@ -3,6 +3,7 @@ import pageSpec from '../page-specs/flight-booking-success.json'
 import {
   OrderSuccessFooter,
   OrderSuccessOrderCard,
+  OrderSuccessPageBackground,
   OrderSuccessPageChrome,
   OrderSuccessStatus,
   OrderSuccessTips,
@@ -22,6 +23,7 @@ function FlightBookingSuccessPreviewPage() {
       className="hotel-booking-success-preview"
     >
       <div className="hotel-booking-success-shell">
+        <OrderSuccessPageBackground />
         <OrderSuccessPageChrome />
 
         <div className="hotel-booking-success-main">

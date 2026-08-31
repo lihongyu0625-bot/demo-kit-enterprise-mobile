@@ -1,0 +1,11 @@
+{
+  "pageTitle": "做任务赚积分",
+  "sections": [
+    { "id": "hero", "name": "顶部积分信息" },
+    { "id": "rideMission", "name": "去打车赚积分" },
+    { "id": "activityTasks", "name": "动动手赚积分" },
+    { "id": "bookingTasks", "name": "订商旅赚积分" },
+    { "id": "rules", "name": "省立返赚积分规则" },
+    { "id": "watermark", "name": "底部水印" }
+  ]
+}

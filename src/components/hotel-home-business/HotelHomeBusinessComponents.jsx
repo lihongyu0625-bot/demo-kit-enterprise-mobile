@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import guaranteeDiscountIcon from '../../assets/hotel-home-business/icon-guarantee-discount.png'
 import guaranteeFlightIcon from '../../assets/hotel-home-business/icon-guarantee-flight.png'
 import guaranteeLogoIcon from '../../assets/hotel-home-business/icon-guarantee-logo.png'
@@ -9,8 +8,7 @@ import headerBgImage from '../../assets/hotel-home-business/header-bg.png'
 import headphonesIcon from '../../assets/hotel-home-business/icon-headphones.svg'
 import ordersIcon from '../../assets/hotel-home-business/icon-orders.svg'
 import benefitsIcon from '../../assets/hotel-home-business/icon-benefits.svg'
-import watermarkGroup451Image from '../../assets/hotel-home-business/watermark-group-451.svg'
-import { BottomWatermark } from '../common/BottomWatermark'
+import { BusinessGuaranteeCard } from '../business/BusinessGuaranteeCard'
 import { DirectionalIcon } from '../common/DirectionalIcon'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneBar } from '../common/IPhoneBar'
@@ -339,72 +337,33 @@ export function HotelHomeBusinessGuaranteeCard() {
   ]
 
   return (
-    <section className="hotel-home-business-guarantee">
-      <div className="hotel-home-business-guarantee__header">
-        <div className="hotel-home-business-guarantee__title-wrap">
-          <GuaranteeLogoIcon />
-          <span className="hotel-home-business-guarantee__title">省心住·保障中</span>
-        </div>
-
-        <button
-          className="hotel-home-business-guarantee__detail"
-          type="button"
-        >
-          <span>详情</span>
-          <HotelHomeBusinessDirectionalIcon
-            className="hotel-home-business-guarantee__detail-arrow"
-            name="icon/directional/chevron-right-small/outlined"
-          />
-        </button>
-      </div>
-
-      <div className="hotel-home-business-guarantee__benefits">
-        {benefits.map((item, index) => (
-          <Fragment key={item.title}>
-            <div
-              className={cx(
-                'hotel-home-business-guarantee__benefit',
-                index === benefits.length - 1 && 'hotel-home-business-guarantee__benefit--align-end',
-              )}
-            >
-              <div className="hotel-home-business-guarantee__benefit-title">
-                {item.icon}
-                <span>{item.title}</span>
-              </div>
-              <p>{item.description}</p>
-            </div>
-
-            {index < benefits.length - 1 ? (
-              <Divider
-                vertical
-                className="hotel-home-business-guarantee__benefit-divider"
-              />
-            ) : null}
-          </Fragment>
-        ))}
-      </div>
-
-      <div
-        aria-hidden="true"
-        className="hotel-home-business-guarantee__stamp"
-      >
-        <img
-          alt=""
-          className="hotel-home-business-guarantee__stamp-image"
-          src={guaranteeStampImage}
+    <BusinessGuaranteeCard
+      classPrefix="hotel-home-business"
+      detailIcon={(
+        <HotelHomeBusinessDirectionalIcon
+          className="hotel-home-business-guarantee__detail-arrow"
+          name="icon/directional/chevron-right-small/outlined"
         />
-      </div>
-    </section>
-  )
-}
-
-export function HotelHomeBusinessBottomWatermark() {
-  return (
-    <BottomWatermark
-      className="hotel-home-business-watermark"
-      headlineAlt="订酒店·省心住"
-      headlineSrc={watermarkGroup451Image}
-      items={['贵必赔', '降价退', '省立返']}
+      )}
+      detailLabel="详情"
+      features={benefits}
+      itemName="benefit"
+      listName="benefits"
+      logo={<GuaranteeLogoIcon />}
+      stamp={(
+        <div
+          aria-hidden="true"
+          className="hotel-home-business-guarantee__stamp"
+        >
+          <img
+            alt=""
+            className="hotel-home-business-guarantee__stamp-image"
+            src={guaranteeStampImage}
+          />
+        </div>
+      )}
+      title="省心住·保障中"
+      titleWrapName="title-wrap"
     />
   )
 }

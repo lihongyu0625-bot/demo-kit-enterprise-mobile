@@ -54,4 +54,6 @@ function HotelBookingSuccessBusinessPreview() {
   )
 }
 
+HotelBookingSuccessBusinessPreview.showcaseList = showcaseList
+
 export default HotelBookingSuccessBusinessPreview

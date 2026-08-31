@@ -1,7 +1,6 @@
 import flightHomeData from '../../../mock-data/flight-home.mock.json'
 import {
   FlightHomeApplicationCard,
-  FlightHomeBenefitStrip,
   FlightHomeBottomNav,
   FlightHomeGuaranteeCard,
   FlightHomeHeroBackground,
@@ -34,11 +33,6 @@ const showcaseList = [
     name: '机票首页 · 省心飞保障卡',
     description: '展示保障标题、四项权益和底部高亮权益摘要。',
     render: <FlightHomeGuaranteeCard guarantee={flightHomeData.guarantee} />,
-  },
-  {
-    name: '机票首页 · 底部权益条',
-    description: '展示页面主权益标题和下方三项弱感知利益点。',
-    render: <FlightHomeBenefitStrip benefits={flightHomeData.benefits} />,
   },
   {
     name: '机票首页 · 底部导航',
@@ -80,5 +74,7 @@ function FlightHomeBusinessPreview() {
     </section>
   )
 }
+
+FlightHomeBusinessPreview.showcaseList = showcaseList
 
 export default FlightHomeBusinessPreview

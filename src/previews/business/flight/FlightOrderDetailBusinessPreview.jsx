@@ -135,4 +135,6 @@ function FlightOrderDetailBusinessPreview() {
   )
 }
 
+FlightOrderDetailBusinessPreview.showcaseList = showcaseList
+
 export default FlightOrderDetailBusinessPreview

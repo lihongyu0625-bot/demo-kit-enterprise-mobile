@@ -233,7 +233,7 @@ export function CarLocationInputPreviewFrame({ data }) {
         <CarLocationSafetyGuide safetyGuide={data.safetyGuide} />
       </main>
 
-      <IPhoneFooter className="car-location-input-footer" />
+      <IPhoneFooter className="car-location-input-footer" transparent />
     </div>
   )
 }

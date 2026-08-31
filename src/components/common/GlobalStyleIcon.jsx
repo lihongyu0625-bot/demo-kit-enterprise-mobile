@@ -1,11 +1,13 @@
-const globalStyleIconModules = import.meta.glob('../../assets/global-styles/**/*.svg', {
-  eager: true,
-  import: 'default',
-})
+import { useEffect, useState } from 'react'
 
-const globalStyleIconSrcMap = Object.fromEntries(
-  Object.entries(globalStyleIconModules).flatMap(([path, src]) => {
-    const match = path.match(/\/global-styles\/([^/]+)\/(.+)\.svg$/)
+const globalStyleIconLoaderModules = import.meta.glob(
+  ['../../assets/global-styles/**/*.svg', '../../assets/global-styles/**/*.png'],
+  { import: 'default' },
+)
+
+const globalStyleIconLoaderMap = Object.fromEntries(
+  Object.entries(globalStyleIconLoaderModules).flatMap(([path, loader]) => {
+    const match = path.match(/\/global-styles\/([^/]+)\/(.+)\.(svg|png)$/)
 
     if (!match) {
       return []
@@ -15,16 +17,48 @@ const globalStyleIconSrcMap = Object.fromEntries(
     const categoryName = categoryFolder.replace(/-icons$/, '')
     const iconName = `icon/${categoryName}/${relativePath.replace(/\\/g, '/')}`
 
-    return [[iconName, src]]
+    return [[iconName, loader]]
   }),
 )
+
+const loadedIconSrcCache = new Map()
 
 function cx(...classNames) {
   return classNames.filter(Boolean).join(' ')
 }
 
 export function GlobalStyleIcon({ className, label, name, style, ...props }) {
-  const iconSrc = globalStyleIconSrcMap[name]
+  const [iconSrc, setIconSrc] = useState(() => loadedIconSrcCache.get(name))
+
+  useEffect(() => {
+    const cachedSrc = loadedIconSrcCache.get(name)
+
+    if (cachedSrc) {
+      setIconSrc(cachedSrc)
+      return undefined
+    }
+
+    const loader = globalStyleIconLoaderMap[name]
+
+    if (!loader) {
+      console.warn(`[GlobalStyleIcon] 未找到图标资源: ${name}`)
+      return undefined
+    }
+
+    let cancelled = false
+
+    loader().then((src) => {
+      loadedIconSrcCache.set(name, src)
+
+      if (!cancelled) {
+        setIconSrc(src)
+      }
+    })
+
+    return () => {
+      cancelled = true
+    }
+  }, [name])
 
   if (!iconSrc) {
     return null

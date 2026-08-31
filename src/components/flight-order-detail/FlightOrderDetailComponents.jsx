@@ -1,8 +1,8 @@
 import airlineLogoBlueRed from '../../assets/flight-list/airline-logo-blue-red.png'
 import pageBgImage from '../../assets/flight-order-detail/page-bg.png'
 import travelServiceTitle from '../../assets/flight-order-detail/travel-service-title.svg'
+import { FlightNoticeBar, FlightTopNav } from '../flight/FlightSharedComponents'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
-import { IPhoneBar } from '../common/IPhoneBar'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import { PriceDisplay } from '../common/PriceDisplay'
 import './flight-order-detail.css'
@@ -44,46 +44,11 @@ export function FlightOrderDetailBackground({ className }) {
 }
 
 export function FlightOrderDetailTopNav({ nav }) {
-  return (
-    <header className="flight-order-detail-top">
-      <IPhoneBar
-        className="flight-order-detail-top__statusbar"
-        transparent
-      />
-      <div className="flight-order-detail-top__bar">
-        <button
-          aria-label="返回"
-          className="flight-order-detail-top__back"
-          type="button"
-        >
-          <FlightOrderDetailIcon
-            className="flight-order-detail-top__back-icon"
-            name="icon/directional/chevron-left-large/outlined"
-          />
-        </button>
-        <h1>{nav.title}</h1>
-      </div>
-    </header>
-  )
+  return <FlightTopNav classPrefix="flight-order-detail" nav={nav} />
 }
 
 export function FlightOrderDetailNotice({ notice }) {
-  return (
-    <button
-      className="flight-order-detail-notice"
-      type="button"
-    >
-      <FlightOrderDetailIcon
-        className="flight-order-detail-notice__icon"
-        name={notice.iconName}
-      />
-      <span>{notice.text}</span>
-      <FlightOrderDetailIcon
-        className="flight-order-detail-notice__arrow"
-        name="icon/directional/chevron-right-small/outlined"
-      />
-    </button>
-  )
+  return <FlightNoticeBar classPrefix="flight-order-detail" notice={notice} />
 }
 
 export function FlightOrderDetailActionBar({ actions }) {
@@ -329,7 +294,7 @@ export function FlightOrderDetailPreviewFrame({ data }) {
           <FlightOrderDetailInfoCard card={data.reimbursementInfo} />
           <FlightOrderDetailInfoCard card={data.approvalInfo} />
         </main>
-        <IPhoneFooter className="flight-order-detail-footer" />
+        <IPhoneFooter className="flight-order-detail-footer" transparent />
       </div>
     </div>
   )

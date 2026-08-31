@@ -1,7 +1,8 @@
 import carHomeFullData from '../mock-data/car-home-full.mock.json'
+import footerBrandImage from '../assets/car-home-default/footer-brand.svg'
+import { BottomWatermark } from '../components/common/BottomWatermark'
 import {
   CarHomeDefaultBottomNav,
-  CarHomeDefaultFooterRules,
   CarHomeDefaultHero,
   CarHomeDefaultOperationsArea,
   CarHomeCategoryTabs,
@@ -51,7 +52,12 @@ function CarHomeFullPreviewPage() {
             <CarHomeDefaultOperationsArea />
           </div>
 
-          <CarHomeDefaultFooterRules links={carHomeFullData.footerLinks} />
+          <BottomWatermark
+            className="car-home-default-footer-rules"
+            headlineAlt={carHomeFullData.hero.title}
+            headlineSrc={footerBrandImage}
+            items={carHomeFullData.footerLinks}
+          />
         </div>
 
         <div className="car-home-full-bottom">

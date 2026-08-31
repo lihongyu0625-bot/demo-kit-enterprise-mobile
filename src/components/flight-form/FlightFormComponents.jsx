@@ -1,9 +1,10 @@
 import travelServiceBg from '../../assets/flight-form/travel-service-bg.png'
 import travelServiceTitle from '../../assets/flight-form/travel-service-title.svg'
+import { FlightNoticeBar, FlightTopNav } from '../flight/FlightSharedComponents'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
-import { IPhoneBar } from '../common/IPhoneBar'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import { PriceDisplay } from '../common/PriceDisplay'
+import { HotelTermsBar } from '../hotel-form/HotelFormComponents'
 import './flight-form.css'
 
 function cx(...classNames) {
@@ -41,46 +42,11 @@ export function FlightFormBackground({ className }) {
 }
 
 export function FlightFormTopNav({ nav }) {
-  return (
-    <header className="flight-form-top">
-      <IPhoneBar
-        className="flight-form-top__statusbar"
-        transparent
-      />
-      <div className="flight-form-top__bar">
-        <button
-          aria-label="返回"
-          className="flight-form-top__back"
-          type="button"
-        >
-          <FlightFormIcon
-            className="flight-form-top__back-icon"
-            name="icon/directional/chevron-left-large/outlined"
-          />
-        </button>
-        <h1>{nav.title}</h1>
-      </div>
-    </header>
-  )
+  return <FlightTopNav classPrefix="flight-form" nav={nav} />
 }
 
 export function FlightFormNotice({ notice }) {
-  return (
-    <button
-      className="flight-form-notice"
-      type="button"
-    >
-      <FlightFormIcon
-        className="flight-form-notice__icon"
-        name={notice.iconName}
-      />
-      <span>{notice.text}</span>
-      <FlightFormIcon
-        className="flight-form-notice__arrow"
-        name="icon/directional/chevron-right-small/outlined"
-      />
-    </button>
-  )
+  return <FlightNoticeBar classPrefix="flight-form" notice={notice} />
 }
 
 export function FlightFormFlightCard({ flight }) {
@@ -347,15 +313,13 @@ export function FlightFormInfoCard({ card }) {
 }
 
 export function FlightFormAgreementBar({ agreement }) {
-  return (
-    <div className="flight-form-agreement">
-      <SelectBox />
-      <p>
-        <span>{agreement.prefix}</span>
-        <a href="#common-bottom-watermark">{agreement.links}</a>
-      </p>
-    </div>
-  )
+  const terms = {
+    checked: agreement.checked ?? false,
+    prefix: agreement.prefix,
+    links: Array.isArray(agreement.links) ? agreement.links : [agreement.links],
+  }
+
+  return <HotelTermsBar terms={terms} />
 }
 
 export function FlightFormSubmitBar({ submit }) {

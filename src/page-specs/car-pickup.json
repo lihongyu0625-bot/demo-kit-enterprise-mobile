@@ -1,0 +1,43 @@
+{
+  "pageId": "car-pickup",
+  "pageTitle": "用车等待接驾页",
+  "business": "car",
+  "source": {
+    "type": "figma",
+    "fileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "nodeId": "1099:29624"
+  },
+  "taskType": "compose-new-page",
+  "reuseLevel": "component-library-composition",
+  "sections": [
+    "mapLayer",
+    "routeOverlay",
+    "floatingControls",
+    "driverCard",
+    "customerServiceCard"
+  ],
+  "reusedSections": [
+    "IPhoneBar",
+    "IPhoneFooter",
+    "carLocationFloatingButtonsPattern"
+  ],
+  "newDrawnSections": [
+    "routeOverlay",
+    "distanceMarker",
+    "driverCard",
+    "customerServiceCard"
+  ],
+  "componentEvidence": [
+    "src/components/car-location-input/CarLocationInputComponents.jsx",
+    "src/components/car-bubble/CarBubbleComponents.jsx",
+    "src/components/common/IPhoneBar.jsx",
+    "src/components/common/IPhoneFooter.jsx"
+  ],
+  "assetEvidence": [
+    "src/assets/car-pickup/map-background.png",
+    "src/assets/car-pickup/banner.png",
+    "src/assets/car-pickup/vehicle.png",
+    "src/assets/car-pickup/customer-service-avatar.png",
+    "src/assets/car-pickup/*.svg"
+  ]
+}

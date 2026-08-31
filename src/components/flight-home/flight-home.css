@@ -49,7 +49,8 @@
   inset: 0 0 auto;
 }
 
-.flight-home-top__nav {
+.flight-home-top__nav,
+.flight-home-top__bar {
   position: absolute;
   top: 44px;
   left: 0;
@@ -193,7 +194,7 @@
   gap: 4px;
   padding: 6px 8px;
   border-radius: var(--radius-6);
-  background: linear-gradient(90deg, #faf3e8 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(90deg, #faf3e8 0%, var(--color-alpha-white-0) 100%);
 }
 
 .flight-home-application__notice-badge {
@@ -210,7 +211,7 @@
 }
 
 .flight-home-application__notice-text {
-  color: #7f3f20;
+  color: var(--color-orange-80);
   font-size: 12px;
   font-weight: 600;
   line-height: 20px;
@@ -219,7 +220,7 @@
 .flight-home-application__notice-icon {
   width: 14px;
   height: 14px;
-  color: #7f3f20;
+  color: var(--color-orange-80);
 }
 
 .flight-home-application__row,
@@ -396,7 +397,7 @@
   padding: 12px;
   border: 1px solid var(--color-white);
   border-radius: var(--radius-8);
-  background: linear-gradient(180deg, #cedfff 0%, #ffffff 53.401%);
+  background: linear-gradient(180deg, var(--color-blue-22) 0%, var(--color-white) 53.401%);
   overflow: hidden;
 }
 
@@ -447,7 +448,7 @@
 
 .flight-home-guarantee__title {
   margin: 0;
-  background: linear-gradient(90deg, #2c32a2 0%, #00033a 116.55%);
+  background: linear-gradient(90deg, var(--color-blue-accent-6) 0%, var(--color-blue-accent-7) 116.55%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

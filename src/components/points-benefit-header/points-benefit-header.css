@@ -1,0 +1,15 @@
+.points-benefit-header {
+  position: relative;
+  width: 375px;
+  height: 240px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.points-benefit-header img {
+  display: block;
+  width: 375px;
+  height: 240px;
+  object-fit: cover;
+  user-select: none;
+}

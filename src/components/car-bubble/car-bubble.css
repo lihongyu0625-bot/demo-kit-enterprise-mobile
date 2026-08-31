@@ -1,0 +1,643 @@
+.car-bubble-preview {
+  width: 375px;
+  margin: 0 auto;
+  background: var(--color-bg-gray-2);
+}
+
+.car-bubble-shell {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+  background: #dbe7f4;
+  color: var(--color-text-primary);
+  font-family: var(--font-family-ui-cn);
+}
+
+.car-bubble-shell,
+.car-bubble-shell *,
+.car-bubble-business-sample,
+.car-bubble-business-sample * {
+  box-sizing: border-box;
+}
+
+.car-bubble-map-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.car-bubble-map-layer img {
+  display: block;
+  width: 375px;
+  height: 812px;
+  object-fit: cover;
+}
+
+.car-bubble-statusbar {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 3;
+  background: transparent;
+}
+
+.car-bubble-back {
+  position: absolute;
+  top: 44px;
+  left: 16px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 0;
+  background: var(--color-white);
+  color: var(--color-alpha-black-84);
+  cursor: pointer;
+}
+
+.car-bubble-back__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.car-bubble-route-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.car-bubble-route-card {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 28px;
+  padding: 0 6px 0 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+  color: var(--color-alpha-black-84);
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.05);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.car-bubble-route-card--origin {
+  top: 136px;
+  left: 47px;
+}
+
+.car-bubble-route-card--destination {
+  top: 62px;
+  right: 18px;
+}
+
+.car-bubble-route-card__icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-84);
+}
+
+.car-bubble-route-line {
+  position: absolute;
+  top: 180px;
+  left: 99px;
+  width: 205px;
+  height: 70px;
+}
+
+.car-bubble-route-line::before,
+.car-bubble-route-line::after,
+.car-bubble-route-line__red {
+  position: absolute;
+  display: block;
+  height: 9px;
+  border-radius: 999px;
+  content: '';
+  transform-origin: left center;
+}
+
+.car-bubble-route-line::before {
+  top: 28px;
+  left: 0;
+  width: 128px;
+  background: #22ad95;
+  transform: rotate(-15deg);
+}
+
+.car-bubble-route-line::after {
+  top: 5px;
+  left: 126px;
+  width: 83px;
+  background: #22ad95;
+  transform: rotate(-27deg);
+}
+
+.car-bubble-route-line__red {
+  top: 16px;
+  left: 119px;
+  z-index: 1;
+  width: 47px;
+  background: #f04d54;
+  transform: rotate(-27deg);
+}
+
+.car-bubble-route-line__start,
+.car-bubble-route-line__end {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 13px;
+  height: 13px;
+  border: 3px solid var(--color-white);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 1px 3px var(--color-alpha-black-12);
+}
+
+.car-bubble-route-line__start {
+  top: 22px;
+  left: 0;
+  background: #4aa985;
+}
+
+.car-bubble-route-line__end {
+  top: 0;
+  right: -1px;
+  background: #ff7845;
+}
+
+.car-bubble-route-summary {
+  position: absolute;
+  top: 169px;
+  left: 145px;
+  display: inline-flex;
+  align-items: baseline;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 4px;
+  background: rgba(9, 40, 71, 0.6);
+  color: var(--color-alpha-white-90);
+  font-size: 10px;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.car-bubble-route-summary span {
+  font-family: var(--font-family-ui-number);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+}
+
+.car-bubble-safety-floating {
+  position: absolute;
+  top: 168px;
+  left: 16px;
+  z-index: 3;
+}
+
+.car-bubble-safety-floating .car-payment-floating-safety {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 8px;
+  padding: 6px;
+  background: var(--color-white);
+  box-shadow: 0 2px 6px rgba(19, 45, 77, 0.06);
+}
+
+.car-bubble-safety-floating .car-payment-floating-safety img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.car-bubble-panel {
+  position: absolute;
+  top: 212px;
+  right: 0;
+  left: 0;
+  z-index: 4;
+  height: 492px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  background: var(--color-white);
+}
+
+.car-bubble-panel__title {
+  display: flex;
+  align-items: baseline;
+  height: 54px;
+  margin: 0;
+  padding: 24px 16px 8px;
+  color: var(--color-alpha-black-84);
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 24px;
+}
+
+.car-bubble-panel__title span {
+  color: #13a66b;
+  font-family: var(--font-family-ui-number);
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.car-bubble-panel__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 12px 14px;
+}
+
+.car-bubble-vehicle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 351px;
+  min-height: 50px;
+  border: 0;
+  border-radius: 12px;
+  padding: 5px 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.car-bubble-vehicle--highlight {
+  background: linear-gradient(90deg, var(--color-white) 0%, #edf1fa 100%);
+}
+
+.car-bubble-vehicle__main {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.car-bubble-vehicle__image {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex: none;
+}
+
+.car-bubble-vehicle__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.car-bubble-vehicle__name {
+  display: flex;
+  align-items: center;
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.car-bubble-vehicle__name strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.car-bubble-vehicle__name span {
+  color: #996125;
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  line-height: 16px;
+}
+
+.car-bubble-vehicle__meta {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 16px;
+  color: var(--color-alpha-black-36);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.car-bubble-vehicle__meta span + span::before {
+  margin-right: 3px;
+  content: '|';
+  color: var(--color-alpha-black-24);
+}
+
+.car-bubble-vehicle__meta-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--color-alpha-black-36);
+}
+
+.car-bubble-vehicle__side {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-width: 0;
+}
+
+.car-bubble-vehicle__prices {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  min-width: 0;
+}
+
+.car-bubble-vehicle__price-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.car-bubble-vehicle__price-row[data-columns='2'] {
+  gap: 4px;
+}
+
+.car-bubble-vehicle__price-row[data-columns='2'] .car-bubble-price-part + .car-bubble-price-part::before {
+  display: inline-block;
+  width: 1px;
+  height: 8px;
+  margin: 0 2px 3px 0;
+  background: var(--color-alpha-black-12);
+  content: '';
+}
+
+.car-bubble-price-part {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  color: var(--color-alpha-black-60);
+  font-size: 9px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.car-bubble-price-part__info {
+  position: relative;
+  display: inline-flex;
+  align-self: center;
+  width: 10px;
+  height: 10px;
+  margin-right: 2px;
+  border: 1px solid var(--color-alpha-black-36);
+  border-radius: var(--radius-pill);
+}
+
+.car-bubble-price-part__info::after {
+  position: absolute;
+  top: 1px;
+  left: 3px;
+  color: var(--color-alpha-black-36);
+  font-size: 7px;
+  font-family: var(--font-family-ui-ios-number);
+  line-height: 8px;
+  content: 'i';
+}
+
+.car-bubble-price-part__pay {
+  color: var(--color-blue-50);
+  font-weight: var(--font-weight-medium);
+}
+
+.car-bubble-price-part[data-tone='personal'] .car-bubble-price-part__pay {
+  color: var(--color-orange-50);
+}
+
+.car-bubble-price-part__amount {
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-number);
+  font-size: 20px;
+  font-weight: var(--font-weight-medium);
+  line-height: 22px;
+}
+
+.car-bubble-price-part__unit {
+  color: var(--color-alpha-black-60);
+  font-size: 9px;
+  line-height: 16px;
+}
+
+.car-bubble-vehicle__coupon {
+  display: inline-flex;
+  align-items: center;
+  height: 13px;
+  margin-top: -2px;
+  border: 0.5px solid var(--color-red-20);
+  border-radius: 2.5px;
+  padding: 0 2px;
+  color: #f93822;
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.car-bubble-vehicle__check {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--color-alpha-black-12);
+  border-radius: 6px;
+  background: var(--color-white);
+  flex: none;
+}
+
+.car-bubble-vehicle__check[data-selected='true'] {
+  border-color: #335380;
+  background: #335380;
+}
+
+.car-bubble-vehicle__check[data-selected='true']::after {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 5px;
+  border-bottom: 2px solid var(--color-white);
+  border-left: 2px solid var(--color-white);
+  content: '';
+  transform: rotate(-45deg);
+}
+
+.car-bubble-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  box-shadow: 0 -2px 5px var(--color-alpha-black-8);
+}
+
+.car-bubble-bottom__content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 16px 0;
+}
+
+.car-bubble-bottom-entries {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+}
+
+.car-bubble-bottom-entries__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-alpha-black-72);
+  font-size: 12px;
+  line-height: 20px;
+  flex: 1;
+  cursor: pointer;
+}
+
+.car-bubble-bottom-entries__item + .car-bubble-bottom-entries__item::before {
+  position: absolute;
+  left: -4px;
+  width: 1px;
+  height: 8px;
+  background: var(--color-alpha-black-6);
+  content: '';
+}
+
+.car-bubble-bottom-entries__icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-36);
+}
+
+.car-bubble-call {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 343px;
+  height: 54px;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: #2b2f3f;
+}
+
+.car-bubble-call__price {
+  display: flex;
+  align-items: flex-end;
+  gap: 1px;
+  padding: 0 0 8px 20px;
+  color: var(--color-white);
+  white-space: nowrap;
+}
+
+.car-bubble-call__price span {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.car-bubble-call__price strong {
+  color: var(--color-blue-30);
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 20px;
+}
+
+.car-bubble-call__price em {
+  color: var(--color-white);
+  font-family: var(--font-family-ui-number);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: var(--font-weight-medium);
+  line-height: 28px;
+}
+
+.car-bubble-call__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  min-width: 136px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 0 20px;
+  background: var(--color-blue-50);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.car-bubble-footer {
+  position: relative;
+  width: 100%;
+  height: 34px;
+  background: var(--color-white);
+}
+
+.car-bubble-business-sample {
+  position: relative;
+  overflow: hidden;
+  width: 375px;
+  min-height: 180px;
+  border-radius: 18px;
+  background: #dbe7f4;
+}
+
+.car-bubble-business-sample--map {
+  height: 240px;
+}
+
+.car-bubble-business-sample--map .car-bubble-map-layer {
+  position: absolute;
+}
+
+.car-bubble-business-sample--route {
+  height: 240px;
+}
+
+.car-bubble-business-sample--panel {
+  min-height: 520px;
+  background: var(--color-white);
+}
+
+.car-bubble-business-sample--panel .car-bubble-panel {
+  position: relative;
+  top: auto;
+  height: auto;
+  border-radius: 16px;
+}
+
+.car-bubble-business-sample--bottom {
+  min-height: 132px;
+  background: var(--color-bg-gray-2);
+}
+
+.car-bubble-business-sample--bottom .car-bubble-bottom {
+  position: relative;
+}

@@ -1,0 +1,152 @@
+.car-payment-complete-panel {
+  position: absolute;
+  top: 319px;
+  left: 12px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 351px;
+}
+
+.car-payment-complete-rating-card {
+  width: 351px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.car-payment-complete-rating-card img {
+  display: block;
+  width: 351px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.car-payment-complete-card__body {
+  gap: 16px;
+}
+
+.car-payment-complete-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 319px;
+}
+
+.car-payment-complete-rewards {
+  display: flex;
+  gap: 8px;
+  width: 319px;
+}
+
+.car-payment-complete-reward {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+  min-height: 58px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #f9fafd;
+}
+
+.car-payment-complete-reward > div {
+  min-width: 0;
+}
+
+.car-payment-complete-reward p {
+  overflow: hidden;
+  margin: 0;
+  color: var(--color-gray-700);
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.car-payment-complete-reward span,
+.car-payment-complete-reward strong {
+  color: var(--color-black);
+  font-family: var(--font-family-ui-number);
+  font-weight: var(--font-weight-regular);
+  line-height: 24px;
+}
+
+.car-payment-complete-reward span {
+  font-size: 10px;
+}
+
+.car-payment-complete-reward strong {
+  font-size: 18px;
+}
+
+.car-payment-complete-reward__icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-84);
+  vertical-align: -2px;
+}
+
+.car-payment-complete-reward > img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex: none;
+}
+
+.car-payment-complete-expense {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 319px;
+  height: 20px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-alpha-black-84);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.car-payment-complete-expense__icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-alpha-black-84);
+}
+
+.car-payment-complete-business-sample {
+  position: relative;
+  width: 375px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--color-bg-gray-2);
+}
+
+.car-payment-complete-business-sample--map {
+  height: 360px;
+}
+
+.car-payment-complete-business-sample--map .car-payment-map-stage {
+  height: 360px;
+}
+
+.car-payment-complete-business-sample--map .car-payment-map-stage__image {
+  height: 360px;
+}
+
+.car-payment-complete-business-sample--rating {
+  padding: 12px;
+}
+
+.car-payment-complete-business-sample--card {
+  min-height: 340px;
+  padding: 12px;
+}

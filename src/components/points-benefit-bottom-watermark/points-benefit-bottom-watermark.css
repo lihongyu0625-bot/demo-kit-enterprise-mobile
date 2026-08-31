@@ -1,0 +1,15 @@
+.points-benefit-bottom-watermark {
+  display: flex;
+  width: 351px;
+  height: 88px;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.points-benefit-bottom-watermark img {
+  display: block;
+  width: 300px;
+  height: 64px;
+  object-fit: contain;
+}

@@ -1,0 +1,43 @@
+{
+  "pageId": "car-send",
+  "pageTitle": "用车送驾页",
+  "business": "car",
+  "source": {
+    "type": "figma",
+    "fileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "nodeId": "1181:35681"
+  },
+  "taskType": "compose-new-page",
+  "reuseLevel": "component-library-composition",
+  "sections": [
+    "mapLayer",
+    "routeOverlay",
+    "floatingControls",
+    "driverCard",
+    "customerServiceCard"
+  ],
+  "reusedSections": [
+    "IPhoneBar",
+    "IPhoneFooter",
+    "carLocationFloatingActions"
+  ],
+  "newDrawnSections": [
+    "routeOverlay",
+    "distanceMarker",
+    "driverCard",
+    "customerServiceCard"
+  ],
+  "componentEvidence": [
+    "src/components/car-location-input/CarLocationInputComponents.jsx",
+    "src/components/common/IPhoneBar.jsx",
+    "src/components/common/IPhoneFooter.jsx",
+    "src/components/car-pickup/CarPickupComponents.jsx"
+  ],
+  "assetEvidence": [
+    "src/assets/car-pickup/map-background.png",
+    "src/assets/car-pickup/banner.png",
+    "src/assets/car-pickup/vehicle.png",
+    "src/assets/car-pickup/customer-service-avatar.png",
+    "src/assets/car-pickup/*.svg"
+  ]
+}

@@ -5,6 +5,7 @@ import {
   HotelBookingSuccessFlightBenefitCard,
   HotelBookingSuccessFooter,
   HotelBookingSuccessOrderCard,
+  HotelBookingSuccessPageBackground,
   HotelBookingSuccessPageChrome,
   HotelBookingSuccessStatus,
 } from '../components/hotel-booking-success/HotelBookingSuccessComponents'
@@ -26,6 +27,7 @@ function HotelBookingSuccessPreviewPage() {
       className="hotel-booking-success-preview"
     >
       <div className="hotel-booking-success-shell">
+        <HotelBookingSuccessPageBackground />
         <HotelBookingSuccessPageChrome />
 
         <div className="hotel-booking-success-main">

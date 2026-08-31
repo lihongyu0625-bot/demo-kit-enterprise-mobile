@@ -132,6 +132,7 @@ export function HotelDetailHero({ hero }) {
       <div className="hotel-detail-hero__chrome">
         <IPhoneBar
           className="hotel-detail-hero__statusbar"
+          reserveSpace
           transparent
         />
 
@@ -424,7 +425,7 @@ function HotelDetailRatePlan({ rate }) {
         />
       </button>
 
-      {rate.benefits ? <RoomBenefitStrip items={rate.benefits.slice(1)} /> : null}
+      {rate.benefits ? <RoomBenefitStrip items={rate.benefits} /> : null}
 
       <div className="hotel-detail-rate-plan__tags">
         {rate.tags.map((tag) => (
@@ -734,5 +735,5 @@ export function HotelDetailPolicyCard({ policies }) {
 }
 
 export function HotelDetailFooter() {
-  return <IPhoneFooter className="hotel-detail-footer" />
+  return <IPhoneFooter className="hotel-detail-footer" transparent />
 }

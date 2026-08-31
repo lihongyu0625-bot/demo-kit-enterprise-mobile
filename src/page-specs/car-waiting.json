@@ -1,0 +1,46 @@
+{
+  "pageId": "car-waiting",
+  "pageTitle": "用车等待应答页",
+  "business": "car",
+  "source": {
+    "type": "figma",
+    "fileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "nodeId": "1099:29359"
+  },
+  "taskType": "compose-new-page",
+  "reuseLevel": "component-and-asset-reuse",
+  "sections": [
+    "waitingHeader",
+    "speedBenefitCard",
+    "addMoreVehicleCard",
+    "addMoreFooter"
+  ],
+  "reusedSections": [
+    "carBubbleVehicleOption",
+    "iPhoneBar",
+    "iPhoneFooter",
+    "DirectionalIcon"
+  ],
+  "newDrawnSections": [
+    "waitingHeader",
+    "speedBenefitCard",
+    "addMoreFooter"
+  ],
+  "componentEvidence": [
+    "src/components/car-bubble/CarBubbleComponents.jsx",
+    "src/components/car-bubble/car-bubble.css",
+    "src/components/common/DirectionalIcon.jsx",
+    "src/components/common/IPhoneBar.jsx",
+    "src/components/common/IPhoneFooter.jsx"
+  ],
+  "assetEvidence": [
+    "src/assets/car-waiting/page-export.png",
+    "src/assets/car-waiting/raw-image-5.png",
+    "src/assets/car-waiting/raw-image-7.png",
+    "src/assets/car-waiting/raw-image-10.png",
+    "src/assets/car-bubble/raw-image-1.png",
+    "src/assets/car-bubble/raw-image-5.png",
+    "src/assets/car-bubble/raw-image-7.png",
+    "src/assets/car-bubble/raw-image-8.png"
+  ]
+}

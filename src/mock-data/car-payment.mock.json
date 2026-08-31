@@ -1,0 +1,21 @@
+{
+  "route": {
+    "origin": "弘源新时代",
+    "destination": "天空之城A座"
+  },
+  "policy": {
+    "label": "滴滴办公区"
+  },
+  "payment": {
+    "actualLabel": "本次行程实际花费",
+    "actualAmount": "20.00",
+    "orderTotalLabel": "订单总额",
+    "orderTotalAmount": "24.00",
+    "discountLabel": "尊享立减",
+    "discountAmount": "-4.00",
+    "personalAction": "转为个人支付",
+    "enterpriseLabel": "企业付",
+    "confirmLabel": "确认企业支付",
+    "autoPayHint": "超过48小时不确认，将自动企业支付"
+  }
+}

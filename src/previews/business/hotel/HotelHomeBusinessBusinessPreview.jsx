@@ -2,7 +2,6 @@ import homeBusinessData from '../../../mock-data/hotel-home-business.mock.json'
 import {
   HotelHomeBusinessApplicationCard,
   HotelHomeBusinessBottomNav,
-  HotelHomeBusinessBottomWatermark,
   HotelHomeBusinessFooter,
   HotelHomeBusinessGuaranteeCard,
   HotelHomeBusinessHeaderHero,
@@ -35,15 +34,6 @@ const showcaseList = [
     name: '省心住保障卡',
     description: '展示省心住保障权益模块。',
     render: <HotelHomeBusinessGuaranteeCard />,
-  },
-  {
-    name: '底部水印',
-    description: '展示酒店首页底部的省心住权益水印。',
-    render: (
-      <div style={{ padding: '16px 0' }}>
-        <HotelHomeBusinessBottomWatermark />
-      </div>
-    ),
   },
   {
     name: '底部导航',
@@ -81,5 +71,7 @@ function HotelHomeBusinessBusinessPreview() {
     </section>
   )
 }
+
+HotelHomeBusinessBusinessPreview.showcaseList = showcaseList
 
 export default HotelHomeBusinessBusinessPreview

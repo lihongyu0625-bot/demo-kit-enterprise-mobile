@@ -57,7 +57,11 @@
       "score": "4.8",
       "scoreLabel": "超棒",
       "reviews": "1628点评",
-      "benefits": ["专享权益", "延迟退房", "住就送", "延迟退房"],
+      "benefits": [
+        "延迟退房",
+        "住就送",
+        "延迟退房"
+      ],
       "location": "外滩｜外滩核心区",
       "tags": [
         {
@@ -73,7 +77,8 @@
       ],
       "price": 543,
       "priceTag": "",
-      "image": "hotel-1"
+      "image": "hotel-1",
+      "id": "hotel-1"
     },
     {
       "name": "上海宝华万豪酒店",
@@ -81,7 +86,10 @@
       "score": "4.7",
       "scoreLabel": "超棒",
       "reviews": "2348点评",
-      "benefits": ["专享权益", "集团积分", "住就送"],
+      "benefits": [
+        "集团积分",
+        "住就送"
+      ],
       "location": "大宁国际商业区",
       "tags": [
         {
@@ -101,7 +109,8 @@
       ],
       "price": 821,
       "priceTag": "省立返 | 企业特惠 | 立返¥30",
-      "image": "hotel-2"
+      "image": "hotel-2",
+      "id": "hotel-2"
     },
     {
       "name": "上海SK简奢酒店 · 云澜(松江大学城万达广场店)",
@@ -109,7 +118,11 @@
       "score": "4.8",
       "scoreLabel": "超棒",
       "reviews": "1628点评",
-      "benefits": ["专享权益", "携程积分", "住就送", "延迟退房"],
+      "benefits": [
+        "携程积分",
+        "住就送",
+        "延迟退房"
+      ],
       "location": "外滩｜外滩核心区",
       "tags": [
         {
@@ -129,7 +142,8 @@
       ],
       "price": 432,
       "priceTag": "",
-      "image": "hotel-3"
+      "image": "hotel-3",
+      "id": "hotel-3"
     },
     {
       "name": "上海浦发盛捷壹滨江公寓",
@@ -137,7 +151,11 @@
       "score": "4.8",
       "scoreLabel": "超棒",
       "reviews": "1628点评",
-      "benefits": ["专享权益", "延迟退房", "住就送", "延迟退房"],
+      "benefits": [
+        "延迟退房",
+        "住就送",
+        "延迟退房"
+      ],
       "location": "外滩｜外滩核心区",
       "tags": [
         {
@@ -153,7 +171,8 @@
       ],
       "price": 600,
       "priceTag": "",
-      "image": "hotel-1"
+      "image": "hotel-1",
+      "id": "hotel-4"
     }
   ]
 }

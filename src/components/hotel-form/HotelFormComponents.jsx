@@ -2,6 +2,7 @@ import { MobileNavBar } from '../common/MobileNavBar'
 import { DirectionalIcon } from '../common/DirectionalIcon'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneFooter } from '../common/IPhoneFooter'
+import { MultiSelect } from '../common/MultiSelect'
 import './hotel-form.css'
 
 function cx(...classNames) {
@@ -467,7 +468,10 @@ export function HotelInvoiceTipCard({ invoiceTip }) {
 export function HotelTermsBar({ terms }) {
   return (
     <div className="terms-bar">
-      <Checkbox checked={terms.checked} />
+      <MultiSelect
+        checked={terms.checked}
+        label="阅读条款"
+      />
       <p className="terms-bar__text">
         <span>{terms.prefix}</span>
         <span className="terms-bar__links">{terms.links.join('')}</span>

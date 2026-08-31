@@ -472,6 +472,7 @@
 }
 
 .hotel-home-business-guarantee__title {
+  margin: 0;
   background: linear-gradient(90deg, var(--color-blue-accent-6) 0%, var(--color-blue-accent-7) 116.55%);
   color: transparent;
   font-size: 14px;
@@ -594,7 +595,7 @@
   left: 0;
   width: 375px;
   height: 80px;
-  background: var(--color-white);
+  background: transparent;
 }
 
 .hotel-home-business-bottom-preview {
@@ -610,7 +611,7 @@
 }
 
 .hotel-home-business-footer {
-  background: transparent;
+  background: var(--color-white);
 }
 
 .hotel-home-business-shell--hero-only {

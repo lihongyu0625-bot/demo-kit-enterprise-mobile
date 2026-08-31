@@ -2,8 +2,8 @@ import airlineLogoBlueRed from '../../assets/flight-list/airline-logo-blue-red.p
 import airlineLogoRed from '../../assets/flight-list/airline-logo-red.png'
 import headerBgImage from '../../assets/flight-list/header-bg.png'
 import routeArrowImage from '../../assets/flight-list/route-arrow.svg'
+import { FlightTopNav } from '../flight/FlightSharedComponents'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
-import { IPhoneBar } from '../common/IPhoneBar'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import { PriceDisplay } from '../common/PriceDisplay'
 import { Tag } from '../common/Tag'
@@ -41,44 +41,7 @@ export function FlightListHeaderBackground() {
 }
 
 export function FlightListTopNav({ nav }) {
-  return (
-    <header className="flight-list-top">
-      <IPhoneBar className="flight-list-top__statusbar" />
-
-      <div className="flight-list-top__bar">
-        <button
-          aria-label="返回"
-          className="flight-list-top__back"
-          type="button"
-        >
-          <FlightListIcon
-            className="flight-list-top__back-icon"
-            name="icon/directional/chevron-left-large/outlined"
-          />
-        </button>
-
-        <div className="flight-list-top__title">
-          <span>{nav.fromCity}</span>
-          <FlightListIcon
-            className="flight-list-top__title-icon"
-            name="icon/directional/arrow-right2/filled"
-          />
-          <span>{nav.toCity}</span>
-        </div>
-
-        <button
-          className="flight-list-top__policy"
-          type="button"
-        >
-          <FlightListIcon
-            className="flight-list-top__policy-icon"
-            name="icon/status/info-circle/outlined"
-          />
-          <span>{nav.policyLabel}</span>
-        </button>
-      </div>
-    </header>
-  )
+  return <FlightTopNav classPrefix="flight-list" nav={nav} />
 }
 
 export function FlightListDateFilter({ dateFilters }) {

@@ -18,6 +18,7 @@ function MoreIcon() {
 export function MobileNavBar({
   className,
   title = '滴滴企业版',
+  showTitle = true,
   time = '9:41',
   statusBarTone = 'dark',
   showBackIcon = true,
@@ -38,6 +39,7 @@ export function MobileNavBar({
         time={time}
         tone={statusBarTone}
         transparent={transparent}
+        reserveSpace
       />
       <div className="mobile-navbar__bar">
         {showBackIcon ? (
@@ -53,7 +55,7 @@ export function MobileNavBar({
           </button>
         ) : null}
 
-        <p className="mobile-navbar__title">{title}</p>
+        {showTitle ? <p className="mobile-navbar__title">{title}</p> : null}
 
         {showRightIcon ? (
           <button

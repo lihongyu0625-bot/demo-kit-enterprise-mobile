@@ -1,10 +1,13 @@
 import HotelListPreviewPage from '../../../pages/HotelListPreviewPage'
+import PageCaseViewport from '../PageCaseViewport'
 
 function HotelListCasePreview() {
   return (
     <section className="case-preview">
       <div className="case-preview__surface">
-        <HotelListPreviewPage />
+        <PageCaseViewport>
+          <HotelListPreviewPage />
+        </PageCaseViewport>
       </div>
     </section>
   )

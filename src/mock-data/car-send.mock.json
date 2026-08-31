@@ -1,0 +1,32 @@
+{
+  "distance": {
+    "tag": "企业",
+    "label": "正在赶往目的地",
+    "time": "剩余1.5公里 5分钟"
+  },
+  "driver": {
+    "plateProvince": "京",
+    "plateNumber": "HN6290",
+    "serviceTag": "快车",
+    "vehicle": "大众速腾 · 银色",
+    "name": "韩师傅",
+    "rating": "5.0",
+    "orders": "1750单"
+  },
+  "notice": {
+    "text": "行程开始了，请后排落座，并系好安全带。",
+    "iconName": "icon/media/notice/filled"
+  },
+  "actions": [
+    { "id": "alarm", "label": "110报警", "iconName": "icon/status/alarm-2/filled" },
+    { "id": "missed", "label": "我没上车", "iconName": "icon/emoji/sad/filled" },
+    { "id": "destination", "label": "修改终点", "iconName": "icon/action/settings/filled" },
+    { "id": "share", "label": "行程分享", "iconName": "icon/action/share-forward-2/outlined" },
+    { "id": "service", "label": "VIP客服", "iconName": "icon/media/headphones/filled" },
+    { "id": "more", "label": "更多", "iconName": "icon/action/more/outlined" }
+  ],
+  "service": {
+    "title": "送驾途中有问题？",
+    "action": "VIP客服"
+  }
+}

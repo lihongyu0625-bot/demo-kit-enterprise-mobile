@@ -48,4 +48,6 @@ function FlightBookingSuccessBusinessPreview() {
   )
 }
 
+FlightBookingSuccessBusinessPreview.showcaseList = showcaseList
+
 export default FlightBookingSuccessBusinessPreview

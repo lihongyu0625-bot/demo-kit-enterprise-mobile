@@ -1,0 +1,61 @@
+{
+  "pageTitle": "小福包",
+  "sections": [
+    {
+      "id": "hero",
+      "name": "小福包头图"
+    },
+    {
+      "id": "points",
+      "name": "头部积分信息"
+    },
+    {
+      "id": "task",
+      "name": "任务卡"
+    },
+    {
+      "id": "tabs",
+      "name": "小福包标签栏"
+    },
+    {
+      "id": "flashSale",
+      "name": "限时秒杀"
+    },
+    {
+      "id": "giftExchange",
+      "name": "积分兑好礼"
+    },
+    {
+      "id": "earnPoints",
+      "name": "做任务赚积分"
+    },
+    {
+      "id": "rebate",
+      "name": "省立返赚积分"
+    },
+    {
+      "id": "travelBenefits",
+      "name": "企业专属权益"
+    },
+    {
+      "id": "businessBenefits",
+      "name": "商旅权益"
+    },
+    {
+      "id": "brandMembership",
+      "name": "品牌会员卡"
+    },
+    {
+      "id": "serviceBenefits",
+      "name": "客服权益"
+    },
+    {
+      "id": "bottomWatermark",
+      "name": "底部水印"
+    },
+    {
+      "id": "bottomNav",
+      "name": "底部标签栏"
+    }
+  ]
+}

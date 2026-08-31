@@ -71,4 +71,6 @@ function HotelListBusinessPreview() {
   )
 }
 
+HotelListBusinessPreview.showcaseList = componentShowcaseList
+
 export default HotelListBusinessPreview

@@ -1,0 +1,29 @@
+{
+  "pageType": "points-lucky-bag",
+  "pageTitle": "小福包",
+  "business": "积分权益",
+  "taskType": "draw-new-page",
+  "reuseLevel": "section-export-components",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeId": "1229:38904",
+    "figmaNodeName": "小福包-默认场景长图"
+  },
+  "componentCandidates": [
+    "iPhone bar",
+    "首页-底部标签栏",
+    "首页-底部水印"
+  ],
+  "newDrawnSections": [
+    "小福包头图",
+    "头部积分信息",
+    "任务卡",
+    "标签栏",
+    "限时秒杀",
+    "积分兑好礼",
+    "做任务赚积分",
+    "权益卡组",
+    "会员卡组",
+    "客服权益"
+  ]
+}

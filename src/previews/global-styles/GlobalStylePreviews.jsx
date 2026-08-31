@@ -1,57 +1,45 @@
+import { useEffect, useState } from 'react'
+
 const directionalIconModules = import.meta.glob('../../assets/global-styles/directional-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const actionIconModules = import.meta.glob('../../assets/global-styles/action-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const statusIconModules = import.meta.glob('../../assets/global-styles/status-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const messageIconModules = import.meta.glob('../../assets/global-styles/message-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const deviceIconModules = import.meta.glob('../../assets/global-styles/device-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const fileIconModules = import.meta.glob('../../assets/global-styles/file-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const symbolIconModules = import.meta.glob('../../assets/global-styles/symbol-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const mediaIconModules = import.meta.glob('../../assets/global-styles/media-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const travelIconModules = import.meta.glob('../../assets/global-styles/travel-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const dataIconModules = import.meta.glob('../../assets/global-styles/data-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const financeIconModules = import.meta.glob('../../assets/global-styles/finance-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const emojiIconModules = import.meta.glob('../../assets/global-styles/emoji-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const brandIconModules = import.meta.glob('../../assets/global-styles/brand-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 const tabBarIconModules = import.meta.glob('../../assets/global-styles/tab-bar-icons/**/*.svg', {
-  eager: true,
   import: 'default',
 })
 
@@ -602,17 +590,25 @@ const iconCategorySections = [
   },
 ]
 
+const iconSrcCache = new Map()
+
 function buildIconCollection({ categoryKey, modules }) {
   return Object.entries(modules)
-    .map(([path, src]) => {
+    .map(([path, loader]) => {
       const relativePath = path.split(`/${categoryKey}-icons/`)[1] ?? ''
       const iconName = `icon/${categoryKey}/${relativePath.replace(/\.svg$/, '').replace(/\\/g, '/')}`
       const familyName = relativePath.split('/')[0] ?? ''
 
+      const load = async () => {
+        const src = await loader()
+        iconSrcCache.set(iconName, src)
+        return src
+      }
+
       return {
         name: iconName,
         family: familyName,
-        src,
+        load,
       }
     })
     .sort((firstIcon, secondIcon) => firstIcon.name.localeCompare(secondIcon.name))
@@ -1238,6 +1234,30 @@ export function GlobalLayoutPreview() {
 }
 
 export function GlobalIconPreview() {
+  const [iconSrcByName, setIconSrcByName] = useState(() => Object.fromEntries(iconSrcCache))
+
+  useEffect(() => {
+    const pendingIcons = iconCategorySections
+      .flatMap((section) => iconCollections[section.categoryKey])
+      .filter((icon) => !iconSrcCache.has(icon.name))
+
+    if (pendingIcons.length === 0) {
+      return undefined
+    }
+
+    let cancelled = false
+
+    Promise.all(pendingIcons.map((icon) => icon.load())).then(() => {
+      if (!cancelled) {
+        setIconSrcByName(Object.fromEntries(iconSrcCache))
+      }
+    })
+
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
   return (
     <GlobalStylePreviewShell
       title="图标规范"
@@ -1281,12 +1301,16 @@ export function GlobalIconPreview() {
                 data-name={icon.name}
                 data-family={icon.family}
               >
-                <img
-                  className="global-style-icon-gallery__asset"
-                  src={icon.src}
-                  alt={icon.name}
-                  loading="lazy"
-                />
+                {iconSrcByName[icon.name] ? (
+                  <img
+                    className="global-style-icon-gallery__asset"
+                    src={iconSrcByName[icon.name]}
+                    alt={icon.name}
+                    loading="lazy"
+                  />
+                ) : (
+                  <span className="global-style-icon-gallery__asset" />
+                )}
                 <span className="global-style-icon-gallery__tooltip">{icon.name}</span>
               </div>
             ))}

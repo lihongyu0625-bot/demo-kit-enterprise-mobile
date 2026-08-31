@@ -46,7 +46,7 @@ export function HotelListHeaderBackground() {
 export function HotelListTopBar({ search }) {
   return (
     <header className="hotel-list-topbar">
-      <IPhoneBar className="hotel-list-statusbar" />
+      <IPhoneBar className="hotel-list-statusbar" reserveSpace />
 
       <div className="hotel-list-searchbar">
         <button
@@ -171,7 +171,7 @@ export function HotelListPromoStrip({ promo }) {
 }
 
 export function HotelListBenefitStrip({ benefits }) {
-  return <HotelBenefitStrip items={benefits.slice(1)} />
+  return <HotelBenefitStrip items={benefits} />
 }
 
 function HotelTag({ tag }) {
@@ -199,7 +199,7 @@ function HotelPricePromo({ text }) {
       {items.map((item, index) => (
         <div
           className="hotel-list-card__promo-item"
-          key={item}
+          key={`${item}-${index}`}
         >
           <span>{item}</span>
           {index < items.length - 1 ? (
@@ -285,7 +285,7 @@ export function HotelListCardList({ hotels }) {
       {hotels.map((hotel) => (
         <HotelListHotelCard
           hotel={hotel}
-          key={hotel.name}
+          key={hotel.id ?? hotel.name}
         />
       ))}
     </section>
@@ -295,7 +295,7 @@ export function HotelListCardList({ hotels }) {
 export function HotelListFooter() {
   return (
     <footer className="hotel-list-footer">
-      <IPhoneFooter />
+      <IPhoneFooter transparent />
     </footer>
   )
 }

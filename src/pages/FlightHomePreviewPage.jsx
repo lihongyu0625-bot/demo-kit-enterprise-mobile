@@ -1,8 +1,9 @@
 import pageSpec from '../page-specs/flight-home.json'
 import flightHomeData from '../mock-data/flight-home.mock.json'
+import bottomWatermarkFlightImage from '../assets/flight-home/bottom-watermark-flight.svg'
+import { BottomWatermark } from '../components/common/BottomWatermark'
 import {
   FlightHomeApplicationCard,
-  FlightHomeBenefitStrip,
   FlightHomeBottomNav,
   FlightHomeGuaranteeCard,
   FlightHomeHeroBackground,
@@ -12,7 +13,15 @@ import {
 
 const sectionComponentMap = {
   'application-card': <FlightHomeApplicationCard application={flightHomeData.application} />,
-  'benefit-strip': <FlightHomeBenefitStrip benefits={flightHomeData.benefits} />,
+  'benefit-strip': (
+    <BottomWatermark
+      className="flight-home-benefit-strip"
+      headlineAlt={flightHomeData.benefits.title}
+      headlineSrc={bottomWatermarkFlightImage}
+      items={flightHomeData.benefits.items}
+      tone="flight"
+    />
+  ),
   'bottom-nav': <FlightHomeBottomNav items={flightHomeData.bottomTabs} />,
   'guarantee-card': <FlightHomeGuaranteeCard guarantee={flightHomeData.guarantee} />,
   'hero-background': <FlightHomeHeroBackground />,

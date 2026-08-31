@@ -1,0 +1,219 @@
+.points-exchange-success-overlay,
+.points-exchange-success-overlay * {
+  box-sizing: border-box;
+}
+
+.points-exchange-success-overlay {
+  position: relative;
+  width: 375px;
+  min-height: 812px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  color: var(--color-neutral-850);
+  font-family: var(--font-family-ui-cn);
+}
+
+.points-exchange-success-overlay__mask {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 375px;
+  height: 812px;
+  background: var(--color-alpha-black-60);
+}
+
+.points-exchange-success-overlay__statusbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 375px;
+}
+
+.points-exchange-success-overlay__sheet {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 375px;
+  height: 369px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  background: var(--color-bg-gray-2);
+}
+
+.points-exchange-success-overlay__sheet-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 375px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.points-exchange-success-overlay__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-alpha-black-84);
+}
+
+.points-exchange-success-overlay__close-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.points-exchange-success-overlay__status {
+  position: absolute;
+  top: 36px;
+  left: 50%;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  width: 159px;
+  transform: translateX(-50%);
+}
+
+.points-exchange-success-overlay__status-title-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.points-exchange-success-overlay__success-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--color-blue-50);
+}
+
+.points-exchange-success-overlay__title {
+  margin: 0;
+  color: var(--color-blue-90);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.points-exchange-success-overlay__hint {
+  margin: 0;
+  color: rgba(5, 34, 76, 0.5);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.points-exchange-success-overlay__product-card {
+  position: absolute;
+  top: 118px;
+  left: 12px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 351px;
+  min-height: 108px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.points-exchange-success-overlay__product-image {
+  display: block;
+  width: 112px;
+  height: 84px;
+  flex: none;
+  object-fit: cover;
+}
+
+.points-exchange-success-overlay__product-copy {
+  display: grid;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.points-exchange-success-overlay__product-title {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.points-exchange-success-overlay__product-meta {
+  display: grid;
+  gap: 0;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-exchange-success-overlay__product-price,
+.points-exchange-success-overlay__product-time {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.points-exchange-success-overlay__product-price {
+  color: #fe7016;
+}
+
+.points-exchange-success-overlay__product-time {
+  color: var(--color-alpha-black-36);
+}
+
+.points-exchange-success-overlay__footer-dock {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: grid;
+  width: 375px;
+  padding-top: 16px;
+  background: var(--color-white);
+}
+
+.points-exchange-success-overlay__action-row {
+  display: flex;
+  gap: 8px;
+  width: 375px;
+  padding: 0 12px;
+}
+
+.points-exchange-success-overlay__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 48px;
+  flex: 1;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.points-exchange-success-overlay__button--secondary {
+  background: var(--color-blue-10);
+  color: var(--color-blue-50);
+}
+
+.points-exchange-success-overlay__button--primary {
+  background: linear-gradient(270deg, var(--color-blue-50) 0%, var(--color-blue-40) 100%);
+  color: var(--color-white);
+}
+
+.points-exchange-success-overlay__iphone-footer {
+  width: 375px;
+}

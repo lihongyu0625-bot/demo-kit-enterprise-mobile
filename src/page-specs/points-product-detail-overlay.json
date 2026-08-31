@@ -1,0 +1,43 @@
+{
+  "id": "points-product-detail-overlay",
+  "pageType": "points-product-detail-overlay",
+  "business": "积分权益",
+  "pageTitle": "商品详情浮层",
+  "taskType": "compose-new-page",
+  "reuseLevel": "section-export-components",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeId": "1229:40853",
+    "figmaNodeName": "商品详情浮层"
+  },
+  "viewport": {
+    "width": 375,
+    "height": 1328
+  },
+  "componentCandidates": [
+    "iPhone bar",
+    "iPhone footer",
+    "icon/action/close-large/outlined"
+  ],
+  "sections": [
+    "商品头图",
+    "商品名称价格卡",
+    "套餐包含",
+    "使用须知",
+    "购买规则",
+    "吸底操作"
+  ],
+  "reuse": [
+    "通用状态栏",
+    "通用底部指示条",
+    "关闭图标"
+  ],
+  "newDrawnSections": [
+    "商品头图",
+    "商品名称价格卡",
+    "套餐包含",
+    "使用须知",
+    "购买规则",
+    "吸底操作"
+  ]
+}

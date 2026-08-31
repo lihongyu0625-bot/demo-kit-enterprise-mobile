@@ -1,0 +1,40 @@
+{
+  "id": "points-exchange-success-overlay",
+  "pageType": "points-exchange-success-overlay",
+  "business": "积分权益",
+  "pageTitle": "兑换成功浮层",
+  "taskType": "compose-new-page",
+  "reuseLevel": "section-export-components",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeId": "1229:40948",
+    "figmaNodeName": "兑换成功浮层"
+  },
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "componentCandidates": [
+    "iPhone bar",
+    "iPhone footer",
+    "icon/status/success-circle/filled",
+    "icon/action/close-large/outlined"
+  ],
+  "sections": [
+    "遮罩背景",
+    "成功反馈",
+    "商品信息卡片",
+    "吸底操作"
+  ],
+  "reuse": [
+    "通用状态栏",
+    "通用底部指示条",
+    "成功图标",
+    "关闭图标"
+  ],
+  "newDrawnSections": [
+    "成功反馈",
+    "商品信息卡片",
+    "吸底操作"
+  ]
+}

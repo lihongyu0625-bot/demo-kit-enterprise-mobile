@@ -1,0 +1,495 @@
+.car-waiting-preview {
+  width: 375px;
+  margin: 0 auto;
+  background: var(--color-bg-gray-2);
+}
+
+.car-waiting-shell {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+  background: var(--color-gray-50);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-ui-cn);
+}
+
+.car-waiting-shell,
+.car-waiting-shell *,
+.car-waiting-business-sample,
+.car-waiting-business-sample * {
+  box-sizing: border-box;
+}
+
+.car-waiting-top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 4;
+}
+
+.car-waiting-statusbar {
+  position: relative;
+  width: 375px;
+  background: transparent;
+}
+
+.car-waiting-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;
+  padding: 0 16px;
+}
+
+.car-waiting-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 0;
+  background: var(--color-white);
+  color: var(--color-alpha-black-84);
+  cursor: pointer;
+  flex: none;
+}
+
+.car-waiting-back__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.car-waiting-route {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  color: var(--color-alpha-black-36);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.car-waiting-route span:not(.car-waiting-route__dot):not(.car-waiting-route__line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.car-waiting-route__dot {
+  width: 4px;
+  height: 4px;
+  margin-right: 4px;
+  border-radius: var(--radius-pill);
+  flex: none;
+}
+
+.car-waiting-route__dot--origin {
+  background: #24aa84;
+}
+
+.car-waiting-route__dot--destination {
+  background: #ff7845;
+}
+
+.car-waiting-route__line {
+  width: 26px;
+  height: 1px;
+  margin: 0 8px;
+  background: var(--color-alpha-black-12);
+  flex: none;
+}
+
+.car-waiting-hero {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #d6e9ff 0%, #eef6ff 46%, var(--color-gray-50) 100%);
+}
+
+.car-waiting-hero__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 375px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.car-waiting-hero__content {
+  position: absolute;
+  top: 110px;
+  left: 28px;
+  z-index: 2;
+  width: 318px;
+}
+
+.car-waiting-hero__title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.car-waiting-hero h1 {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 22px;
+  font-weight: var(--font-weight-regular);
+  line-height: 30px;
+}
+
+.car-waiting-hero__cancel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 32px;
+  border: 0.25px solid var(--color-alpha-black-30);
+  border-radius: 8px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.01);
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 20px;
+  cursor: pointer;
+  flex: none;
+}
+
+.car-waiting-hero__estimate,
+.car-waiting-hero__rank,
+.car-waiting-hero__message {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.car-waiting-hero__estimate {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.car-waiting-hero__estimate span {
+  margin-left: 4px;
+  color: var(--color-blue-50);
+}
+
+.car-waiting-hero__estimate span + span {
+  color: var(--color-orange-50);
+}
+
+.car-waiting-hero__estimate-icon,
+.car-waiting-hero__rank-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-84);
+}
+
+.car-waiting-hero__rank {
+  display: flex;
+  align-items: center;
+  margin-top: 2px;
+  font-weight: var(--font-weight-semibold);
+}
+
+.car-waiting-hero__message {
+  margin-top: 16px;
+}
+
+.car-waiting-hero__mascot {
+  position: absolute;
+  top: 159px;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  width: 375px;
+  height: 105px;
+  object-fit: contain;
+}
+
+.car-waiting-main {
+  position: absolute;
+  top: 245px;
+  right: 12px;
+  left: 12px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.car-waiting-benefit-card,
+.car-waiting-add-card {
+  width: 351px;
+  border-radius: 16px;
+  background: var(--color-white);
+}
+
+.car-waiting-benefit-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.car-waiting-benefit-card__title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.car-waiting-benefit-card__title img {
+  width: 37.67px;
+  height: 17.67px;
+  object-fit: contain;
+}
+
+.car-waiting-benefit-card__title h2,
+.car-waiting-add-card__heading h2 {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 24px;
+}
+
+.car-waiting-benefit-card__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.car-waiting-benefit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 318px;
+}
+
+.car-waiting-benefit + .car-waiting-benefit {
+  padding-top: 8px;
+  border-top: 0.5px solid var(--color-alpha-black-6);
+}
+
+.car-waiting-benefit__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.car-waiting-benefit__name {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.car-waiting-benefit__name strong {
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+}
+
+.car-waiting-benefit__text p {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.car-waiting-speed-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 16px;
+  border-radius: var(--radius-pill);
+  padding: 0 5px 0 3px;
+  background: linear-gradient(270deg, #f7faff 0%, #d6e5ff 100%);
+  color: var(--color-alpha-black-84);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.car-waiting-speed-tag span {
+  margin-right: 1px;
+  color: var(--color-blue-50);
+  font-size: 10px;
+}
+
+.car-waiting-benefit__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 30px;
+  border: 0.25px solid var(--color-alpha-black-84);
+  border-radius: 8px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.01);
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 20px;
+}
+
+.car-waiting-benefit__action--primary {
+  border-color: var(--color-alpha-black-84);
+  background: var(--color-alpha-black-84);
+  color: var(--color-white);
+}
+
+.car-waiting-add-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 361px;
+  overflow: hidden;
+  padding: 12px 6px 0;
+}
+
+.car-waiting-add-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 24px;
+  padding: 0 6px 0 10px;
+}
+
+.car-waiting-add-card__heading {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.car-waiting-add-card__heading span {
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.car-waiting-add-card__select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-neutral-450);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.car-waiting-add-card__select span {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--color-alpha-black-12);
+  border-radius: 6px;
+  background: var(--color-white);
+}
+
+.car-waiting-add-card__list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+}
+
+.car-waiting-add-card__list .car-bubble-vehicle {
+  width: 339px;
+}
+
+.car-waiting-add-card__footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 351px;
+  padding: 8px 16px;
+  background: var(--color-white);
+  box-shadow: 0 -2px 10px var(--color-alpha-black-8);
+}
+
+.car-waiting-add-card__price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.car-waiting-add-card__price div {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  color: var(--color-alpha-black-84);
+}
+
+.car-waiting-add-card__price span {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.car-waiting-add-card__price strong {
+  font-family: var(--font-family-ui-number);
+  font-size: 24px;
+  font-weight: var(--font-weight-regular);
+  line-height: 26px;
+}
+
+.car-waiting-add-card__price p {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.car-waiting-add-card__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 44px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 20px;
+  background: var(--color-blue-90);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+}
+
+.car-waiting-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  width: 375px;
+  background: var(--color-gray-50);
+}
+
+.car-waiting-business-sample {
+  width: 375px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--color-gray-50);
+}
+
+.car-waiting-business-sample--hero {
+  height: 245px;
+}
+
+.car-waiting-business-sample--benefit,
+.car-waiting-business-sample--add {
+  padding: 12px;
+}

@@ -1,0 +1,451 @@
+.car-pickup-preview {
+  width: 375px;
+  margin: 0 auto;
+  background: var(--color-bg-gray-2);
+}
+
+.car-pickup-shell {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+  background: var(--color-bg-gray-3);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-ui-cn);
+}
+
+.car-pickup-shell,
+.car-pickup-shell *,
+.car-pickup-business-sample,
+.car-pickup-business-sample * {
+  box-sizing: border-box;
+}
+
+.car-pickup-map-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.car-pickup-map-stage__image {
+  display: block;
+  width: 375px;
+  height: 812px;
+  object-fit: cover;
+}
+
+.car-pickup-map-stage__mask {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 426px;
+  background: linear-gradient(180deg, rgba(245, 245, 245, 0) 0%, rgba(245, 245, 245, 0.8) 40.3%, var(--color-gray-50) 100%);
+}
+
+.car-pickup-statusbar {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 5;
+  background: transparent;
+}
+
+.car-pickup-back {
+  position: absolute;
+  top: 44px;
+  left: 16px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.car-pickup-back img {
+  width: 32px;
+  height: 32px;
+}
+
+.car-pickup-route {
+  position: absolute;
+  top: 162px;
+  left: 5px;
+  width: 351px;
+  height: 150px;
+  pointer-events: none;
+}
+
+.car-pickup-route__line {
+  position: absolute;
+  top: 32px;
+  left: 68px;
+  width: 205px;
+  height: 92px;
+  border-top: 8px solid #43bf8b;
+  border-right: 8px solid #43bf8b;
+  border-radius: 4px 4px 0 0;
+  transform: skewY(-18deg) rotate(-20deg);
+  transform-origin: left top;
+}
+
+.car-pickup-route__dot {
+  position: absolute;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: #578efa;
+}
+
+.car-pickup-route__dot--near {
+  top: 70px;
+  left: 72px;
+}
+
+.car-pickup-route__dot--middle {
+  top: 92px;
+  left: 68px;
+}
+
+.car-pickup-route__dot--start {
+  top: 111px;
+  left: 72px;
+  width: 18px;
+  height: 18px;
+  border: 3px solid var(--color-white);
+}
+
+.car-pickup-route__origin {
+  position: absolute;
+  top: 42px;
+  left: 61px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-white);
+  border-radius: var(--radius-pill);
+  background: #60bd89;
+  color: var(--color-white);
+  font-size: 8px;
+  line-height: 12px;
+}
+
+.car-pickup-route__person {
+  position: absolute;
+  top: 104px;
+  left: 62px;
+  width: 36px;
+  height: 36px;
+}
+
+.car-pickup-route__person-triangle {
+  position: absolute;
+  top: 15px;
+  left: 3px;
+  width: 10px;
+  height: 10px;
+  transform: rotate(-113deg);
+}
+
+.car-pickup-route__person-mask {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 22px;
+  height: 22px;
+  transform: rotate(-113deg);
+}
+
+.car-pickup-route__car {
+  position: absolute;
+  top: 120px;
+  left: 253px;
+  width: 22px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.car-pickup-distance {
+  position: absolute;
+  top: 77px;
+  left: 187px;
+  width: 164px;
+  filter: drop-shadow(0 2px 5px var(--color-alpha-black-8));
+}
+
+.car-pickup-distance__bubble {
+  display: flex;
+  align-items: center;
+  width: 164px;
+  height: 32px;
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.car-pickup-distance__tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: center;
+  border-radius: 8px 0 0 8px;
+  padding: 6px 10px;
+  border-right: 0.5px solid var(--color-blue-20);
+  background: var(--color-blue-10);
+  color: var(--color-blue-50);
+  font-weight: var(--font-weight-semibold);
+  line-height: 20px;
+}
+
+.car-pickup-distance__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  gap: 4px;
+  border-radius: 0 8px 8px 0;
+  padding: 6px 10px;
+  background: var(--color-white);
+  font-weight: var(--font-weight-regular);
+}
+
+.car-pickup-distance__label {
+  color: var(--color-alpha-black-84);
+}
+
+.car-pickup-distance__bubble strong {
+  color: var(--color-blue-50);
+  font-size: 12px;
+  font-weight: var(--font-weight-regular);
+  line-height: 20px;
+}
+
+.car-pickup-distance__pointer {
+  display: block;
+  width: 12px;
+  height: 5px;
+  margin: 0 auto;
+}
+
+.car-pickup-panel {
+  position: absolute;
+  top: 429px;
+  left: 12px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 351px;
+}
+
+.car-pickup-floating {
+  width: 351px;
+}
+
+.car-pickup-floating .car-location-input-floating-actions {
+  width: 351px;
+}
+
+.car-pickup-panel__cards {
+  width: 351px;
+}
+
+.car-pickup-driver-card {
+  width: 351px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.car-pickup-driver-card__banner {
+  display: block;
+  width: 351px;
+  height: 85px;
+  margin-bottom: -16px;
+  object-fit: cover;
+}
+
+.car-pickup-driver-card__info {
+  position: relative;
+  z-index: 1;
+  width: 351px;
+  border-bottom: 0.5px solid var(--color-alpha-black-6);
+  border-radius: 16px 16px 0 0;
+  padding: 12px 16px;
+  background: var(--color-white);
+}
+
+.car-pickup-driver-card__content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.car-pickup-driver-card__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.car-pickup-driver-card__plate {
+  display: flex;
+  align-items: baseline;
+  color: var(--color-alpha-black-84);
+  white-space: nowrap;
+}
+
+.car-pickup-driver-card__plate span {
+  font-size: 24px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 32px;
+}
+
+.car-pickup-driver-card__plate strong {
+  font-family: var(--font-family-ui-number);
+  font-size: 32px;
+  font-weight: var(--font-weight-medium);
+  line-height: 32px;
+}
+
+.car-pickup-driver-card__vehicle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.car-pickup-driver-card__vehicle span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 18px;
+  border-radius: 4px;
+  padding: 1px 4px;
+  background: linear-gradient(90deg, var(--color-orange-50) 0%, #f7643b 100%);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 16px;
+  text-shadow: 0 1.25px 1.67px #e35029;
+}
+
+.car-pickup-driver-card__vehicle strong {
+  overflow: hidden;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: var(--font-weight-semibold);
+  line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.car-pickup-driver-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.car-pickup-driver-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--font-family-ui-number);
+  font-size: 14px;
+}
+
+.car-pickup-driver-card__rating img {
+  width: 10px;
+  height: 10px;
+}
+
+.car-pickup-driver-card__vehicle-image {
+  width: 120px;
+  height: 80px;
+  object-fit: contain;
+  flex: none;
+}
+
+.car-pickup-driver-card__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 351px;
+  padding: 12px;
+  border-radius: 0 0 16px 16px;
+  background: var(--color-white);
+}
+
+.car-pickup-driver-action {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--color-alpha-black-60);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.car-pickup-driver-action__icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.car-pickup-driver-action__icon--more {
+  width: 14px;
+  height: auto;
+}
+
+.car-pickup-driver-card__divider {
+  display: block;
+  width: 1px;
+  height: 30px;
+  background: var(--color-alpha-black-6);
+  flex: none;
+}
+
+.car-pickup-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  width: 375px;
+}
+
+.car-pickup-business-sample {
+  width: 375px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--color-gray-50);
+}
+
+.car-pickup-business-sample--map {
+  position: relative;
+  height: 360px;
+}
+
+.car-pickup-business-sample--floating,
+.car-pickup-business-sample--driver,
+.car-pickup-business-sample--service {
+  padding: 12px;
+}

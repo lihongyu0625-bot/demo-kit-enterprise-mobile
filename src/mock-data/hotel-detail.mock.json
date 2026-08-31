@@ -79,7 +79,7 @@
               "tone": "primary"
             }
           ],
-          "benefits": ["专享权益", "延迟退房", "住就送"],
+          "benefits": ["延迟退房", "住就送"],
           "tags": ["立即确认", "协议价", "优享会"],
           "price": 420,
           "buttonLabel": "预订",
@@ -115,7 +115,7 @@
               "tone": "primary"
             }
           ],
-          "benefits": ["专享权益", "延迟退房"],
+          "benefits": ["延迟退房"],
           "tags": ["立即确认", "协议价"],
           "price": 420,
           "buttonLabel": "预订",
