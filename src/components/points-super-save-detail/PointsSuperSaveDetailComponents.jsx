@@ -22,9 +22,6 @@ import iconCarBlue from '../../assets/points-super-save-detail/icon-car-blue.svg
 import iconCarOrange from '../../assets/points-super-save-detail/icon-car-orange.svg'
 import iconDividerBlue from '../../assets/points-super-save-detail/icon-divider-blue.svg'
 import iconDividerOrange from '../../assets/points-super-save-detail/icon-divider-orange.svg'
-import iconBadgeArrow from '../../assets/points-super-save-detail/icon-badge-arrow.svg'
-import priceRow31 from '../../assets/points-super-save-detail/price-row-31.svg'
-import priceRow50 from '../../assets/points-super-save-detail/price-row-50.svg'
 import notchBlueA from '../../assets/points-super-save-detail/notch-blue-a.svg'
 import notchBlueB from '../../assets/points-super-save-detail/notch-blue-b.svg'
 import notchWarmA from '../../assets/points-super-save-detail/notch-warm-a.svg'
@@ -94,28 +91,11 @@ function PriceCompareBlock({ block }) {
             <Rich parts={block.panelRich} />
           </p>
         </div>
-        <div className="points-super-save-price__table">
-          <img className="points-super-save-price__table-bg" src={priceTable} alt="" />
-          <div className="points-super-save-price__cols">
-            <div className="points-super-save-price__col">
-              <span className="points-super-save-price__pill points-super-save-price__pill--low">
-                <img src={priceRow31} alt="" />
-                <em>{block.labelOther}</em>
-              </span>
-            </div>
-            <div className="points-super-save-price__col">
-              <span className="points-super-save-price__badge">
-                {block.badge}
-                <img src={iconBadgeArrow} alt="" />
-              </span>
-              <span className="points-super-save-price__pill points-super-save-price__pill--high">
-                <img src={priceRow50} alt="" />
-                <em>{block.labelDidi}</em>
-              </span>
-            </div>
-          </div>
-          <i className="points-super-save-price__divider" aria-hidden="true" />
-        </div>
+        <img
+          className="points-super-save-price__table"
+          src={priceTable}
+          alt="特定平台价格与滴滴企业版价格对比示意"
+        />
       </div>
     </div>
   )

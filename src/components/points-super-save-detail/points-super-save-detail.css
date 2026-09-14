@@ -325,91 +325,9 @@
 }
 
 .points-super-save-price__table {
-  position: relative;
-  width: 279px;
-}
-
-.points-super-save-price__table-bg {
   display: block;
   width: 279px;
   height: 116px;
-}
-
-.points-super-save-price__cols {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  gap: var(--space-16);
-  width: 279px;
-  padding: 8px 6px 0 7px;
-}
-
-.points-super-save-price__col {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
-}
-
-.points-super-save-price__pill {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.points-super-save-price__pill img {
-  display: block;
-}
-
-.points-super-save-price__pill--low img {
-  width: 134px;
-  height: 31px;
-}
-
-.points-super-save-price__pill--high img {
-  width: 134px;
-  height: 50px;
-}
-
-.points-super-save-price__pill em {
-  position: absolute;
-  color: rgba(0, 0, 0, 0.36);
-  font-size: 12px;
-  font-style: normal;
-  line-height: 20px;
-  white-space: nowrap;
-}
-
-.points-super-save-price__badge {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  padding: var(--space-8) var(--space-12) 0;
-  border-radius: 10px;
-  background: linear-gradient(180deg, #1473ff 0%, #008dff 100%);
-  color: #fff;
-  font-family: var(--font-family-points-title);
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 24px;
-}
-
-.points-super-save-price__badge img {
-  width: 10px;
-  height: 5.5px;
-  margin-top: 1px;
-}
-
-.points-super-save-price__divider {
-  position: absolute;
-  left: 7px;
-  top: 64px;
-  width: 272px;
-  border-top: 1px dashed var(--color-super-save-divider-blue);
-  opacity: 0.4;
 }
 
 /* ===== 02 如何申请：步骤区 ===== */
