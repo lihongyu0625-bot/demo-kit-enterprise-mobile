@@ -8,21 +8,29 @@
   width: 375px;
   min-height: 3812px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 75% 2%, rgba(173, 217, 255, 0.56), transparent 25%),
-    linear-gradient(180deg, var(--color-super-save-tint-strong) 0%, var(--color-super-save-tint) 23%, var(--color-super-save-base) 47%, var(--color-super-save-base) 100%);
-  color: var(--color-super-save-ink);
+  background: var(--color-super-save-base);
+  color: rgba(0, 0, 0, 0.84);
   font-family: var(--font-family-ui-cn);
 }
 
 .points-super-save-detail-shell button {
   font: inherit;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
 }
 
 .points-super-save-detail-shell p,
 .points-super-save-detail-shell h2,
 .points-super-save-detail-shell h3 {
   margin: 0;
+}
+
+.points-super-save-detail-shell ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .points-super-save-detail__nav {
@@ -39,425 +47,737 @@
   left: 0;
   width: 375px;
   height: 812px;
-  overflow: hidden;
+  object-fit: cover;
   pointer-events: none;
-}
-
-.points-super-save-detail__background span {
-  position: absolute;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-}
-
-.points-super-save-detail__background span:nth-child(1) {
-  top: 30px;
-  right: -28px;
-  width: 190px;
-  height: 190px;
-  background: rgba(255, 255, 255, 0.14);
-}
-
-.points-super-save-detail__background span:nth-child(2) {
-  top: 92px;
-  right: 30px;
-  width: 120px;
-  height: 120px;
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.points-super-save-detail__background span:nth-child(3) {
-  top: 116px;
-  left: 14px;
-  width: 80px;
-  height: 80px;
-  background: rgba(255, 255, 255, 0.18);
 }
 
 .points-super-save-detail__content {
   position: relative;
   z-index: 2;
-  display: grid;
-  gap: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
   width: 351px;
-  margin-left: 12px;
+  margin-left: var(--space-12);
   padding-top: 96px;
   padding-bottom: 38px;
 }
+
+/* ===== 顶部品类 tab ===== */
 
 .points-super-save-category-tabs {
   display: flex;
   gap: var(--space-8);
   width: 351px;
-  height: 46px;
 }
 
 .points-super-save-category-tabs__item {
   display: flex;
   flex: 1;
-  min-width: 0;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-4);
-  padding: 10px 8px;
-  border: 0;
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.6);
-  color: rgba(18, 56, 94, 0.55);
-  font-size: 13px;
-  line-height: 20px;
+  padding: var(--space-8) var(--space-12);
+  border: 1px solid transparent;
+  border-radius: var(--radius-8);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%) border-box;
 }
 
 .points-super-save-category-tabs__item--active {
-  background: var(--color-white);
-  color: var(--color-super-save-tab-active);
-  box-shadow: 0 6px 16px rgba(69, 137, 201, 0.12);
-  font-weight: 600;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)) padding-box,
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%) border-box;
 }
 
-.points-super-save-category-tabs__badge {
-  display: inline-flex;
-  width: 16px;
-  height: 16px;
+.points-super-save-category-tabs__head {
+  display: flex;
+  align-self: stretch;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: var(--color-super-save-tint-chip);
-  color: var(--color-super-save-blue);
-  font-family: var(--font-family-ui-number);
-  font-size: 10px;
-  line-height: 16px;
+  gap: var(--space-2);
 }
+
+.points-super-save-category-tabs__head img {
+  width: 18px;
+  height: 18px;
+}
+
+.points-super-save-category-tabs__name {
+  color: rgba(0, 0, 0, 0.84);
+  font-family: var(--font-family-points-title);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.points-super-save-category-tabs__meta {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  color: var(--color-super-save-slate);
+}
+
+.points-super-save-category-tabs__meta b {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.points-super-save-category-tabs__meta i,
+.points-super-save-category-tabs__meta span {
+  font-style: normal;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-super-save-category-tabs__item--active .points-super-save-category-tabs__meta b,
+.points-super-save-category-tabs__item--active .points-super-save-category-tabs__meta i {
+  color: var(--color-super-save-orange);
+  font-weight: 500;
+}
+
+.points-super-save-category-tabs__item--active .points-super-save-category-tabs__meta span {
+  color: var(--color-super-save-slate-strong);
+}
+
+.points-super-save-category-tabs__arrow {
+  align-self: center;
+  width: 12px;
+  height: 7px;
+}
+
+/* ===== 权益 tab ===== */
 
 .points-super-save-benefit-tabs {
   display: flex;
+  gap: var(--space-24);
   width: 351px;
-  height: 36px;
-  align-items: center;
-  justify-content: space-between;
   overflow: hidden;
-  padding: 0 4px;
 }
 
 .points-super-save-benefit-tabs__item {
   position: relative;
-  flex: none;
-  padding: 6px 0;
-  border: 0;
-  background: transparent;
-  color: rgba(18, 56, 94, 0.5);
-  font-size: 12px;
-  line-height: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: 3px 0;
+}
+
+.points-super-save-benefit-tabs__label {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  line-height: 22px;
   white-space: nowrap;
 }
 
 .points-super-save-benefit-tabs__item--active {
-  color: var(--color-super-save-blue);
-  font-weight: 600;
+  padding: 2px 0;
 }
 
-.points-super-save-benefit-tabs__item--active::after {
-  position: absolute;
-  right: 50%;
-  bottom: 0;
-  width: 18px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--color-super-save-blue-bright);
-  content: '';
-  transform: translateX(50%);
+.points-super-save-benefit-tabs__item--active .points-super-save-benefit-tabs__label {
+  position: relative;
+  z-index: 1;
+  background-image: linear-gradient(121deg, #091d7f 0%, #000937 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
 }
+
+.points-super-save-benefit-tabs__indicator {
+  position: absolute;
+  z-index: 0;
+  left: 3px;
+  top: 16px;
+  width: 44px;
+  height: 12px;
+}
+
+/* ===== 权益说明卡片 ===== */
 
 .points-super-save-detail__intro-list {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--space-8);
 }
 
-.points-super-save-intro-card,
-.points-super-save-rules {
+.points-super-save-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
   width: 351px;
-  border-radius: var(--radius-8);
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 3px 10px rgba(34, 91, 143, 0.06);
-}
-
-.points-super-save-intro-card {
+  padding: var(--space-12);
   overflow: hidden;
+  border-radius: var(--radius-8);
+  background: #fff;
 }
 
-.points-super-save-intro-card__header {
+.points-super-save-section__header {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
-  min-height: 40px;
-  padding: 10px 12px 6px;
+  gap: var(--space-4);
+  width: 327px;
 }
 
-.points-super-save-intro-card__number {
+.points-super-save-section__number {
   display: inline-flex;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
+  flex: none;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  background: var(--color-super-save-blue-bright);
-  color: var(--color-white);
+  border-radius: var(--radius-8);
+  background: linear-gradient(180deg, #006aff 0%, #0093ff 100%);
+  color: #fff;
   font-family: var(--font-family-ui-number);
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 18px;
+  text-align: center;
 }
 
-.points-super-save-intro-card__header h2 {
-  color: var(--color-super-save-heading);
+.points-super-save-section__title {
+  flex: 1;
+  color: rgba(0, 0, 0, 0.84);
+  font-family: var(--font-family-points-title);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.points-super-save-section__paragraph {
+  padding-left: var(--space-24);
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: justify;
+}
+
+.points-super-save-section__paragraph strong,
+.points-super-save-section__block strong {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* ===== 01 什么是贵必赔：比价区 ===== */
+
+.points-super-save-price {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-left: var(--space-24);
+}
+
+.points-super-save-price__hero {
+  align-self: stretch;
+  width: 303px;
+  height: 94px;
+}
+
+.points-super-save-price__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-12);
+  border-radius: var(--radius-8);
+  background: rgba(9, 57, 127, 0.04);
+}
+
+.points-super-save-price__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.points-super-save-price__head-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-super-save-navy-deep);
   font-size: 14px;
   font-weight: 600;
   line-height: 22px;
 }
 
-.points-super-save-intro-card__body {
-  padding: 0 12px 12px 36px;
+.points-super-save-price__head-title img {
+  width: 20px;
+  height: 20px;
 }
 
-.points-super-save-intro-card__body > p {
-  color: rgba(23, 56, 94, 0.68);
-  font-size: 11px;
-  line-height: 18px;
+.points-super-save-price__desc {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: justify;
 }
 
-.points-super-save-intro-card__body > p + p {
-  margin-top: var(--space-6);
-}
-
-.points-super-save-intro-card__tip {
-  margin-top: var(--space-8);
-  padding: 6px 8px;
-  border-radius: 5px;
-  background: var(--color-super-save-tint);
-  color: var(--color-super-save-blue-soft);
-  font-size: 10px;
-  line-height: 16px;
-}
-
-.points-super-save-price-bar {
-  position: relative;
-  display: grid;
-  gap: var(--space-6);
-  margin-top: 10px;
-  padding: 10px 12px;
-  border-radius: var(--radius-6);
-  background: linear-gradient(180deg, var(--color-super-save-tint) 0%, var(--color-white) 100%);
-}
-
-.points-super-save-price-bar__row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: rgba(23, 56, 94, 0.48);
-  font-size: 10px;
-  line-height: 16px;
-}
-
-.points-super-save-price-bar__row strong {
-  color: rgba(23, 56, 94, 0.62);
-  font-family: var(--font-family-ui-number);
-  font-size: 15px;
+.points-super-save-price__desc strong {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 12px;
   font-weight: 500;
 }
 
-.points-super-save-price-bar__row--active {
-  color: var(--color-super-save-blue);
+.points-super-save-price__table {
+  position: relative;
+  width: 279px;
 }
 
-.points-super-save-price-bar__row--active strong {
-  color: var(--color-super-save-blue);
+.points-super-save-price__table-bg {
+  display: block;
+  width: 279px;
+  height: 116px;
 }
 
-.points-super-save-price-bar__badge {
+.points-super-save-price__cols {
   position: absolute;
-  top: 31px;
-  right: 12px;
-  padding: 2px 6px;
-  border-radius: var(--radius-4);
-  background: var(--color-super-save-blue-bright);
-  color: var(--color-white);
-  font-size: 9px;
-  line-height: 14px;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: var(--space-16);
+  width: 279px;
+  padding: 8px 6px 0 7px;
 }
 
-.points-super-save-application-flow {
-  display: grid;
-  gap: 5px;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: var(--radius-6);
-  background: var(--color-super-save-tint);
+.points-super-save-price__col {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
 }
 
-.points-super-save-flow-step {
+.points-super-save-price__pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.points-super-save-price__pill img {
+  display: block;
+}
+
+.points-super-save-price__pill--low img {
+  width: 134px;
+  height: 31px;
+}
+
+.points-super-save-price__pill--high img {
+  width: 134px;
+  height: 50px;
+}
+
+.points-super-save-price__pill em {
+  position: absolute;
+  color: rgba(0, 0, 0, 0.36);
+  font-size: 12px;
+  font-style: normal;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-super-save-price__badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-8) var(--space-12) 0;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #1473ff 0%, #008dff 100%);
+  color: #fff;
+  font-family: var(--font-family-points-title);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.points-super-save-price__badge img {
+  width: 10px;
+  height: 5.5px;
+  margin-top: 1px;
+}
+
+.points-super-save-price__divider {
+  position: absolute;
+  left: 7px;
+  top: 64px;
+  width: 272px;
+  border-top: 1px dashed var(--color-super-save-divider-blue);
+  opacity: 0.4;
+}
+
+/* ===== 02 如何申请：步骤区 ===== */
+
+.points-super-save-apply {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.points-super-save-apply-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.points-super-save-apply-step__title {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-8);
+  gap: var(--space-4);
+  padding: 3px var(--space-2) 0;
 }
 
-.points-super-save-flow-step__number {
+.points-super-save-apply-step__chip {
   display: inline-flex;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   flex: none;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--color-super-save-tint-strong);
-  color: var(--color-super-save-blue);
-  font-family: var(--font-family-ui-number);
-  font-size: 10px;
-  line-height: 18px;
-}
-
-.points-super-save-flow-step strong,
-.points-super-save-coupon-location__item strong {
-  display: block;
-  color: var(--color-super-save-ink-strong);
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 16px;
-}
-
-.points-super-save-flow-step p,
-.points-super-save-coupon-location__item p {
-  margin-top: 1px;
-  color: rgba(23, 56, 94, 0.5);
-  font-size: 9px;
-  line-height: 14px;
-}
-
-.points-super-save-flow-line {
-  width: 1px;
-  height: 7px;
-  margin-left: 8px;
-  background: var(--color-super-save-tint-line);
-}
-
-.points-super-save-compensation {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-8);
-  margin-top: 10px;
-}
-
-.points-super-save-compensation-card {
-  display: grid;
-  justify-items: center;
-  gap: var(--space-2);
-  padding: 10px 6px;
-  border-radius: var(--radius-6);
-  background: linear-gradient(180deg, var(--color-super-save-tint) 0%, var(--color-white) 100%);
-}
-
-.points-super-save-compensation-card__icon {
-  display: inline-flex;
-  width: 24px;
-  height: 24px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 7px;
-  background: var(--color-super-save-tint-strong);
-  color: var(--color-super-save-blue);
+  background: var(--color-blue-10);
+  color: var(--color-blue-50);
   font-size: 12px;
   font-weight: 600;
+  line-height: 14.5px;
 }
 
-.points-super-save-compensation-card strong {
-  color: var(--color-super-save-ink-strong);
+.points-super-save-apply-step__title p {
+  flex: 1;
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.points-super-save-apply-step__title strong {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.points-super-save-apply-step__desc {
+  padding-left: var(--space-24);
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: justify;
+}
+
+.points-super-save-apply-step__desc strong {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.points-super-save-apply-step__desc--final {
+  padding-top: var(--space-6);
+}
+
+.points-super-save-apply-step__tip {
+  padding-left: var(--space-24);
+  color: var(--color-super-save-navy-deep);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-super-save-apply-step__image {
+  align-self: stretch;
+  height: 144px;
+  margin-left: var(--space-24);
+  border-radius: var(--radius-6);
+  object-fit: contain;
+}
+
+.points-super-save-apply-step__image--conditions {
+  height: 140px;
+  object-fit: cover;
+}
+
+.points-super-save-apply-step__connector {
+  position: absolute;
+  z-index: 0;
+  left: 10px;
+  width: 2px;
+}
+
+.points-super-save-apply-step__connector--1 {
+  top: 27px;
+  height: 179px;
+}
+
+.points-super-save-apply-step__connector--2 {
+  top: 237px;
+  height: 204px;
+}
+
+.points-super-save-apply-step__connector--3 {
+  top: 471px;
+  height: 589px;
+}
+
+/* ===== 适用条件 ===== */
+
+.points-super-save-conditions {
+  padding-left: var(--space-24);
+}
+
+.points-super-save-conditions__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-12);
+  border-radius: var(--radius-6);
+  background: rgba(9, 57, 127, 0.03);
+}
+
+.points-super-save-conditions__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.points-super-save-conditions__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  color: var(--color-super-save-navy-ink);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  opacity: 0.8;
+}
+
+.points-super-save-conditions__title img {
+  width: 16px;
+  height: 16px;
+}
+
+.points-super-save-conditions__lines {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: 20px;
+}
+
+.points-super-save-conditions__lines p {
+  color: var(--color-super-save-navy-ink);
+  font-size: 12px;
+  line-height: 20px;
+  opacity: 0.6;
+  text-align: justify;
+}
+
+/* ===== 03 理赔服务：券卡片 ===== */
+
+.points-super-save-coupons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-left: var(--space-24);
+}
+
+.points-super-save-coupon-intro {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: justify;
+}
+
+.points-super-save-coupon-intro strong {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.points-super-save-coupon-cards {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.points-super-save-coupon-card-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.points-super-save-coupon-card {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-2) var(--space-8) var(--space-2) var(--space-2);
+  border-radius: var(--radius-6);
+  overflow: hidden;
+}
+
+.points-super-save-coupon-card--blue {
+  background: var(--color-blue-5);
+  color: var(--color-super-save-navy-ink);
+}
+
+.points-super-save-coupon-card--warm {
+  background: var(--color-super-save-warm-tint);
+  color: var(--color-super-save-rosewood);
+}
+
+.points-super-save-coupon-card__chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  border-radius: var(--radius-4);
+}
+
+.points-super-save-coupon-card--blue .points-super-save-coupon-card__chip {
+  background: var(--color-blue-10);
+}
+
+.points-super-save-coupon-card--warm .points-super-save-coupon-card__chip {
+  background: var(--color-super-save-warm-tint-chip);
+}
+
+.points-super-save-coupon-card__chip img {
+  width: 14px;
+  height: 14px;
+}
+
+.points-super-save-coupon-card__amount {
+  display: inline-flex;
+  align-items: baseline;
   font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+  opacity: 0.7;
+}
+
+.points-super-save-coupon-card__currency {
+  font-family: var(--font-family-ui-number);
+  font-size: 12px;
+  font-weight: 600;
   line-height: 16px;
 }
 
-.points-super-save-compensation-card p {
-  color: rgba(23, 56, 94, 0.45);
-  font-size: 9px;
-  line-height: 14px;
+.points-super-save-coupon-card__divider {
+  width: 1px;
+  height: 15px;
 }
 
-.points-super-save-coupon-location {
-  display: grid;
-  gap: var(--space-8);
-  margin-top: 10px;
+.points-super-save-coupon-card__label {
+  font-size: 10px;
+  line-height: 16px;
+  opacity: 0.7;
 }
 
-.points-super-save-coupon-location__item {
+.points-super-save-coupon-card__notch {
+  position: absolute;
+  left: 59px;
+  width: 4px;
+  height: 2px;
+}
+
+.points-super-save-coupon-card__notch--top {
+  top: 0;
+}
+
+.points-super-save-coupon-card__notch--bottom {
+  bottom: 0;
+}
+
+.points-super-save-coupon-card--warm .points-super-save-coupon-card__notch {
+  left: 71px;
+}
+
+.points-super-save-coupon-card__count {
+  color: var(--color-super-save-navy-ink);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+/* ===== 04 支付券查看 ===== */
+
+.points-super-save-coupon-view {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: var(--space-8);
-  padding: var(--space-8);
+  padding-left: var(--space-24);
+}
+
+.points-super-save-coupon-view > p {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-super-save-coupon-view__images {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.points-super-save-coupon-view__images img {
+  align-self: stretch;
+  height: 81px;
   border-radius: var(--radius-6);
-  background: var(--color-super-save-tint);
+  object-fit: contain;
 }
 
-.points-super-save-coupon-location__number {
-  display: inline-flex;
-  width: 18px;
-  height: 18px;
-  flex: none;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: var(--color-super-save-tint-strong);
-  color: var(--color-super-save-blue);
-  font-family: var(--font-family-ui-number);
-  font-size: 10px;
-}
-
-.points-super-save-coupon-location__item > div {
-  flex: 1;
-  min-width: 0;
-}
-
-.points-super-save-coupon-location__tab {
-  display: inline-flex;
-  width: 36px;
-  height: 28px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  background: var(--color-super-save-tint-chip);
-  color: var(--color-super-save-blue-muted);
-  font-size: 10px;
-}
+/* ===== 详细规则 ===== */
 
 .points-super-save-rules {
-  padding: var(--space-12) 12px 24px;
-  background: transparent;
-  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
 }
 
 .points-super-save-rules__title {
-  color: rgba(23, 56, 94, 0.68);
+  color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
 }
 
 .points-super-save-rules__list {
-  display: grid;
-  gap: 10px;
-  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.points-super-save-rule {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 327px;
 }
 
 .points-super-save-rule h3 {
-  color: rgba(23, 56, 94, 0.65);
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 16px;
+  color: rgba(0, 0, 0, 0.36);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
 }
 
 .points-super-save-rule p {
-  margin-top: var(--space-2);
-  color: rgba(23, 56, 94, 0.52);
-  font-size: 10px;
-  line-height: 16px;
+  color: rgba(0, 0, 0, 0.36);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: justify;
   white-space: pre-line;
 }
+
+/* ===== 页面级导航与底部 ===== */
 
 .points-super-save-detail__footer {
   position: absolute;
@@ -467,6 +787,8 @@
   left: 0;
   background: transparent;
 }
+
+/* ===== 业务样例容器（组件样例预览复用） ===== */
 
 .points-super-save-detail-business-sample {
   width: 375px;

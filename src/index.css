@@ -34,6 +34,16 @@
   --color-super-save-tint-strong: #dceeff;  /* 序号圆/连接线浅蓝底（归并 #d5ebff） */
   --color-super-save-tint-line: #b9d9f9;    /* 流程连接线 */
   --color-super-save-base: #f5f7fa;         /* 页面基底灰 */
+  /* 2026-09-14 一比一还原（MasterGo 127:38943 贵必赔企服版）新增语义色 */
+  --color-super-save-navy-deep: #09397f;    /* 比价标题/温馨提示深蓝 */
+  --color-super-save-navy-ink: #05224c;     /* 券卡片深墨蓝文字 */
+  --color-super-save-rosewood: #7f3f20;     /* 个人券暖棕文字 */
+  --color-super-save-warm-tint: #fff8f5;    /* 个人券卡底 */
+  --color-super-save-warm-tint-chip: #fff2ec; /* 个人券图标底 */
+  --color-super-save-slate: #7c86b9;        /* 品类导航未激活数量灰蓝 */
+  --color-super-save-slate-strong: #4d5891; /* 品类导航激活"企业权益" */
+  --color-super-save-orange: #fe7016;       /* 品类导航激活数量橙 */
+  --color-super-save-divider-blue: #0d50b2; /* 比价表虚线 */
 
   --color-blue-5: #f3f8ff;
   --color-blue-10: #e7f1ff;

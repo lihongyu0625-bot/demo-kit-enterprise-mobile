@@ -3,15 +3,19 @@
   "business": "积分权益",
   "pageTitle": "超级省详情",
   "figmaNodeId": "127:38943",
+  "designName": "超级省-详情页-贵必赔(企服)",
   "viewport": {
     "width": 375,
     "height": 3812
   },
   "sections": [
-    "超级省品类导航",
-    "超级省权益导航",
-    "贵必赔说明",
-    "贵必赔详细规则",
+    "超级省品类导航（省心行/住/飞）",
+    "超级省权益导航（贵必赔/降价退/省立返/航变无忧退/超时赔）",
+    "01 什么是贵必赔（含比价票券图与价格对比表）",
+    "02 如何申请贵必赔（三步流程+适用条件+整卡切图）",
+    "03 理赔服务有哪些（企业/个人支付券卡片）",
+    "04 赔偿的支付券在哪里查看（路径切图）",
+    "详细规则（10 条）",
     "底部指示条"
   ],
   "reuse": [
@@ -20,5 +24,17 @@
     "积分权益业务标签",
     "超级省说明卡",
     "超级省详细规则项"
-  ]
+  ],
+  "assets": {
+    "background": "src/assets/points-super-save-detail/page-bg@3x.png",
+    "cutouts": [
+      "price-hero@3x.png",
+      "price-table@3x.png",
+      "apply-step-1@3x.png",
+      "apply-step-2@3x.png",
+      "apply-conditions@3x.png",
+      "coupon-view-personal@3x.png",
+      "coupon-view-enterprise@3x.png"
+    ]
+  }
 }
