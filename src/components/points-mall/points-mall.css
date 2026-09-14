@@ -64,7 +64,7 @@
   padding: 4px 8px;
   border: 1px solid var(--color-white);
   border-right: 0;
-  border-radius: 8px 0 0 8px;
+  border-radius: var(--radius-8) 0 0 8px;
   background: var(--color-alpha-white-60);
   color: rgba(5, 34, 76, 0.8);
   font-size: 12px;
@@ -129,8 +129,8 @@
   align-items: center;
   justify-content: center;
   padding: 12px 8px;
-  border: 0.5px solid #e7e8f1;
-  border-radius: 6px;
+  border: 0.5px solid var(--color-points-line);
+  border-radius: var(--radius-6);
   background: linear-gradient(180deg, var(--color-white) 0%, var(--color-blue-5) 100%);
 }
 
@@ -240,8 +240,8 @@
   flex-direction: column;
   gap: 8px;
   padding: 16px 12px;
-  border: 0.5px solid #e7ebf1;
-  border-radius: 6px;
+  border: 0.5px solid var(--color-points-line);
+  border-radius: var(--radius-6);
   background: linear-gradient(0deg, var(--color-blue-5) 0%, var(--color-white) 100%);
 }
 
@@ -264,7 +264,7 @@
 
 .points-mall-task__top strong {
   margin: 0 2px;
-  color: #f8600d;
+  color: var(--color-points-accent);
   font-family: var(--font-family-ui-number);
   font-size: 16px;
   line-height: 22px;
@@ -319,7 +319,7 @@
   width: 90px;
   height: 4px;
   border-radius: 65px;
-  background: linear-gradient(270deg, #ff6923 0%, #ffaa2b 100%);
+  background: linear-gradient(270deg, var(--color-points-accent) 0%, var(--color-points-accent-light) 100%);
 }
 
 .points-mall-task__node {
@@ -361,11 +361,11 @@
   position: absolute;
   top: 3px;
   left: 50%;
-  color: #ffefde;
+  color: var(--color-points-on-accent);
   font-family: var(--font-family-ui-number);
   font-size: 13.61px;
   line-height: 17.69px;
-  text-shadow: 0 4px 10px #f67c13;
+  text-shadow: 0 4px 10px var(--color-points-accent);
   transform: translateX(-50%);
 }
 
@@ -380,7 +380,7 @@
   width: 351px;
   height: 89px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
 }
 
 .points-mall-task-banner img {

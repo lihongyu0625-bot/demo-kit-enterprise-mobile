@@ -81,7 +81,7 @@
   height: 24px;
   border: 1px solid var(--color-white);
   border-right: 0;
-  border-radius: 8px 0 0 8px;
+  border-radius: var(--radius-8) 0 0 8px;
   background: var(--color-alpha-white-60);
   backdrop-filter: blur(2.5px);
   color: rgba(5, 34, 76, 0.6);
@@ -105,7 +105,7 @@
   min-height: 0;
   gap: 10px;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
 }
 
 .points-earn-tasks__mission .points-lucky-earn__mission {
@@ -116,7 +116,7 @@
 .points-earn-tasks__panel {
   width: 351px;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--color-white);
 }
 
@@ -142,8 +142,8 @@
 
 .points-earn-tasks__task-list {
   overflow: hidden;
-  border: 0.5px solid #e7ebf1;
-  border-radius: 6px;
+  border: 0.5px solid var(--color-points-line);
+  border-radius: var(--radius-6);
   background: linear-gradient(180deg, var(--color-white) 0%, #f2f8ff 100%);
 }
 
@@ -156,7 +156,7 @@
 }
 
 .points-earn-tasks__row + .points-earn-tasks__row {
-  border-top: 0.5px solid #edf0f5;
+  border-top: 0.5px solid var(--color-points-line);
 }
 
 .points-earn-tasks__row-icon {
@@ -196,7 +196,7 @@
   display: inline-flex;
   padding: 0 3px;
   border: 0.5px solid #8dbaff;
-  border-radius: 3px;
+  border-radius: var(--radius-3);
   color: var(--color-blue-50);
   font-size: 10px;
   font-style: normal;
@@ -223,7 +223,7 @@
 }
 
 .points-earn-tasks__row-action strong {
-  color: #ff6923;
+  color: var(--color-points-accent);
   font-family: var(--font-family-ui-number);
   font-size: 16px;
   line-height: 20px;
@@ -283,7 +283,7 @@
 .points-earn-tasks__rule-card {
   margin: 12px;
   padding: 14px 12px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--color-white);
 }
 
@@ -307,8 +307,8 @@
   width: 16px;
   height: 16px;
   place-items: center;
-  border-radius: 4px;
-  background: #ff6c46;
+  border-radius: var(--radius-4);
+  background: var(--color-points-accent);
   color: var(--color-white);
   font-family: var(--font-family-ui-number);
   font-size: 10px;
@@ -334,7 +334,7 @@
 
 .points-earn-tasks__rule-copy p b {
   margin-right: 6px;
-  color: #ff6c46;
+  color: var(--color-points-accent);
   font-family: var(--font-family-ui-number);
 }
 
@@ -346,13 +346,13 @@
   width: 303px;
   margin-top: 8px;
   border: 0.5px solid #eee2d5;
-  border-radius: 3px;
+  border-radius: var(--radius-3);
 }
 
 .points-earn-tasks__rule-example {
   width: 303px;
   margin: 6px 0 8px;
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   object-fit: cover;
 }
 

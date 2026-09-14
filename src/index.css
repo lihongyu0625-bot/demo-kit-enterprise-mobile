@@ -10,6 +10,15 @@
   --color-white: #ffffff;
   --color-black: #000000;
 
+  /* 积分权益场景语义色（points-lucky-bag / points-mall / points-earn-tasks）
+     2026-09-14 收编：归并设计稿导出噪声（描边 3 种值、强调橙 6 种值） */
+  --color-points-line: #e7ebf1;         /* 卡片/分隔线描边（归并 #e7e8f1 / #edf0f5） */
+  --color-points-accent: #ff6923;       /* 积分主橙：强调字/价格/渐变起点（归并 #fe6f2e #f8600d #ff6c46 #ff5306 #f67c13） */
+  --color-points-accent-light: #ffaa2b; /* 渐变终点橙黄 */
+  --color-points-accent-deep: #a95806;  /* 深橙提示文案 */
+  --color-points-on-accent: #ffefde;    /* 深色底上的浅橙字 */
+  --color-points-link: #1c78ff;         /* 链接蓝 */
+
   --color-blue-5: #f3f8ff;
   --color-blue-10: #e7f1ff;
   --color-blue-20: #d0e3ff;
