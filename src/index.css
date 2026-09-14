@@ -19,6 +19,22 @@
   --color-points-on-accent: #ffefde;    /* 深色底上的浅橙字 */
   --color-points-link: #1c78ff;         /* 链接蓝 */
 
+  /* 超级省详情页语义色（points-super-save-detail）
+     2026-09-14 收编：归并设计稿导出噪声（主文字蓝 6 种值、浅蓝底 5 种值、亮蓝 2 种值） */
+  --color-super-save-ink: #17385e;          /* 页面正文墨蓝（rgba 透明度族同源） */
+  --color-super-save-ink-strong: #2c5785;   /* 副标题/步骤强调墨蓝 */
+  --color-super-save-heading: #224a75;      /* 卡片标题深蓝 */
+  --color-super-save-tab-active: #245e9f;   /* 品类导航激活文字蓝 */
+  --color-super-save-blue: #267dd2;         /* 主文字蓝：激活/序号/价格强调（归并 #2779ce #277fd4 #2575c6 #1f75d0 #2375c8） */
+  --color-super-save-blue-muted: #4083c9;   /* 次级文字蓝 */
+  --color-super-save-blue-soft: #4b82ba;    /* 提示条文字蓝 */
+  --color-super-save-blue-bright: #2e8dff;  /* 亮蓝：序号底/角标/下划线（归并 #368cff） */
+  --color-super-save-tint: #f5f9ff;         /* 浅蓝面板底（归并 #f0f7ff #f1f7ff #edf7ff #edf6ff） */
+  --color-super-save-tint-chip: #e8f3ff;    /* 徽标/券位浅蓝底（归并 #e0efff） */
+  --color-super-save-tint-strong: #dceeff;  /* 序号圆/连接线浅蓝底（归并 #d5ebff） */
+  --color-super-save-tint-line: #b9d9f9;    /* 流程连接线 */
+  --color-super-save-base: #f5f7fa;         /* 页面基底灰 */
+
   --color-blue-5: #f3f8ff;
   --color-blue-10: #e7f1ff;
   --color-blue-20: #d0e3ff;

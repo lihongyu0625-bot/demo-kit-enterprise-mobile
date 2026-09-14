@@ -73,6 +73,7 @@ import PointsEarnTasksCasePreview from './page-cases/points/PointsEarnTasksCaseP
 import PointsProductDetailOverlayCasePreview from './page-cases/points/PointsProductDetailOverlayCasePreview'
 import PointsExchangeSuccessOverlayCasePreview from './page-cases/points/PointsExchangeSuccessOverlayCasePreview'
 import PointsMallCasePreview from './page-cases/points/PointsMallCasePreview'
+import PointsSuperSaveDetailCasePreview from './page-cases/points/PointsSuperSaveDetailCasePreview'
 
 function createPlaceholderItem(config) {
   return function PlaceholderItem() {
@@ -337,9 +338,9 @@ export const previewNavigation = [
         type: 'item',
         title: '积分权益业务组件',
         pathLabel: '业务组件 / 积分权益',
-        description: '这里集中展示积分权益业务下所有可复用组件，当前接入小福包、积分商城相关模块。',
+        description: '这里集中展示积分权益业务下所有可复用组件，当前接入小福包、积分商城和超级省详情相关模块。',
         statusLabel: '已接入',
-        maintenanceHint: '按积分权益业务统一维护，后续积分、任务、权益模块直接归入这里。',
+        maintenanceHint: '按积分权益业务统一维护，积分、任务、权益和超级省模块直接归入这里。',
         component: PointsBusinessComponentsPreview,
       },
       {
@@ -931,6 +932,17 @@ export const previewNavigation = [
             statusLabel: '已接入',
             maintenanceHint: '当前挂载的是积分商城默认场景长图拆分后的完整预览。',
             component: PointsMallCasePreview,
+          },
+          {
+            id: 'page-points-super-save-detail',
+            label: '超级省详情',
+            type: 'item',
+            title: '超级省详情整页案例',
+            pathLabel: '页面案例 / 积分权益 / 超级省详情',
+            description: '这里展示超级省详情整页组装后的最终效果，适合核对权益导航、贵必赔说明卡和详细规则长页面。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是根据 MasterGo 设计稿拆分后的超级省详情完整预览。',
+            component: PointsSuperSaveDetailCasePreview,
           },
           {
             id: 'page-points-product-detail-overlay',

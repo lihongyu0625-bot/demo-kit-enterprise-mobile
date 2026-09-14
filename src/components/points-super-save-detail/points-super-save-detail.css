@@ -1,0 +1,487 @@
+.points-super-save-detail-shell,
+.points-super-save-detail-shell * {
+  box-sizing: border-box;
+}
+
+.points-super-save-detail-shell {
+  position: relative;
+  width: 375px;
+  min-height: 3812px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 75% 2%, rgba(173, 217, 255, 0.56), transparent 25%),
+    linear-gradient(180deg, var(--color-super-save-tint-strong) 0%, var(--color-super-save-tint) 23%, var(--color-super-save-base) 47%, var(--color-super-save-base) 100%);
+  color: var(--color-super-save-ink);
+  font-family: var(--font-family-ui-cn);
+}
+
+.points-super-save-detail-shell button {
+  font: inherit;
+}
+
+.points-super-save-detail-shell p,
+.points-super-save-detail-shell h2,
+.points-super-save-detail-shell h3 {
+  margin: 0;
+}
+
+.points-super-save-detail__nav {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 375px;
+}
+
+.points-super-save-detail__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.points-super-save-detail__background span {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+}
+
+.points-super-save-detail__background span:nth-child(1) {
+  top: 30px;
+  right: -28px;
+  width: 190px;
+  height: 190px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.points-super-save-detail__background span:nth-child(2) {
+  top: 92px;
+  right: 30px;
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.points-super-save-detail__background span:nth-child(3) {
+  top: 116px;
+  left: 14px;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.points-super-save-detail__content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: var(--space-8);
+  width: 351px;
+  margin-left: 12px;
+  padding-top: 96px;
+  padding-bottom: 38px;
+}
+
+.points-super-save-category-tabs {
+  display: flex;
+  gap: var(--space-8);
+  width: 351px;
+  height: 46px;
+}
+
+.points-super-save-category-tabs__item {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.6);
+  color: rgba(18, 56, 94, 0.55);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.points-super-save-category-tabs__item--active {
+  background: var(--color-white);
+  color: var(--color-super-save-tab-active);
+  box-shadow: 0 6px 16px rgba(69, 137, 201, 0.12);
+  font-weight: 600;
+}
+
+.points-super-save-category-tabs__badge {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-super-save-tint-chip);
+  color: var(--color-super-save-blue);
+  font-family: var(--font-family-ui-number);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.points-super-save-benefit-tabs {
+  display: flex;
+  width: 351px;
+  height: 36px;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 0 4px;
+}
+
+.points-super-save-benefit-tabs__item {
+  position: relative;
+  flex: none;
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: rgba(18, 56, 94, 0.5);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-super-save-benefit-tabs__item--active {
+  color: var(--color-super-save-blue);
+  font-weight: 600;
+}
+
+.points-super-save-benefit-tabs__item--active::after {
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-super-save-blue-bright);
+  content: '';
+  transform: translateX(50%);
+}
+
+.points-super-save-detail__intro-list {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.points-super-save-intro-card,
+.points-super-save-rules {
+  width: 351px;
+  border-radius: var(--radius-8);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 3px 10px rgba(34, 91, 143, 0.06);
+}
+
+.points-super-save-intro-card {
+  overflow: hidden;
+}
+
+.points-super-save-intro-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  min-height: 40px;
+  padding: 10px 12px 6px;
+}
+
+.points-super-save-intro-card__number {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: var(--color-super-save-blue-bright);
+  color: var(--color-white);
+  font-family: var(--font-family-ui-number);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.points-super-save-intro-card__header h2 {
+  color: var(--color-super-save-heading);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.points-super-save-intro-card__body {
+  padding: 0 12px 12px 36px;
+}
+
+.points-super-save-intro-card__body > p {
+  color: rgba(23, 56, 94, 0.68);
+  font-size: 11px;
+  line-height: 18px;
+}
+
+.points-super-save-intro-card__body > p + p {
+  margin-top: var(--space-6);
+}
+
+.points-super-save-intro-card__tip {
+  margin-top: var(--space-8);
+  padding: 6px 8px;
+  border-radius: 5px;
+  background: var(--color-super-save-tint);
+  color: var(--color-super-save-blue-soft);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.points-super-save-price-bar {
+  position: relative;
+  display: grid;
+  gap: var(--space-6);
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-6);
+  background: linear-gradient(180deg, var(--color-super-save-tint) 0%, var(--color-white) 100%);
+}
+
+.points-super-save-price-bar__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(23, 56, 94, 0.48);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.points-super-save-price-bar__row strong {
+  color: rgba(23, 56, 94, 0.62);
+  font-family: var(--font-family-ui-number);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.points-super-save-price-bar__row--active {
+  color: var(--color-super-save-blue);
+}
+
+.points-super-save-price-bar__row--active strong {
+  color: var(--color-super-save-blue);
+}
+
+.points-super-save-price-bar__badge {
+  position: absolute;
+  top: 31px;
+  right: 12px;
+  padding: 2px 6px;
+  border-radius: var(--radius-4);
+  background: var(--color-super-save-blue-bright);
+  color: var(--color-white);
+  font-size: 9px;
+  line-height: 14px;
+}
+
+.points-super-save-application-flow {
+  display: grid;
+  gap: 5px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: var(--radius-6);
+  background: var(--color-super-save-tint);
+}
+
+.points-super-save-flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+.points-super-save-flow-step__number {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-super-save-tint-strong);
+  color: var(--color-super-save-blue);
+  font-family: var(--font-family-ui-number);
+  font-size: 10px;
+  line-height: 18px;
+}
+
+.points-super-save-flow-step strong,
+.points-super-save-coupon-location__item strong {
+  display: block;
+  color: var(--color-super-save-ink-strong);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.points-super-save-flow-step p,
+.points-super-save-coupon-location__item p {
+  margin-top: 1px;
+  color: rgba(23, 56, 94, 0.5);
+  font-size: 9px;
+  line-height: 14px;
+}
+
+.points-super-save-flow-line {
+  width: 1px;
+  height: 7px;
+  margin-left: 8px;
+  background: var(--color-super-save-tint-line);
+}
+
+.points-super-save-compensation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8);
+  margin-top: 10px;
+}
+
+.points-super-save-compensation-card {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  padding: 10px 6px;
+  border-radius: var(--radius-6);
+  background: linear-gradient(180deg, var(--color-super-save-tint) 0%, var(--color-white) 100%);
+}
+
+.points-super-save-compensation-card__icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  background: var(--color-super-save-tint-strong);
+  color: var(--color-super-save-blue);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.points-super-save-compensation-card strong {
+  color: var(--color-super-save-ink-strong);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.points-super-save-compensation-card p {
+  color: rgba(23, 56, 94, 0.45);
+  font-size: 9px;
+  line-height: 14px;
+}
+
+.points-super-save-coupon-location {
+  display: grid;
+  gap: var(--space-8);
+  margin-top: 10px;
+}
+
+.points-super-save-coupon-location__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-8);
+  border-radius: var(--radius-6);
+  background: var(--color-super-save-tint);
+}
+
+.points-super-save-coupon-location__number {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-super-save-tint-strong);
+  color: var(--color-super-save-blue);
+  font-family: var(--font-family-ui-number);
+  font-size: 10px;
+}
+
+.points-super-save-coupon-location__item > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.points-super-save-coupon-location__tab {
+  display: inline-flex;
+  width: 36px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  background: var(--color-super-save-tint-chip);
+  color: var(--color-super-save-blue-muted);
+  font-size: 10px;
+}
+
+.points-super-save-rules {
+  padding: var(--space-12) 12px 24px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.points-super-save-rules__title {
+  color: rgba(23, 56, 94, 0.68);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.points-super-save-rules__list {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.points-super-save-rule h3 {
+  color: rgba(23, 56, 94, 0.65);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.points-super-save-rule p {
+  margin-top: var(--space-2);
+  color: rgba(23, 56, 94, 0.52);
+  font-size: 10px;
+  line-height: 16px;
+  white-space: pre-line;
+}
+
+.points-super-save-detail__footer {
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+}
+
+.points-super-save-detail-business-sample {
+  width: 375px;
+  padding: var(--space-12);
+  overflow: hidden;
+  background: var(--color-super-save-base);
+}
+
+.points-super-save-detail-business-stack {
+  display: grid;
+  gap: var(--space-8);
+  width: 351px;
+}
+
+.points-super-save-detail-business-sample > .points-super-save-category-tabs,
+.points-super-save-detail-business-sample > .points-super-save-benefit-tabs {
+  margin-left: 0;
+}

@@ -22,6 +22,7 @@ const pageHrefMap = {
   小福包: '#page-points-lucky-bag',
   做任务赚积分: '#page-points-earn-tasks',
   积分商城: '#page-points-mall',
+  超级省详情: '#page-points-super-save-detail',
   商品详情浮层: '#page-points-product-detail-overlay',
   兑换成功浮层: '#page-points-exchange-success-overlay',
   机票首页: '#page-flight-home',

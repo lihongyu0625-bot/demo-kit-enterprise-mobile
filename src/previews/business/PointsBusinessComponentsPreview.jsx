@@ -4,6 +4,7 @@ import { PointsBenefitTitle } from '../../components/points-benefit-title/Points
 import { PointsCouponShowcase, PointsEarnMissionCard } from '../../components/points-lucky-bag/PointsLuckyBagComponents'
 import PointsLuckyBagBusinessPreview from './points/PointsLuckyBagBusinessPreview'
 import PointsMallBusinessPreview from './points/PointsMallBusinessPreview'
+import PointsSuperSaveDetailBusinessPreview from './points/PointsSuperSaveDetailBusinessPreview'
 
 function withUsage(items, page, options = {}) {
   const { displayNames = {}, overrides = {} } = options
@@ -28,6 +29,10 @@ const luckyBagPageUsage = {
 
 const mallPageUsage = {
   pages: ['积分商城'],
+}
+
+const superSaveDetailPageUsage = {
+  pages: ['超级省详情'],
 }
 
 function PointsMissionStatesPreview() {
@@ -198,6 +203,17 @@ const sections = [
         },
       },
     ),
+  },
+  {
+    id: 'points-super-save-detail',
+    title: '超级省详情类',
+    description: '承接超级省详情页的品类导航、权益导航、贵必赔说明卡和详细规则。',
+    items: PointsSuperSaveDetailBusinessPreview.showcaseList.map((item) => ({
+      ...item,
+      anchorLabel: item.name,
+      displayName: item.name.replace(/^超级省 · /, ''),
+      usage: superSaveDetailPageUsage,
+    })),
   },
   {
     id: 'points-lucky-benefits',
