@@ -137,6 +137,7 @@ export function CarBubbleVehicleOption({ vehicle }) {
           <div className="car-bubble-vehicle__meta">
             {vehicle.eta ? <span>{vehicle.eta}</span> : null}
             {vehicle.subtitle ? <span>{vehicle.subtitle}</span> : null}
+            {vehicle.description ? <span>{vehicle.description}</span> : null}
             {vehicle.hasArrow ? (
               <DirectionalIcon
                 className="car-bubble-vehicle__meta-icon"
@@ -161,6 +162,9 @@ export function CarBubbleVehicleOption({ vehicle }) {
             ))}
           </div>
           {vehicle.coupon ? <span className="car-bubble-vehicle__coupon">{vehicle.coupon}</span> : null}
+          {vehicle.feeTag ? (
+            <span className="car-bubble-vehicle__coupon car-bubble-vehicle__coupon--fee">{vehicle.feeTag}</span>
+          ) : null}
         </div>
         <span
           aria-hidden="true"

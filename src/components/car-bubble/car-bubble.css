@@ -450,6 +450,13 @@
   white-space: nowrap;
 }
 
+/* 加价类费用标签（节假日服务费/跨城费/举牌接机费等）：「已含费用N元」中性橙样式 */
+.car-bubble-vehicle__coupon--fee {
+  margin-left: 4px;
+  border-color: #f5deb8;
+  color: #996125;
+}
+
 .car-bubble-vehicle__check {
   position: relative;
   width: 18px;

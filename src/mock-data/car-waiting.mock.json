@@ -81,10 +81,12 @@
         "name": "轻享",
         "upgrade": "升舱",
         "eta": "15秒",
+        "description": "宽敞B级车 整洁无异味",
         "priceParts": [
           { "label": "预估", "payType": "企业付", "amount": "13.9", "tone": "company" },
           { "label": "预估", "payType": "个人付", "amount": "12.2", "tone": "personal" }
         ],
+        "feeTag": "已含费用6元",
         "imageKey": "raw-image-8"
       }
     ],
