@@ -192,10 +192,11 @@
 .points-super-save-benefit-tabs__indicator {
   position: absolute;
   z-index: 0;
-  left: 3px;
+  left: 50%;
   top: 16px;
-  width: 44px;
-  height: 12px;
+  width: 43.74px;
+  height: 11.73px;
+  transform: translateX(-50%);
 }
 
 /* ===== 权益说明卡片 ===== */
