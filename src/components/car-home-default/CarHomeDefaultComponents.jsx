@@ -110,7 +110,7 @@ export function CarHomePolicyNotice({ notice }) {
       <span className="car-home-default-service-card__notice-text">{notice.text}</span>
       <CarHomeDirectionalIcon
         className="car-home-default-service-card__notice-arrow"
-        name="icon/directional/chevron-right-small/outlined"
+        name="icon-directional-chevron_right_small-outlined"
       />
     </button>
   )
@@ -165,7 +165,7 @@ export function CarHomeDefaultHero({ hero }) {
         >
           <CarHomeGlobalIcon
             className="car-home-default-hero__action-icon"
-            name="icon/media/headphones-alt/filled"
+            name="icon-media-headphones_alt-filled"
           />
         </button>
         <button
@@ -174,7 +174,7 @@ export function CarHomeDefaultHero({ hero }) {
         >
           <CarHomeGlobalIcon
             className="car-home-default-hero__action-icon"
-            name="icon/message/message-text/filled"
+            name="icon-message-message_text-filled"
           />
         </button>
       </div>

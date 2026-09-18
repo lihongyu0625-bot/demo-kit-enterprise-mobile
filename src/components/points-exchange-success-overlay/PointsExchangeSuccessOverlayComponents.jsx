@@ -20,7 +20,7 @@ function PointsExchangeSuccessStatus({ status }) {
       <div className="points-exchange-success-overlay__status-title-row">
         <GlobalStyleIcon
           className="points-exchange-success-overlay__success-icon"
-          name="icon/status/success-circle/filled"
+          name="icon-status-success_circle-filled"
         />
         <h1 className="points-exchange-success-overlay__title">{status.title}</h1>
       </div>
@@ -91,7 +91,7 @@ export function PointsExchangeSuccessOverlayPreviewFrame({ data = mockData }) {
         <button aria-label="关闭" className="points-exchange-success-overlay__close" type="button">
           <GlobalStyleIcon
             className="points-exchange-success-overlay__close-icon"
-            name="icon/action/close-large/outlined"
+            name="icon-action-close_large-outlined"
           />
         </button>
         <PointsExchangeSuccessStatus status={data.status} />

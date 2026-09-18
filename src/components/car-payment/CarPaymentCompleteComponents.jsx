@@ -33,7 +33,7 @@ function RewardItem({ image, label, prefix, amount }) {
         <strong>{amount}</strong>
         <GlobalStyleIcon
           className="car-payment-complete-reward__icon"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </div>
       <img
@@ -71,7 +71,7 @@ export function CarPaymentExpenseAction({ label }) {
     >
       <GlobalStyleIcon
         className="car-payment-complete-expense__icon"
-        name="icon/finance/currency-circle/outlined"
+        name="icon-finance-currency_circle-outlined"
       />
       <span>{label}</span>
     </button>

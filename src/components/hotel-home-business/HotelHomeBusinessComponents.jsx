@@ -134,7 +134,7 @@ export function HotelHomeBusinessHeaderHero({ nav }) {
         >
           <HotelHomeBusinessGlobalIcon
             className="hotel-home-business-nav__back-icon"
-            name="icon/directional/chevron-left-large/outlined"
+            name="icon-directional-chevron_left_large-outlined"
           />
         </button>
 
@@ -144,7 +144,7 @@ export function HotelHomeBusinessHeaderHero({ nav }) {
         >
           <HotelHomeBusinessGlobalIcon
             className="hotel-home-business-nav__policy-icon"
-            name="icon/status/info-circle/outlined"
+            name="icon-status-info_circle-outlined"
           />
           <span>{nav.policyLabel}</span>
         </button>
@@ -211,7 +211,7 @@ export function HotelHomeBusinessApplicationCard({ application }) {
           >
             <HotelHomeBusinessDirectionalIcon
               className="hotel-home-business-icon-button__icon"
-              name="icon/directional/chevron-right-small/outlined"
+              name="icon-directional-chevron_right_small-outlined"
             />
           </button>
         </div>
@@ -231,7 +231,7 @@ export function HotelHomeBusinessApplicationCard({ application }) {
               <span>{application.locationLabel}</span>
               <HotelHomeBusinessDirectionalIcon
                 className="hotel-home-business-application__location-trigger-icon"
-                name="icon/directional/chevron-down-small/filled"
+                name="icon-directional-chevron_down_small-filled"
               />
             </button>
             <span className="hotel-home-business-application__placeholder">{application.searchPlaceholder}</span>
@@ -243,7 +243,7 @@ export function HotelHomeBusinessApplicationCard({ application }) {
           >
             <HotelHomeBusinessGlobalIcon
               className="hotel-home-business-icon-button__target-icon"
-              name="icon/travel/target/outlined"
+              name="icon-travel-target-outlined"
             />
           </button>
         </div>
@@ -275,12 +275,12 @@ export function HotelHomeBusinessApplicationCard({ application }) {
         >
           <HotelHomeBusinessGlobalIcon
             className="hotel-home-business-application__tip-icon"
-            name="icon/status/info-circle/outlined"
+            name="icon-status-info_circle-outlined"
           />
           <span>{application.guestTip}</span>
           <HotelHomeBusinessDirectionalIcon
             className="hotel-home-business-application__tip-arrow"
-            name="icon/directional/chevron-right-small/outlined"
+            name="icon-directional-chevron_right_small-outlined"
           />
         </button>
       </div>
@@ -297,7 +297,7 @@ export function HotelHomeBusinessApplicationCard({ application }) {
           <span>{application.adultCount}</span>
           <HotelHomeBusinessDirectionalIcon
             className="hotel-home-business-application__occupancy-icon"
-            name="icon/directional/chevron-down-small/outlined"
+            name="icon-directional-chevron_down_small-outlined"
           />
         </button>
       </div>
@@ -342,7 +342,7 @@ export function HotelHomeBusinessGuaranteeCard() {
       detailIcon={(
         <HotelHomeBusinessDirectionalIcon
           className="hotel-home-business-guarantee__detail-arrow"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       )}
       detailLabel="详情"

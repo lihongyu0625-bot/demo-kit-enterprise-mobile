@@ -30,7 +30,7 @@ function SelectBox({ checked = false }) {
       {checked ? (
         <FlightFormIcon
           className="flight-form-select-box__icon"
-          name="icon/status/check/filled"
+          name="icon-status-check-filled"
         />
       ) : null}
     </span>
@@ -77,7 +77,7 @@ export function FlightFormFlightCard({ flight }) {
             {index < flight.prices.length - 1 ? (
               <FlightFormIcon
                 className="flight-form-flight-card__plus"
-                name="icon/action/add/outlined"
+                name="icon-action-add-outlined"
               />
             ) : null}
           </div>
@@ -91,7 +91,7 @@ export function FlightFormFlightCard({ flight }) {
         <span>{flight.ruleLabel}</span>
         <FlightFormIcon
           className="flight-form-flight-card__rule-icon"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </button>
     </section>
@@ -133,7 +133,7 @@ export function FlightFormPassengerCard({ passenger }) {
             <span>{passenger.name}</span>
             <FlightFormIcon
               className="flight-form-passenger-card__edit"
-              name="icon/action/edit/outlined"
+              name="icon-action-edit-outlined"
             />
           </div>
           <p>{passenger.idLabel}</p>
@@ -147,7 +147,7 @@ export function FlightFormPassengerCard({ passenger }) {
       >
         <FlightFormIcon
           className="flight-form-passenger-card__select-icon"
-          name="icon/action/add-circle/filled"
+          name="icon-action-add_circle-filled"
         />
         {passenger.selectLabel}
       </button>
@@ -178,7 +178,7 @@ function ProtectionIcon({ selected }) {
     <span className={cx('flight-form-protection-icon', selected && 'flight-form-protection-icon--selected')}>
       <FlightFormIcon
         className="flight-form-protection-icon__mark"
-        name="icon/status/check/filled"
+        name="icon-status-check-filled"
       />
     </span>
   )
@@ -196,7 +196,7 @@ function ProtectionOption({ option }) {
           <span key={feature}>
             <FlightFormIcon
               className="flight-form-protection-option__check"
-              name="icon/status/check/filled"
+              name="icon-status-check-filled"
             />
             {feature}
           </span>
@@ -234,7 +234,7 @@ export function FlightFormTravelService({ service }) {
             <strong>{service.insurance.title}</strong>
             <FlightFormIcon
               className="flight-form-travel-service__info"
-              name="icon/status/info-circle/outlined"
+              name="icon-status-info_circle-outlined"
             />
           </div>
           <div className="flight-form-travel-service__panel-price">
@@ -268,7 +268,7 @@ export function FlightFormTravelService({ service }) {
                 <strong>{row.title}</strong>
                 <FlightFormIcon
                   className="flight-form-travel-service__row-info"
-                  name="icon/status/info-circle/outlined"
+                  name="icon-status-info_circle-outlined"
                 />
               </div>
               <p>{row.description}</p>
@@ -302,7 +302,7 @@ export function FlightFormInfoCard({ card }) {
             {row.actionable ? (
               <FlightFormIcon
                 className="flight-form-info-card__chevron"
-                name="icon/directional/chevron-right-small/outlined"
+                name="icon-directional-chevron_right_small-outlined"
               />
             ) : null}
           </div>
@@ -341,7 +341,7 @@ export function FlightFormSubmitBar({ submit }) {
             {submit.detailLabel}
             <FlightFormIcon
               className="flight-form-submit__detail-icon"
-              name="icon/directional/caret-up/filled"
+              name="icon-directional-caret_up-filled"
             />
           </button>
           <button

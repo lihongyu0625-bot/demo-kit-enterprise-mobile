@@ -20,11 +20,11 @@ import tripCardTextureImage from '../../assets/car-home-default/trip-card-textur
 import travelApplicationBadgeImage from '../../assets/car-home-default/travel-application-badge.png'
 
 const travelLinkConfigMap = {
-  '订机票': { name: 'icon/travel/airplane/outlined', tone: 'plane' },
-  '订酒店': { name: 'icon/travel/hotel-tower2/outlined', tone: 'hotel' },
-  '订火车票': { name: 'icon/travel/train-2/outlined', tone: 'train' },
-  '市内用车': { name: 'icon/travel/car2/outlined', tone: 'car' },
-  '接送机': { name: 'icon/travel/transfer/outlined', tone: 'transfer' },
+  '订机票': { name: 'icon-travel-airplane-outlined', tone: 'plane' },
+  '订酒店': { name: 'icon-travel-hotel_tower2-outlined', tone: 'hotel' },
+  '订火车票': { name: 'icon-travel-train_2-outlined', tone: 'train' },
+  '市内用车': { name: 'icon-travel-car2-outlined', tone: 'car' },
+  '接送机': { name: 'icon-travel-transfer-outlined', tone: 'transfer' },
 }
 
 function cx(...classNames) {
@@ -79,7 +79,7 @@ function CarHomeFullTaxiButton({ className, text }) {
     >
       <CarHomeFullGlobalIcon
         className="car-home-full-taxi-button__icon"
-        name="icon/travel/car2/outlined"
+        name="icon-travel-car2-outlined"
       />
       <span>{text}</span>
     </button>
@@ -134,7 +134,7 @@ function CarHomeFullSummary({ summary }) {
         <span className="car-home-full-summary__count-value">{summary.count}</span>
         <CarHomeFullDirectionalIcon
           className="car-home-full-summary__chevron"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </button>
     </div>
@@ -216,7 +216,7 @@ export function CarHomeFullRideNotice({ notice }) {
         >
           <CarHomeFullGlobalIcon
             className="car-home-full-ride-notice__close-icon"
-            name="icon/action/close-large/outlined"
+            name="icon-action-close_large-outlined"
           />
         </button>
       </div>

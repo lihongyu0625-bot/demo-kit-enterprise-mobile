@@ -47,7 +47,7 @@ export function Tag({
         >
           <GlobalStyleIcon
             className="common-tag__selection-badge-icon"
-            name="icon/action/check/filled"
+            name="icon-action-check-filled"
           />
         </span>
       ) : null}

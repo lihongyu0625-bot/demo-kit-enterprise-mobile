@@ -18,8 +18,8 @@ export function ChevronAction({
         : 'common-chevron-action__icon common-chevron-action__icon--small'
   const iconName =
     variant === 'detail'
-      ? 'icon/directional/caret-up/filled'
-      : 'icon/directional/chevron-right-small/outlined'
+      ? 'icon-directional-caret_up-filled'
+      : 'icon-directional-chevron_right_small-outlined'
 
   return (
     <button

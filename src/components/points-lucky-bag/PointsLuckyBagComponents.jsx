@@ -136,7 +136,7 @@ function SectionTitle({ title, more = '更多' }) {
           <span>{more}</span>
           <DirectionalIcon
             className="points-lucky-section-title__more-icon"
-            name="icon/directional/chevron-right-small/outlined"
+            name="icon-directional-chevron_right_small-outlined"
           />
         </button>
       ) : null}
@@ -339,7 +339,7 @@ export function PointsLuckyBagGiftExchange({ filters: filterItems = filters }) {
         <span>查看更多好礼</span>
         <DirectionalIcon
           className="points-lucky-more__icon"
-          name="icon/directional/chevron-down-small/outlined"
+          name="icon-directional-chevron_down_small-outlined"
         />
       </button>
     </section>
@@ -359,7 +359,7 @@ export function PointsEarnMissionCard({ state = 'full', title = '做任务 赚�
               再完成1单可获得<strong>20</strong>积分
               <GlobalStyleIcon
                 className="points-lucky-question-icon"
-                name="icon/status/question-circle/outlined"
+                name="icon-status-question_circle-outlined"
               />
             </p>
             <small>距离截止时间 23小时56分</small>
@@ -393,7 +393,7 @@ export function PointsEarnMissionCard({ state = 'full', title = '做任务 赚�
                     {task.subtitle}
                     <GlobalStyleIcon
                       className="points-lucky-question-icon points-lucky-question-icon--small"
-                      name="icon/status/question-circle/outlined"
+                      name="icon-status-question_circle-outlined"
                     />
                   </small>
                   {task.tag ? <em>{task.tag}</em> : null}
@@ -439,7 +439,7 @@ function BenefitSmallCard({ title, desc, corner }) {
         {title}
         <DirectionalIcon
           className="points-lucky-inline-chevron"
-          name="icon/directional/caret-right/filled"
+          name="icon-directional-caret_right-filled"
         />
       </p>
       <span>{desc}</span>
@@ -506,7 +506,7 @@ export function PointsLuckyBagBusinessBenefits() {
               {perk.title}
               <DirectionalIcon
                 className="points-lucky-inline-chevron"
-                name="icon/directional/caret-right/filled"
+                name="icon-directional-caret_right-filled"
               />
             </p>
             <small>{perk.desc}</small>
@@ -541,7 +541,7 @@ export function PointsLuckyBagBrandMembership() {
               携程×滴滴会员联登
               <DirectionalIcon
                 className="points-lucky-inline-chevron"
-                name="icon/directional/caret-right/filled"
+                name="icon-directional-caret_right-filled"
               />
             </p>
             <span>绑定后享受携程平台酒店会员价</span>
@@ -564,7 +564,7 @@ export function PointsLuckyBagServiceBenefits() {
             企业版客服
             <DirectionalIcon
               className="points-lucky-inline-chevron"
-              name="icon/directional/caret-right/filled"
+              name="icon-directional-caret_right-filled"
             />
           </p>
           <span>企业版专属服务</span>

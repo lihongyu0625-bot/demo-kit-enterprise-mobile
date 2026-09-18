@@ -17,8 +17,8 @@
   "componentCandidates": [
     "iPhone bar",
     "iPhone footer",
-    "icon/status/success-circle/filled",
-    "icon/action/close-large/outlined"
+    "icon-status-success_circle-filled",
+    "icon-action-close_large-outlined"
   ],
   "sections": [
     "遮罩背景",

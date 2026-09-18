@@ -6,7 +6,9 @@
 .points-super-save-detail-shell {
   position: relative;
   width: 375px;
-  min-height: 3812px;
+  /* 至少一屏（降价退画板 375×812，背景图 812 高）；贵必赔等长内容随内容延伸，
+     不能用 3812（贵必赔画板高）——短权益页会留 619px 空白 */
+  min-height: 812px;
   overflow: hidden;
   background: var(--color-super-save-base);
   color: rgba(0, 0, 0, 0.84);
@@ -14,6 +16,8 @@
 }
 
 .points-super-save-detail-shell button {
+  /* ⚠️ font: inherit 会重置 button 自身的 font-size/line-height 为 shell 继承值（16px）。
+     后续在 button 上直接设字号的选择器，特异性必须 ≥ 0,2,1（如 more-link-action），否则被此规则压制 */
   font: inherit;
   border: 0;
   padding: 0;
@@ -71,7 +75,12 @@
   width: 351px;
 }
 
-.points-super-save-category-tabs__item {
+/* __item 需支持脱离 nav 独立渲染（预览台单卡片），用裸类选择器；
+   叠加 nav 祖先选择器把特异性提到 0,2,0，压过 .points-super-save-detail-shell button
+   的 background/border/padding 重置（0,1,1）——去掉祖先作用域时详情页卡片会被重置成透明无填充 */
+.points-super-save-category-tabs__item,
+.points-super-save-category-tabs .points-super-save-category-tabs__item {
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -84,10 +93,39 @@
     linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%) border-box;
 }
 
-.points-super-save-category-tabs__item--active {
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)) padding-box,
-    linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%) border-box;
+.points-super-save-category-tabs__item--active,
+.points-super-save-category-tabs .points-super-save-category-tabs__item--active {
+  /* DSL paint_127:30937 填充 rgba(255,255,255,0.7)（FFFFFF 70%）、paint_127:30939 描边渐变。
+     不能用双层 background 技巧：border-box 描边层填满整盒，其 72% 高度的不透明白
+     会被 70% 填充叠成纯白（实测 255,255,255）。改为填充画 padding-box、
+     描边环由 ::after + mask 抠出，两物理分离。 */
+  position: relative;
+  z-index: 0;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.7);
+  background-clip: padding-box;
+}
+
+.points-super-save-category-tabs .points-super-save-category-tabs__item--active::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-8);
+  padding: 1px;
+  background: linear-gradient(180deg, #ffffff 72%, #1473ff 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.points-super-save-category-tabs__item--active .points-super-save-category-tabs__arrow {
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .points-super-save-category-tabs__head {
@@ -109,6 +147,8 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 24px;
+  /* 阿里妈妈方圆体 Bold-Square = wght 700 + BEVL 1（DSL font_230:20257，BEVL 默认 100 是圆角） */
+  font-variation-settings: 'BEVL' 1;
 }
 
 .points-super-save-category-tabs__meta {
@@ -121,9 +161,11 @@
 }
 
 .points-super-save-category-tabs__meta b {
+  font-family: var(--font-family-ui-number);
   font-size: 14px;
   font-weight: 400;
   line-height: 19px;
+  padding-bottom: 1px;
 }
 
 .points-super-save-category-tabs__meta i,
@@ -144,7 +186,6 @@
 }
 
 .points-super-save-category-tabs__arrow {
-  align-self: center;
   width: 12px;
   height: 7px;
 }
@@ -155,7 +196,30 @@
   display: flex;
   gap: var(--space-24);
   width: 351px;
-  overflow: hidden;
+  /* 横滑（设计稿 213:14997 主组件自带右缘渐隐矩形 127:38920，16×28）：
+     权益数增多后单排总宽超出 351px 视口，改 hidden 为横向滚动 */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.points-super-save-benefit-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* 右缘渐隐遮罩：复刻设计稿矩形 127:38920
+   linear-gradient(270deg, #C5DCFD 0%, rgba(197,220,253,0) 100%)，宽 16、贴右侧 */
+.points-super-save-benefit-tabs::after {
+  content: '';
+  position: sticky;
+  right: 0;
+  top: 0;
+  flex: none;
+  align-self: stretch;
+  width: 16px;
+  margin-left: calc(var(--space-24) * -1);
+  background: linear-gradient(270deg, #c5dcfd 0%, rgba(197, 220, 253, 0) 100%);
+  pointer-events: none;
 }
 
 .points-super-save-benefit-tabs__item {
@@ -207,6 +271,18 @@
   gap: var(--space-8);
 }
 
+/* 权益内容待补充占位（对应 tab 有、内容未出设计稿的权益） */
+.points-super-save-detail__benefit-pending {
+  margin: 0;
+  padding: var(--space-24) var(--space-12);
+  border-radius: var(--radius-8);
+  background: rgba(255, 255, 255, 0.4);
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+
 .points-super-save-section {
   display: flex;
   flex-direction: column;
@@ -216,6 +292,13 @@
   overflow: hidden;
   border-radius: var(--radius-8);
   background: #fff;
+}
+
+/* 省立返卡片：header 与内容 gap 12px（设计稿 196:23670，卡片内 header@12+24 → 内容@48）。
+   块间 gap 仍为 8（容器 3383 flex gap 8），只放大 header 下方的间距。
+   header 与首个块同属 flex 子项，用 header 的 margin-bottom 补 4px */
+.points-super-save-section--header-gap-large .points-super-save-section__header {
+  margin-bottom: var(--space-4);
 }
 
 .points-super-save-section__header {
@@ -232,7 +315,8 @@
   flex: none;
   align-items: center;
   justify-content: center;
-  border-radius: var(--radius-8);
+  /* DSL 127:44257 容器 1966：borderRadius 6px（--radius-8 是 8px，非该值，直写） */
+  border-radius: var(--radius-6);
   background: linear-gradient(180deg, #006aff 0%, #0093ff 100%);
   color: #fff;
   font-family: var(--font-family-ui-number);
@@ -249,6 +333,8 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
+  /* 同 tab 名：Bold-Square（DSL font_230:21122） */
+  font-variation-settings: 'BEVL' 1;
 }
 
 .points-super-save-section__paragraph {
@@ -257,6 +343,8 @@
   font-size: 12px;
   line-height: 20px;
   text-align: justify;
+  /* 数据内 \n 为硬换行（航变无忧退卡3 段落 220=11行×20 依赖它；规则块同款处理） */
+  white-space: pre-line;
 }
 
 .points-super-save-section__paragraph strong,
@@ -451,12 +539,13 @@
   padding-left: var(--space-24);
 }
 
-.points-super-save-conditions__list {
+.points-super-save-conditions .points-super-save-conditions__list {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
+  /* 设计稿 196:18893：padding 12 + radius 8（特异性压过同文件 ul 重置 .shell ul{padding:0}） */
   padding: var(--space-12);
-  border-radius: var(--radius-6);
+  border-radius: var(--radius-8);
   background: rgba(9, 57, 127, 0.03);
 }
 
@@ -477,7 +566,8 @@
   opacity: 0.8;
 }
 
-.points-super-save-conditions__title img {
+.points-super-save-conditions__title img,
+.points-super-save-conditions__title .global-style-icon {
   width: 16px;
   height: 16px;
 }
@@ -653,12 +743,343 @@
   object-fit: contain;
 }
 
+/* ===== 省立返：积分表格（设计稿 196:23670） ===== */
+
+/* 副标题+表格组（DSL 容器 3093/3096：gap 4px、padding-left 24） */
+.points-super-save-points-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-left: var(--space-24);
+}
+
+.points-super-save-points-table__subtitle {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* 表格容器：#FCF5E8 表头行 20% 透明暖底、圆角 8；行高 32；首列 40px，其余均分。
+   描边（DSL 196:23999）：外框 0.5px rgba(106,70,71,0.3) 内描边；单元格间 0.5px #D2C8C8，
+   每格画右+下（0px 0.5px 0.5px 0px），末列不画右线、末行不画下线。
+   全部用 inset box-shadow 代替 border/outline：不占布局空间保住行高 32，
+   且 outline-width 会被取整成 1px（实测），box-shadow 能保住 0.5px */
+.points-super-save-points-table table {
+  width: 303px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: var(--radius-8);
+  background: rgba(252, 245, 232, 0.2);
+  table-layout: fixed;
+}
+
+/* ⚠️ 外框描边不画在 table 上：inset box-shadow 属 table 背景层，会被表头行
+   td 的 #FCF5E8 背景盖住顶边（红色 2px 实验证实，底/右可见、顶/左被盖）。
+   改画在 td 级：首行 td 补上描边、首列 td 补左描边（见下）。 */
+.points-super-save-points-table td {
+  height: 32px;
+  padding: var(--space-8);
+  color: rgba(106, 70, 71, 0.7);
+  font-size: 9px;
+  line-height: 16px;
+  /* DSL textMode single-line：首列 40px 里「火车票」27px 会换行撑高行，禁止换行 */
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+  /* 单元格分隔线：右+下 0.5px #D2C8C8（inset，不吃行高） */
+  box-shadow:
+    inset -0.5px 0 0 0 #d2c8c8,
+    inset 0 -0.5px 0 0 #d2c8c8;
+}
+
+/* 外框上边 0.5px rgba(106,70,71,0.3)：首行 td 附加（末列不含右线，同下规则顺序） */
+.points-super-save-points-table tr:first-child td {
+  box-shadow:
+    inset 0 0.5px 0 0 rgba(106, 70, 71, 0.3),
+    inset -0.5px 0 0 0 #d2c8c8,
+    inset 0 -0.5px 0 0 #d2c8c8;
+}
+
+/* 外框左边 0.5px rgba(106,70,71,0.3)：首列 td 附加 */
+.points-super-save-points-table td:first-child {
+  box-shadow:
+    inset 0.5px 0 0 0 rgba(106, 70, 71, 0.3),
+    inset -0.5px 0 0 0 #d2c8c8,
+    inset 0 -0.5px 0 0 #d2c8c8;
+}
+
+/* 首行首列：上+左+右+下四段全画 */
+.points-super-save-points-table tr:first-child td:first-child {
+  box-shadow:
+    inset 0 0.5px 0 0 rgba(106, 70, 71, 0.3),
+    inset 0.5px 0 0 0 rgba(106, 70, 71, 0.3),
+    inset -0.5px 0 0 0 #d2c8c8,
+    inset 0 -0.5px 0 0 #d2c8c8;
+}
+
+/* 末列：去掉右分隔线（交给外框） */
+.points-super-save-points-table td:last-child {
+  box-shadow: inset 0 -0.5px 0 0 #d2c8c8;
+}
+
+/* 首行末列：上边外框 + 下分隔线，无右线 */
+.points-super-save-points-table tr:first-child td:last-child {
+  box-shadow:
+    inset 0 0.5px 0 0 rgba(106, 70, 71, 0.3),
+    inset 0 -0.5px 0 0 #d2c8c8;
+}
+
+/* 末行：去掉下分隔线（交给外框） */
+.points-super-save-points-table tr:last-child td {
+  box-shadow: inset -0.5px 0 0 0 #d2c8c8;
+}
+
+/* rowspan 跨到表底的格：同末行语义去下线（CSS 的 tr:last-child 选不中它，
+   类由渲染器按 rowIndex+rowSpan===rows.length 打上；DSL 245:93349 stroke 仅右线） */
+.points-super-save-points-table td.points-super-save-points-table__rowspan-last-cell {
+  box-shadow: inset -0.5px 0 0 0 #d2c8c8;
+}
+
+/* 末行首列：左外框 + 右分隔线，无下线 */
+.points-super-save-points-table tr:last-child td:first-child {
+  box-shadow:
+    inset 0.5px 0 0 0 rgba(106, 70, 71, 0.3),
+    inset -0.5px 0 0 0 #d2c8c8;
+}
+
+/* 末行末列：无内部分隔线 */
+.points-super-save-points-table tr:last-child td:last-child {
+  box-shadow: none;
+}
+
+.points-super-save-points-table__label-cell {
+  width: 40px;
+}
+
+.points-super-save-points-table__label-cell ~ td {
+  width: 131.5px;
+}
+
+.points-super-save-points-table__head-row td {
+  background: #fcf5e8;
+  font-size: 10px;
+}
+
+/* 「额外加送」列头：#7F3F20 10px 中黑体。
+   带 td 元素提高特异性（0,2,1），否则压不过上面的 td 规则（0,1,1） */
+.points-super-save-points-table td.points-super-save-points-table__strong-cell {
+  color: #7f3f20;
+  font-weight: 500;
+}
+
+/* 加送单元格：数字段 #FF6B2B 9px 中粗体（DSL font_245:93315），
+   单位段保持普通色，与 DSL 段级 textColor（paint_245:93318/93283）一致 */
+.points-super-save-points-table__bonus-cell {
+  white-space: nowrap;
+}
+
+.points-super-save-points-table__bonus-num {
+  color: #ff6b2b;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 14px;
+}
+
+.points-super-save-points-table__bonus-unit {
+  color: rgba(106, 70, 71, 0.7);
+  font-size: 9px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+/* ===== 航变无忧退：整幅说明图（设计稿 196:34811） =====
+   DSL 组 23457@3x 303x50 / 容器 1974@3x 303x87，borderRadius 无 → 不加圆角。
+   父容器 padding-left 24 与段落一致。
+   display:block —— img 默认 inline，行盒基线下方多 ~6px descender 间隙
+   （实测 __block 56/93 vs 图 50/87），块级化后恰好命中设计稿卡高 */
+.points-super-save-section__image {
+  display: block;
+  width: 303px;
+  height: 50px;
+  padding-left: 0;
+  margin-left: var(--space-24);
+  object-fit: fill;
+}
+
+.points-super-save-section__image--tall {
+  height: 87px;
+}
+
+/* ===== 省立返：赚取步骤（设计稿 196:23670） ===== */
+
+.points-super-save-earn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding-left: var(--space-24);
+}
+
+/* 二级标题：16px 圆形 #E7F1FF 底（DSL 容器 1969 radius 13.06≈圆）、
+   #1473FF Barlow SemiBold 数字 */
+.points-super-save-earn-step__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.points-super-save-earn-step__chip {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-blue-10);
+  color: var(--color-blue-50);
+  font-family: var(--font-family-ui-number);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14.5px;
+}
+
+.points-super-save-earn-step__title p {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.points-super-save-earn-step__item {
+  display: flex;
+  flex-direction: column;
+  /* DSL 容器 1973：描述(20)与图(81.33)之间 gap 4px */
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.points-super-save-earn-step__desc {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* 图片为设计稿框尺寸（303 宽 + 设计稿高度 81.33/141/101.33/138），按 DSL 布局高度渲染 */
+.points-super-save-earn-step__image {
+  align-self: stretch;
+  width: 303px;
+  height: 81.33px;
+  object-fit: fill;
+  border-radius: var(--radius-6);
+}
+
+.points-super-save-earn-step__image--tall-a {
+  height: 141px;
+}
+
+.points-super-save-earn-step__image--tall-b {
+  height: 101.33px;
+}
+
+.points-super-save-earn-step__image--tall-c {
+  height: 138px;
+}
+
+/* ===== 省立返：底部「你可能还想了解？」（设计稿 196:23670 容器 25036） ===== */
+
+.points-super-save-detail__more-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  /* 设计稿：容器 25036 高 20、内边距 0 12（12 页边距 + 12 内边距 = 24 文字缩进） */
+  height: 20px;
+  padding: 0 var(--space-12);
+}
+
+.points-super-save-detail__more-link > span {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* 「积分规则」12px 常规体（DSL font_0:137）。
+   带 .points-super-save-detail-shell 祖先把特异性提到 0,2,1，
+   否则被下方 .points-super-save-detail-shell button { font: inherit }（0,1,1）
+   重置成 shell 继承的 16px——同类坑在品类 tab（line 76 注释）已踩过一次 */
+.points-super-save-detail-shell .points-super-save-detail__more-link-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  color: #1473ff;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-super-save-detail__more-link-action img {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===== 超时赔（196:55686）卡3：小标题+正文规则组 ===== */
+/* 容器 1974（DSL 213:12475）：flex column gap 8、padding-left 24；
+   组内小标题 14px/22/500 rgba(0,0,0,0.72)（font_0:134）+ gap 4 + 正文 12px/20。 */
+.points-super-save-rule-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding-left: var(--space-24);
+}
+
+.points-super-save-rule-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.points-super-save-rule-group__title {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.points-super-save-rule-group__body {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: justify;
+  /* 数据内 \n 为硬换行；行首 \U000f0020 由 Rich 渲染为可见圆点 */
+  white-space: pre-line;
+}
+
+/* 无序列表圆点：替代设计稿 DIcon 私有区字形 \U000f0020（页面无字体文件） */
+.points-super-save-rich-bullet {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-right: 5px;
+  vertical-align: 3px;
+}
+
+.points-super-save-rule-group__body strong {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
 /* ===== 详细规则 ===== */
 
 .points-super-save-rules {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
+  /* 设计稿 196:20325：容器 padding 0 12（文字距屏幕 12 页边距 + 12 内边距 = 24） */
+  padding: 0 var(--space-12);
 }
 
 .points-super-save-rules__title {
@@ -725,4 +1146,29 @@
 .points-super-save-detail-business-sample > .points-super-save-category-tabs,
 .points-super-save-detail-business-sample > .points-super-save-benefit-tabs {
   margin-left: 0;
+}
+
+/* 品类tab项 6 变体陈列（MasterGo 组件集 127:38218）：每行 品类标签 + 未选中 + 选中 */
+.points-super-save-detail-business-stack--tab-item {
+  gap: var(--space-12);
+}
+
+.points-super-save-detail-business-tab-item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-12);
+}
+
+.points-super-save-detail-business-tab-item-row__label {
+  flex: none;
+  width: 42px;
+  padding-top: 20px;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-super-save-detail-business-tab-item-row .points-super-save-category-tabs__item {
+  flex: none;
+  width: 110px;
 }

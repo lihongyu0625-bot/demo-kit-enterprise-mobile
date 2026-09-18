@@ -50,7 +50,7 @@ export function MobileNavBar({
           >
             <GlobalStyleIcon
               className="mobile-navbar__back-icon"
-              name="icon/directional/chevron-left-large/outlined"
+              name="icon-directional-chevron_left_large-outlined"
             />
           </button>
         ) : null}

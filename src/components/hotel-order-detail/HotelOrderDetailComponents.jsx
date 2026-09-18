@@ -21,7 +21,7 @@ function OrderDetailChevronIcon({ className }) {
   return (
     <DirectionalIcon
       className={cx('hotel-order-detail-chevron-icon', className)}
-      name="icon/directional/chevron-right-small/outlined"
+      name="icon-directional-chevron_right_small-outlined"
     />
   )
 }
@@ -60,7 +60,7 @@ export function HotelOrderDetailNavBar({ nav }) {
         >
           <OrderDetailGlobalIcon
             className="hotel-order-detail-nav__back-icon"
-            name="icon/directional/chevron-left-large/outlined"
+            name="icon-directional-chevron_left_large-outlined"
           />
         </button>
 
@@ -76,7 +76,7 @@ export function HotelOrderDetailNavBar({ nav }) {
               {item.icon === 'share' ? (
                 <OrderDetailGlobalIcon
                   className="hotel-order-detail-nav__action-icon"
-                  name="icon/action/share-forward/outlined"
+                  name="icon-action-share_forward-outlined"
                 />
               ) : (
                 <img
@@ -100,7 +100,7 @@ export function HotelOrderDetailStatusPanel({ status }) {
       <div className="hotel-order-detail-status__headline">
         <OrderDetailGlobalIcon
           className="hotel-order-detail-status__headline-icon"
-          name="icon/status/success-circle/filled"
+          name="icon-status-success_circle-filled"
         />
         <h1>{status.title}</h1>
       </div>
@@ -148,7 +148,7 @@ export function HotelOrderDetailPaymentCard({ payment }) {
         <span className="hotel-order-detail-payment__order-text">订单号: {payment.orderNo}</span>
         <OrderDetailGlobalIcon
           className="hotel-order-detail-payment__copy"
-          name="icon/action/copy/outlined"
+          name="icon-action-copy-outlined"
         />
       </div>
 
@@ -203,7 +203,7 @@ export function HotelOrderDetailHotelCard({ hotel }) {
             <span>{hotel.address}</span>
             <OrderDetailGlobalIcon
               className="hotel-order-detail-hotel__address-copy"
-              name="icon/action/copy/outlined"
+              name="icon-action-copy-outlined"
             />
           </div>
         </div>
@@ -221,7 +221,7 @@ export function HotelOrderDetailHotelCard({ hotel }) {
             >
               <OrderDetailGlobalIcon
                 className="hotel-order-detail-hotel__action-icon"
-                name={item.icon === 'map' ? 'icon/travel/map/outlined' : 'icon/device/phone/outlined'}
+                name={item.icon === 'map' ? 'icon-travel-map-outlined' : 'icon-device-phone-outlined'}
               />
               <span>{item.label}</span>
             </button>
@@ -251,7 +251,7 @@ export function HotelOrderDetailBookingInfoCard({ bookingInfo }) {
               {row.copy ? (
                 <OrderDetailGlobalIcon
                   className="hotel-order-detail-info-row__copy-icon"
-                  name="icon/action/copy/outlined"
+                  name="icon-action-copy-outlined"
                 />
               ) : null}
             </div>
@@ -265,7 +265,7 @@ export function HotelOrderDetailBookingInfoCard({ bookingInfo }) {
       >
         <OrderDetailGlobalIcon
           className="hotel-order-detail-inline-action__icon"
-          name="icon/file/mail/filled"
+          name="icon-file-mail-filled"
         />
         <span>{bookingInfo.actionLabel}</span>
       </button>
@@ -335,7 +335,7 @@ export function HotelOrderDetailInvoiceCard({ invoice }) {
       >
         <OrderDetailGlobalIcon
           className="hotel-order-detail-inline-action__icon"
-          name="icon/finance/ticket/filled"
+          name="icon-finance-ticket-filled"
         />
         <span>{invoice.actionLabel}</span>
       </button>

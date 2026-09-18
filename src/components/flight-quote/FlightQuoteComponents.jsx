@@ -47,7 +47,7 @@ function FlightQuoteRoute({ flight }) {
       <div className="flight-quote-route__carbon">
         碳排放量适中
         <FlightQuoteIcon
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </div>
     </div>
@@ -88,18 +88,18 @@ export function FlightQuoteFlightSummary({ flight }) {
         {flight.meal ? (
           <>
             <i />
-            <FlightQuoteIcon name="icon/travel/breakfast/outlined" />
+            <FlightQuoteIcon name="icon-travel-breakfast-outlined" />
           </>
         ) : null}
         {flight.wifi ? (
           <>
             <i />
-            <FlightQuoteIcon name="icon/device/wifi/outlined" />
+            <FlightQuoteIcon name="icon-device-wifi-outlined" />
           </>
         ) : null}
         <i />
         <span>{flight.express}</span>
-        <FlightQuoteIcon name="icon/directional/chevron-right-small/outlined" />
+        <FlightQuoteIcon name="icon-directional-chevron_right_small-outlined" />
       </div>
     </section>
   )
@@ -154,13 +154,13 @@ function FlightQuoteBenefits({ quote }) {
           <span>{quote.returnLabel}</span>
           <i />
           <span>{quote.returnAction}</span>
-          <FlightQuoteIcon name="icon/action/change/outlined" />
+          <FlightQuoteIcon name="icon-action-change-outlined" />
         </div>
       </div>
       <div className="flight-quote-benefits__grid">
         {quote.benefits.map((benefit) => (
           <span key={benefit}>
-            <FlightQuoteIcon name="icon/status/check/filled" />
+            <FlightQuoteIcon name="icon-status-check-filled" />
             {benefit}
           </span>
         ))}

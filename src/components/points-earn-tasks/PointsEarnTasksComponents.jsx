@@ -36,7 +36,7 @@ function TaskRow({ action, icon, reward, tag, title }) {
           限时用车单福利
           <GlobalStyleIcon
             className="points-earn-tasks__question"
-            name="icon/status/question-circle/outlined"
+            name="icon-status-question_circle-outlined"
           />
         </span>
         {tag ? <em>{tag}</em> : null}

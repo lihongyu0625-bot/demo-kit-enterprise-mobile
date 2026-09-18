@@ -27,7 +27,7 @@ export function CarWaitingTopChrome({ route }) {
         >
           <DirectionalIcon
             className="car-waiting-back__icon"
-            name="icon/directional/arrow-left/filled"
+            name="icon-directional-arrow_left-filled"
           />
         </button>
         <div className="car-waiting-route">
@@ -66,14 +66,14 @@ export function CarWaitingStatusHero({ status }) {
           <span>{status.personalPay}</span>
           <DirectionalIcon
             className="car-waiting-hero__estimate-icon"
-            name="icon/directional/chevron-right-small/outlined"
+            name="icon-directional-chevron_right_small-outlined"
           />
         </p>
         <p className="car-waiting-hero__rank">
           {status.rank}
           <DirectionalIcon
             className="car-waiting-hero__rank-icon"
-            name="icon/directional/chevron-right-small/outlined"
+            name="icon-directional-chevron_right_small-outlined"
           />
         </p>
         <p className="car-waiting-hero__message">{status.message}</p>

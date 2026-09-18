@@ -83,11 +83,11 @@
   "bottomTabs": [
     {
       "label": "我的订单",
-      "iconName": "icon/file/file-text/outlined-1"
+      "iconName": "icon-file-file_text_alt-outlined"
     },
     {
       "label": "联系客服",
-      "iconName": "icon/media/headphones-alt/outlined"
+      "iconName": "icon-media-headphones_alt-outlined"
     }
   ]
 }

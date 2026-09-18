@@ -5,7 +5,7 @@
   "status": {
     "title": "已出票",
     "notice": {
-      "iconName": "icon/status/warning-circle/outlined",
+      "iconName": "icon-status-warning_circle-outlined",
       "text": "反诈提醒：航班故障等诈骗频发，牢记“三不一核实原则”"
     },
     "actions": [

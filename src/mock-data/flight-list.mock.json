@@ -33,7 +33,7 @@
   "filters": [
     {
       "label": "筛选",
-      "iconName": "icon/action/filter/outlined",
+      "iconName": "icon-action-filter-outlined",
       "type": "filter"
     },
     {

@@ -23,7 +23,7 @@ export function CarPaymentTopChrome() {
       >
         <DirectionalIcon
           className="car-payment-back__icon"
-          name="icon/directional/arrow-left/filled"
+          name="icon-directional-arrow_left-filled"
         />
       </button>
     </>
@@ -88,7 +88,7 @@ export function CarPaymentPolicyBar({ label }) {
       <span>{label}</span>
       <DirectionalIcon
         className="car-payment-policy__icon"
-        name="icon/directional/chevron-right-small/outlined"
+        name="icon-directional-chevron_right_small-outlined"
       />
     </button>
   )
@@ -125,7 +125,7 @@ export function CarPaymentOrderDetails({ payment }) {
           <span>{payment.discountLabel}</span>
           <GlobalStyleIcon
             className="car-payment-order-details__info-icon"
-            name="icon/status/info-circle/outlined"
+            name="icon-status-info_circle-outlined"
           />
         </div>
         <div>
@@ -146,7 +146,7 @@ export function CarPaymentActions({ payment }) {
       >
         <GlobalStyleIcon
           className="car-payment-action__icon"
-          name="icon/finance/currency-circle/outlined"
+          name="icon-finance-currency_circle-outlined"
         />
         <span>费用明细</span>
       </button>
@@ -157,7 +157,7 @@ export function CarPaymentActions({ payment }) {
       >
         <GlobalStyleIcon
           className="car-payment-action__icon"
-          name="icon/directional/swap/outlined"
+          name="icon-directional-swap-outlined"
         />
         <span>{payment.personalAction}</span>
       </button>

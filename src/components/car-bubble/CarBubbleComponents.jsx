@@ -69,7 +69,7 @@ export function CarBubbleTopChrome() {
       >
         <DirectionalIcon
           className="car-bubble-back__icon"
-          name="icon/directional/arrow-left/filled"
+          name="icon-directional-arrow_left-filled"
         />
       </button>
     </>
@@ -83,14 +83,14 @@ export function CarBubbleRouteLayer({ route }) {
         <span>{route.origin}</span>
         <DirectionalIcon
           className="car-bubble-route-card__icon"
-          name="icon/directional/chevron-right-small/filled"
+          name="icon-directional-chevron_right_small-filled"
         />
       </div>
       <div className="car-bubble-route-card car-bubble-route-card--destination">
         <span>{route.destination}</span>
         <DirectionalIcon
           className="car-bubble-route-card__icon"
-          name="icon/directional/chevron-right-small/filled"
+          name="icon-directional-chevron_right_small-filled"
         />
       </div>
       <div className="car-bubble-route-line">
@@ -141,7 +141,7 @@ export function CarBubbleVehicleOption({ vehicle }) {
             {vehicle.hasArrow ? (
               <DirectionalIcon
                 className="car-bubble-vehicle__meta-icon"
-                name="icon/directional/chevron-right-small/outlined"
+                name="icon-directional-chevron_right_small-outlined"
               />
             ) : null}
           </div>
@@ -208,7 +208,7 @@ export function CarBubbleBottomEntries({ entries }) {
           {entry}
           <DirectionalIcon
             className="car-bubble-bottom-entries__icon"
-            name="icon/directional/chevron-right-small/outlined"
+            name="icon-directional-chevron_right_small-outlined"
           />
         </button>
       ))}

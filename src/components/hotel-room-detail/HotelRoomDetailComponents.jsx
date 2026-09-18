@@ -8,13 +8,13 @@ import { IPhoneFooter } from '../common/IPhoneFooter'
 import './hotel-room-detail.css'
 
 const facilityIconMap = {
-  bed: 'icon/travel/bed/outlined',
-  restaurant: 'icon/travel/restaurant2/outlined',
-  smoking: 'icon/symbol/smoking/outlined',
-  square: 'icon/symbol/square-meter/outlined',
-  stair: 'icon/travel/stair/outlined',
+  bed: 'icon-travel-bed-outlined',
+  restaurant: 'icon-travel-restaurant2-outlined',
+  smoking: 'icon-symbol-smoking-outlined',
+  square: 'icon-symbol-square_meter-outlined',
+  stair: 'icon-travel-stair-outlined',
   user: userIcon,
-  window: 'icon/travel/window/outlined',
+  window: 'icon-travel-window-outlined',
 }
 
 function RoomDetailDirectionalIcon({ className, name }) {
@@ -63,13 +63,13 @@ export function HotelRoomDetailHeroCard({ hero }) {
       >
         <RoomDetailGlobalIcon
           className="room-detail-hero__close-icon"
-          name="icon/action/close/outlined"
+          name="icon-action-close-outlined"
         />
       </button>
       <div className="room-detail-hero__counter">
         <RoomDetailGlobalIcon
           className="room-detail-hero__counter-icon"
-          name="icon/media/image-alt/outlined"
+          name="icon-media-image_alt-outlined"
         />
         <span>{hero.imageCount}</span>
       </div>
@@ -141,7 +141,7 @@ export function HotelRoomDetailBenefitCard({ benefits }) {
                   <span>{item.linkLabel}</span>
                   <RoomDetailDirectionalIcon
                     className="room-detail-benefit-item__link-icon"
-                    name="icon/directional/chevron-right-small/outlined"
+                    name="icon-directional-chevron_right_small-outlined"
                   />
                 </button>
               ) : null}
@@ -259,7 +259,7 @@ function SubmitTags({ tags }) {
           {index === tags.length - 1 ? (
             <RoomDetailDirectionalIcon
               className="room-detail-submit-tags__caret"
-              name="icon/directional/caret-right/filled"
+              name="icon-directional-caret_right-filled"
             />
           ) : null}
         </div>

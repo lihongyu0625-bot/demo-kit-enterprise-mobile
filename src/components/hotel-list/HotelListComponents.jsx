@@ -56,7 +56,7 @@ export function HotelListTopBar({ search }) {
         >
           <HotelListGlobalIcon
             className="hotel-list-searchbar__back-icon"
-            name="icon/directional/chevron-left-large/outlined"
+            name="icon-directional-chevron_left_large-outlined"
           />
         </button>
 
@@ -65,7 +65,7 @@ export function HotelListTopBar({ search }) {
             <span>{search.city}</span>
             <HotelListDirectionalIcon
               className="hotel-list-searchbox__city-icon"
-              name="icon/directional/caret-down/filled"
+              name="icon-directional-caret_down-filled"
             />
           </div>
 
@@ -87,7 +87,7 @@ export function HotelListTopBar({ search }) {
           <div className="hotel-list-searchbox__placeholder">
             <HotelListGlobalIcon
               className="hotel-list-searchbox__placeholder-icon"
-              name="icon/action/search/outlined"
+              name="icon-action-search-outlined"
             />
             <span>{search.placeholder}</span>
           </div>
@@ -99,7 +99,7 @@ export function HotelListTopBar({ search }) {
         >
           <HotelListGlobalIcon
             className="hotel-list-searchbar__map-icon"
-            name="icon/travel/map/outlined"
+            name="icon-travel-map-outlined"
           />
           <span>{search.mapLabel}</span>
         </button>
@@ -121,7 +121,7 @@ export function HotelListSortBar({ sortTabs, quickFilters }) {
             <span>{item.label}</span>
             <HotelListDirectionalIcon
               className="hotel-list-sort-tab__icon"
-              name="icon/directional/chevron-down-small/filled"
+              name="icon-directional-chevron_down_small-filled"
             />
           </button>
         ))}
@@ -181,7 +181,7 @@ function HotelTag({ tag }) {
       {tag.showInfo ? (
         <HotelListGlobalIcon
           className="hotel-list-tag__info"
-          name="icon/status/info-circle/outlined"
+          name="icon-status-info_circle-outlined"
         />
       ) : null}
     </span>
@@ -207,7 +207,7 @@ function HotelPricePromo({ text }) {
           ) : (
             <HotelListDirectionalIcon
               className="hotel-list-card__promo-caret"
-              name="icon/directional/caret-right/filled"
+              name="icon-directional-caret_right-filled"
             />
           )}
         </div>
@@ -228,7 +228,7 @@ export function HotelListHotelCard({ hotel }) {
         <div className="hotel-list-card__agreement">
           <HotelListGlobalIcon
             className="hotel-list-card__agreement-icon"
-            name="icon/travel/briefcase/filled"
+            name="icon-travel-briefcase-filled"
           />
           <span>协议酒店</span>
         </div>

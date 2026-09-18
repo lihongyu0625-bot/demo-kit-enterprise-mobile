@@ -72,7 +72,7 @@ export function FlightOrderDetailStatusPanel({ status }) {
       <div className="flight-order-detail-status-panel__headline">
         <FlightOrderDetailIcon
           className="flight-order-detail-status-panel__icon"
-          name="icon/status/success-circle/outlined"
+          name="icon-status-success_circle-outlined"
         />
         <h1>{status.title}</h1>
       </div>
@@ -133,7 +133,7 @@ export function FlightOrderDetailPaymentCard({ payment }) {
           {payment.recordLabel}
           <FlightOrderDetailIcon
             className="flight-order-detail-link__icon"
-            name="icon/directional/chevron-right-small/outlined"
+            name="icon-directional-chevron_right_small-outlined"
           />
         </button>
       </div>
@@ -142,7 +142,7 @@ export function FlightOrderDetailPaymentCard({ payment }) {
         <span>订单号：{payment.orderNo}</span>
         <FlightOrderDetailIcon
           className="flight-order-detail-payment-card__copy"
-          name="icon/action/copy/outlined"
+          name="icon-action-copy-outlined"
         />
       </div>
 
@@ -153,7 +153,7 @@ export function FlightOrderDetailPaymentCard({ payment }) {
         <strong>{payment.flight.fromCity}</strong>
         <FlightOrderDetailIcon
           className="flight-order-detail-payment-card__arrow"
-          name="icon/directional/arrow-right2/filled"
+          name="icon-directional-arrow_right2-filled"
         />
         <strong>{payment.flight.toCity}</strong>
       </div>
@@ -167,7 +167,7 @@ export function FlightOrderDetailPaymentCard({ payment }) {
         {payment.flight.carbon}
         <FlightOrderDetailIcon
           className="flight-order-detail-payment-card__carbon-icon"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </button>
 
@@ -180,7 +180,7 @@ export function FlightOrderDetailPaymentCard({ payment }) {
         {payment.ruleLabel}
         <FlightOrderDetailIcon
           className="flight-order-detail-payment-card__rule-icon"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </button>
     </Card>
@@ -241,14 +241,14 @@ export function FlightOrderDetailTravelService({ service }) {
             <strong>{service.serviceName}</strong>
             <FlightOrderDetailIcon
               className="flight-order-detail-travel-service__info"
-              name="icon/status/info-circle/outlined"
+              name="icon-status-info_circle-outlined"
             />
           </div>
           <p>{service.description}</p>
         </div>
         <FlightOrderDetailIcon
           className="flight-order-detail-travel-service__chevron"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </button>
     </section>
@@ -264,7 +264,7 @@ export function FlightOrderDetailPackageCard({ packageInfo }) {
         <strong>{packageInfo.name}</strong>
         <div className="flight-order-detail-package-card__quantity">
           <FlightOrderDetailIcon
-            name="icon/action/close/outlined"
+            name="icon-action-close-outlined"
           />
           <span>{packageInfo.quantity}</span>
           <em>份</em>

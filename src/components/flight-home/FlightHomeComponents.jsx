@@ -94,7 +94,7 @@ export function FlightHomeApplicationCard({ application }) {
         <span className="flight-home-application__notice-text">{application.notice.text}</span>
         <FlightHomeIcon
           className="flight-home-application__notice-icon"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </div>
 
@@ -109,7 +109,7 @@ export function FlightHomeApplicationCard({ application }) {
         </div>
         <FlightHomeIcon
           className="flight-home-application__chevron"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </div>
 
@@ -168,7 +168,7 @@ export function FlightHomeApplicationCard({ application }) {
         <span>{application.travelerLabel}</span>
         <FlightHomeIcon
           className="flight-home-application__chevron"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </button>
 
@@ -193,7 +193,7 @@ export function FlightHomeGuaranteeCard({ guarantee }) {
       detailIcon={(
         <FlightHomeIcon
           className="flight-home-guarantee__detail-icon"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       )}
       detailLabel={guarantee.detailLabel}

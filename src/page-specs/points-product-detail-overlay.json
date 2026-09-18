@@ -17,7 +17,7 @@
   "componentCandidates": [
     "iPhone bar",
     "iPhone footer",
-    "icon/action/close-large/outlined"
+    "icon-action-close_large-outlined"
   ],
   "sections": [
     "商品头图",

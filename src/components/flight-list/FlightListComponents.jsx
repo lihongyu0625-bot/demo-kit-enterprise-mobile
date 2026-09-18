@@ -71,11 +71,11 @@ export function FlightListDateFilter({ dateFilters }) {
       >
         <FlightListIcon
           className="flight-list-date-filter__calendar-icon"
-          name="icon/file/calendar/outlined"
+          name="icon-file-calendar-outlined"
         />
         <FlightListIcon
           className="flight-list-date-filter__calendar-caret"
-          name="icon/directional/chevron-down-small/outlined"
+          name="icon-directional-chevron_down_small-outlined"
         />
       </button>
     </section>
@@ -179,7 +179,7 @@ function FlightListCardMeta({ card }) {
           <span className="flight-list-card__meta-divider" />
           <FlightListIcon
             className="flight-list-card__meta-icon"
-            name="icon/travel/breakfast/outlined"
+            name="icon-travel-breakfast-outlined"
           />
         </>
       ) : null}
@@ -188,7 +188,7 @@ function FlightListCardMeta({ card }) {
           <span className="flight-list-card__meta-divider" />
           <FlightListIcon
             className="flight-list-card__meta-icon"
-            name="icon/device/wifi/outlined"
+            name="icon-device-wifi-outlined"
           />
         </>
       ) : null}
@@ -201,7 +201,7 @@ function FlightListCardMeta({ card }) {
             <FlightListCardMetaItem>含共享</FlightListCardMetaItem>
             <FlightListIcon
               className="flight-list-card__meta-share-icon"
-              name="icon/directional/chevron-down-small/outlined"
+              name="icon-directional-chevron_down_small-outlined"
             />
           </span>
         </>

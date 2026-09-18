@@ -36,7 +36,7 @@ export function FlightTopNav({
         >
           <FlightSharedIcon
             className={`${classPrefix}-top__back-icon`}
-            name="icon/directional/chevron-left-large/outlined"
+            name="icon-directional-chevron_left_large-outlined"
           />
         </button>
 
@@ -52,7 +52,7 @@ export function FlightTopNav({
             ) : (
               <FlightSharedIcon
                 className={`${classPrefix}-top__title-icon`}
-                name="icon/directional/arrow-right2/filled"
+                name="icon-directional-arrow_right2-filled"
               />
             )}
             <span>{nav.toCity}</span>
@@ -66,7 +66,7 @@ export function FlightTopNav({
           >
             <FlightSharedIcon
               className={`${classPrefix}-top__policy-icon`}
-              name="icon/status/info-circle/outlined"
+              name="icon-status-info_circle-outlined"
             />
             <span>{nav.policyLabel}</span>
           </button>
@@ -95,7 +95,7 @@ export function FlightNoticeBar({
       <span>{notice.text}</span>
       <FlightSharedIcon
         className={cx(`${classPrefix}-notice__arrow`)}
-        name="icon/directional/chevron-right-small/outlined"
+        name="icon-directional-chevron_right_small-outlined"
       />
     </NoticeElement>
   )

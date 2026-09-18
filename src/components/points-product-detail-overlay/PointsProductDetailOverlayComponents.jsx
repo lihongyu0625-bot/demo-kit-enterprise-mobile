@@ -74,7 +74,7 @@ export function PointsProductDetailOverlayPreviewFrame({ data = mockData }) {
           <button aria-label="关闭" className="points-product-detail-overlay__close" type="button">
             <GlobalStyleIcon
               className="points-product-detail-overlay__close-icon"
-              name="icon/action/close-large/outlined"
+              name="icon-action-close_large-outlined"
             />
           </button>
         </div>

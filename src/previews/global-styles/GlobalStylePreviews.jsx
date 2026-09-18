@@ -498,9 +498,9 @@ const iconItems = [
 ]
 
 const iconNamingSpec = {
-  pattern: 'icon/{类别}/{名称}/{风格}',
+  pattern: 'icon-{类别}-{名称}-{风格}',
   description:
-    '图标统一采用 icon/{类别}/{名称}/{风格} 的命名方式。其中“类别”用于区分图标的功能归属，如 arrow、operate、status、nav 等；“名称”仅表达图标语义，必须使用英文小写，多单词之间用 - 连接，例如 icon/arrow/chevron-right/outlined、icon/operate/search/filled；“风格”用于区分图标的表现形式，统一使用固定枚举，如 outlined、filled、duotone、colored。统一通过组件属性、变体或实例参数管理，以保证命名清晰、一致，并便于设计与代码协同。',
+    '图标统一采用 icon-{类别}-{名称}-{风格} 的命名方式，其中“类别”用于区分图标的功能归属，如 arrow、operate、status、nav 等；“名称”仅表达图标语义，必须使用英文小写，多单词之间用 _ 连接，例如 icon-arrow-chevron_right-outlined、icon-operate-search-filled；“风格”用于区分图标的表现形式，统一使用固定枚举，如 outlined、filled、duotone、colored。统一通过组件属性、变体或实例参数管理，以保证命名清晰、一致，并便于设计与代码协同。',
 }
 
 const iconCategorySections = [
@@ -596,8 +596,11 @@ function buildIconCollection({ categoryKey, modules }) {
   return Object.entries(modules)
     .map(([path, loader]) => {
       const relativePath = path.split(`/${categoryKey}-icons/`)[1] ?? ''
-      const iconName = `icon/${categoryKey}/${relativePath.replace(/\.svg$/, '').replace(/\\/g, '/')}`
-      const familyName = relativePath.split('/')[0] ?? ''
+      // 图标命名规范：icon-{类别}-{名称}-{风格}，名称内多单词用 _ 连接
+      const pathWithoutExt = relativePath.replace(/\.svg$/, '').replace(/\\/g, '/')
+      const [familyPath, styleName] = pathWithoutExt.split('/')
+      const iconName = `icon-${categoryKey}-${familyPath.replace(/-/g, '_')}-${styleName}`
+      const familyName = familyPath
 
       const load = async () => {
         const src = await loader()

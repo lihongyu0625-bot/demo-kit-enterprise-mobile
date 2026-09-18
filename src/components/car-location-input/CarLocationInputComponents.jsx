@@ -47,7 +47,7 @@ export function CarLocationTopChrome() {
       >
         <CarLocationDirectionalIcon
           className="car-location-input-back__icon"
-          name="icon/directional/arrow-left/filled"
+          name="icon-directional-arrow_left-filled"
         />
       </button>
     </>
@@ -92,7 +92,7 @@ export function CarLocationPickupMarker({ pickup }) {
           <strong>{pickup.name}</strong>
           <CarLocationDirectionalIcon
             className="car-location-input-pickup__arrow"
-            name="icon/directional/chevron-right-small/filled"
+            name="icon-directional-chevron_right_small-filled"
           />
         </div>
       </div>
@@ -168,7 +168,7 @@ export function CarLocationInputCard({ inputCard }) {
         <span>{inputCard.originSuffix}</span>
         <CarLocationDirectionalIcon
           className="car-location-input-card__origin-arrow"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </button>
 
@@ -210,7 +210,7 @@ export function CarLocationSafetyGuide({ safetyGuide }) {
         {safetyGuide.action}
         <CarLocationDirectionalIcon
           className="car-location-input-safety__action-icon"
-          name="icon/directional/arrow-right/outlined"
+          name="icon-directional-arrow_right-outlined"
         />
       </button>
     </section>

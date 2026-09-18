@@ -15,7 +15,9 @@ const globalStyleIconLoaderMap = Object.fromEntries(
 
     const [, categoryFolder, relativePath] = match
     const categoryName = categoryFolder.replace(/-icons$/, '')
-    const iconName = `icon/${categoryName}/${relativePath.replace(/\\/g, '/')}`
+    // 图标命名规范：icon-{类别}-{名称}-{风格}，名称内多单词用 _ 连接
+    const [iconFamily, iconStyle] = relativePath.replace(/\\/g, '/').split('/')
+    const iconName = `icon-${categoryName}-${iconFamily.replace(/-/g, '_')}-${iconStyle}`
 
     return [[iconName, loader]]
   }),

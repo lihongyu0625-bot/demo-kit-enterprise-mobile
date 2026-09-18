@@ -10,9 +10,9 @@ import { IPhoneFooter } from '../common/IPhoneFooter'
 import './hotel-booking-success.css'
 
 const orderActionIconMap = {
-  airplane: 'icon/travel/airplane/outlined',
-  clipboard: 'icon/file/clipboard/outlined',
-  home: 'icon/action/home/outlined',
+  airplane: 'icon-travel-airplane-outlined',
+  clipboard: 'icon-file-clipboard-outlined',
+  home: 'icon-action-home-outlined',
 }
 
 function cx(...classNames) {
@@ -102,7 +102,7 @@ export function HotelBookingSuccessOrderCard({ order, variant }) {
           <span className="hotel-booking-success-order__points-value">{order.pointsValue}</span>
           <BookingSuccessDirectionalIcon
             className="hotel-booking-success-order__points-icon"
-            name="icon/directional/chevron-down-small/outlined"
+            name="icon-directional-chevron_down_small-outlined"
           />
         </div>
       </button>
@@ -221,7 +221,7 @@ export function HotelBookingSuccessAirportTransferCard({ airportTransfer }) {
               >
                 <BookingSuccessGlobalIcon
                   className="hotel-booking-success-transfer__highlight-icon"
-                  name="icon/status/check/filled"
+                  name="icon-status-check-filled"
                 />
                 <span>{item}</span>
               </div>

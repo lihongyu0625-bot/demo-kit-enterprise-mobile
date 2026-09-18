@@ -791,7 +791,7 @@ export function CommonTagPreview() {
                   <span className="common-tag-showcase__row-label">带图标</span>
                   <div className="common-multi-select-tag-row">
                     <Tag
-                      iconName="icon/travel/destination/outlined"
+                      iconName="icon-travel-destination-outlined"
                       selectableStyle="light"
                       selected
                       variant="selectable"
@@ -799,7 +799,7 @@ export function CommonTagPreview() {
                       航班友好
                     </Tag>
                     <Tag
-                      iconName="icon/travel/destination/outlined"
+                      iconName="icon-travel-destination-outlined"
                       selectableStyle="light"
                       variant="selectable"
                     >
@@ -838,7 +838,7 @@ export function CommonTagPreview() {
                   <span className="common-tag-showcase__row-label">带图标</span>
                   <div className="common-multi-select-tag-row">
                     <Tag
-                      iconName="icon/travel/destination/outlined"
+                      iconName="icon-travel-destination-outlined"
                       selectableStyle="outline"
                       selected
                       variant="selectable"
@@ -846,7 +846,7 @@ export function CommonTagPreview() {
                       航班友好
                     </Tag>
                     <Tag
-                      iconName="icon/travel/destination/outlined"
+                      iconName="icon-travel-destination-outlined"
                       selectableStyle="outline"
                       variant="selectable"
                     >

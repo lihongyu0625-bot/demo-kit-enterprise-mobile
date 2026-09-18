@@ -25,23 +25,23 @@ const roomImageMap = {
 }
 
 const detailIconMap = {
-  airplane: 'icon/travel/airplane/outlined',
+  airplane: 'icon-travel-airplane-outlined',
   benefit: benefitFilledIcon,
-  destination: 'icon/travel/destination/outlined',
-  location: 'icon/travel/location-marker/outlined',
-  luggage: 'icon/travel/luggage/outlined',
-  more: 'icon/action/more/outlined',
-  parking: 'icon/travel/parking/outlined',
-  phone: 'icon/device/phone/outlined',
-  restaurant: 'icon/travel/restaurant1/outlined',
-  time: 'icon/status/time-circle/outlined',
+  destination: 'icon-travel-destination-outlined',
+  location: 'icon-travel-location_marker-outlined',
+  luggage: 'icon-travel-luggage-outlined',
+  more: 'icon-action-more-outlined',
+  parking: 'icon-travel-parking-outlined',
+  phone: 'icon-device-phone-outlined',
+  restaurant: 'icon-travel-restaurant1-outlined',
+  time: 'icon-status-time_circle-outlined',
   user: userGroupIcon,
-  wifi: 'icon/device/wifi/outlined',
+  wifi: 'icon-device-wifi-outlined',
 }
 
 const detailActionIconMap = {
-  location: 'icon/travel/location-marker/filled',
-  phone: 'icon/device/phone/filled',
+  location: 'icon-travel-location_marker-filled',
+  phone: 'icon-device-phone-filled',
 }
 
 function cx(...classNames) {
@@ -142,7 +142,7 @@ export function HotelDetailHero({ hero }) {
             className="hotel-detail-hero__back"
             type="button"
           >
-            <HotelDetailDirectionalIcon name="icon/directional/chevron-left-small/outlined" />
+            <HotelDetailDirectionalIcon name="icon-directional-chevron_left_small-outlined" />
           </button>
 
           <button
@@ -151,7 +151,7 @@ export function HotelDetailHero({ hero }) {
           >
             <HotelDetailGlobalIcon
               className="hotel-detail-hero__favorite-icon"
-              name="icon/symbol/favorite-add/outlined"
+              name="icon-symbol-favorite_add-outlined"
             />
             <span>{hero.favoriteLabel}</span>
           </button>
@@ -161,7 +161,7 @@ export function HotelDetailHero({ hero }) {
       <div className="hotel-detail-hero__counter">
         <HotelDetailGlobalIcon
           className="hotel-detail-hero__counter-icon"
-          name="icon/media/image-alt/outlined"
+          name="icon-media-image_alt-outlined"
         />
         <span className="hotel-detail-hero__counter-text">{hero.imageCount}</span>
       </div>
@@ -191,7 +191,7 @@ export function HotelDetailNameCard({ hotel }) {
               <span>{hotel.reviews}</span>
               <HotelDetailDirectionalIcon
                 className="hotel-detail-name-card__reviews-icon"
-                name="icon/directional/chevron-right-small/outlined"
+                name="icon-directional-chevron_right_small-outlined"
               />
             </button>
           </div>
@@ -208,7 +208,7 @@ export function HotelDetailNameCard({ hotel }) {
             ))}
             <HotelDetailDirectionalIcon
               className="hotel-detail-name-card__highlights-arrow"
-              name="icon/directional/chevron-right-small/outlined"
+              name="icon-directional-chevron_right_small-outlined"
             />
           </div>
         </div>
@@ -298,7 +298,7 @@ export function HotelDetailSelector({ selector }) {
           <span>{selector.guestSummary}</span>
           <HotelDetailDirectionalIcon
             className="hotel-detail-selector__guest-icon"
-            name="icon/directional/chevron-right-small/outlined"
+            name="icon-directional-chevron_right_small-outlined"
           />
         </button>
       </div>
@@ -341,9 +341,9 @@ function HotelDetailRoomSummary({
   price = room.startPrice ?? room.price,
 }) {
   const expandIconName = {
-    'small-down': 'icon/directional/chevron-down-small/outlined',
-    'circle-down': 'icon/directional/chevron-circle-down/outlined',
-    'circle-up': 'icon/directional/chevron-circle-up/outlined',
+    'small-down': 'icon-directional-chevron_down_small-outlined',
+    'circle-down': 'icon-directional-chevron_circle_down-outlined',
+    'circle-up': 'icon-directional-chevron_circle_up-outlined',
   }[expandIcon]
 
   return (
@@ -366,7 +366,7 @@ function HotelDetailRoomSummary({
             <span>{room.name}</span>
             <HotelDetailDirectionalIcon
               className="hotel-detail-room-summary__title-icon"
-              name="icon/directional/chevron-right-small/outlined"
+              name="icon-directional-chevron_right_small-outlined"
             />
           </button>
 
@@ -421,7 +421,7 @@ function HotelDetailRatePlan({ rate }) {
         </span>
         <HotelDetailDirectionalIcon
           className="hotel-detail-rate-plan__title-icon"
-          name="icon/directional/chevron-right-small/outlined"
+          name="icon-directional-chevron_right_small-outlined"
         />
       </button>
 
@@ -518,7 +518,7 @@ export function HotelDetailCompactRoomCard({ room }) {
             <span>{room.name}</span>
             <HotelDetailDirectionalIcon
               className="hotel-detail-room-summary__title-icon"
-              name="icon/directional/chevron-right-small/outlined"
+              name="icon-directional-chevron_right_small-outlined"
             />
           </button>
 
@@ -528,7 +528,7 @@ export function HotelDetailCompactRoomCard({ room }) {
           >
             <HotelDetailDirectionalIcon
               className="hotel-detail-room-summary__expand-icon"
-              name="icon/directional/chevron-circle-down/outlined"
+              name="icon-directional-chevron_circle_down-outlined"
             />
           </button>
           </div>
@@ -570,7 +570,7 @@ export function HotelDetailBookableRoomCard({ room }) {
             <span>{room.name}</span>
             <HotelDetailDirectionalIcon
               className="hotel-detail-room-summary__title-icon"
-              name="icon/directional/chevron-right-small/outlined"
+              name="icon-directional-chevron_right_small-outlined"
             />
           </button>
 
@@ -681,7 +681,7 @@ export function HotelDetailIntroductionCard({ introduction }) {
         <span>{introduction.actionLabel}</span>
         <HotelDetailDirectionalIcon
           className="hotel-detail-introduction__action-icon"
-          name="icon/directional/chevron-down-small/outlined"
+          name="icon-directional-chevron_down_small-outlined"
         />
       </button>
     </HotelDetailCard>
@@ -694,7 +694,7 @@ export function HotelDetailPolicyCard({ policies }) {
       <div className="hotel-detail-policy">
         {policies.items.map((item) => {
           const policyIcon = detailIconMap[item.icon]
-          const useGlobalIcon = policyIcon?.startsWith('icon/')
+          const useGlobalIcon = policyIcon?.startsWith('icon-')
 
           return (
             <div

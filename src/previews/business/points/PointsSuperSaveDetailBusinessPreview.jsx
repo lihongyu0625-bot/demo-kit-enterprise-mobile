@@ -1,5 +1,6 @@
 import {
   PointsSuperSaveBenefitTabs,
+  PointsSuperSaveCategoryTabItem,
   PointsSuperSaveCategoryTabs,
   PointsSuperSaveIntroCard,
   PointsSuperSaveRuleList,
@@ -10,7 +11,36 @@ function ComponentSample({ children }) {
   return <div className="points-super-save-detail-business-sample">{children}</div>
 }
 
+/* MasterGo 组件集 127:38218 的 6 个变体：品类（省心行/省心住/省心飞）× 选中（on/off）。
+   权益数为组件内容属性，默认 6，可变。 */
+const CATEGORY_TAB_VARIANTS = [
+  { category: 'travel', label: '省心行' },
+  { category: 'hotel', label: '省心住' },
+  { category: 'flight', label: '省心飞' },
+]
+
+function SuperSaveCategoryTabItemStatesPreview() {
+  return (
+    <div className="points-super-save-detail-business-sample">
+      <div className="points-super-save-detail-business-stack points-super-save-detail-business-stack--tab-item">
+        {CATEGORY_TAB_VARIANTS.map(({ category, label }) => (
+          <div className="points-super-save-detail-business-tab-item-row" key={category}>
+            <span className="points-super-save-detail-business-tab-item-row__label">{label}</span>
+            <PointsSuperSaveCategoryTabItem category={category} active={false} count={6} />
+            <PointsSuperSaveCategoryTabItem category={category} active count={6} />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 const showcaseList = [
+  {
+    name: '超级省 · 品类tab项',
+    description: 'MasterGo 组件集 127:38218：品类（省心行/省心住/省心飞）× 选中状态六个变体，权益数默认 6。',
+    render: <SuperSaveCategoryTabItemStatesPreview />,
+  },
   {
     name: '超级省 · 品类导航',
     description: '展示省心行、住、飞三类权益入口及数量徽标。',

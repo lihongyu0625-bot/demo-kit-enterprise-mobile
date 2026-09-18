@@ -15,15 +15,15 @@
   },
   "notice": {
     "text": "行程开始了，请后排落座，并系好安全带。",
-    "iconName": "icon/media/notice/filled"
+    "iconName": "icon-media-notice-filled"
   },
   "actions": [
-    { "id": "alarm", "label": "110报警", "iconName": "icon/status/alarm-2/filled" },
-    { "id": "missed", "label": "我没上车", "iconName": "icon/emoji/sad/filled" },
-    { "id": "destination", "label": "修改终点", "iconName": "icon/action/settings/filled" },
-    { "id": "share", "label": "行程分享", "iconName": "icon/action/share-forward-2/outlined" },
-    { "id": "service", "label": "VIP客服", "iconName": "icon/media/headphones/filled" },
-    { "id": "more", "label": "更多", "iconName": "icon/action/more/outlined" }
+    { "id": "alarm", "label": "110报警", "iconName": "icon-status-alarm_2-filled" },
+    { "id": "missed", "label": "我没上车", "iconName": "icon-emoji-sad-filled" },
+    { "id": "destination", "label": "修改终点", "iconName": "icon-action-settings-filled" },
+    { "id": "share", "label": "行程分享", "iconName": "icon-action-share_forward_2-outlined" },
+    { "id": "service", "label": "VIP客服", "iconName": "icon-media-headphones-filled" },
+    { "id": "more", "label": "更多", "iconName": "icon-action-more-outlined" }
   ],
   "service": {
     "title": "送驾途中有问题？",

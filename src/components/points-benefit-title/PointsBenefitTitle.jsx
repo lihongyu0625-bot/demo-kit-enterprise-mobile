@@ -44,7 +44,7 @@ export function PointsBenefitTitle({
           {state.action}
           <DirectionalIcon
             className="points-benefit-title__arrow"
-            name="icon/directional/chevron-right-small/outlined"
+            name="icon-directional-chevron_right_small-outlined"
           />
         </span>
       </button>
