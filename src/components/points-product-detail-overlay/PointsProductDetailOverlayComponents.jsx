@@ -57,7 +57,7 @@ function PackageItem({ item, image }) {
 }
 
 export function PointsProductDetailOverlayPreviewFrame({ data = mockData }) {
-  const packageImages = [packageTicket1, packageTicket2]
+  const packageImages = [packageTicket2, packageTicket2]
 
   return (
     <div className="points-product-detail-overlay">
