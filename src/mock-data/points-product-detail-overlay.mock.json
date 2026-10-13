@@ -38,5 +38,137 @@
       "现金支付金额支持开票，开票入口：滴滴企业版APP—开发票—积分商城。"
     ]
   },
-  "cta": "立即兑换"
+  "cta": "立即兑换",
+  "variants": {
+    "link": {
+      "summary": "20元升舱券，0积分免费领",
+      "package": {
+        "title": "套餐包含",
+        "items": [
+          {
+            "name": "高铁站列餐代金券",
+            "link": "查看可用站点/车次列表",
+            "badge": "代金券"
+          }
+        ]
+      }
+    },
+    "select": {
+      "summary": "20元升舱券，0积分免费领",
+      "selection": {
+        "title": "商品选择（三选一）",
+        "options": [
+          {
+            "label": "7.2折快车券",
+            "image": "fast-coupon",
+            "selected": true
+          },
+          {
+            "label": "机场贵宾厅",
+            "image": "vip-lounge",
+            "selected": false
+          },
+          {
+            "label": "酒店50元立减券",
+            "image": "hotel-coupon",
+            "selected": false
+          }
+        ]
+      }
+    },
+    "physical": {
+      "summary": "名创优品 MINISO 自嘲熊（Joke Bear）记忆棉 U 型护颈枕",
+      "address": {
+        "name": "张彩霞",
+        "phone": "135****9765",
+        "text": "北京北京市昌平区沙河地区景苑小区1202"
+      },
+      "hidePackage": true
+    },
+    "physical-empty": {
+      "summary": "名创优品 MINISO 自嘲熊（Joke Bear）记忆棉 U 型护颈枕",
+      "address": null,
+      "hidePackage": true
+    },
+    "address-list": {
+      "title": "收货地址",
+      "addLabel": "添加收货地址",
+      "list": [
+        {
+          "name": "张博文",
+          "phone": "135****9765",
+          "text": "北京北京市昌平区沙河地区景苑小区三单元1号楼1202",
+          "selected": true
+        },
+        {
+          "name": "张彩霞",
+          "phone": "135****9765",
+          "text": "北京北京市昌平区沙河地区景苑小区1202",
+          "selected": false
+        },
+        {
+          "name": "张博文",
+          "phone": "135****9765",
+          "text": "北京北京市昌平区沙河地区景苑小区三单元1号楼1202",
+          "selected": false
+        }
+      ]
+    },
+    "address-new-empty": {
+      "title": "收货地址",
+      "protocol": "同意该页面收集的信息用于配送、发货",
+      "submitLabel": "确定",
+      "rows": [
+        {
+          "label": "收货人",
+          "value": "",
+          "placeholder": "请输入收货人真实姓名"
+        },
+        {
+          "label": "手机号",
+          "value": "",
+          "placeholder": "请输入收货人手机号"
+        },
+        {
+          "label": "所在地区",
+          "value": "",
+          "placeholder": "所在地区",
+          "locate": "定位"
+        },
+        {
+          "label": "详细地址",
+          "value": "",
+          "placeholder": "请输入详细地址"
+        }
+      ]
+    },
+    "address-new-filled": {
+      "title": "收货地址",
+      "protocol": "同意该页面收集的信息用于配送、发货",
+      "submitLabel": "确定",
+      "rows": [
+        {
+          "label": "收货人",
+          "value": "张博文",
+          "placeholder": "请输入收货人真实姓名"
+        },
+        {
+          "label": "手机号",
+          "value": "135 6543 9765",
+          "placeholder": "请输入收货人手机号"
+        },
+        {
+          "label": "所在地区",
+          "value": "北京 北京 昌平区",
+          "placeholder": "请输入所在地区",
+          "locate": "定位"
+        },
+        {
+          "label": "详细地址",
+          "value": "北京北京市昌平区沙河地区景苑小区三单元1号楼1202",
+          "placeholder": "请输入详细地址"
+        }
+      ]
+    }
+  }
 }

@@ -1,0 +1,51 @@
+{
+  "id": "points-benefit-center",
+  "business": "增长&一体化",
+  "pageTitle": "权益中心",
+  "figmaNodeId": "2298:50153",
+  "designName": "权益中心-V8",
+  "viewport": {
+    "width": 375,
+    "height": 1681
+  },
+  "sections": [
+    "页面头图（做任务赚积分头图）+ 页面标题「企业专属权益」",
+    "用车权益（V8里程值/权益大卡/6张小卡/展开更多）",
+    "商旅权益（8张权益小卡，首两张带插画）",
+    "品牌会员卡（洲际/华住/锦江三卡+携程绑定卡）",
+    "积分权益（单单返积分/积分兑好礼）",
+    "客服权益（企业版客服）",
+    "底部水印「企业版权益·超值商旅每一程」"
+  ],
+  "reuse": [
+    "通用导航栏",
+    "iPhone 底栏",
+    "积分权益业务头图（task-header.png）",
+    "权益大卡/小卡底图（benefit-large-bg/small-bg）",
+    "品牌会员卡底图与酒店 logo（membership-card-bg/logo-ihg/huazhu/jinjiang）",
+    "携程绑定卡底图（membership-bind-bg）",
+    "章节标题火花（title-spark.svg）",
+    "标题金币（points-title-coin.png）"
+  ],
+  "assets": {
+    "new": [
+      "src/assets/points-benefit-center/v8-label.png",
+      "src/assets/points-benefit-center/footer-watermark.png",
+      "src/assets/points-benefit-center/travel-card-art.png"
+    ],
+    "reused": [
+      "src/assets/points-lucky-bag/benefit-divider.png",
+      "src/assets/points-lucky-bag/benefit-large-bg.png",
+      "src/assets/points-lucky-bag/benefit-small-bg.png",
+      "src/assets/points-lucky-bag/member-corner.png",
+      "src/assets/points-lucky-bag/title-spark.svg",
+      "src/assets/points-lucky-bag/membership-bind-bg.png",
+      "src/assets/points-lucky-bag/membership-card-bg.png",
+      "src/assets/points-lucky-bag/logo-ihg.png",
+      "src/assets/points-lucky-bag/logo-huazhu.png",
+      "src/assets/points-lucky-bag/logo-jinjiang.png",
+      "src/assets/points-benefit-header/task-header.png",
+      "src/assets/points-benefit-title/points-title-coin.png"
+    ]
+  }
+}

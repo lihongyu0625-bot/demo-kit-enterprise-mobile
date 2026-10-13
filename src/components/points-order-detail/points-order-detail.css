@@ -1,0 +1,373 @@
+.points-order-detail,
+.points-order-detail * {
+  box-sizing: border-box;
+}
+
+/* 页面框架：Figma 2407:36621 —— 375×812 系统背景底色 #f5f7fa，内容列 top104 left12 gap8 */
+.points-order-detail {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-cn);
+}
+
+.points-order-detail__navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 375px;
+}
+
+.points-order-detail__content {
+  position: absolute;
+  top: 104px;
+  left: 12px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 351px;
+}
+
+.points-order-detail__iphone-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 375px;
+}
+
+/* ===== 商品信息卡（兑换成功浮层-商品信息卡片 instance，图带 0.5px 边框） ===== */
+
+.points-order-detail__product-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 351px;
+  min-height: 108px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.points-order-detail__product-image {
+  display: block;
+  width: 112px;
+  height: 84px;
+  flex: none;
+  border: 0.5px solid #e7ebf1;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.points-order-detail__product-copy {
+  display: grid;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 标题容器固定 44（两行 22），超出行数截断 */
+.points-order-detail__product-title {
+  display: -webkit-box;
+  overflow: hidden;
+  height: 44px;
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* 价格行：数字 20/26 Barlow Semi Condensed、单位/加号 12/20，gap2 #fe7016 */
+.points-order-detail__price-line {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  color: #fe7016;
+  white-space: nowrap;
+}
+
+.points-order-detail__price-amount {
+  font-family: var(--font-family-ui-number);
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.points-order-detail__price-unit,
+.points-order-detail__price-plus {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* ===== 表单卡：标题 16/500/24 + 信息条列 gap12，条内 label 黑36 nowrap / value 右对齐黑84 ===== */
+
+.points-order-detail__form-card {
+  display: grid;
+  gap: 12px;
+  width: 351px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.points-order-detail__form-title {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.points-order-detail__form-rows {
+  display: grid;
+  gap: 12px;
+}
+
+.points-order-detail__form-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.points-order-detail__form-label {
+  margin: 0;
+  flex: none;
+  color: var(--color-alpha-black-36);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.points-order-detail__form-value {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+  text-align: right;
+}
+
+.points-order-detail__form-value--link {
+  color: var(--color-blue-50);
+}
+
+/* 券码行：码文本 + 1px 竖分割线（rgba(0,0,0,0.06)，10 高）+ 复制链接 */
+.points-order-detail__form-code {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.points-order-detail__form-code .points-order-detail__form-value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.points-order-detail__form-divider {
+  flex: none;
+  width: 1px;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.points-order-detail__form-link-action {
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-blue-50);
+  font-family: var(--font-family-ui-cn);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+/* 申请原因行「去使用」小按钮：bg #e7f1ff r6 px12 py5，文字 #1473ff 14/500/22 */
+.points-order-detail__form-button-slot {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  min-width: 0;
+}
+
+.points-order-detail__form-button {
+  padding: 5px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--color-blue-10);
+  color: var(--color-blue-50);
+  font-family: var(--font-family-ui-cn);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+/* ===== 地址卡（订单详情-地址卡，Figma 2407:36567）=====
+   px12 py16；状态行 icon20 + 「已发货」16/500/24 #1473ff + 快递单号 flex-1 + copy 16；
+   地址/收件人两行紧凑排列（无行距） */
+
+.points-order-detail__address-card {
+  display: flex;
+  align-items: center;
+  width: 351px;
+  min-height: 104px;
+  padding: 16px 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.points-order-detail__address-main {
+  display: grid;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+}
+
+.points-order-detail__address-status-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.points-order-detail__address-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.points-order-detail__address-status-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+.points-order-detail__address-status-text {
+  margin: 0;
+  color: var(--color-blue-50);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.points-order-detail__address-carrier {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.points-order-detail__address-copy {
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.points-order-detail__address-copy-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.points-order-detail__address-lines {
+  display: grid;
+}
+
+.points-order-detail__address-detail {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.points-order-detail__address-contact {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+/* ===== 规则卡（商品详情浮层-规则卡 instance，与兑换成功浮层同构） ===== */
+
+.points-order-detail__rule-card {
+  width: 351px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.points-order-detail__rule-title {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.points-order-detail__rule-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.points-order-detail__rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+/* bullet：4×13 容器、底部 circle r=2 fill #E1E1E1（同既有规则卡） */
+.points-order-detail__rule-bullet {
+  position: relative;
+  flex: none;
+  width: 4px;
+  height: 13px;
+}
+
+.points-order-detail__rule-bullet::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e1e1e1;
+}
+
+.points-order-detail__rule-text {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  color: var(--color-gray-700);
+  font-size: 14px;
+  line-height: 22px;
+  text-align: justify;
+}

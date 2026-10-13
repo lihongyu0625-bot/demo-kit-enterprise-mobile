@@ -1,0 +1,469 @@
+.points-benefit-center {
+  position: relative;
+  display: flex;
+  width: 375px;
+  min-height: 100vh;
+  margin: 0 auto;
+  flex-direction: column;
+  background: linear-gradient(180deg, #e8f1ff 0%, #e8f1ff 344px, #f5f7fa 344px, #f5f7fa 100%);
+}
+
+.points-benefit-center__nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.points-benefit-center__header {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.points-benefit-center__header-bg {
+  width: 375px;
+  height: 240px;
+  object-fit: cover;
+}
+
+.points-benefit-center__header-copy {
+  position: absolute;
+  top: 98px;
+  left: 24px;
+  z-index: 1;
+}
+
+.points-benefit-center__heading {
+  margin: 0;
+  color: #09284c;
+  font-family: 'Alimama ShuHeiTi', var(--font-family-ui-cn);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.points-benefit-center__subtitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 20px;
+  margin-top: 6px;
+  color: #05224c;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-benefit-center__subtitle p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.points-benefit-center__subtitle-coin {
+  width: 14px;
+  height: 14px;
+  margin-left: 2px;
+}
+
+.points-benefit-center__subtitle strong {
+  color: #1459e6;
+  font-family: var(--font-family-ui-number);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.points-benefit-center__subtitle-divider {
+  width: 1px;
+  height: 8px;
+  background: rgba(9, 40, 76, 0.15);
+}
+
+.points-benefit-center__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: -68px;
+  padding: 16px 12px 0;
+}
+
+.points-benefit-center__card {
+  position: relative;
+  width: 351px;
+  padding: 12px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+
+.points-benefit-center__section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 327px;
+  height: 22px;
+}
+
+.points-benefit-center__title-main {
+  display: inline-flex;
+  align-items: center;
+}
+
+.points-benefit-center__title-main span {
+  color: var(--color-blue-90);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.points-benefit-center__title-spark {
+  width: 11.02px;
+  height: 9.92px;
+  flex: none;
+  margin-left: 3px;
+  object-fit: contain;
+}
+
+.points-benefit-center__title-more {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-alpha-black-36);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-benefit-center__title-more-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-36);
+}
+
+.points-benefit-center__level {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 327px;
+  height: 20px;
+  margin-top: 4px;
+  color: rgba(5, 34, 76, 0.5);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-benefit-center__level img {
+  width: 64px;
+  height: 16px;
+}
+
+.points-benefit-center__level strong {
+  color: #5f55c3;
+  font-family: var(--font-family-ui-number);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.points-benefit-center__level em {
+  font-style: normal;
+}
+
+.points-benefit-center__large-card {
+  position: relative;
+  width: 327px;
+  height: 96px;
+  margin-top: 12px;
+  overflow: hidden;
+  padding: 12px;
+  border: 0.5px solid var(--color-points-line);
+  border-radius: var(--radius-6);
+}
+
+.points-benefit-center__large-bg {
+  position: absolute;
+  inset: 0;
+  width: 327px;
+  height: 96px;
+  object-fit: cover;
+}
+
+.points-benefit-center__corner {
+  position: absolute;
+  top: -0.5px;
+  right: -0.5px;
+  width: 20px;
+  height: 14px;
+}
+
+.points-benefit-center__large-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.points-benefit-center__large-title img {
+  width: 77.67px;
+  height: 12px;
+}
+
+.points-benefit-center__large-title img:last-child {
+  transform: rotate(180deg) scaleY(-1);
+}
+
+.points-benefit-center__large-title p {
+  margin: 0;
+  color: var(--color-blue-90);
+  font-family: 'Alimama ShuHeiTi', var(--font-family-ui-cn);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.points-benefit-center__large-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 8px;
+  text-align: center;
+}
+
+.points-benefit-center__large-grid div {
+  display: grid;
+  gap: 0;
+}
+
+.points-benefit-center__large-grid strong {
+  color: var(--color-blue-50);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.points-benefit-center__large-grid b {
+  font-family: var(--font-family-ui-number);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.points-benefit-center__large-grid span {
+  color: var(--color-blue-30);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.points-benefit-center__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  width: 327px;
+  margin-top: 6px;
+}
+
+.points-benefit-center__small-card {
+  position: relative;
+  min-height: 68px;
+  overflow: hidden;
+  padding: 12px;
+  border: 0.5px solid var(--color-points-line);
+  border-radius: var(--radius-6);
+}
+
+.points-benefit-center__small-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.points-benefit-center__small-card--image {
+  padding-top: 48px;
+}
+
+.points-benefit-center__small-card-art {
+  position: absolute;
+  top: 0;
+  left: -0.5px;
+  width: calc(100% + 1px);
+  height: 62px;
+  object-fit: cover;
+}
+
+.points-benefit-center__small-card p {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: var(--color-blue-90);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.points-benefit-center__inline-chevron {
+  width: 12px;
+  height: 12px;
+  color: rgba(5, 34, 76, 0.5);
+}
+
+.points-benefit-center__small-card span {
+  position: relative;
+  display: block;
+  color: rgba(5, 34, 76, 0.7);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-benefit-center__membership {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.points-benefit-center__membership-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.points-benefit-center__membership-grid {
+  display: flex;
+  gap: 6px;
+  width: 327px;
+}
+
+.points-benefit-center__membership-item {
+  position: relative;
+  display: flex;
+  width: 105px;
+  height: 154px;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  overflow: hidden;
+  padding: 8px 8px 12px;
+  border: 0.5px solid var(--color-points-line);
+  border-radius: var(--radius-6);
+}
+
+.points-benefit-center__membership-logo {
+  position: relative;
+  width: 80px;
+  height: 28px;
+  object-fit: cover;
+}
+
+.points-benefit-center__membership-item p {
+  position: relative;
+  margin: 4px 0 0;
+  color: var(--color-blue-90);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.points-benefit-center__membership-item span {
+  position: relative;
+  color: rgba(5, 34, 76, 0.7);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.points-benefit-center__bind {
+  position: relative;
+  display: flex;
+  width: 327px;
+  height: 66px;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 12px;
+  border: 0.5px solid var(--color-points-line);
+  border-radius: var(--radius-6);
+}
+
+.points-benefit-center__bind-bg {
+  position: absolute;
+  inset: 0;
+  width: 327px;
+  height: 66px;
+  object-fit: cover;
+}
+
+.points-benefit-center__bind > div {
+  position: relative;
+}
+
+.points-benefit-center__bind p {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: var(--color-blue-90);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.points-benefit-center__bind span {
+  display: block;
+  color: rgba(5, 34, 76, 0.7);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-benefit-center__bind button {
+  position: relative;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-blue-50);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-benefit-center__expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 327px;
+  height: 20px;
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-alpha-black-36);
+  font-size: 12px;
+  gap: 0;
+  line-height: 20px;
+}
+
+.points-benefit-center__expand-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-36);
+}
+
+.points-benefit-center__watermark {
+  display: flex;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+.points-benefit-center__watermark img {
+  width: 259px;
+  height: 24px;
+}
+
+.points-benefit-center__footer {
+  margin-top: auto;
+}

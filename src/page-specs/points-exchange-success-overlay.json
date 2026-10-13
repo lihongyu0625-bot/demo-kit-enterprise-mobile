@@ -7,9 +7,16 @@
   "reuseLevel": "section-export-components",
   "source": {
     "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
-    "figmaNodeId": "1229:40948",
-    "figmaNodeName": "兑换成功浮层"
+    "figmaNodeId": "2301:75399",
+    "figmaNodeName": "Frame 83"
   },
+  "variants": [
+    { "id": "default", "name": "默认", "figmaNodeId": "2301:75861" },
+    { "id": "code", "name": "带券码类", "figmaNodeId": "2301:75901" },
+    { "id": "physical", "name": "实物类", "figmaNodeId": "2301:75990" },
+    { "id": "benefit", "name": "权益类", "figmaNodeId": "2301:76027" },
+    { "id": "package", "name": "权益包类", "figmaNodeId": "2301:76067" }
+  ],
   "viewport": {
     "width": 375,
     "height": 812
@@ -24,6 +31,8 @@
     "遮罩背景",
     "成功反馈",
     "商品信息卡片",
+    "兑换券码卡",
+    "规则卡（使用须知/购买规则）",
     "吸底操作"
   ],
   "reuse": [
@@ -35,6 +44,8 @@
   "newDrawnSections": [
     "成功反馈",
     "商品信息卡片",
+    "兑换券码卡",
+    "规则卡（使用须知/购买规则）",
     "吸底操作"
   ]
 }

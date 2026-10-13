@@ -1,0 +1,52 @@
+{
+  "id": "points-detail",
+  "pageType": "points-detail",
+  "business": "积分权益",
+  "pageTitle": "积分明细",
+  "taskType": "compose-new-page",
+  "reuseLevel": "section-export-components",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeId": "2306:81264",
+    "figmaNodeName": "积分明细"
+  },
+  "variants": [
+    { "id": "income", "name": "收支明细", "figmaNodeId": "2306:81980" },
+    { "id": "exchange", "name": "兑换记录", "figmaNodeId": "2306:82395" },
+    { "id": "lottery", "name": "抽奖记录", "figmaNodeId": "2306:82800" }
+  ],
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "componentCandidates": [
+    "导航栏",
+    "iPhone bar",
+    "iPhone footer",
+    "小福包-tab-选项",
+    "Component1 积分行",
+    "Component3 收支明细项",
+    "Component4 兑换记录项",
+    "积分明细-收支明细项（抽奖）"
+  ],
+  "sections": [
+    "头图背景（375×200 渐变）",
+    "积分行（数值 + 过期提醒 + 积分规则）",
+    "Tab 卡（收支明细/兑换记录/抽奖记录）",
+    "收支明细列表（获得/消耗、可展开到期时间）",
+    "兑换记录列表（商品图 + 红字状态 + 橙色价格行）",
+    "抽奖记录列表（可选蓝字链接行）"
+  ],
+  "reuse": [
+    "通用导航栏",
+    "通用状态栏",
+    "通用底部指示条"
+  ],
+  "newDrawnSections": [
+    "积分行（28px Barlow 数值 + info 过期提醒 + 竖线 + 积分规则）",
+    "Tab 卡（渐变 #fbfdff→#f5f7fa 上圆角16 + 17×3 选中下划线）",
+    "收支明细行（获得态蓝色金额可展开到期时间 / 消耗态黑84金额）",
+    "兑换记录行（112×84 商品图 + 两行截断标题 + 红字退款状态 + 34积分+2元价格行）",
+    "抽奖记录行（查看详情/去兑换/查看兑换码蓝字链接行）"
+  ]
+}

@@ -5,9 +5,9 @@
 
 .points-product-detail-overlay {
   position: relative;
+  display: flow-root; /* 建立 BFC：锁住 dock 的 margin-top 不逃逸到父级（否则 overlay 被推下、滚动余量被吃掉） */
   width: 375px;
   min-height: 1328px;
-  overflow: hidden;
   background: var(--color-bg-gray-2);
   color: var(--color-neutral-850);
   font-family: var(--font-family-ui-cn);
@@ -128,7 +128,7 @@
   margin: 0;
   color: var(--color-alpha-black-84);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500; /* Figma 73193/73194：字重 token「中黑体」= 500 */
   line-height: 24px;
 }
 
@@ -176,7 +176,7 @@
 .points-product-detail-overlay__rule-list {
   display: grid;
   gap: 8px;
-  margin-top: 8px;
+  margin-top: 12px; /* Figma 73193/73194：卡内标题与规则列表间距 12px */
 }
 
 .points-product-detail-overlay__rule-item {
@@ -185,13 +185,24 @@
   gap: 6px;
 }
 
+/* 规则条 bullet：Figma 73193/73194 资产取证（b9b7c.svg）—— 4×13 容器、
+   底部 circle r=2 fill #E1E1E1（top 9 = cy 11 - r 2），顶对齐首行文字即视觉居中 */
 .points-product-detail-overlay__rule-bullet {
+  position: relative;
   flex: none;
   width: 4px;
   height: 13px;
-  margin-top: 5px;
-  border-radius: 2px;
-  background: linear-gradient(180deg, #8ec0ff 0%, var(--color-blue-40) 100%);
+}
+
+.points-product-detail-overlay__rule-bullet::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e1e1e1;
 }
 
 .points-product-detail-overlay__rule-text {
@@ -203,17 +214,31 @@
   text-align: justify;
 }
 
+/* 商品类吸底：sticky 跟随滚动常驻视口底（sheet overflow:hidden 会吞 sticky，故挂在 overlay 根）。
+   overlay 内 sheet 为 absolute 不占流，dock 正常流位置由前置占位元素推到总高末端：
+   1230 = 1328(总高) - 98(dock 自身高：16 顶距 + 44 CTA + 4 间距 + 34 安全区)；
+   sticky 在 [正常位置, 视口底] 间粘底。
+   ⚠️ 占位必须是独立元素——sticky 元素自身带大正值 margin 时恒无位移需求，全程不吸附 */
+.points-product-detail-overlay__dock-spacer {
+  height: 1230px;
+}
+
 .points-product-detail-overlay__footer-dock {
-  position: absolute;
-  right: 0;
+  position: sticky;
   bottom: 0;
-  left: 0;
   z-index: 2;
-  width: 375px;
   display: grid;
   gap: 4px;
   padding-top: 16px;
   background: var(--color-white);
+}
+
+/* 地址类浮层内容一屏内，dock 保持绝对吸底（复用原定位） */
+.points-product-detail-overlay--address .points-product-detail-overlay__footer-dock--address {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 .points-product-detail-overlay__cta-wrap {
@@ -237,4 +262,411 @@
 
 .points-product-detail-overlay__footer {
   width: 375px;
+}
+
+/* ===== 变体 2：套餐条目跳转链接 + 券角标 ===== */
+
+.points-product-detail-overlay__package-media {
+  position: relative;
+  flex: none;
+}
+
+.points-product-detail-overlay__package-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #e55513;
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.points-product-detail-overlay__package-link {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #1473ff;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.points-product-detail-overlay__package-link-icon {
+  width: 14px;
+  height: 14px;
+  color: #1473ff;
+}
+
+/* ===== 变体 3：商品选择（三选一） ===== */
+
+.points-product-detail-overlay__option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.points-product-detail-overlay__option {
+  position: relative;
+  overflow: hidden;
+  border: 0.5px solid #e7ebf1;
+  border-radius: 6px;
+  background: var(--color-white);
+  padding: 0;
+}
+
+.points-product-detail-overlay__option--selected {
+  border: 1px solid #1473ff;
+}
+
+.points-product-detail-overlay__option-image {
+  display: block;
+  width: 100%;
+  height: 84px;
+  object-fit: cover;
+}
+
+.points-product-detail-overlay__option-label {
+  display: -webkit-box;
+  margin: 0;
+  padding: 4px 2px 8px;
+  overflow: hidden;
+  color: var(--color-neutral-850);
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.points-product-detail-overlay__option-check {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  width: 14px;
+  height: 14px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 6px 0 6px;
+  background: #1473ff;
+}
+
+.points-product-detail-overlay__option-check-icon {
+  display: block;
+  width: 7.69px;
+  height: 5.41px;
+}
+
+/* ===== 变体 4/5：收货地址卡 ===== */
+
+.points-product-detail-overlay__card--address {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 12px;
+}
+
+.points-product-detail-overlay__address-line {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+}
+
+.points-product-detail-overlay__address-icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: var(--color-alpha-black-84);
+}
+
+.points-product-detail-overlay__address-line-copy {
+  min-width: 0;
+}
+
+.points-product-detail-overlay__address-line-text {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.points-product-detail-overlay__address-line-meta {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.points-product-detail-overlay__address-chevron {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--color-alpha-black-36);
+}
+
+.points-product-detail-overlay__card--address-empty {
+  display: flex;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #1473ff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.points-product-detail-overlay__card--address-empty .points-product-detail-overlay__add-icon,
+.points-product-detail-overlay__card--address-empty svg {
+  width: 24px;
+  height: 24px;
+  color: #1473ff;
+}
+
+/* ===== 变体 6：收货地址列表浮层 ===== */
+
+.points-product-detail-overlay--address {
+  min-height: 812px; /* 地址类内容一屏展示（134 顶部 + 678 sheet），覆盖商品类的 1328，避免出现空白滚动余量 */
+}
+
+.points-product-detail-overlay--address .points-product-detail-overlay__sheet--address {
+  top: 134px;
+  height: 678px;
+}
+
+/* 标题栏透明背景：直接透出 sheet 的浅灰底（设计稿如此），仅承载标题与关闭按钮 */
+.points-product-detail-overlay__sheet-title {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 58px;
+}
+
+.points-product-detail-overlay__sheet-title-text {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  width: 267px;
+  height: 26px;
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.points-product-detail-overlay__close--bar {
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+}
+
+.points-product-detail-overlay__address-list {
+  position: absolute;
+  top: 58px;
+  left: 12px;
+  display: grid;
+  gap: 8px;
+  width: 351px;
+}
+
+.points-product-detail-overlay__address-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+  box-shadow: 0 2px 5px rgba(153, 165, 179, 0.11);
+}
+
+.points-product-detail-overlay__address-radio {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+.points-product-detail-overlay__address-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.points-product-detail-overlay__address-head {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.points-product-detail-overlay__address-name,
+.points-product-detail-overlay__address-phone {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.points-product-detail-overlay__address-text {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.points-product-detail-overlay__address-edit {
+  flex: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-alpha-black-36);
+}
+
+.points-product-detail-overlay__address-edit svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+/* ===== 变体 7/8：新增地址表单 ===== */
+
+/* 新增地址表单卡：Figma 2299:73599/73703 —— 白卡 8 圆角，padding 16/12，
+   行为 22px 内容高，行与分割线间均 12px 间距（grid gap），线为 0.5px 黑 6% hairline */
+.points-product-detail-overlay__form {
+  position: absolute;
+  top: 58px;
+  left: 12px;
+  width: 351px;
+  display: grid;
+  gap: 12px;
+  padding: 16px 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+  box-shadow: 0 2px 5px rgba(153, 165, 179, 0.11);
+}
+
+.points-product-detail-overlay__form-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.points-product-detail-overlay__form-divider {
+  height: 0.5px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.points-product-detail-overlay__form-label {
+  flex: none;
+  width: 56px;
+  color: var(--color-alpha-black-36);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.points-product-detail-overlay__form-value {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.points-product-detail-overlay__form-text,
+.points-product-detail-overlay__form-placeholder {
+  flex: 1;
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.points-product-detail-overlay__form-text {
+  color: var(--color-alpha-black-84);
+}
+
+.points-product-detail-overlay__form-placeholder {
+  color: var(--color-alpha-black-24, rgba(0, 0, 0, 0.24));
+}
+
+.points-product-detail-overlay__form-locate {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 4px; /* Figma 2400:25480：icon 与「定位」文字间距 4px */
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #1473ff;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* GlobalStyleIcon 渲染的是 mask 方案的 span.global-style-icon（非 svg），
+   旧选择器 `svg` 不命中，图标实为 1em=14px；按 Figma 73599 规格锁 16px */
+.points-product-detail-overlay__form-locate .global-style-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== 地址浮层吸底 ===== */
+
+/* 地址类吸底 dock：清零基础 pt16，避免与内部区块间距叠加
+   （Figma 2299:73487：按钮距 dock 顶 16px，非 16+16 叠加） */
+.points-product-detail-overlay__footer-dock--address {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  gap: 0;
+  padding-top: 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.points-product-detail-overlay__cta-wrap--address {
+  padding-top: 16px; /* Figma 2299:73487：吸底按钮距 dock 顶部 16px（用户确认，#22 遗留项闭环） */
+}
+
+/* 地址列表「添加收货地址」：Figma 2299:73487 —— 通栏胶囊（flex-1）、
+   py 12 + 行高 24 = 高 48、#e7f1ff 底 / #1473ff 字 / 999 圆角 */
+.points-product-detail-overlay__cta--secondary {
+  width: 100%;
+  height: 48px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: #e7f1ff;
+  color: #1473ff;
+  font-weight: 500;
+}
+
+.points-product-detail-overlay__cta--primary {
+  border-radius: 999px;
+  background: #1473ff;
+  font-weight: 500;
+}
+
+.points-product-detail-overlay__protocol {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 12px 0; /* Figma 73703：协议行距 dock 顶部 12px（dock 基础 pt 已清零，此值即最终间距；用户确认） */
+}
+
+.points-product-detail-overlay__protocol-radio {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+.points-product-detail-overlay__protocol-text {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 20px;
 }

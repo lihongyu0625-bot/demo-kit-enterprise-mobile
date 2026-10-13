@@ -1,0 +1,985 @@
+.my-coupons,
+.my-coupons * {
+  box-sizing: border-box;
+}
+
+/* 帧壳：Figma 2499:16146 —— 375 宽，高度由 mock frameHeight 内联控制（812/1673/812/1202/885） */
+.my-coupons {
+  position: relative;
+  width: 375px;
+  min-height: 812px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-cn);
+}
+
+/* 顶部：Figma 2499:16147 —— nav h92 + 主选项卡 h48 / 历史券二级选项卡 h48 */
+.my-coupons__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 375px;
+}
+
+.my-coupons__navbar {
+  width: 375px;
+  flex: none;
+}
+
+/* 主选项卡：Figma 2413:40159 —— 白底 + 0.5px 下边框 */
+.my-coupons__tabs-bar {
+  display: flex;
+  align-items: center;
+  width: 375px;
+  height: 48px;
+  overflow: hidden;
+  background: var(--color-white);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
+}
+
+.my-coupons__tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 16px;
+  flex: none;
+}
+
+.my-coupons__tab-label {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--color-alpha-black-60);
+  white-space: nowrap;
+}
+
+.my-coupons__tab--active .my-coupons__tab-label {
+  font-weight: 500;
+  color: var(--color-blue-50);
+}
+
+.my-coupons__tab--active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 16px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--color-blue-50);
+  transform: translateX(-50%);
+}
+
+/* tab 尾部竖分割线：14×1 */
+.my-coupons__tabs-divider {
+  width: 1px;
+  height: 14px;
+  flex: none;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* 二级选项卡（历史券）：Figma 2501:17608 —— 文字 16px 行高24 */
+.my-coupons__history-tabs {
+  display: flex;
+  align-items: center;
+  width: 375px;
+  height: 48px;
+  overflow: hidden;
+  background: var(--color-white);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.06);
+}
+
+.my-coupons__history-tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 16px;
+  flex: none;
+}
+
+.my-coupons__history-tab-label {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: var(--color-alpha-black-60);
+  white-space: nowrap;
+}
+
+.my-coupons__history-tab--active .my-coupons__history-tab-label {
+  font-weight: 500;
+  color: var(--color-blue-50);
+}
+
+.my-coupons__history-tab-track {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 16px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--color-blue-50);
+  transform: translateX(-50%);
+}
+
+/* 主体：Figma 2499:16150 —— absolute top156 flex-col gap16 px12 */
+/* 主体：Figma 2499:16150 —— top156 起步；内部滚动（导航+选项卡吸顶，仅卡片区滚动） */
+.my-coupons__body {
+  position: absolute;
+  top: 156px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 0 12px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+/* 兑换码态：Figma 2501:16764 —— 行 x13，左右留 13px */
+.my-coupons__body--used {
+  gap: 8px;
+}
+
+.my-coupons__body--code {
+  padding: 0 13px;
+}
+
+/* 提示行：Figma 2501:17610 */
+.my-coupons__notice {
+  margin: 0;
+  width: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-60);
+  text-align: left;
+}
+
+/* 分组：Figma 2499:16151 —— flex-col gap8 w-full */
+.my-coupons__group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+
+/* 分组分割线：Figma 2413:40175 —— 60px 线 + 文字 + 60px 线，gap24 居中 */
+.my-coupons__group-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  height: 20px;
+  flex: none;
+}
+
+.my-coupons__group-divider-line {
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.my-coupons__group-divider-text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-60);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 更多行：Figma 2499:16156 —— 居中 + chevron_down */
+.my-coupons__more-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: 20px;
+  flex: none;
+}
+
+.my-coupons__more-row-text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-60);
+  white-space: nowrap;
+}
+
+.my-coupons__more-row-chevron {
+  display: block;
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+/* 到底文案：Figma 2499:16164 容器281 */
+.my-coupons__end {
+  margin: 0;
+  width: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-60);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ============ 优惠券卡：Figma 2436:50546 ============ */
+.my-coupons__coupon-card,
+.my-coupons__benefit-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  overflow: hidden;
+  background: var(--color-white);
+  border-radius: 8px;
+}
+
+/* 金额列：Figma 2414:40441 —— w80 gap2 pb4 pl8；
+   基线对齐：¥ 与数字基线同线（items-end 是盒底对齐，62 行高的 ¥ 会悬空约 17px） */
+.my-coupons__amount {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+  width: 80px;
+  padding: 0 0 4px 8px;
+  flex: none;
+  color: #ea5f1e;
+  white-space: nowrap;
+}
+
+/* 待激活：Figma 2499:16403 —— 金额 0.5 透明度 */
+.my-coupons__amount--inactive {
+  opacity: 0.5;
+}
+
+/* 过期/已使用：Figma 2436:52321 —— rgba(234,95,30,0.5) */
+.my-coupons__amount--expired,
+.my-coupons__amount--used {
+  color: rgba(234, 95, 30, 0.5);
+}
+
+.my-coupons__amount-symbol {
+  margin: 0;
+  font-family: var(--font-family-ui-number);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 62px;
+  color: inherit;
+  text-align: center;
+}
+
+.my-coupons__amount-number {
+  margin: 0;
+  font-family: var(--font-family-ui-number);
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 42px;
+  color: inherit;
+  white-space: nowrap;
+}
+
+/* 权益卡单位「次」：Figma 2421:43005 —— 14px/22 Medium */
+/* 金额 sub 行：Figma 2414:40377 —— 外层转纵向堆叠（items-center justify-end pb4），
+   主行 items-center，sub 行 gap2 items-start：pre 10px/16 + 数字 12px/16 Barlow SemiCond Medium + post 10px/16，色随父级 */
+.my-coupons__amount--with-sub {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+}
+
+.my-coupons__amount-main {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+/* Figma 2414:40377：sub 卡主行 h42 —— symbol 盒高压 42（行高 62 溢出可见），
+   基线对齐下 ¥ 与数字字底齐平且主行高保持 42，不破坏 h114 卡高 */
+.my-coupons__amount--with-sub .my-coupons__amount-symbol {
+  height: 42px;
+}
+
+.my-coupons__amount-sub {
+  display: flex;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.my-coupons__amount-sub-text {
+  margin: 0;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+  color: inherit;
+}
+
+.my-coupons__amount-sub-number {
+  margin: 0;
+  font-family: var(--font-family-ui-number);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: inherit;
+}
+
+.my-coupons__amount-unit {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  color: inherit;
+}
+
+/* 打孔列：Figma 2414:40455 —— w12 gap4 */
+.my-coupons__punch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+  width: 12px;
+  flex: none;
+}
+
+.my-coupons__punch-notch {
+  display: block;
+  width: 12px;
+  height: 6px;
+  flex: none;
+}
+
+.my-coupons__punch-notch--flip {
+  transform: scaleY(-1);
+}
+
+.my-coupons__punch-line {
+  display: block;
+  width: 1px;
+  min-height: 1px;
+  flex: 1 1 0;
+  object-fit: none;
+}
+
+/* 右列：Figma 2414:40459 容器282 —— flex-1 flex-col gap12 pr8 py12；有「去使用」按钮时 gap6（2421:42884/42985），
+   仅到期文字行仍 gap12（2421:42642/2436:50545/2501:17621） */
+.my-coupons__coupon-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+  padding: 12px 8px 12px 0;
+}
+
+.my-coupons__coupon-main--actions {
+  gap: 6px;
+}
+
+/* 底纹：Figma 2421:42637 —— absolute top0 right0 80×80 */
+.my-coupons__coupon-pattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+}
+
+.my-coupons__coupon-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* 标题行：Figma 2421:42960 —— pr42 单行截断，16px/24 Medium */
+.my-coupons__coupon-title-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-right: 42px;
+}
+
+.my-coupons__coupon-title {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--color-alpha-black-84);
+}
+
+/* 禁用/过期/已使用标题：黑36（Figma 2421:44619/2436:50556） */
+.my-coupons__amount--inactive ~ .my-coupons__coupon-main .my-coupons__coupon-title,
+.my-coupons__amount--expired ~ .my-coupons__coupon-main .my-coupons__coupon-title,
+.my-coupons__amount--used ~ .my-coupons__coupon-main .my-coupons__coupon-title {
+  color: var(--color-alpha-black-36);
+}
+
+/* 禁用/过期/已使用 scope + note：黑36（Figma 2421:44806/2436:50559） */
+.my-coupons__amount--inactive ~ .my-coupons__coupon-main .my-coupons__coupon-scope,
+.my-coupons__amount--expired ~ .my-coupons__coupon-main .my-coupons__coupon-scope,
+.my-coupons__amount--used ~ .my-coupons__coupon-main .my-coupons__coupon-scope,
+.my-coupons__amount--inactive ~ .my-coupons__coupon-main .my-coupons__coupon-note,
+.my-coupons__amount--expired ~ .my-coupons__coupon-main .my-coupons__coupon-note,
+.my-coupons__amount--used ~ .my-coupons__coupon-main .my-coupons__coupon-note {
+  color: var(--color-alpha-black-36);
+}
+
+/* scope + note：Figma 2414:40253/40254 —— 11px/18 黑60 */
+.my-coupons__coupon-sub {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.my-coupons__coupon-scope,
+.my-coupons__coupon-note {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--color-alpha-black-60);
+}
+
+/* 操作行：Figma 2421:43000 —— 标签 + 去使用 两端对齐 */
+.my-coupons__coupon-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* 橙色到期标签：Figma 2421:45563 —— #fff2ec 底 r3，10px/16 #fe7016 */
+.my-coupons__expire-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+  border-radius: 3px;
+  background: #fff2ec;
+  font-size: 10px;
+  line-height: 16px;
+  color: #fe7016;
+  white-space: nowrap;
+  flex: none;
+}
+
+/* 过期到期标签：Figma 2421:45567 —— 无底色 h16 容器（11px 文字 18 行高溢出裁切），黑36 */
+.my-coupons__expire-tag--expired {
+  background: transparent;
+  padding: 0;
+  font-size: 11px;
+  line-height: 16px;
+  height: 16px;
+  overflow: hidden;
+  color: var(--color-alpha-black-36);
+}
+
+/* 去使用：Figma 2421:42701 —— #fff2ec 胶囊 px12 py4，12px/20 Medium #fe7016 */
+.my-coupons__use-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #fff2ec;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #fe7016;
+  white-space: nowrap;
+  flex: none;
+}
+
+/* 角标：Figma 2421:45215 —— absolute 左上，四边 1px 白 border，tl8+br8 圆角 */
+.my-coupons__corner-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 2px 8px;
+  border: 1px solid var(--color-white);
+  border-radius: 8px 0 8px 0;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 待激活：rgba(0,0,0,0.06) 底 + 黑36 */
+.my-coupons__corner-badge--inactive {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--color-alpha-black-36);
+}
+
+/* 已实名：#eaf8f0 底 + #34bb6d */
+.my-coupons__corner-badge--verified {
+  background: #eaf8f0;
+  color: #34bb6d;
+}
+
+/* 已实名（过期）：Figma 2436:52321 —— #99ddb6 */
+.my-coupons__corner-badge--verified-muted {
+  background: #eaf8f0;
+  color: #99ddb6;
+}
+
+/* ============ 印章：Figma 2421:45236 组91 ============ */
+.my-coupons__stamp {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 54px;
+  height: 46px;
+  overflow: hidden;
+  opacity: 0.32;
+  pointer-events: none;
+}
+
+.my-coupons__stamp-ring {
+  position: relative;
+  width: 58px;
+  height: 58.35px;
+}
+
+.my-coupons__stamp-ring-inner {
+  position: absolute;
+  top: 3.62px;
+  left: 3.6px;
+  width: 50.81px;
+  height: 51.11px;
+  border: 1.04px solid rgba(0, 0, 0, 0.6);
+  border-radius: 48.37px;
+}
+
+.my-coupons__stamp-ring::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58px;
+  height: 58.35px;
+  border: 2.08px solid rgba(0, 0, 0, 0.6);
+  border-radius: 48.37px;
+}
+
+.my-coupons__stamp-text {
+  position: absolute;
+  top: 9.97px;
+  left: 7.29px;
+  width: 43.25px;
+  height: 38.06px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12.49px;
+  line-height: 20.82px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  transform: rotate(-32.15deg) skewX(-0.31deg);
+  white-space: nowrap;
+}
+
+.my-coupons__stamp-deco {
+  position: absolute;
+  top: 2.08px;
+  left: 2.03px;
+  width: 43.05px;
+  height: 40.18px;
+  transform: rotate(-66deg) scaleY(-1);
+}
+
+.my-coupons__stamp-circle--1 {
+  position: absolute;
+  top: 8.77px;
+  left: 8.24px;
+  width: 28.45px;
+  height: 28.45px;
+  transform: rotate(-56deg);
+}
+
+.my-coupons__stamp-circle--2 {
+  position: absolute;
+  top: 14.67px;
+  left: 14.14px;
+  width: 28.45px;
+  height: 28.45px;
+  transform: rotate(-3deg) scaleY(-1);
+}
+
+/* ============ 权益卡第二行：Figma 2421:44823 容器1872 ============ */
+.my-coupons__benefit-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.my-coupons__benefit-meta-counts {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+
+.my-coupons__benefit-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--color-alpha-black-60);
+  white-space: nowrap;
+}
+
+.my-coupons__benefit-meta-number {
+  font-family: var(--font-family-ui-number);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--color-alpha-black-84);
+}
+
+/* 剩余次数强调：#ea5f1e（过期 #ffbfa0） */
+.my-coupons__benefit-meta-number--accent {
+  color: #ea5f1e;
+}
+
+/* 过期态小字统一黑36，可用/剩余数字 #ffbfa0 */
+.my-coupons__amount--expired ~ .my-coupons__coupon-main .my-coupons__benefit-meta-item,
+.my-coupons__amount--used ~ .my-coupons__coupon-main .my-coupons__benefit-meta-item,
+.my-coupons__amount--expired ~ .my-coupons__coupon-main .my-coupons__benefit-meta-number,
+.my-coupons__amount--used ~ .my-coupons__coupon-main .my-coupons__benefit-meta-number {
+  color: var(--color-alpha-black-36);
+}
+
+.my-coupons__amount--expired ~ .my-coupons__coupon-main .my-coupons__benefit-meta-number--accent,
+.my-coupons__amount--used ~ .my-coupons__coupon-main .my-coupons__benefit-meta-number--accent {
+  color: #ffbfa0;
+}
+
+.my-coupons__benefit-meta-sep {
+  width: 1px;
+  height: 10px;
+  flex: none;
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.my-coupons__benefit-meta-usage {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--color-alpha-black-60);
+  white-space: nowrap;
+  flex: none;
+}
+
+.my-coupons__benefit-meta-chevron {
+  display: block;
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+/* ============ 兑换码行：Figma 2421:52889 ============ */
+.my-coupons__code-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  overflow: hidden;
+  background: var(--color-white);
+  border-radius: 8px;
+}
+
+.my-coupons__code-image {
+  display: block;
+  width: 112px;
+  height: 84px;
+  flex: none;
+  border: 0.5px solid #e7ebf1;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.my-coupons__code-row--expired .my-coupons__code-image {
+  opacity: 0.5;
+}
+
+.my-coupons__code-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.my-coupons__code-title {
+  margin: 0;
+  max-height: 48px;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--color-alpha-black-84);
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.my-coupons__code-row--expired .my-coupons__code-title {
+  color: var(--color-alpha-black-36);
+}
+
+.my-coupons__code-line {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+}
+
+.my-coupons__code-text {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--color-alpha-black-60);
+}
+
+.my-coupons__code-row--expired .my-coupons__code-text {
+  color: var(--color-alpha-black-36);
+}
+
+.my-coupons__code-copy {
+  display: block;
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+.my-coupons__code-tag {
+  display: flex;
+  align-items: center;
+}
+
+/* ============ 底部导航栏：Figma 2421:44186 ============ */
+.my-coupons__bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--color-white);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.my-coupons__bottom-bar-inner {
+  padding: 12px 12px 0;
+}
+
+.my-coupons__bottom-bar-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.my-coupons__bottom-bar-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-alpha-black-84);
+  white-space: nowrap;
+}
+
+.my-coupons__bottom-bar-inner {
+  gap: 4px;
+}
+
+.my-coupons__bottom-bar-footer {
+  width: 100%;
+}
+
+/* 历史券页脚：Figma 2501:17590/18354 —— absolute bottom0 */
+.my-coupons__iphone-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 375px;
+}
+
+/* ============ 详情页：Figma 2501:16932/17126/17329 ============ */
+
+/* 详情主体：Frame 122 @y112（nav92 + gap20）—— 卡 + gap20 + 列表；
+   卡与公告栏间 gap10（2501:17143 Frame123 内部）；列表通栏 375，px12 body 内 -mx12 拉通 */
+.my-coupons__body--detail {
+  top: 112px;
+  gap: 0;
+}
+
+.my-coupons__detail-card {
+  width: 100%;
+  flex: none;
+}
+
+.my-coupons__notice-banner {
+  margin: 10px 0 0;
+  width: 100%;
+  flex: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: linear-gradient(to right, var(--color-white), #fff8f5);
+  font-size: 12px;
+  line-height: 20px;
+  color: #fe7016;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 详情列表：Figma 2501:16951 Frame121 —— 通栏 375，白底，项间 border-b 分隔（末项无线） */
+.my-coupons__detail-list {
+  width: 375px;
+  flex: none;
+  margin: 20px -12px 0;
+  background: var(--color-white);
+}
+
+/* 列表项：Figma 2430:46707 —— 375 通栏 px20 py16 gap32；
+   54=py16+22 单行；73/133 由多行 value 自然增高；border-b 设计 rgba(0,0,0,0.04) */
+.my-coupons__detail-item {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  width: 100%;
+  padding: 16px 20px;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.04);
+}
+
+.my-coupons__detail-list .my-coupons__detail-item:last-child {
+  border-bottom: none;
+}
+
+.my-coupons__detail-label {
+  margin: 0;
+  width: 84px;
+  flex: none;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-alpha-black-84);
+}
+
+.my-coupons__detail-value {
+  margin: 0;
+  padding-top: 1px;
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-36);
+  white-space: pre-line;
+  text-align: left;
+}
+
+/* 链接档：Figma 2436:54099 —— value #1473ff */
+.my-coupons__detail-value--link {
+  color: var(--color-blue-50);
+}
+
+/* 详情到期标签纯文字版：Figma 2421:45565（I2501:16950;2421:45650 容器h16）—— 11px 文字 16 行高裁切，黑36，无底色 */
+.my-coupons__expire-tag--plain {
+  background: transparent;
+  padding: 0;
+  font-size: 11px;
+  line-height: 16px;
+  height: 16px;
+  overflow: hidden;
+  color: var(--color-alpha-black-36);
+}
+
+/* 吸底按钮：Figma 2501:17354 —— 375×98 = pt16 + 按钮48 + footer34；
+   投影同底部导航栏（0 -4px 10px rgba(0,0,0,0.04)） */
+.my-coupons__bottom-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: var(--color-white);
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.04);
+}
+
+.my-coupons__bottom-button-inner {
+  padding: 16px 12px 0;
+}
+
+.my-coupons__bottom-button-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  border-radius: 999px;
+  background: var(--color-blue-50);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--color-white);
+}
+
+.my-coupons__bottom-button-footer {
+  width: 100%;
+}

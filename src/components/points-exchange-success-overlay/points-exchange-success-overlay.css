@@ -42,6 +42,11 @@
   background: var(--color-bg-gray-2);
 }
 
+/* 带券码类：Figma 2301:75901 —— sheet 高 652（底部溢出部分由 overflow:hidden 裁切，忠实设计稿） */
+.points-exchange-success-overlay__sheet--tall {
+  height: 652px;
+}
+
 .points-exchange-success-overlay__sheet-bg {
   position: absolute;
   top: 0;
@@ -71,16 +76,32 @@
   height: 24px;
 }
 
-.points-exchange-success-overlay__status {
+/* 内容列：Figma 2301:75866/75906 —— top36 left12 w351，成功区与卡片栈间距 20。
+   status/product-card 由绝对定位改为流内（几何不变：36 + 62 + 20 = 118 与原 product-card top 对齐） */
+.points-exchange-success-overlay__content {
   position: absolute;
   top: 36px;
-  left: 50%;
+  left: 12px;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 351px;
+}
+
+.points-exchange-success-overlay__content-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 351px;
+}
+
+.points-exchange-success-overlay__status {
   display: grid;
   justify-items: center;
   gap: 8px;
   width: 159px;
-  transform: translateX(-50%);
 }
 
 .points-exchange-success-overlay__status-title-row {
@@ -113,10 +134,6 @@
 }
 
 .points-exchange-success-overlay__product-card {
-  position: absolute;
-  top: 118px;
-  left: 12px;
-  z-index: 1;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -156,14 +173,32 @@
   line-height: 20px;
 }
 
-.points-exchange-success-overlay__product-price,
 .points-exchange-success-overlay__product-time {
   margin: 0;
   white-space: nowrap;
 }
 
-.points-exchange-success-overlay__product-price {
+/* 价格行结构化：Figma 2301:75910 —— 数字 14px Barlow Semi Condensed、单位/加号 12px，
+   gap2 行高20，#fe7016 */
+.points-exchange-success-overlay__price-line {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 20px;
   color: #fe7016;
+  white-space: nowrap;
+}
+
+.points-exchange-success-overlay__price-amount {
+  font-family: var(--font-family-ui-number);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.points-exchange-success-overlay__price-unit,
+.points-exchange-success-overlay__price-plus {
+  font-size: 12px;
+  line-height: 20px;
 }
 
 .points-exchange-success-overlay__product-time {
@@ -200,7 +235,7 @@
   border: 0;
   border-radius: 999px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500; /* Figma 2301:75399：字重 token「中黑体」= 500 */
   line-height: 24px;
 }
 
@@ -216,4 +251,106 @@
 
 .points-exchange-success-overlay__iphone-footer {
   width: 375px;
+}
+
+/* ===== 带券码类：兑换券码卡（Figma 2299:74606） ===== */
+
+.points-exchange-success-overlay__code-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 351px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.points-exchange-success-overlay__code-label {
+  margin: 0;
+  flex: none;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.points-exchange-success-overlay__code-value {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-number);
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.points-exchange-success-overlay__code-action {
+  flex: none;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #1473ff;
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+/* ===== 带券码类：规则卡（与商品详情浮层同构，Figma 73193/73194/75911/75912） ===== */
+
+.points-exchange-success-overlay__rule-card {
+  width: 351px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.points-exchange-success-overlay__rule-title {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.points-exchange-success-overlay__rule-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.points-exchange-success-overlay__rule-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+/* bullet：与商品详情浮层同规格 —— 4×13 容器、底部 circle r=2 fill #E1E1E1 */
+.points-exchange-success-overlay__rule-bullet {
+  position: relative;
+  flex: none;
+  width: 4px;
+  height: 13px;
+}
+
+.points-exchange-success-overlay__rule-bullet::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e1e1e1;
+}
+
+.points-exchange-success-overlay__rule-text {
+  margin: 0;
+  width: 317px;
+  color: var(--color-gray-700);
+  font-size: 14px;
+  line-height: 22px;
+  text-align: justify;
 }

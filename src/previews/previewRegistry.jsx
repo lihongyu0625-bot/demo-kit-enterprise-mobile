@@ -72,8 +72,12 @@ import PointsLuckyBagCasePreview from './page-cases/points/PointsLuckyBagCasePre
 import PointsEarnTasksCasePreview from './page-cases/points/PointsEarnTasksCasePreview'
 import PointsProductDetailOverlayCasePreview from './page-cases/points/PointsProductDetailOverlayCasePreview'
 import PointsExchangeSuccessOverlayCasePreview from './page-cases/points/PointsExchangeSuccessOverlayCasePreview'
+import PointsOrderDetailCasePreview from './page-cases/points/PointsOrderDetailCasePreview'
+import PointsDetailCasePreview from './page-cases/points/PointsDetailCasePreview'
 import PointsMallCasePreview from './page-cases/points/PointsMallCasePreview'
 import PointsSuperSaveDetailCasePreview from './page-cases/points/PointsSuperSaveDetailCasePreview'
+import PointsBenefitCenterCasePreview from './page-cases/points/PointsBenefitCenterCasePreview'
+import MyCouponsCasePreview from './page-cases/points/MyCouponsCasePreview'
 
 function createPlaceholderItem(config) {
   return function PlaceholderItem() {
@@ -901,6 +905,17 @@ export const previewNavigation = [
         type: 'group',
         children: [
           {
+            id: 'page-points-benefit-center',
+            label: '权益中心',
+            type: 'item',
+            title: '权益中心整页案例',
+            pathLabel: '页面案例 / 增长&一体化 / 权益中心',
+            description: '这里展示增长&一体化业务的权益中心页，包含用车权益、商旅权益、品牌会员卡、积分权益和客服权益模块。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是权益中心-V8 设计稿（2298:50153）拆分后的完整预览。',
+            component: PointsBenefitCenterCasePreview,
+          },
+          {
             id: 'page-points-lucky-bag',
             label: '小福包',
             type: 'item',
@@ -965,6 +980,39 @@ export const previewNavigation = [
             statusLabel: '已接入',
             maintenanceHint: '当前挂载的是兑换成功浮层完整预览。',
             component: PointsExchangeSuccessOverlayCasePreview,
+          },
+          {
+            id: 'page-points-order-detail',
+            label: '订单详情',
+            type: 'item',
+            title: '订单详情整页案例',
+            pathLabel: '页面案例 / 增长&一体化 / 订单详情',
+            description: '这里展示增长&一体化业务的订单详情页，包含会员卡类、权益类、带券码类和实物商品类四种订单形态。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是订单详情（2407:36621）四变体完整预览。',
+            component: PointsOrderDetailCasePreview,
+          },
+          {
+            id: 'page-points-detail',
+            label: '积分明细',
+            type: 'item',
+            title: '积分明细整页案例',
+            pathLabel: '页面案例 / 增长&一体化 / 积分明细',
+            description: '这里展示增长&一体化业务的积分明细页，包含收支明细、兑换记录和抽奖记录三种列表形态。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是积分明细（2306:81264）三变体完整预览。',
+            component: PointsDetailCasePreview,
+          },
+          {
+            id: 'page-my-coupons',
+            label: '我的优惠券',
+            type: 'item',
+            title: '我的优惠券整页案例',
+            pathLabel: '页面案例 / 增长&一体化 / 我的优惠券',
+            description: '这里展示增长&一体化业务的我的优惠券页，包含默认、展开全部、兑换码、历史券-已过期、已使用，以及优惠券详情、详情-待激活、详情-权益卡八种状态。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是我的优惠券（2499:14871）八变体完整预览。',
+            component: MyCouponsCasePreview,
           },
         ],
       },

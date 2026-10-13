@@ -1,0 +1,163 @@
+{
+  "pageTitle": "积分明细",
+  "navTitle": "积分明细",
+  "points": {
+    "value": "234",
+    "expireNotice": "有6积分在7天内过期",
+    "rulesText": "积分规则",
+    "showExpireNotice": true
+  },
+  "activeTab": "income",
+  "tabs": [
+    { "id": "income", "label": "收支明细" },
+    { "id": "exchange", "label": "兑换记录" },
+    { "id": "lottery", "label": "抽奖记录" }
+  ],
+  "rowKind": "income",
+  "endText": "没有更多了～",
+  "rows": [
+    {
+      "title": "基础消费-因公快车订单",
+      "type": "gain",
+      "amount": "+6",
+      "time": "2022-02-23 10:23:30",
+      "expanded": false
+    },
+    {
+      "title": "基础消费-因公快车订单",
+      "type": "gain",
+      "amount": "+30",
+      "time": "2022-02-23 10:23:30",
+      "expanded": true,
+      "expireTime": "2022-02-23 10:23:30"
+    },
+    {
+      "title": "抽奖消耗",
+      "type": "spend",
+      "amount": "-1",
+      "time": "2022-02-23 10:23:30"
+    },
+    {
+      "title": "基础消费-因公快车订单",
+      "type": "gain",
+      "amount": "+6",
+      "time": "2022-02-23 10:23:30",
+      "expanded": false
+    },
+    {
+      "title": "基础消费-因公快车订单基础车订单基础消费-因公快车订单",
+      "type": "gain",
+      "amount": "+6",
+      "time": "2022-02-23 10:23:30",
+      "expanded": false
+    },
+    {
+      "title": "差旅联订",
+      "type": "gain",
+      "amount": "+200",
+      "time": "2022-02-23 10:23:30",
+      "expanded": false
+    },
+    {
+      "title": "用车订单抵扣",
+      "type": "spend",
+      "amount": "-12",
+      "time": "2022-02-23 10:23:30"
+    }
+  ],
+  "variants": {
+    "exchange": {
+      "activeTab": "exchange",
+      "rowKind": "exchange",
+      "rows": [
+        {
+          "image": "juicePoster",
+          "title": "元气森林券包",
+          "price": { "points": "34", "cash": "2" },
+          "time": "2023-03-01 10:23:30"
+        },
+        {
+          "image": "gymCard",
+          "title": "20元升舱券，0积分免费领取",
+          "status": "交易关闭，退款成功",
+          "price": { "points": "34", "cash": "2" },
+          "time": "2023-03-01 10:23:30"
+        },
+        {
+          "image": "rideCoupon",
+          "title": "20元升舱券，0积分免费领取费领取费领取费领取费领取费领取费...",
+          "status": "交易关闭，退款成功",
+          "price": { "points": "34", "cash": "2" },
+          "time": "2023-03-01 10:23:30"
+        },
+        {
+          "image": "pillow",
+          "title": "20元升舱券，0积分免费领取费领取费领取费领取费领取费领取费...",
+          "price": { "points": "34", "cash": "2" },
+          "time": "2023-03-01 10:23:30"
+        },
+        {
+          "image": "dining",
+          "title": "20元升舱券，0积分免费领取费",
+          "price": { "points": "34", "cash": "2" },
+          "time": "2023-03-01 10:23:30"
+        },
+        {
+          "image": "suitcase",
+          "title": "20元升舱券，0积分免费领取",
+          "price": { "points": "34", "cash": "2" },
+          "time": "2023-03-01 10:23:30"
+        }
+      ]
+    },
+    "lottery": {
+      "points": {
+        "value": "234",
+        "rulesText": "积分规则",
+        "showExpireNotice": false
+      },
+      "activeTab": "lottery",
+      "rowKind": "lottery",
+      "rows": [
+        {
+          "title": "洽洽 鲜切薯条醇香原味 非膨化",
+          "link": "查看详情",
+          "amount": "-1",
+          "time": "2022-02-23 10:23:30"
+        },
+        {
+          "title": "洽洽 鲜切薯条醇香原味 非膨化",
+          "link": "去兑换",
+          "amount": "-1",
+          "time": "2022-02-23 10:23:30"
+        },
+        {
+          "title": "霸王茶姬折扣券8折券",
+          "link": "查看兑换码",
+          "amount": "-1",
+          "time": "2022-02-23 10:23:30"
+        },
+        {
+          "title": "早通勤免单券",
+          "amount": "-1",
+          "time": "2022-02-23 10:23:30"
+        },
+        {
+          "title": "未中奖",
+          "amount": "-1",
+          "time": "2022-02-23 10:23:30"
+        },
+        {
+          "title": "快车8折券",
+          "amount": "-1",
+          "time": "2022-02-23 10:23:30"
+        },
+        {
+          "title": "20元加班升舱券",
+          "amount": "-1",
+          "time": "2022-02-23 10:23:30"
+        }
+      ]
+    }
+  }
+}

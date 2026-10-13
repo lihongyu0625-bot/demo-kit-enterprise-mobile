@@ -1,0 +1,78 @@
+{
+  "pageTitle": "权益中心",
+  "header": {
+    "heading": "企业专属权益",
+    "subtitle": {
+      "lead": "享受",
+      "highlight": "17",
+      "tail": "享专属权益",
+      "dividerRight": "376"
+    }
+  },
+  "carBenefits": {
+    "title": "用车权益",
+    "level": {
+      "label": "里程值",
+      "value": "571/1100",
+      "note": "企业版用车同步累计里程"
+    },
+    "largeCard": {
+      "title": "享快速应答",
+      "stats": [
+        { "value": "秒应答", "note": "最大限度缩时" },
+        { "value": "V8", "unit": "专享", "note": "里程会员权益同步" },
+        { "value": "6", "unit": "次/月", "note": "每月享6次权益" }
+      ]
+    },
+    "smallCards": [
+      { "title": "免费取消", "desc": "无限次/月" },
+      { "title": "极速赔付", "desc": "无限次/月" },
+      { "title": "无车必赔", "desc": "预约单专享" },
+      { "title": "爽约必赔", "desc": "预约单专享" },
+      { "title": "迟到必赔", "desc": "预约单专享" },
+      { "title": "准时保障", "desc": "预约单专享" }
+    ],
+    "expand": "展开更多权益"
+  },
+  "travelBenefits": {
+    "title": "商旅权益",
+    "perks": [
+      { "title": "酒店降价退", "desc": "降价差额自动退", "art": true },
+      { "title": "机票贵必赔", "desc": "买贵赔双倍", "art": true },
+      { "title": "酒店贵必赔", "desc": "买贵赔双倍" },
+      { "title": "航变无忧退", "desc": "关联酒店免费退" },
+      { "title": "超时确认赔", "desc": "酒店超时确认赔" },
+      { "title": "超时出票赔", "desc": "机票超时出票赔" },
+      { "title": "无航班赔", "desc": "资源全覆盖" },
+      { "title": "无酒店赔", "desc": "资源全覆盖" }
+    ],
+    "expand": "展开更多权益"
+  },
+  "brandMembership": {
+    "title": "品牌会员卡",
+    "more": "更多",
+    "memberships": [
+      { "logo": "ihg", "title": "洲际集团", "items": ["酒店积分", "夜间累计", "立即确认", ""] },
+      { "logo": "huazhu", "title": "华住集团", "items": ["酒店积分", "夜间累计", "立即确认", "入住礼遇"] },
+      { "logo": "jinjiang", "title": "锦江酒店集团", "items": ["酒店积分", "延迟退房", "预订保留", "入住礼遇"] }
+    ],
+    "bind": {
+      "title": "携程×滴滴会员联登",
+      "desc": "绑定后享受携程平台酒店会员价",
+      "action": "去绑定"
+    }
+  },
+  "pointsBenefits": {
+    "title": "积分权益",
+    "perks": [
+      { "title": "单单返积分", "desc": "消费累积积分" },
+      { "title": "积分兑好礼", "desc": "多重好礼可兑" }
+    ]
+  },
+  "serviceBenefits": {
+    "title": "客服权益",
+    "perks": [
+      { "title": "企业版客服", "desc": "企业版专属服务" }
+    ]
+  }
+}

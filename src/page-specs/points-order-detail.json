@@ -1,0 +1,50 @@
+{
+  "id": "points-order-detail",
+  "pageType": "points-order-detail",
+  "business": "积分权益",
+  "pageTitle": "订单详情",
+  "taskType": "compose-new-page",
+  "reuseLevel": "section-export-components",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeId": "2407:36621",
+    "figmaNodeName": "订单详情"
+  },
+  "variants": [
+    { "id": "member", "name": "会员卡类", "figmaNodeId": "2407:36906" },
+    { "id": "benefit", "name": "权益类", "figmaNodeId": "2407:37049" },
+    { "id": "code", "name": "带券码类", "figmaNodeId": "2407:37192" },
+    { "id": "physical", "name": "实物商品类", "figmaNodeId": "2407:37330" }
+  ],
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "componentCandidates": [
+    "导航栏",
+    "iPhone bar",
+    "iPhone footer",
+    "兑换成功浮层-商品信息卡片",
+    "表单",
+    "商品详情浮层-规则卡",
+    "订单详情-地址卡"
+  ],
+  "sections": [
+    "导航栏",
+    "地址卡（实物类）",
+    "商品信息卡片",
+    "表单（使用人信息/订单信息）",
+    "规则卡（使用须知）"
+  ],
+  "reuse": [
+    "通用导航栏",
+    "通用状态栏",
+    "通用底部指示条",
+    "商品信息卡片结构",
+    "规则卡结构"
+  ],
+  "newDrawnSections": [
+    "地址卡（已发货状态 + 快递单号复制 + 收件地址）",
+    "表单信息条（文本/链接/去使用按钮/券码复制四种形态）"
+  ]
+}

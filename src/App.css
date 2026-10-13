@@ -270,7 +270,8 @@
   gap: 24px;
   min-height: 0;
   height: 100vh;
-  padding: 28px 28px 40px;
+  /* 底部留白放到 canvas 内容流尾部（::after），滚动时可滚过；留在 stage padding 会形成裁切死区，遮挡状态标签 */
+  padding: 28px 28px 0;
   overflow: hidden;
 }
 
@@ -320,6 +321,13 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-gutter: stable;
+}
+
+/* 尾部呼吸留白：在内容流内，可随滚动滚过（替代 stage 底 padding 的视口死区） */
+.preview-stage__canvas::after {
+  content: '';
+  display: block;
+  height: 40px;
 }
 
 .global-style-preview,
@@ -2561,14 +2569,7 @@
   left: 0;
 }
 
-.page-case-viewport .points-product-detail-overlay__footer-dock {
-  position: fixed;
-  z-index: 100;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
+/* 商品详情浮层吸底固定在各自 sheet 底部（8 场景并列预览，fixed 会互相覆盖）。 */
 .page-case-viewport .points-exchange-success-overlay__footer-dock {
   position: fixed;
   z-index: 100;
@@ -2588,8 +2589,9 @@
 .page-case-viewport .hotel-form-footer .iphone-footer,
 .page-case-viewport .flight-form-bottom-dock .iphone-footer,
 .page-case-viewport .room-detail-footer .iphone-footer,
+.page-case-viewport .points-exchange-success-overlay__footer-dock .iphone-footer,
 .page-case-viewport .points-product-detail-overlay__footer-dock .iphone-footer,
-.page-case-viewport .points-exchange-success-overlay__footer-dock .iphone-footer {
+.page-case-viewport .my-coupons__bottom-button .iphone-footer {
   position: relative;
   z-index: auto;
   right: auto;
@@ -2604,14 +2606,17 @@
 }
 
 .case-preview__stack {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap; /* 多变体横向排列提升屏效：宽屏一行多列，窄屏自动回落单列 */
   gap: 24px;
+  align-items: flex-start;
   width: 100%;
 }
 
 .case-preview__state-block {
   display: grid;
   gap: 12px;
+  width: 375px; /* 与手机视口同宽，状态文案在视口宽度内换行，保证多列等宽对齐 */
 }
 
 .case-preview__state-meta {

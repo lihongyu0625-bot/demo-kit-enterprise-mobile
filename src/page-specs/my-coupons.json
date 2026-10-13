@@ -1,0 +1,58 @@
+{
+  "id": "my-coupons",
+  "pageType": "my-coupons",
+  "business": "增长&一体化",
+  "pageTitle": "我的优惠券",
+  "taskType": "compose-new-page",
+  "reuseLevel": "section-export-components",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeId": "2499:14871",
+    "figmaNodeName": "Frame 83"
+  },
+  "variants": [
+    { "id": "default", "name": "默认", "figmaNodeId": "2499:16146" },
+    { "id": "expanded", "name": "展开全部", "figmaNodeId": "2499:16393" },
+    { "id": "code", "name": "兑换码", "figmaNodeId": "2501:16764" },
+    { "id": "expired", "name": "历史券-已过期", "figmaNodeId": "2501:17590" },
+    { "id": "used", "name": "历史券-已使用", "figmaNodeId": "2501:18354" }
+  ],
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "componentCandidates": [
+    "导航栏",
+    "iPhone bar",
+    "iPhone footer",
+    "选项卡",
+    "优惠券",
+    "我的优惠券-分割线",
+    "我的优惠券-底部导航栏",
+    "待激活角标",
+    "已实名角标",
+    "印章"
+  ],
+  "sections": [
+    "导航栏 + 主选项卡（9 项横排，激活蓝 + 16×3 track）",
+    "优惠券分组（分割线 + 券卡 + 更多行）",
+    "权益卡分组（3次金额 + 共/剩余次数 + 使用记录 + 去使用）",
+    "兑换码分组（商品图 + 券码复制 + 到期标签）",
+    "历史券二级选项卡（已过期/已使用）",
+    "过期/已使用态（半透明金额 + 印章 + 灰化文字）",
+    "底部导航栏（积分兑券 + iPhone footer）"
+  ],
+  "reuse": [
+    "通用导航栏",
+    "通用状态栏",
+    "通用底部指示条"
+  ],
+  "newDrawnSections": [
+    "主选项卡（14px 项 + 竖分割线 + 激活 #1473ff track）",
+    "优惠券卡（金额列 80px Barlow 42 + 打孔列 notch/虚线 + 底纹 80×80）",
+    "权益卡（「3次」金额 + 容器1872 共/剩余/使用记录行）",
+    "兑换码行（112×84 商品图 + 券码 + copy 图标）",
+    "印章（组91 双圈 + 斜排「已过期/已使用」+ 装饰弧线）",
+    "底部导航栏（白底投影 + 积分兑券）"
+  ]
+}

@@ -1,0 +1,748 @@
+{
+  "pageTitle": "我的优惠券",
+  "navTitle": "我的优惠券",
+  "frameHeight": 812,
+  "activeTab": "all",
+  "tabs": [
+    {
+      "id": "all",
+      "label": "全部(12)"
+    },
+    {
+      "id": "car",
+      "label": "用车(4)"
+    },
+    {
+      "id": "hotel",
+      "label": "酒店(3)"
+    },
+    {
+      "id": "benefit",
+      "label": "权益卡(5)"
+    },
+    {
+      "id": "code",
+      "label": "兑换码(4)"
+    },
+    {
+      "id": "bike",
+      "label": "单车(3)"
+    }
+  ],
+  "tabsExtra": [
+    {
+      "id": "history",
+      "label": "历史券"
+    },
+    {
+      "id": "help",
+      "label": "帮助说明"
+    }
+  ],
+  "bottomBarText": "积分兑券",
+  "endText": "已经到底啦~",
+  "groups": [
+    {
+      "id": "coupons",
+      "dividerLabel": "优惠券",
+      "moreRow": true,
+      "items": [
+        {
+          "kind": "coupon",
+          "amount": {
+            "symbol": "¥",
+            "value": "10"
+          },
+          "title": "高管权权权最多十个字券券券",
+          "scope": "快车、优享、滴滴特快可用",
+          "note": "这句话可配置，我是可配置可配置",
+          "expireTag": "2024-03-03 23:59:59到期",
+          "pattern": "default"
+        },
+        {
+          "kind": "coupon",
+          "amount": {
+            "symbol": "¥",
+            "value": "30",
+            "sub": {
+              "pre": "支付",
+              "value": "9.9",
+              "post": "元抵"
+            }
+          },
+          "title": "特价快车：9.9元一口价",
+          "scope": "快车、优享、滴滴特快可用",
+          "note": "这句话可配置，我是可配置可配置",
+          "expireTag": "2024-03-03 23:59:59到期",
+          "pattern": "default"
+        },
+        {
+          "kind": "coupon",
+          "amount": {
+            "value": "8",
+            "unit": "折"
+          },
+          "title": "新春福利专车立减券",
+          "scope": "快车、优享、滴滴特快可用",
+          "note": "这句话可配置，我是可配置可配置",
+          "expireTag": "2024-03-03 23:59:59到期",
+          "pattern": "default"
+        }
+      ]
+    },
+    {
+      "id": "benefits",
+      "dividerLabel": "权益卡",
+      "items": [
+        {
+          "kind": "benefit",
+          "amount": {
+            "value": "3",
+            "unit": "次"
+          },
+          "title": "快车快速应答",
+          "meta": {
+            "mode": "available",
+            "available": "3"
+          },
+          "expireTag": "2024-03-03 23:59:59到期",
+          "pattern": "default"
+        },
+        {
+          "kind": "benefit",
+          "amount": {
+            "value": "3",
+            "unit": "次"
+          },
+          "title": "机场贵宾厅",
+          "meta": {
+            "total": "3",
+            "remain": "3",
+            "showUsage": true
+          },
+          "cornerBadge": {
+            "kind": "verified",
+            "text": "已实名"
+          },
+          "expireTag": "2024-03-03 23:59:59到期",
+          "useButton": true,
+          "pattern": "airport"
+        },
+        {
+          "kind": "benefit",
+          "amount": {
+            "value": "1",
+            "unit": "次"
+          },
+          "title": "高铁贵宾厅",
+          "meta": {
+            "total": "1",
+            "remain": "1",
+            "showUsage": true
+          },
+          "expireTag": "2024-03-03 23:59:59到期",
+          "useButton": true,
+          "pattern": "rail"
+        }
+      ]
+    }
+  ],
+  "variants": {
+    "expanded": {
+      "frameHeight": 812,
+      "navShowRightIcon": false,
+      "groups": [
+        {
+          "id": "coupons",
+          "dividerLabel": "优惠券",
+          "items": [
+            {
+              "kind": "coupon",
+              "amount": {
+                "symbol": "¥",
+                "value": "10"
+              },
+              "title": "高管权权权最多十个字券券券",
+              "scope": "快车、优享、滴滴特快可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "expireTag": "2024-03-03 23:59:59到期",
+              "pattern": "default"
+            },
+            {
+              "kind": "coupon",
+              "amount": {
+                "symbol": "¥",
+                "value": "30",
+                "sub": {
+                  "pre": "支付",
+                  "value": "9.9",
+                  "post": "元抵"
+                }
+              },
+              "title": "特价快车：9.9元一口价",
+              "scope": "快车、优享、滴滴特快可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "expireTag": "2024-03-03 23:59:59到期",
+              "pattern": "default"
+            },
+            {
+              "kind": "coupon",
+              "amount": {
+                "value": "8",
+                "unit": "折"
+              },
+              "title": "新春福利专车立减券",
+              "scope": "快车、优享、滴滴特快可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "expireTag": "2024-03-03 23:59:59到期",
+              "pattern": "default"
+            },
+            {
+              "kind": "coupon",
+              "tone": "inactive",
+              "amount": {
+                "value": "9.5",
+                "unit": "折"
+              },
+              "title": "新春福利专车立减券",
+              "scope": "专车可用专车可用专车可用专车可用专车可用专车可用专车可用专车可用专车可用专车可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "cornerBadge": {
+                "kind": "inactive",
+                "text": "待激活"
+              },
+              "expireTag": "2024-03-03 23:59:59到期",
+              "pattern": "default"
+            },
+            {
+              "kind": "coupon",
+              "amount": {
+                "symbol": "¥",
+                "value": "1.5"
+              },
+              "title": "1.5元因私酒店立减券",
+              "scope": "酒店可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "expireTag": "2024-03-03 23:59:59到期",
+              "pattern": "hotel"
+            },
+            {
+              "kind": "coupon",
+              "amount": {
+                "symbol": "¥",
+                "value": "500"
+              },
+              "title": "500元因私酒店立减券",
+              "scope": "酒店可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "expireTag": "2024-03-03 23:59:59到期",
+              "pattern": "hotel"
+            },
+            {
+              "kind": "coupon",
+              "amount": {
+                "symbol": "¥",
+                "value": "5"
+              },
+              "title": "5元单车立减券",
+              "scope": "滴滴出行APP/小程序单车可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "expireTag": "2024-03-03 23:59:59到期",
+              "useButton": true,
+              "pattern": "bike"
+            },
+            {
+              "kind": "coupon",
+              "amount": {
+                "value": "8.5",
+                "unit": "折"
+              },
+              "title": "8.5折单车卡购买立减券",
+              "scope": "滴滴出行APP/小程序单车购卡可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "expireTag": "2024-03-03 23:59:59到期",
+              "useButton": true,
+              "pattern": "bike"
+            }
+          ]
+        },
+        {
+          "id": "benefits",
+          "dividerLabel": "权益卡",
+          "items": [
+            {
+              "kind": "benefit",
+              "amount": {
+                "value": "3",
+                "unit": "次"
+              },
+              "title": "快车快速应答",
+              "meta": {
+                "mode": "available",
+                "available": "3"
+              },
+              "expireTag": "2024-03-03 23:59:59到期",
+              "pattern": "default"
+            },
+            {
+              "kind": "benefit",
+              "amount": {
+                "value": "3",
+                "unit": "次"
+              },
+              "title": "机场贵宾厅",
+              "meta": {
+                "total": "3",
+                "remain": "3",
+                "showUsage": true
+              },
+              "cornerBadge": {
+                "kind": "verified",
+                "text": "已实名"
+              },
+              "expireTag": "2024-03-03 23:59:59到期",
+              "useButton": true,
+              "pattern": "airport"
+            },
+            {
+              "kind": "benefit",
+              "amount": {
+                "value": "1",
+                "unit": "次"
+              },
+              "title": "高铁贵宾厅",
+              "meta": {
+                "total": "1",
+                "remain": "1",
+                "showUsage": true
+              },
+              "expireTag": "2024-03-03 23:59:59到期",
+              "useButton": true,
+              "pattern": "rail"
+            }
+          ]
+        }
+      ],
+      "endText": "已经到底啦~"
+    },
+    "code": {
+      "frameHeight": 812,
+      "activeTab": "code",
+      "bodyPadding": 13,
+      "endText": null,
+      "groups": [
+        {
+          "id": "codes",
+          "dividerLabel": null,
+          "items": [
+            {
+              "kind": "code",
+              "image": "bawang",
+              "title": "霸王茶姬8折券",
+              "codeLabel": "券码",
+              "code": "JASHDJABS2932305",
+              "expireTag": "2024-03-03 23:59:59到期"
+            },
+            {
+              "kind": "code",
+              "image": "chaowan",
+              "title": "超级碗小吃兑换券",
+              "codeLabel": "券码",
+              "code": "JASHDJABS2932305",
+              "expireTag": "2024-03-03 23:59:59到期"
+            },
+            {
+              "kind": "code",
+              "image": "meiri",
+              "title": "每日鲜语50元满减券",
+              "codeLabel": "券码",
+              "code": "JASHDJABS2932305",
+              "expireTag": "2024-03-03 23:59:59到期"
+            }
+          ]
+        }
+      ]
+    },
+    "expired": {
+      "frameHeight": 812,
+      "navTitle": "历史券",
+      "navShowRightIcon": false,
+      "activeTab": "expired",
+      "historyTabs": [
+        {
+          "id": "expired",
+          "label": "已过期"
+        },
+        {
+          "id": "used",
+          "label": "已使用"
+        }
+      ],
+      "bottomBarText": null,
+      "notice": "仅展示过期7天内的优惠券记录",
+      "endText": null,
+      "groups": [
+        {
+          "id": "expired-coupons",
+          "dividerLabel": "优惠券",
+          "moreRow": true,
+          "items": [
+            {
+              "kind": "coupon",
+              "tone": "expired",
+              "amount": {
+                "symbol": "¥",
+                "value": "10"
+              },
+              "title": "高管权权权最多十个字券券券",
+              "scope": "快车、优享、滴滴特快可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "pattern": "default",
+              "expireTag": "2024-03-03 23:59:59到期"
+            },
+            {
+              "kind": "coupon",
+              "tone": "expired",
+              "amount": {
+                "symbol": "¥",
+                "value": "30",
+                "sub": {
+                  "pre": "支付",
+                  "value": "9.9",
+                  "post": "元抵"
+                }
+              },
+              "title": "特价快车：9.9元一口价",
+              "scope": "快车、优享、滴滴特快可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "pattern": "default",
+              "expireTag": "2024-03-03 23:59:59到期"
+            },
+            {
+              "kind": "coupon",
+              "tone": "expired",
+              "amount": {
+                "value": "8",
+                "unit": "折"
+              },
+              "title": "新春福利专车立减券",
+              "scope": "快车、优享、滴滴特快可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "pattern": "default",
+              "expireTag": "2024-03-03 23:59:59到期"
+            }
+          ]
+        },
+        {
+          "id": "expired-benefits",
+          "dividerLabel": "权益卡",
+          "items": [
+            {
+              "kind": "benefit",
+              "tone": "expired",
+              "amount": {
+                "value": "3",
+                "unit": "次"
+              },
+              "title": "快车快速应答",
+              "pattern": "default",
+              "meta": {
+                "mode": "available",
+                "available": "3",
+                "showUsage": false
+              },
+              "expireTag": "2024-03-03 23:59:59到期"
+            },
+            {
+              "kind": "benefit",
+              "tone": "expired",
+              "amount": {
+                "value": "3",
+                "unit": "次"
+              },
+              "title": "机场贵宾厅",
+              "meta": {
+                "total": "3",
+                "remain": "3",
+                "showUsage": true
+              },
+              "pattern": "airport",
+              "cornerBadge": {
+                "kind": "verified",
+                "text": "已实名"
+              },
+              "expireTag": "2024-03-03 23:59:59到期"
+            }
+          ]
+        },
+        {
+          "id": "expired-codes",
+          "dividerLabel": "兑换码",
+          "items": [
+            {
+              "kind": "code",
+              "tone": "expired",
+              "image": "bawang",
+              "title": "霸王茶姬8折券",
+              "codeLabel": "券码",
+              "code": "JASHDJABS2932305",
+              "expireTag": "2024-03-03 23:59:59到期"
+            },
+            {
+              "kind": "code",
+              "tone": "expired",
+              "image": "chaowan",
+              "title": "超级碗小吃兑换券",
+              "codeLabel": "券码",
+              "code": "JASHDJABS2932305",
+              "expireTag": "2024-03-03 23:59:59到期"
+            }
+          ]
+        }
+      ]
+    },
+    "used": {
+      "frameHeight": 812,
+      "navTitle": "历史券",
+      "navShowRightIcon": false,
+      "bodyGap": 8,
+      "activeTab": "used",
+      "historyTabs": [
+        {
+          "id": "expired",
+          "label": "已过期"
+        },
+        {
+          "id": "used",
+          "label": "已使用"
+        }
+      ],
+      "bottomBarText": null,
+      "notice": "仅展示过期7天内的优惠券记录",
+      "endText": null,
+      "groups": [
+        {
+          "id": "used-coupons",
+          "dividerLabel": null,
+          "items": [
+            {
+              "kind": "coupon",
+              "tone": "used",
+              "amount": {
+                "symbol": "¥",
+                "value": "10"
+              },
+              "title": "高管权权权最多十个字券券券",
+              "scope": "快车、优享、滴滴特快可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "pattern": "default",
+              "expireTag": "2024-03-03 23:59:59到期"
+            },
+            {
+              "kind": "coupon",
+              "tone": "used",
+              "amount": {
+                "symbol": "¥",
+                "value": "30",
+                "sub": {
+                  "pre": "支付",
+                  "value": "9.9",
+                  "post": "元抵"
+                }
+              },
+              "title": "特价快车：9.9元一口价",
+              "scope": "快车、优享、滴滴特快可用",
+              "note": "这句话可配置，我是可配置可配置",
+              "pattern": "default",
+              "expireTag": "2024-03-03 23:59:59到期"
+            }
+          ]
+        }
+      ]
+    },
+    "detail": {
+      "frameHeight": 812,
+      "detailPage": true,
+      "navShowRightIcon": false,
+      "bottomBarText": null,
+      "endText": null,
+      "groups": null,
+      "detailCard": {
+        "kind": "coupon",
+        "amount": {
+          "value": "8",
+          "unit": "折"
+        },
+        "title": "新春福利专车立减券",
+        "scope": "快车、优享、滴滴特快可用",
+        "note": "这句话可配置，我是可配置可配置",
+        "expireTag": "2024-03-03 23:59:59到期",
+        "expireTagPlain": true,
+        "pattern": "default"
+      },
+      "listItems": [
+        {
+          "label": "订单类型",
+          "value": "自费用车入口可用"
+        },
+        {
+          "label": "制度限制",
+          "value": "加班、办公地点通勤"
+        },
+        {
+          "label": "可用车型",
+          "value": "舒适专车、六座商务可用"
+        },
+        {
+          "label": "支付方式",
+          "value": "个人支付抵扣"
+        },
+        {
+          "label": "8折券",
+          "value": "需支付订单金额80%，最多抵扣100元"
+        },
+        {
+          "label": "订单金额",
+          "value": "满1元可用"
+        },
+        {
+          "label": "可用时间",
+          "value": "2024-01-11 17:53:01 至 2024-01-11\n17:53:01"
+        },
+        {
+          "label": "起点可用城市",
+          "value": "抚顺、葫芦岛"
+        },
+        {
+          "label": "使用规则说明",
+          "value": "优惠券仅限一次性使用，不可拆分，不可找零，不可转让、转增他人"
+        },
+        {
+          "label": "其他规则",
+          "value": "优惠券仅限一次性使用，不可拆分，不可找零，不可转让、转增他人"
+        }
+      ]
+    },
+    "detail-inactive": {
+      "frameHeight": 812,
+      "detailPage": true,
+      "navShowRightIcon": false,
+      "bottomBarText": null,
+      "endText": null,
+      "groups": null,
+      "noticeBanner": "激活条件：所在企业完成首单且完成资质认证",
+      "detailCard": {
+        "kind": "coupon",
+        "tone": "inactive",
+        "amount": {
+          "value": "8",
+          "unit": "折"
+        },
+        "title": "新春福利专车立减券",
+        "scope": "快车、优享、滴滴特快可用",
+        "note": "这句话可配置，我是可配置可配置",
+        "cornerBadge": {
+          "kind": "inactive",
+          "text": "待激活"
+        },
+        "expireTag": "2024-03-03 23:59:59到期",
+        "expireTagPlain": true,
+        "pattern": "default"
+      },
+      "listItems": [
+        {
+          "label": "订单类型",
+          "value": "自费用车入口可用"
+        },
+        {
+          "label": "制度限制",
+          "value": "加班、办公地点通勤"
+        },
+        {
+          "label": "可用车型",
+          "value": "舒适专车、六座商务可用"
+        },
+        {
+          "label": "支付方式",
+          "value": "个人支付抵扣"
+        },
+        {
+          "label": "8折券",
+          "value": "需支付订单金额80%，最多抵扣100元"
+        },
+        {
+          "label": "订单金额",
+          "value": "满1元可用"
+        },
+        {
+          "label": "可用时间",
+          "value": "2024-01-11 17:53:01 至 2024-01-11\n17:53:01"
+        },
+        {
+          "label": "起点可用城市",
+          "value": "抚顺、葫芦岛"
+        },
+        {
+          "label": "使用规则说明",
+          "value": "优惠券仅限一次性使用，不可拆分，不可找零，不可转让、转增他人"
+        },
+        {
+          "label": "其他规则",
+          "value": "优惠券仅限一次性使用，不可拆分，不可找零，不可转让、转增他人"
+        }
+      ]
+    },
+    "detail-benefit": {
+      "frameHeight": 812,
+      "detailPage": true,
+      "navShowRightIcon": false,
+      "bottomBarText": null,
+      "endText": null,
+      "groups": null,
+      "bottomButton": "去使用",
+      "detailCard": {
+        "kind": "benefit",
+        "amount": {
+          "value": "3",
+          "unit": "次"
+        },
+        "title": "机场贵宾厅",
+        "meta": {
+          "total": "3",
+          "remain": "3",
+          "showUsage": true
+        },
+        "cornerBadge": {
+          "kind": "verified",
+          "text": "已实名"
+        },
+        "expireTag": "2024-03-03 23:59:59到期",
+        "expireTagPlain": true,
+        "pattern": "airport"
+      },
+      "listItems": [
+        {
+          "label": "到期时间",
+          "value": "2024-01-01 17:54:30"
+        },
+        {
+          "label": "次数",
+          "value": "3"
+        },
+        {
+          "label": "开通机场",
+          "value": "查看开通机场列表",
+          "link": true
+        },
+        {
+          "label": "起点可用城市",
+          "value": "抚顺、葫芦岛"
+        },
+        {
+          "label": "其他说明",
+          "value": "1、机场贵宾厅单次后撤休息服务（2小时／次）\n2、服务包含：精美茶点、报刊书籍、WIFI上网、手机充电、视听娱乐、餐食\n3、可以免费携带2岁及2岁以下儿童一位"
+        }
+      ]
+    }
+  }
+}

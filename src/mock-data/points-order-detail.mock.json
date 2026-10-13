@@ -1,0 +1,111 @@
+{
+  "pageTitle": "订单详情",
+  "navTitle": "滴滴企业版",
+  "product": {
+    "title": "爱奇艺会员月卡",
+    "image": "iqiyi",
+    "price": {
+      "points": "37",
+      "cash": "2"
+    }
+  },
+  "forms": [
+    {
+      "title": "使用人信息",
+      "rows": [
+        { "label": "会员卡号", "value": "13587653767" },
+        { "label": "会员姓名", "value": "赵秋寒" }
+      ]
+    },
+    {
+      "title": "订单信息",
+      "rows": [
+        { "label": "兑换时间", "value": "2024-01-04 17:50:30" },
+        { "label": "订单ID", "value": "2937462305" },
+        { "label": "到期时间", "value": "2024-01-04 17:50:30" },
+        { "label": "订单状态", "value": "待充值" }
+      ]
+    }
+  ],
+  "usage": {
+    "title": "使用须知",
+    "items": [
+      "20元升舱券，最高抵20元，生效后7天过过期；有效期内每天12:00 - 13:00可用。",
+      "企业支付快车升专车可用。",
+      "仅限本人使用。"
+    ]
+  },
+  "variants": {
+    "benefit": {
+      "product": {
+        "title": "40元高铁站列餐代金券",
+        "image": "railCoupon",
+        "price": {
+          "points": "37",
+          "cash": "2"
+        }
+      },
+      "forms": [
+        {
+          "title": "订单信息",
+          "rows": [
+            { "label": "兑换时间", "value": "2024-01-04 17:50:30" },
+            { "label": "订单ID", "value": "2937462305" },
+            { "label": "到期时间", "value": "2024-01-04 17:50:30" },
+            { "label": "张数", "value": "1" },
+            { "label": "剩余张数", "value": "1" },
+            { "label": "可用站点/车次", "value": "查看可用站点/车次列表", "type": "link" },
+            { "label": "申请原因", "value": "去使用", "type": "button" }
+          ]
+        }
+      ]
+    },
+    "code": {
+      "product": {
+        "title": "霸王茶姬7折券",
+        "image": "teaCoupon",
+        "price": {
+          "points": "37",
+          "cash": "2"
+        }
+      },
+      "forms": [
+        {
+          "title": "订单信息",
+          "rows": [
+            { "label": "兑换时间", "value": "2024-01-04 17:50:30" },
+            { "label": "订单ID", "value": "2937462305" },
+            { "label": "到期时间", "value": "2024-01-04 17:50:30" },
+            { "label": "券码", "value": "JASHDJABS2932305", "action": "复制", "type": "code" }
+          ]
+        }
+      ]
+    },
+    "physical": {
+      "address": {
+        "status": "已发货",
+        "carrier": "京东快递 JD876472384898376",
+        "detail": "北京北京市昌平区沙河地区景苑小区1202",
+        "name": "张彩霞",
+        "phone": "135****9765"
+      },
+      "product": {
+        "title": "洽洽 鲜切薯条醇香原味 非膨化",
+        "image": "chips",
+        "price": {
+          "points": "37",
+          "cash": "2"
+        }
+      },
+      "forms": [
+        {
+          "title": "订单信息",
+          "rows": [
+            { "label": "兑换时间", "value": "2024-01-04 17:50:30" },
+            { "label": "订单ID", "value": "2937462305" }
+          ]
+        }
+      ]
+    }
+  }
+}
