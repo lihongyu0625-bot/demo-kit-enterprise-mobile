@@ -1,0 +1,291 @@
+.train-home-shell,
+.train-home-shell *,
+.train-home-application__swap,
+.train-home-application__option,
+.train-home-application__submit,
+.train-home-bottom-nav__item {
+  box-sizing: border-box;
+}
+
+/* ============ 帧壳：375 宽，bg 头图 375×230 ============ */
+
+.train-home-shell {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  font-family: var(--font-family-ui-cn);
+}
+
+.train-home-hero {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 230px;
+}
+
+.train-home-hero__image {
+  display: block;
+  width: 375px;
+  height: 230px;
+  object-fit: cover;
+}
+
+/* 顶部导航浮层（白底半透明政策胶囊覆盖头图之上） */
+.train-home-top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+}
+
+.train-home-top .train-top__back-icon {
+  color: var(--color-white);
+}
+
+.train-home-top .train-top__policy {
+  background: var(--color-alpha-black-30);
+  backdrop-filter: blur(10px);
+}
+
+.train-home-top .train-top__policy-icon,
+.train-home-top .train-top__policy span {
+  color: var(--color-white);
+}
+
+/* ============ 主列：351 宽 mx12，pt94 ============ */
+
+.train-home-main {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  width: 351px;
+  margin-left: 12px;
+  padding-top: 94px;
+  padding-bottom: 110px;
+}
+
+.train-home-intro h1 {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.train-home-intro p {
+  margin: 4px 0 0;
+  color: #09397f;
+  line-height: 22px;
+  font-size: 14px;
+}
+
+/* ============ 填写卡片：白底 r8 p(16,12) gap16，351×285 ============ */
+
+.train-home-application {
+  display: grid;
+  gap: 16px;
+  padding: 16px 12px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+
+.train-home-application__plan {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.train-home-application__plan-title {
+  flex: none;
+  color: var(--color-alpha-black-84);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.train-home-application__plan-divider {
+  width: 1px;
+  height: 12px;
+  background: var(--color-alpha-black-8);
+}
+
+.train-home-application__plan-placeholder {
+  overflow: hidden;
+  color: var(--color-alpha-black-60);
+  font-size: 14px;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.train-home-application__chevron {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  color: var(--color-alpha-black-36);
+}
+
+.train-home-divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--color-alpha-black-8);
+}
+
+/* 城市对行：16 Medium + swap32 */
+.train-home-application__route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.train-home-application__route span {
+  color: var(--color-alpha-black-84);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.train-home-application__swap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.train-home-application__swap-icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+/* 日期行：16 Medium + 12 Regular 灰 */
+.train-home-application__date {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.train-home-application__date strong {
+  color: var(--color-alpha-black-84);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.train-home-application__date span {
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* 选项行：checkbox16 + 14 Regular，h22 gap8 */
+.train-home-application__options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.train-home-application__option {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+/* 复用 common/MultiSelect（18→16，Figma 2500:24762：16×16 边 0.889px 12% r5.33） */
+.train-home-application__option-check {
+  width: 16px;
+  height: 16px;
+  border-width: 0.9px;
+  border-radius: 5.3px;
+}
+
+/* 文字 span 排除 MultiSelect 的框与勾（两者都是 span，
+   否则 color 污染 currentColor 勾变黑） */
+.train-home-application__option span:not([class*=common-multi-select]) {
+  color: var(--color-alpha-black-60);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* 提交按钮：h44 胶囊蓝渐变（同机票首页按钮） */
+.train-home-application__submit {
+  height: 44px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-blue-40) 0%, var(--color-blue-50) 100%);
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+/* ============ banner：351×90 ============ */
+
+.train-home-banner {
+  display: block;
+  width: 351px;
+  height: 90px;
+}
+
+/* ============ 底部水印：pt20 ============ */
+
+.train-home-watermark {
+  padding-top: 20px;
+}
+
+/* ============ 底部标签栏：白底吸底 + footer ============ */
+
+.train-home-bottom-nav {
+  position: absolute;
+  inset: auto 0 0;
+  background: var(--color-white);
+}
+
+.train-home-bottom-nav__bar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 10px 12px 0;
+  min-height: 50px;
+}
+
+.train-home-bottom-nav__item {
+  display: grid;
+  justify-items: center;
+  gap: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.train-home-bottom-nav__icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-alpha-black-84);
+}
+
+.train-home-bottom-nav__label {
+  color: var(--color-alpha-black-60);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.train-home-bottom-nav__footer {
+  background: var(--color-white);
+}

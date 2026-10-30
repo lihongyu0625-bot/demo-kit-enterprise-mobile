@@ -26,6 +26,14 @@
   position: relative;
   min-height: 812px;
   padding-top: 98px;
+  /* ui-structural-rules.md S3 姿势 B：flex 纵向布局 + 尾部 IPhoneFooter margin-top:auto 吸底，
+     修复前内容不足 812px 时 footer 悬在半空 */
+  display: flex;
+  flex-direction: column;
+}
+
+.room-detail-screen__footer {
+  margin-top: auto;
 }
 
 .room-detail-backdrop {

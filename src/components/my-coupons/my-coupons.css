@@ -136,7 +136,9 @@
 /* 主体：Figma 2499:16150 —— top156 起步；内部滚动（导航+选项卡吸顶，仅卡片区滚动） */
 .my-coupons__body {
   position: absolute;
-  top: 156px;
+  /* 顶部与选项卡底对齐（nav92 + tabs48 = 140）：上滑内容由选项卡盖住，
+     与选项卡的 16px 视觉间距用 padding-top 表达，避免内容在选项卡下方凭空截断 */
+  top: 140px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -145,7 +147,7 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  padding: 0 12px;
+  padding: 16px 12px 0;
   overflow-y: auto;
   overflow-x: hidden;
   overscroll-behavior: contain;
@@ -158,7 +160,7 @@
 }
 
 .my-coupons__body--code {
-  padding: 0 13px;
+  padding: 16px 13px 0;
 }
 
 /* 提示行：Figma 2501:17610 */
@@ -282,12 +284,15 @@
   color: rgba(234, 95, 30, 0.5);
 }
 
+/* 行高 0：¥ 盒不参与基线行的上下延展（62 行高盒曾把行撑到 ~67，数字贴行顶导致
+   金额视觉偏上 7~14px）；基线对齐下字形位置只由 baseline 决定，行高不影响 ¥ 与
+   数字的相对对齐，行高=数字盒 42 → 金额在卡内垂直居中 */
 .my-coupons__amount-symbol {
   margin: 0;
   font-family: var(--font-family-ui-number);
   font-weight: 700;
   font-size: 16px;
-  line-height: 62px;
+  line-height: 0;
   color: inherit;
   text-align: center;
 }
@@ -318,10 +323,11 @@
   gap: 2px;
 }
 
-/* Figma 2414:40377：sub 卡主行 h42 —— symbol 盒高压 42（行高 62 溢出可见），
-   基线对齐下 ¥ 与数字字底齐平且主行高保持 42，不破坏 h114 卡高 */
+/* Figma 2414:40377：sub 卡主行 h42 —— symbol 盒高压 42 + 行高 62（盒内基线 38），
+   主行高保持 ~43，数字盒与「支付9.9元抵」sub 行的块体在卡内整体居中，不破坏 h114 卡高 */
 .my-coupons__amount--with-sub .my-coupons__amount-symbol {
   height: 42px;
+  line-height: 62px;
 }
 
 .my-coupons__amount-sub {
@@ -559,95 +565,21 @@
   color: #99ddb6;
 }
 
-/* ============ 印章：Figma 2421:45236 组91 ============ */
+/* ============ 印章：切图 162×138（@3x → 54×46）白描边透明底 ============ */
 .my-coupons__stamp {
   position: absolute;
   bottom: 0;
   right: 0;
   width: 54px;
   height: 46px;
-  overflow: hidden;
-  opacity: 0.32;
   pointer-events: none;
-}
-
-.my-coupons__stamp-ring {
-  position: relative;
-  width: 58px;
-  height: 58.35px;
-}
-
-.my-coupons__stamp-ring-inner {
-  position: absolute;
-  top: 3.62px;
-  left: 3.6px;
-  width: 50.81px;
-  height: 51.11px;
-  border: 1.04px solid rgba(0, 0, 0, 0.6);
-  border-radius: 48.37px;
-}
-
-.my-coupons__stamp-ring::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 58px;
-  height: 58.35px;
-  border: 2.08px solid rgba(0, 0, 0, 0.6);
-  border-radius: 48.37px;
-}
-
-.my-coupons__stamp-text {
-  position: absolute;
-  top: 9.97px;
-  left: 7.29px;
-  width: 43.25px;
-  height: 38.06px;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12.49px;
-  line-height: 20.82px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.6);
-  transform: rotate(-32.15deg) skewX(-0.31deg);
-  white-space: nowrap;
-}
-
-.my-coupons__stamp-deco {
-  position: absolute;
-  top: 2.08px;
-  left: 2.03px;
-  width: 43.05px;
-  height: 40.18px;
-  transform: rotate(-66deg) scaleY(-1);
-}
-
-.my-coupons__stamp-circle--1 {
-  position: absolute;
-  top: 8.77px;
-  left: 8.24px;
-  width: 28.45px;
-  height: 28.45px;
-  transform: rotate(-56deg);
-}
-
-.my-coupons__stamp-circle--2 {
-  position: absolute;
-  top: 14.67px;
-  left: 14.14px;
-  width: 28.45px;
-  height: 28.45px;
-  transform: rotate(-3deg) scaleY(-1);
 }
 
 /* ============ 权益卡第二行：Figma 2421:44823 容器1872 ============ */
 .my-coupons__benefit-meta {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 8px;
   width: 100%;
 }
@@ -817,13 +749,20 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   background: var(--color-white);
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.04);
 }
 
+/* 图标+文字水平排列、整组在栏内水平居中；padding-bottom 34 预留 iPhone footer
+   高度 —— 预览台 App.css 把 footer 定为 fixed（脱离文档流、钉在帧底），内层必须
+   自留高度，内容区底边与 footer 顶边间距 0；而吸底按钮的 footer 在 App.css
+   例外清单里恢复 relative（流内），inner 不预留、按钮紧贴 footer（同为间距 0） */
 .my-coupons__bottom-bar-inner {
-  padding: 12px 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 12px 34px;
 }
 
 .my-coupons__bottom-bar-icon {
@@ -863,8 +802,10 @@
 /* 详情主体：Frame 122 @y112（nav92 + gap20）—— 卡 + gap20 + 列表；
    卡与公告栏间 gap10（2501:17143 Frame123 内部）；列表通栏 375，px12 body 内 -mx12 拉通 */
 .my-coupons__body--detail {
-  top: 112px;
+  /* 顶部与导航栏底对齐（nav92）：列表上滑由导航盖住，20px 视觉间距用 padding-top 表达 */
+  top: 92px;
   gap: 0;
+  padding-top: 20px;
 }
 
 .my-coupons__detail-card {

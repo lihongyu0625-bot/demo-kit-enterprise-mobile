@@ -1,0 +1,338 @@
+.train-top,
+.train-top *,
+.train-card,
+.train-card *,
+.train-form-row,
+.train-progress,
+.train-progress *,
+.train-trip,
+.train-trip *,
+.train-bottom-bar,
+.train-bottom-bar *,
+button.train-btn {
+  box-sizing: border-box;
+}
+
+/* ============ 顶部导航（375×88，页头之上） ============ */
+
+.train-top {
+  position: relative;
+  z-index: 2;
+}
+
+.train-top__statusbar {
+  position: relative;
+}
+
+.train-top__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 44px;
+}
+
+.train-top__back {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.train-top__back-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-alpha-black-84);
+}
+
+.train-top__bar h1 {
+  margin: 0;
+  flex: 1;
+  padding-left: 44px;
+  color: var(--color-alpha-black-84);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.train-top__title {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  padding-left: 44px;
+  color: var(--color-alpha-black-84);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.train-top__title-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-alpha-black-36);
+}
+
+.train-top__policy {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 24px;
+  padding: 2px 6px;
+  border: none;
+  border-radius: var(--radius-6);
+  background: var(--color-alpha-black-6);
+  cursor: pointer;
+}
+
+.train-top__policy-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-alpha-black-84);
+}
+
+.train-top__policy span {
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-top__notice {
+  position: absolute;
+  top: 11px;
+  right: 12px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+/* 深色页头（订单详情蓝底头）上的导航：白字浅底胶囊 */
+.train-top--onblue .train-top__back-icon,
+.train-top--onblue .train-top__policy-icon,
+.train-top--onblue .train-top__bar h1 {
+  color: var(--color-white);
+}
+
+.train-top--onblue .train-top__policy {
+  background: var(--color-alpha-black-30);
+}
+
+.train-top--onblue .train-top__policy span {
+  color: var(--color-white);
+}
+
+/* ============ 通用章节卡 ============ */
+
+.train-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+
+.train-card__title {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+/* ============ 表单行 ============ */
+
+.train-form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 22px;
+}
+
+.train-form-row__label {
+  flex: none;
+  color: var(--color-alpha-black-36);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.train-form-row__value {
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+  text-align: right;
+  word-break: break-all;
+}
+
+.train-form-row__value--placeholder {
+  color: var(--color-alpha-black-24);
+}
+
+.train-form-row__action {
+  color: #09397f;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* ============ 行程卡（报价/详情/退票） ============ */
+
+.train-trip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.train-trip__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+}
+
+.train-trip__col--to {
+  align-items: flex-end;
+}
+
+.train-trip__date {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.train-trip__time {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-number);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.train-trip__station {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.train-trip__tag {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background: var(--color-alpha-black-36);
+  color: var(--color-white);
+  font-size: 9px;
+  line-height: 12px;
+  text-align: center;
+}
+
+.train-trip__tag--orange {
+  background: #e5723a;
+}
+
+.train-trip__station-name {
+  color: var(--color-alpha-black-84);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.train-trip__mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-top: 18px;
+}
+
+.train-trip__code {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-number);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.train-trip__stops {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #3c5a86;
+  font-size: 13px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.train-trip__stops-icon {
+  width: 12px;
+  height: 12px;
+  color: #3c5a86;
+}
+
+.train-trip__duration {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 14px;
+}
+
+/* ============ 审批步骤时间线 ============ */
+
+.train-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-left: 2px;
+}
+
+.train-progress__item {
+  display: flex;
+  gap: 8px;
+}
+
+.train-progress__dot {
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+  border-radius: 999px;
+  background: #d9d9d9;
+  flex: none;
+}
+
+.train-progress__text {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.train-progress__time {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 20px;
+}

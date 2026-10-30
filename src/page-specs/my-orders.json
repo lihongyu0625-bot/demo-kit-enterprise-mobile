@@ -1,0 +1,56 @@
+{
+  "id": "my-orders",
+  "pageType": "my-orders",
+  "business": "增长&一体化",
+  "pageTitle": "我的订单",
+  "taskType": "compose-new-page",
+  "reuseLevel": "section-export-components",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeName": "企业级移动端组件库 / 我的订单"
+  },
+  "variants": [
+    { "id": "all", "name": "全部", "figmaNodeId": "2921:53820" },
+    { "id": "car", "name": "用车", "figmaNodeId": "2921:54302" },
+    { "id": "hotel", "name": "酒店", "figmaNodeId": "2921:54678" },
+    { "id": "flight", "name": "机票", "figmaNodeId": "2921:54968" },
+    { "id": "train", "name": "火车票", "figmaNodeId": "2921:55561" }
+  ],
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "componentCandidates": [
+    "iPhone bar",
+    "导航栏",
+    "我的订单/搜索栏",
+    "选项卡",
+    "多选标签",
+    "订单卡-用车",
+    "订单卡-酒店",
+    "订单卡-机票",
+    "订单卡-火车票",
+    "公告栏",
+    "iPhone footer"
+  ],
+  "sections": [
+    "导航栏（我的订单 + 叫车凭证）",
+    "搜索栏（搜索 pill + 筛选）",
+    "主选项卡（全部/用车/酒店/机票/火车票）",
+    "筛选标签（全部/待出行/待支付）",
+    "用车订单卡（等待接驾/已完成/已取消、车辆信息条）",
+    "酒店订单卡（已完成/预订成功、超标标签）",
+    "机票订单卡（待支付航变公告、多段中转、退票置灰、四段隐藏行）",
+    "火车票订单卡（出票中多段、退票置灰）"
+  ],
+  "reuse": [
+    "通用状态栏 + 导航栏（MobileNavBar）",
+    "iPhone footer",
+    "directional-arrow_right2-filled 图标"
+  ],
+  "newDrawnSections": [
+    "搜索栏与筛选入口",
+    "筛选标签（选中蓝边 + 右下角对勾）",
+    "四类订单卡与公告栏、隐藏信息行"
+  ]
+}

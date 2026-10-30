@@ -138,8 +138,9 @@
   white-space: nowrap;
 }
 
+/* V6 会员标签：复用个人中心高清标签（126×48，紫底白字），高 16 → 宽 42 */
 .points-lucky-top__level {
-  width: 64px;
+  width: 42px;
   height: 16px;
 }
 
@@ -1036,7 +1037,7 @@
 }
 
 .points-lucky-enterprise__level img {
-  width: 64px;
+  width: 42px;
   height: 16px;
 }
 
@@ -1381,16 +1382,23 @@
   height: 16px;
 }
 
+/* 帧内吸底底栏：导航 50 + iPhone 页脚 34 = 84（同 personal-center__bottom-tab 模式） */
 .points-lucky-bottom {
   position: relative;
   z-index: 8;
   width: 375px;
-  height: 52px;
-  overflow: hidden;
+  height: 84px;
   background: var(--color-white);
 }
 
 .points-lucky-bag-shell > .points-lucky-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* 页脚（Home 指示条）绝对吸底 */
+.points-lucky-bottom .iphone-footer {
   position: absolute;
   bottom: 0;
   left: 0;

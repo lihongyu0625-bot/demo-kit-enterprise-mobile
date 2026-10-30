@@ -1,0 +1,56 @@
+{
+  "id": "personal-center",
+  "pageType": "personal-center",
+  "business": "增长&一体化",
+  "pageTitle": "个人中心",
+  "taskType": "compose-new-page",
+  "reuseLevel": "section-export-components",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeName": "企业级移动端组件库 / 个人中心"
+  },
+  "variants": [
+    { "id": "staff", "name": "员工·剩余额度", "figmaNodeId": "2939:44955" },
+    { "id": "exec", "name": "高管·限额数+剩余额度", "figmaNodeId": "2939:44957" },
+    { "id": "noPoints", "name": "无限额·积分未开通", "figmaNodeId": "2945:46597" },
+    { "id": "twoCategories", "name": "开通品类数=2", "figmaNodeId": "2940:45441" },
+    { "id": "singleCategory", "name": "开通品类数=1", "figmaNodeId": "2940:45465" }
+  ],
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "componentCandidates": [
+    "iPhone bar",
+    "背景头图",
+    "头部个人信息（含限额 3 态）",
+    "权益卡（员工/高管）",
+    "我的订单（品类数 1-4）",
+    "积分&优惠券（双列/单列）",
+    "入口区卡（11 入口 GRID 4 列）",
+    "banner",
+    "底部小字",
+    "iPhone footer"
+  ],
+  "sections": [
+    "背景头图（375×400 浅蓝渐变）",
+    "头部个人信息（姓名+V4 标签+客服/设置+公司名+限额 pill）",
+    "权益卡（员工企业版·权益 / 高管尊享权益，整图烘焙）",
+    "我的订单卡（标题行+全部订单 / 品类行 / 品类数=1 单行）",
+    "积分&优惠券卡（双列居中带分割线 / 单列 space-between）",
+    "入口区卡（申请/审批/异常处理/发票/报销/推荐有奖/专属活动/钱包/权限说明/常用信息/意见反馈）",
+    "banner（新客享早通勤免单，整图）",
+    "底部小字（V3.8.8 + 服务协议及个人信息处理规则）"
+  ],
+  "reuse": [
+    "通用状态栏（IPhoneBar transparent）",
+    "iPhone footer",
+    "icon-directional-chevron_right_small-outlined 图标"
+  ],
+  "newDrawnSections": [
+    "头部个人信息与限额 pill 三态",
+    "我的订单品类行（品类数 1-4 自适应）",
+    "积分&优惠券双列/单列布局",
+    "入口区卡 4 列 GRID（11 项 4+4+3）"
+  ]
+}

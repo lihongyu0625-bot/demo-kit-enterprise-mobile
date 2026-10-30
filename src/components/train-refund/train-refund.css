@@ -1,0 +1,267 @@
+.train-refund-shell,
+.train-refund-shell *,
+.train-refund-group__input,
+.train-refund-bottom__cancel,
+.train-refund-bottom__submit {
+  box-sizing: border-box;
+}
+
+/* ============ 帧壳：375×1253 ============ */
+
+.train-refund-shell {
+  position: relative;
+  width: 375px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  font-family: var(--font-family-ui-cn);
+}
+
+.train-refund-shell .train-top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  background: var(--color-bg-gray-2);
+}
+
+.train-refund-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 351px;
+  margin-left: 12px;
+  padding-top: 100px;
+  padding-bottom: 112px;
+}
+
+/* ============ 乘客块 ============ */
+
+.train-refund-passenger {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-alpha-black-8);
+}
+
+.train-refund-passenger__row1 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.train-refund-passenger__name {
+  margin: 0;
+  flex: 1;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.train-refund-passenger__status {
+  margin: 0;
+  color: var(--color-blue-50);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-refund-passenger__price {
+  margin: 0;
+  color: #333;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-refund-passenger__seat {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-refund-passenger__row3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.train-refund-passenger__seat-tag {
+  color: var(--color-blue-50);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.train-refund-passenger__id {
+  color: #666;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* ============ 原因分组 ============ */
+
+.train-refund-group + .train-refund-group {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-alpha-black-8);
+}
+
+.train-refund-group__head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.train-refund-group__tag {
+  flex: none;
+  padding: 0 4px;
+  border-radius: 2px;
+  background: rgba(20, 115, 255, 0.1);
+  color: var(--color-blue-50);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.train-refund-group__tag--orange {
+  background: rgba(254, 112, 22, 0.1);
+  color: #fe7016;
+}
+
+.train-refund-group__title {
+  margin: 0;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.train-refund-group__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 4px;
+}
+
+.train-refund-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 42px;
+}
+
+.train-refund-option__label {
+  color: #333;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* 输入框占位 */
+.train-refund-group__input {
+  height: 40px;
+  padding: 9px 12px;
+  border-radius: var(--radius-6);
+  background: var(--color-bg-gray-2);
+  color: #999;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* 审批说明 */
+.train-refund-approval-note {
+  margin: 0;
+  color: #999;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* 关于退票文案 */
+.train-refund-about {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+  line-height: 20px;
+  white-space: pre-line;
+}
+
+/* ============ 吸底操作 ============ */
+
+.train-refund-bottom {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  background: var(--color-white);
+}
+
+.train-refund-bottom__content {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  height: 60px;
+  padding: 0 12px;
+}
+
+.train-refund-bottom__title {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.train-refund-bottom__price {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  color: var(--color-blue-50);
+  font-family: var(--font-family-ui-number);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.train-refund-bottom__currency {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.train-refund-bottom__detail {
+  margin: 0;
+  margin-left: auto;
+  color: #333;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.train-refund-bottom__actions {
+  display: flex;
+  gap: 12px;
+  height: 34px;
+  padding: 0 12px 8px;
+}
+
+.train-refund-bottom__cancel {
+  flex: 1;
+  height: 34px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-gray-2);
+  color: #333;
+  font-size: 12px;
+  line-height: 34px;
+  cursor: pointer;
+}
+
+.train-refund-bottom__submit {
+  flex: 2;
+  height: 34px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-blue-40) 0%, var(--color-blue-50) 60%);
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 34px;
+  cursor: pointer;
+}

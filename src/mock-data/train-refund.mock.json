@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "title": "确认退票",
+    "noticeLabel": "预订须知"
+  },
+  "tripCard": {
+    "departDate": "01月18日 周二",
+    "departTime": "06:35",
+    "fromStation": "北京南",
+    "fromTag": "过",
+    "arriveDate": "01月18日 周二",
+    "arriveTime": "07:25",
+    "toStation": "上海虹桥",
+    "toTag": "终",
+    "trainCode": "G6803",
+    "stopsLabel": "经停信息",
+    "duration": "4小时10分",
+    "passengers": [
+      {
+        "name": "刘新",
+        "seat": "二等座 04车 08D座",
+        "seatTag": "靠窗",
+        "idNumber": "13012**********598",
+        "status": "待乘车",
+        "price": "¥234"
+      }
+    ]
+  },
+  "reasonCard": {
+    "title": "请选择退票原因",
+    "groups": [
+      {
+        "tag": "因公",
+        "tagTone": "brand",
+        "title": "因公退票",
+        "options": [
+          { "label": "行程变更", "checked": true },
+          { "label": "出行时间选择错误", "checked": false },
+          { "label": "坐席选择错误", "checked": false },
+          { "label": "其他", "checked": false }
+        ],
+        "inputPlaceholder": "请填写原因，最多15字"
+      },
+      {
+        "tag": "因私",
+        "tagTone": "orange",
+        "title": "因私退票",
+        "options": [
+          { "label": "个人原因改变计划", "checked": false }
+        ]
+      }
+    ]
+  },
+  "approvalCard": {
+    "title": "退票手续费审批",
+    "note": "本次审批仅针对费用归属进行确认，不会对实际退票操作产生影响",
+    "rows": [
+      { "label": "审批人", "value": "郑恒大" }
+    ]
+  },
+  "aboutCard": {
+    "title": "关于退票",
+    "text": "退票后差旅单火车票可订次数不会恢复，需申请新差旅单；\n开车前"
+  },
+  "bottomBar": {
+    "refundTitle": "退款金额",
+    "price": "600",
+    "priceDetail": "票价:￥560.5  手续费:￥20",
+    "cancelLabel": "取消退票",
+    "submitLabel": "确认退票"
+  }
+}

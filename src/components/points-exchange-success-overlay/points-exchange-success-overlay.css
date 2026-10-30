@@ -19,6 +19,8 @@
   width: 375px;
   height: 812px;
   background: var(--color-alpha-black-60);
+  /* ui-structural-rules.md S6：遮罩显式声明层级（此前靠 DOM 顺序隐式层叠，脆弱） */
+  z-index: 1;
 }
 
 .points-exchange-success-overlay__statusbar {

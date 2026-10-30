@@ -1,0 +1,430 @@
+{
+  "navTitle": "我的订单",
+  "navRightText": "叫车凭证",
+  "searchPlaceholder": "输入出行人姓名搜索订单",
+  "filterLabel": "筛选",
+  "tabs": [
+    { "id": "all", "label": "全部" },
+    { "id": "car", "label": "用车" },
+    { "id": "hotel", "label": "酒店" },
+    { "id": "flight", "label": "机票" },
+    { "id": "train", "label": "火车票" }
+  ],
+  "chips": [
+    { "id": "all", "label": "全部", "selected": true },
+    { "id": "upcoming", "label": "待出行", "selected": false },
+    { "id": "unpaid", "label": "待支付", "selected": false }
+  ],
+  "cards": [],
+  "variants": {
+    "all": {
+      "activeTab": "all",
+      "frameHeight": 1133,
+      "cards": [
+        {
+          "kind": "car",
+          "icon": "carOrange",
+          "typeLabel": "专车",
+          "payLabel": "个人支付",
+          "status": "等待接驾",
+          "from": "便利蜂・尚东数字山谷店",
+          "fromTags": ["升舱"],
+          "to": "泓源・新时代",
+          "price": "¥12.9",
+          "timeNote": "2023-3-3 22:48 叫车",
+          "riderNote": "尾号3421乘车",
+          "vehicle": ["京KBE715", "白色", "丰田卡罗拉"],
+          "actions": ["联系司机"]
+        },
+        {
+          "kind": "car",
+          "icon": "carBlue",
+          "typeLabel": "专车",
+          "payLabel": "企业支付",
+          "extraLabel": "代叫",
+          "status": "已完成",
+          "from": "上地彩虹大厦-西南门",
+          "fromTags": ["升舱", "超标"],
+          "to": "回龙观龙禧苑北店嘉园南区-北门",
+          "price": "¥74.2",
+          "timeNote": "2023-3-3 22:48 叫车",
+          "riderNote": "刘梦瑶乘车",
+          "actions": ["一键返程", "再来一单"]
+        },
+        {
+          "kind": "hotel",
+          "icon": "bed",
+          "typeLabel": "酒店",
+          "payLabel": "因公",
+          "status": "已完成",
+          "name": "普吉岛奈娜巴黎戴高乐吉姆度假酒店",
+          "price": "¥1220",
+          "dateRange": "2023-3-6 至 2023-3-12  共6晚",
+          "room": "豪华双床房",
+          "guestNote": "周瑜眸入住",
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["再次预订"]
+        },
+        {
+          "kind": "flight",
+          "icon": "airplane",
+          "typeLabel": "机票",
+          "payLabel": "因公",
+          "status": "待支付",
+          "price": "¥2800",
+          "segments": [
+            {
+              "from": "杭州",
+              "to": "上海",
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "国航MF8393",
+              "passengerNote": "刘培乘坐"
+            }
+          ],
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["去支付"],
+          "primaryAction": true
+        },
+        {
+          "kind": "train",
+          "icon": "train",
+          "typeLabel": "火车票",
+          "payLabel": "因公",
+          "status": "已退票",
+          "dimmed": true,
+          "price": "¥1254",
+          "segments": [
+            {
+              "from": "北京南",
+              "to": "上海虹桥",
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "G1866",
+              "passengerNote": "刘培乘坐"
+            }
+          ],
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["再次预订"]
+        }
+      ]
+    },
+    "car": {
+      "activeTab": "car",
+      "frameHeight": 812,
+      "cards": [
+        {
+          "kind": "car",
+          "icon": "carOrange",
+          "typeLabel": "专车",
+          "payLabel": "个人支付",
+          "status": "等待接驾",
+          "from": "便利蜂・尚东数字山谷店",
+          "fromTags": ["升舱"],
+          "to": "泓源・新时代",
+          "price": "¥12.9",
+          "timeNote": "2023-3-3 22:48 叫车",
+          "riderNote": "尾号3421乘车",
+          "vehicle": ["京KBE715", "白色", "丰田卡罗拉"],
+          "actions": ["联系司机"]
+        },
+        {
+          "kind": "car",
+          "icon": "carBlue",
+          "typeLabel": "专车",
+          "payLabel": "企业支付",
+          "extraLabel": "代订",
+          "status": "已完成",
+          "from": "上地彩虹大厦-西南门",
+          "fromTags": ["升舱", "超标"],
+          "to": "回龙观龙禧苑北店嘉园南区-北门",
+          "price": "¥74.2",
+          "timeNote": "2023-3-3 22:48 叫车",
+          "riderNote": "刘梦瑶乘车",
+          "actions": ["一键返程", "再来一单"]
+        },
+        {
+          "kind": "car",
+          "icon": "carBlue",
+          "typeLabel": "快车",
+          "payLabel": "企业支付",
+          "status": "已完成",
+          "from": "汤立路奥北南区北门",
+          "to": "团结湖公园南门生活广场",
+          "price": "¥36.5",
+          "timeNote": "2023-3-3 22:48 叫车",
+          "riderNote": "刘梦瑶乘车",
+          "actions": ["一键返程", "再来一单"]
+        },
+        {
+          "kind": "car",
+          "icon": "carBlue",
+          "typeLabel": "快车",
+          "payLabel": "企业支付",
+          "status": "已取消",
+          "dimmed": true,
+          "from": "汤立路奥北南区北门",
+          "to": "团结湖公园南门生活广场",
+          "price": "¥36.5",
+          "timeNote": "2023-3-3 22:48 叫车",
+          "riderNote": "刘梦瑶乘车",
+          "actions": ["一键返程", "再来一单"]
+        }
+      ]
+    },
+    "hotel": {
+      "activeTab": "hotel",
+      "frameHeight": 812,
+      "cards": [
+        {
+          "kind": "hotel",
+          "icon": "bed",
+          "typeLabel": "酒店",
+          "payLabel": "因公",
+          "status": "已完成",
+          "name": "普吉岛奈娜巴黎戴高乐吉姆度假酒店",
+          "price": "¥1220",
+          "dateRange": "2023-3-6 至 2023-3-12  共6晚",
+          "room": "豪华双床房",
+          "guestNote": "周瑜眸入住",
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["再次预订"]
+        },
+        {
+          "kind": "hotel",
+          "icon": "bed",
+          "typeLabel": "酒店",
+          "payLabel": "因公",
+          "extraLabel": "代订",
+          "status": "预订成功",
+          "name": "北京上地清河高铁站亚朵S酒店",
+          "nameTags": ["超标"],
+          "price": "¥1220",
+          "dateRange": "2023-3-6 至 2023-3-12  共6晚",
+          "room": "大床房",
+          "guestNote": "周瑜眸、李欢欢等5人入住",
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["查看位置", "联系酒店"]
+        },
+        {
+          "kind": "hotel",
+          "icon": "bed",
+          "typeLabel": "酒店",
+          "payLabel": "因公",
+          "extraLabel": "代订",
+          "status": "预订成功",
+          "name": "三亚铂睿精品海景酒店",
+          "price": "¥3320",
+          "dateRange": "2023-3-6 至 2023-3-12  共6晚",
+          "room": "大床房",
+          "guestNote": "周瑜眸、李欢欢等5人入住",
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["再次预订"]
+        }
+      ]
+    },
+    "flight": {
+      "activeTab": "flight",
+      "frameHeight": 1336,
+      "cards": [
+        {
+          "kind": "flight",
+          "icon": "airplane",
+          "typeLabel": "机票",
+          "payLabel": "因公",
+          "status": "已出票",
+          "price": "¥2800",
+          "segments": [
+            {
+              "from": "杭州",
+              "to": "上海",
+              "tags": ["超标"],
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "国航MF8393",
+              "passengerNote": "刘培乘坐"
+            }
+          ],
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["再次预订"]
+        },
+        {
+          "kind": "flight",
+          "icon": "airplane",
+          "typeLabel": "机票",
+          "payLabel": "因公",
+          "status": "待支付",
+          "notice": "当前行程已发生航变，请注意查看",
+          "price": "¥6220",
+          "segments": [
+            {
+              "from": "杭州",
+              "to": "乌鲁木齐",
+              "transfer": "(中转武汉)",
+              "tags": ["航变", "超标"],
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "国航MF8393、山航MU2378",
+              "passengerNote": "刘培乘坐"
+            },
+            {
+              "from": "上海",
+              "to": "杭州",
+              "transfer": "(中转武汉)",
+              "tags": ["超标"],
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "国航MF8393、山航MU2378",
+              "passengerNote": "刘培乘坐"
+            }
+          ],
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["去支付"],
+          "primaryAction": true
+        },
+        {
+          "kind": "flight",
+          "icon": "airplane",
+          "typeLabel": "机票",
+          "payLabel": "因公",
+          "status": "已退票",
+          "dimmed": true,
+          "price": "¥2800",
+          "segments": [
+            {
+              "from": "乌鲁木齐",
+              "to": "广州",
+              "tags": ["超标"],
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "国航MF8393",
+              "passengerNote": "刘培乘坐"
+            }
+          ],
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["再次预订"]
+        },
+        {
+          "kind": "flight",
+          "icon": "airplane",
+          "typeLabel": "机票",
+          "payLabel": "因公",
+          "status": "已出票",
+          "price": "¥2800",
+          "segments": [
+            {
+              "from": "杭州",
+              "to": "上海",
+              "tags": ["超标"],
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "国航MF8393",
+              "passengerNote": "刘培乘坐"
+            },
+            {
+              "from": "上海",
+              "to": "杭州",
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "国航MF8393",
+              "passengerNote": "刘培乘坐"
+            },
+            {
+              "from": "杭州",
+              "to": "乌鲁木齐",
+              "transfer": "(中转武汉)",
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "国航MF8393、山航HU7279",
+              "passengerNote": "刘培乘坐"
+            },
+            {
+              "from": "乌鲁木齐",
+              "to": "北京",
+              "transfer": "(中转武汉)",
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "国航MF8393、山航HU7279",
+              "passengerNote": "刘培乘坐"
+            }
+          ],
+          "bookTime": "2023-3-6 12:45 预订",
+          "hiddenNote": "还有2条航班信息被隐藏，点击卡片查看全部信息",
+          "actions": ["再次预订"]
+        }
+      ]
+    },
+    "train": {
+      "activeTab": "train",
+      "frameHeight": 939,
+      "cards": [
+        {
+          "kind": "train",
+          "icon": "train",
+          "typeLabel": "火车票",
+          "payLabel": "因公",
+          "status": "已出票",
+          "price": "¥1254",
+          "segments": [
+            {
+              "from": "北京南",
+              "to": "上海虹桥",
+              "tags": ["超标"],
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "G1866",
+              "passengerNote": "刘培乘坐"
+            }
+          ],
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["再次预订"]
+        },
+        {
+          "kind": "train",
+          "icon": "train",
+          "typeLabel": "火车票",
+          "payLabel": "因公",
+          "status": "出票中",
+          "price": "¥1254",
+          "segments": [
+            {
+              "from": "北京南",
+              "to": "上海虹桥",
+              "tags": ["超标"],
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "G1866",
+              "passengerNote": "刘培乘坐"
+            },
+            {
+              "from": "上海虹桥",
+              "to": "呼和浩特",
+              "tags": ["超标", "改签"],
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "G2388",
+              "passengerNote": "刘培乘坐"
+            },
+            {
+              "from": "上海虹桥",
+              "to": "呼和浩特",
+              "tags": ["超标", "改签"],
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "G2388",
+              "passengerNote": "刘培乘坐"
+            }
+          ],
+          "bookTime": "2023-3-6 12:45 预订"
+        },
+        {
+          "kind": "train",
+          "icon": "train",
+          "typeLabel": "火车票",
+          "payLabel": "因公",
+          "status": "已退票",
+          "dimmed": true,
+          "price": "¥1254",
+          "segments": [
+            {
+              "from": "北京南",
+              "to": "上海虹桥",
+              "tags": ["超标"],
+              "departTime": "2023-2-02 02:16 出发",
+              "tripNote": "G1866",
+              "passengerNote": "刘培乘坐"
+            }
+          ],
+          "bookTime": "2023-3-6 12:45 预订",
+          "actions": ["再次预订"]
+        }
+      ]
+    }
+  }
+}

@@ -5,6 +5,9 @@ import { PointsCouponShowcase, PointsEarnMissionCard } from '../../components/po
 import PointsLuckyBagBusinessPreview from './points/PointsLuckyBagBusinessPreview'
 import PointsMallBusinessPreview from './points/PointsMallBusinessPreview'
 import PointsSuperSaveDetailBusinessPreview from './points/PointsSuperSaveDetailBusinessPreview'
+import TripPageBusinessPreview from './points/TripPageBusinessPreview'
+import MyOrdersBusinessPreview from './my/MyOrdersBusinessPreview'
+import PersonalCenterBusinessPreview from './my/PersonalCenterBusinessPreview'
 
 function withUsage(items, page, options = {}) {
   const { displayNames = {}, overrides = {} } = options
@@ -33,6 +36,10 @@ const mallPageUsage = {
 
 const superSaveDetailPageUsage = {
   pages: ['超级省详情'],
+}
+
+const tripPageUsage = {
+  pages: ['行程页'],
 }
 
 function PointsMissionStatesPreview() {
@@ -215,6 +222,19 @@ const sections = [
       usage: superSaveDetailPageUsage,
     })),
   },
+  {
+    id: 'points-trip-page',
+    title: '行程页类',
+    description: '承接行程页的时间轴组、已预订行程卡、AI 推荐卡、AI 规划大卡和品类入口/空态。',
+    items: TripPageBusinessPreview.showcaseList.map((item) => ({
+      ...item,
+      anchorLabel: item.anchorLabel || item.name,
+      displayName: item.name.replace(/^行程 · /, ''),
+      usage: tripPageUsage,
+    })),
+  },
+  ...MyOrdersBusinessPreview.sections,
+  ...PersonalCenterBusinessPreview.sections,
   {
     id: 'points-lucky-benefits',
     title: '权益服务类',

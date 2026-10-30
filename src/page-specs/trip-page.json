@@ -1,0 +1,67 @@
+{
+  "id": "trip-page",
+  "pageType": "trip-page",
+  "business": "增长&一体化",
+  "pageTitle": "行程页",
+  "taskType": "compose-new-page",
+  "reuseLevel": "section-export-components",
+  "source": {
+    "figmaFileKey": "VT4ForkkHiOWsQsdOvy75R",
+    "figmaNodeName": "企业级移动端组件库 / 行程页"
+  },
+  "variants": [
+    { "id": "booked-partial", "name": "已预订行程-部分行程未预订", "figmaNodeId": "2789:24080" },
+    { "id": "booked-no-resource", "name": "已预订行程-暂无酒店资源", "figmaNodeId": "2789:24322" },
+    { "id": "booked-loading", "name": "已预订行程-推荐加载中", "figmaNodeId": "2789:22548" },
+    { "id": "booked-empty", "name": "已预订行程-空态", "figmaNodeId": "2789:22548" },
+    { "id": "unbooked-single", "name": "未预订行程-单个差旅单", "figmaNodeId": "2789:25091" },
+    { "id": "unbooked-multi", "name": "未预订行程-多个差旅单", "figmaNodeId": "2789:25345" },
+    { "id": "unbooked-no-hotel", "name": "未预订行程-未开通酒店", "figmaNodeId": "2789:25606" },
+    { "id": "unbooked-no-train", "name": "未预订行程-未开火车票", "figmaNodeId": "2789:25825" },
+    { "id": "unbooked-hotel-only", "name": "未预订行程-只开通酒店", "figmaNodeId": "2789:26082" },
+    { "id": "unbooked-loading", "name": "未预订行程-加载", "figmaNodeId": "2789:26462" },
+    { "id": "unbooked-skeleton", "name": "未预订行程-骨架屏", "figmaNodeId": "2789:26612" },
+    { "id": "external-collapsed", "name": "预订差旅单外行程-收起态", "figmaNodeId": "2789:26790" },
+    { "id": "external-expanded", "name": "预订差旅单外行程-展开态", "figmaNodeId": "2789:26896" }
+  ],
+  "viewport": {
+    "width": 375,
+    "height": 812
+  },
+  "componentCandidates": [
+    "iPhone bar",
+    "行程页-顶部tab",
+    "行程页-背景",
+    "首页-底部标签栏",
+    "行程页-品类入口",
+    "行程页-AI规划大卡",
+    "行程页-时间轴日期",
+    "行程页-时间轴品类节点",
+    "行程页-行程卡-机票",
+    "行程页-行程卡-酒店",
+    "行程页-行程卡-用车",
+    "行程页-AI推荐卡片-机票",
+    "行程页-AI推荐卡片-酒店",
+    "行程页-行程卡-用车推荐"
+  ],
+  "sections": [
+    "顶部 tab（行程/订单 + 分享）",
+    "时间轴（日期行/分割线/品类节点）",
+    "已预订行程卡（机票/酒店/用车）",
+    "AI 推荐卡（灰卡/蓝紫虚线卡/暂无资源/加载）",
+    "AI 规划大卡（头部/差旅单信息/内嵌时间轴/合计与操作按钮）",
+    "品类入口（订机票/订酒店/订火车票）",
+    "空态与骨架屏"
+  ],
+  "reuse": [
+    "通用状态栏",
+    "通用底部标签栏（PageBottomNav）",
+    "行程页-背景渐变",
+    "行程页-时间轴日期/品类节点"
+  ],
+  "newDrawnSections": [
+    "AI 规划大卡（渐变头图 + 小滴推荐头 + 内嵌时间轴 + 合计/重新规划/一键预订）",
+    "AI 推荐卡片（灰卡与蓝紫虚线卡两种壳）",
+    "品类入口与空态、骨架屏"
+  ]
+}

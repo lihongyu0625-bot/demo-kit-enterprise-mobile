@@ -1,0 +1,54 @@
+{
+  "nav": {
+    "title": "车次详情",
+    "policyLabel": "差旅制度"
+  },
+  "dateSwitch": {
+    "prev": "前一天",
+    "current": "12月13日 周三",
+    "next": "后一天"
+  },
+  "trip": {
+    "departDate": "01月18日 周二",
+    "departTime": "06:35",
+    "fromStation": "北京南",
+    "fromTag": "过",
+    "arriveDate": "01月18日 周二",
+    "arriveTime": "07:25",
+    "toStation": "上海虹桥",
+    "toTag": "终",
+    "trainCode": "G6703",
+    "stopsLabel": "经停信息",
+    "duration": "4小时10分"
+  },
+  "seatClasses": [
+    {
+      "name": "商务座",
+      "price": "￥1260",
+      "status": "有票",
+      "overBudget": true
+    },
+    {
+      "name": "一等座",
+      "price": "￥720",
+      "status": "有票",
+      "highlight": true
+    },
+    {
+      "name": "二等座",
+      "price": "￥560.5",
+      "status": "抢票"
+    }
+  ],
+  "bottomBar": {
+    "price": "460",
+    "hint": "需登陆12306账号",
+    "freeLabel": "官方免费购票",
+    "buttonLabel": "预订",
+    "bundle": {
+      "tag": "出行忧",
+      "benefits": ["85折用车券*3张", "赠乘车意外保障"],
+      "price": "+¥10"
+    }
+  }
+}

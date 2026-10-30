@@ -14,9 +14,8 @@ import patternDefaultImage from '../../assets/my-coupons/pattern-default.svg'
 import patternHotelImage from '../../assets/my-coupons/pattern-hotel.svg'
 import patternRailImage from '../../assets/my-coupons/pattern-rail.svg'
 import punchLineImage from '../../assets/my-coupons/punch-line.svg'
-import stampCircle1Image from '../../assets/my-coupons/stamp-circle1.svg'
-import stampCircle2Image from '../../assets/my-coupons/stamp-circle2.svg'
-import stampDecoImage from '../../assets/my-coupons/stamp-deco.svg'
+import stampExpiredImage from '../../assets/my-coupons/stamp-expired.png'
+import stampUsedImage from '../../assets/my-coupons/stamp-used.png'
 import mockData from '../../mock-data/my-coupons.mock.json'
 import { IPhoneFooter } from '../common/IPhoneFooter'
 import { MobileNavBar } from '../common/MobileNavBar'
@@ -167,18 +166,12 @@ function MyCouponsPunch() {
   )
 }
 
-/* 印章：Figma 2421:45236 组91 —— w54 h46 opacity32，双圈 + 斜排文字 + 装饰 */
+/* 印章：切图 162×138（@3x → 54×46），白描边透明底，按状态取图 */
+const stampImageMap = { 已过期: stampExpiredImage, 已使用: stampUsedImage }
+
 function MyCouponsStamp({ text }) {
   return (
-    <div aria-hidden="true" className="my-coupons__stamp">
-      <div className="my-coupons__stamp-ring">
-        <div className="my-coupons__stamp-ring-inner" />
-        <p className="my-coupons__stamp-text">{text}</p>
-        <Img alt="" className="my-coupons__stamp-deco" src={stampDecoImage} />
-        <Img alt="" className="my-coupons__stamp-circle my-coupons__stamp-circle--1" src={stampCircle1Image} />
-        <Img alt="" className="my-coupons__stamp-circle my-coupons__stamp-circle--2" src={stampCircle2Image} />
-      </div>
-    </div>
+    <Img alt="" className="my-coupons__stamp" src={stampImageMap[text] || stampExpiredImage} />
   )
 }
 
@@ -525,7 +518,8 @@ export function MyCouponsPreviewFrame({ data = mockData, variant = 'default' }) 
       ) : merged.bottomBarText ? (
         <MyCouponsBottomBar text={merged.bottomBarText} />
       ) : (
-        <IPhoneFooter className="my-coupons__iphone-footer" />
+        /* 裸 footer（历史券/详情等无吸底栏页面）：透明底，仅 home indicator 压页面背景 */
+        <IPhoneFooter className="my-coupons__iphone-footer" transparent />
       )}
     </div>
   )

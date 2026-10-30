@@ -1,0 +1,212 @@
+{
+  "tabs": ["行程", "订单"],
+  "bottomNav": [
+    { "icon": "home", "label": "我的" },
+    { "icon": "schedule", "label": "行程", "active": true },
+    { "icon": "bag", "label": "小福包" },
+    { "icon": "workspace", "label": "工作台" },
+    { "icon": "profile", "label": "我的" }
+  ],
+  "entries": {
+    "hint": "暂无行程，这里可以预订机酒火~",
+    "items": ["订机票", "订酒店", "订火车票"]
+  },
+  "planHeader": {
+    "title": "小滴为您推荐",
+    "subtitle": "专属差旅行程"
+  },
+  "orderInfo": "事由-部门出差去上海调研",
+  "flightCard": {
+    "airline": "国航·CA1819",
+    "status": "已出票",
+    "departTime": "19:20",
+    "departStation": "北京首都T2",
+    "duration": "2小时05分",
+    "arriveTime": "21:25",
+    "arriveStation": "上海浦东T2",
+    "passengerLabel": "乘机人",
+    "passengers": "李志、张三等4人",
+    "rideHint": "深夜抵达机场，提前预约更安心",
+    "rideAction": "去打车"
+  },
+  "hotelCard": {
+    "checkin": "11月1日入住",
+    "nights": "3晚",
+    "checkout": "11月4日离店",
+    "status": "已确认",
+    "name": "如家-上海外滩城隍庙小南门地铁站店",
+    "address": "上海希尔顿酒店外滩路2单元2403",
+    "roomLabel": "房间信息",
+    "room": "舒适大床房 1间",
+    "guestLabel": "入住人",
+    "guest": "李志",
+    "rideHint": "深夜抵达机场，提前预约更安心",
+    "rideAction": "去打车"
+  },
+  "carCard": {
+    "title": "预约用车·快车",
+    "tag": "2小时包车",
+    "status": "预约成功",
+    "time": "12:30",
+    "timeLabel": "出发",
+    "from": "泓源新时代·B座",
+    "to": "北京首都国际机场T3航站楼",
+    "riderLabel": "乘车人",
+    "rider": "李志"
+  },
+  "aiFlight": {
+    "departTime": "08:00",
+    "departStation": "首都T2",
+    "duration": "2h20m",
+    "arriveTime": "10:20",
+    "arriveStation": "虹桥T2",
+    "priceUnit": "￥",
+    "price": "923",
+    "meta": ["国航CA1519", "波音777(大)", "准点率89%"],
+    "reason": "最近一年预订了13次，有早餐",
+    "action": "一键订"
+  },
+  "aiHotel": {
+    "photo": "hotelPhotoAi",
+    "name": "上海南山万科云城JW地铁店",
+    "address": "浦东新区崮山路688号",
+    "priceUnit": "￥",
+    "price": "923",
+    "specs": "舒适大床房 有窗 含早餐 24㎡",
+    "reason": "最近一年预订了13次，有早餐",
+    "action": "一键订"
+  },
+  "aiTrain": {
+    "departTime": "17:00",
+    "departStation": "北京南",
+    "departBadge": "始",
+    "arriveTime": "23:35",
+    "arriveStation": "杭州东",
+    "arriveBadge": "终",
+    "duration": "4h35m",
+    "price": "923",
+    "meta": ["高铁G104", "二等座"],
+    "reason": "最近一年预订了13次，有早餐",
+    "action": "一键订"
+  },
+  "aiFlightVariants": [
+    { "label": "默认", "data": {} },
+    {
+      "label": "中转",
+      "data": {
+        "transfer": { "total": "全程2h20m", "station": "厦门", "verb": "转", "stop": "停55m" },
+        "meta": ["国航CA1519", "山航SC2113"]
+      }
+    },
+    {
+      "label": "经停",
+      "data": {
+        "transfer": { "total": "全程2h20m", "station": "厦门", "verb": "停", "stop": "停55m" },
+        "meta": ["国航CA1519", "山航SC2113"]
+      }
+    },
+    { "label": "+1天", "data": { "plusDay": true } },
+    { "label": "超标", "data": { "prices": { "corp": "923", "personal": "135" } } },
+    {
+      "label": "字数过多",
+      "data": {
+        "departStation": "最多五个字",
+        "arriveStation": "超过滚动动",
+        "reason": "最近一年预订了13次，有早餐最近一年预订了13次，有早餐最近一年预订了13次，有早餐"
+      }
+    }
+  ],
+  "aiTrainVariants": [
+    { "label": "默认", "data": {} },
+    {
+      "label": "中转",
+      "data": {
+        "transfer": { "total": "全程2h20m", "station": "济南站", "verb": "转", "stop": "停55m" },
+        "meta": [
+          { "serial": "1", "text": "高铁G104 二等座" },
+          { "serial": "2", "text": "普快Z282 硬座" }
+        ]
+      }
+    },
+    { "label": "+1天", "data": { "plusDay": true } },
+    { "label": "超标", "data": { "prices": { "corp": "923", "personal": "135" } } },
+    {
+      "label": "字数过多",
+      "data": {
+        "departStation": "最多五个字",
+        "arriveStation": "超过滚动",
+        "transfer": { "total": "全程2h20m", "station": "乌鲁木齐", "verb": "转", "stop": "停55m" },
+        "meta": [
+          { "serial": "1", "text": "高铁G104 二等座" },
+          { "serial": "2", "text": "普快Z282 硬座" }
+        ],
+        "reason": "最近一年预订了13次，有早餐最近一年预订了13次，有早餐最近一年预订了13次，有早餐"
+      }
+    }
+  ],
+  "aiHotelVariants": [
+    { "label": "默认", "data": {} },
+    { "label": "超标", "data": { "price": "456", "priceTone": "orange", "priceNote": "企业+个人" } },
+    {
+      "label": "字数过多",
+      "data": {
+        "reason": "最近一年预订了13次，有早餐最近一年预订了13次，有早餐最近一年预订了13次，有早餐"
+      }
+    }
+  ],
+  "aiHotelOptions": [
+    {
+      "photo": "hotelPhoto1",
+      "name": "上海南山万科云城JW地铁店",
+      "address": "浦东新区崮山路688号",
+      "price": "456",
+      "specs": "舒适大床房 有窗 含早餐 24㎡"
+    },
+    {
+      "photo": "hotelPhoto2",
+      "name": "上海虹桥枢纽铂骊酒店",
+      "address": "闵行区申长路 1588弄1号",
+      "price": "389",
+      "specs": "高级大床房 有窗 含早餐 24㎡"
+    },
+    {
+      "photo": "hotelPhoto3",
+      "name": "上海金桥中心智选假日酒店",
+      "address": "浦东新区红枫路599号",
+      "price": "512",
+      "specs": "标准大床房 有窗 含早餐 22㎡"
+    }
+  ],
+  "planFooter": {
+    "totalLabel": "合计",
+    "totalUnit": "￥",
+    "total": "1923",
+    "taxNote": "含机建燃油¥90",
+    "detailLabel": "明细",
+    "reasonMulti": "最近一年预订了 11 次，有早餐",
+    "action": "一键订",
+    "replan": "重新规划",
+    "bookAll": "一键预订"
+  },
+  "noResource": {
+    "title": "暂无酒店资源",
+    "action": "重新推荐",
+    "name": "上海南山万科云城JW地铁店",
+    "address": "浦东新区崮山路688号",
+    "price": "923",
+    "specs": "舒适大床房 有窗 含早餐 24㎡"
+  },
+  "nodes": {
+    "bookedFlight": "机票 前往上海",
+    "bookedAiHotel": "上海 酒店还没预订 推荐如下酒店：",
+    "bookedHotel": "酒店 上海 3晚",
+    "bookedAiFlight": "返回 北京 航班还没预订 推荐如下航班：",
+    "externalCar": "北京",
+    "change": "更换"
+  },
+  "empty": {
+    "title": "让差旅，更有序",
+    "desc": "这里将为你呈现正在进行与待出发的行程"
+  },
+  "relatedOnly": "仅看与我相关的行程"
+}

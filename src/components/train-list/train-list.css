@@ -1,0 +1,468 @@
+.train-list-shell,
+.train-list-shell *,
+.train-list-dates__item,
+.train-list-dates__calendar,
+.train-list-chips__chip,
+.train-list-filter-bar__option,
+.train-list-filter-bar__filter {
+  box-sizing: border-box;
+}
+
+/* ============ 帧壳：375×812，渐变头 180 ============ */
+
+.train-list-shell {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  font-family: var(--font-family-ui-cn);
+}
+
+.train-list-hero {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 180px;
+  background: linear-gradient(180deg, #d0e3ff 0%, #f5f7fa 100%);
+}
+
+/* 导航叠在渐变上：列表页导航行 48（44+48=92，对齐 Figma 导航栏 375×92） */
+.train-list-shell .train-top {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+}
+
+/* 导航行 48：标题组整体居中（Figma 2394:9050 组中心=187.5），返回/差旅制度绝对定位不参与 */
+.train-list-shell .train-top__bar {
+  justify-content: center;
+  height: 48px;
+}
+
+.train-list-shell .train-top__title {
+  flex: none;
+  padding-left: 0;
+}
+
+/* 城市间箭头 18×18（Figma 914:15055），墨色随文字 84 */
+.train-list-shell .train-top__title-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-alpha-black-84);
+}
+
+.train-list-shell .train-top__back {
+  top: 12px;
+}
+
+/* 差旅制度（Figma 913:15030）：竖排无底 —— info 20 + 10px/16 文字，高 36 垂直居中于 48 行 */
+.train-list-shell .train-top__policy {
+  flex-direction: column;
+  gap: 0;
+  top: 6px;
+  height: auto;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.train-list-shell .train-top__policy-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* 差旅制度 10px Medium（Figma 列表页导航数据） */
+.train-list-shell .train-top__policy span {
+  font-size: 10px;
+  line-height: 16px;
+}
+
+/* ============ 主列：351 mx12，pt92（导航 44+48） ============ */
+
+.train-list-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 351px;
+  margin-left: 12px;
+  padding-top: 92px;
+  padding-bottom: 76px;
+}
+
+/* ============ 日期筛选条：351×40，pill 60×40 r8，日历 44×40 ============ */
+
+.train-list-dates {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.train-list-dates__items {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.train-list-dates__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 40px;
+  gap: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-8);
+  background: transparent;
+  cursor: pointer;
+}
+
+.train-list-dates__item--active {
+  background: linear-gradient(180deg, #7bb3ff 0%, #0373ff 100%);
+}
+
+.train-list-dates__label {
+  color: var(--color-alpha-black-84);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.train-list-dates__date {
+  font-family: var(--font-family-ui-number);
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.train-list-dates__item--active .train-list-dates__label,
+.train-list-dates__item--active .train-list-dates__date {
+  color: var(--color-white);
+}
+
+.train-list-dates__calendar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-8);
+  background: transparent;
+  cursor: pointer;
+}
+
+.train-list-dates__calendar-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-alpha-black-84);
+}
+
+/* ============ 车站 chips：r6 白底标签（Figma 1353:16315），与日期条间距 12 ============ */
+
+.train-list-chips {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* 多选标签：0.5px 边框（未选 12% / 选中品牌蓝），3+20+3+边框1 = 27 */
+.train-list-chips__chip {
+  position: relative;
+  padding: 3px 10px;
+  border: 0.5px solid var(--color-alpha-black-12);
+  border-radius: var(--radius-6);
+  background: var(--color-white);
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.train-list-chips__chip--active {
+  border-color: var(--color-blue-50);
+  color: var(--color-blue-50);
+  font-weight: 500;
+}
+
+/* 不可选项删除线（Figma：上海虹桥） */
+.train-list-chips__chip--strike {
+  text-decoration: line-through;
+}
+
+/* 选中态右下角蓝色勾标（Figma I1353:16299;1355:17259）：1px 内距 + 6px check */
+.train-list-chips__check {
+  position: absolute;
+  right: -0.5px;
+  bottom: -0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  border-radius: 4px 0 4px 0;
+  background: var(--color-blue-50);
+}
+
+.train-list-chips__check-icon {
+  width: 6px;
+  height: 6px;
+  color: var(--color-white);
+}
+
+/* ============ 车次卡片列：351×88 = 12 + 44(顶行) + 4 + 20(座席) + 8（Figma 1353:16669） ============ */
+
+.train-list-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.train-list-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 12px 8px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+
+.train-list-card + .train-list-card {
+  margin-top: 8px;
+}
+
+/* 顶行定高 44（时间 24 + 站行 20），中列 36 内容下沉居中如设计稿 */
+.train-list-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  height: 44px;
+}
+
+/* 左组 230（Figma 容器 3516）：items-center 使 36 高中列在 44 行内垂直居中（下沉 4px） */
+.train-list-card__group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 230px;
+}
+
+.train-list-card__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 54px;
+}
+
+.train-list-card__col--end {
+  align-items: flex-end;
+}
+
+.train-list-card__time {
+  margin: 0;
+  font-family: var(--font-family-ui-number);
+  color: var(--color-alpha-black-84);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.train-list-card__station {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* 始/终徽标（Figma 编组 9）：2% 底 + 0.5px 24% 边框 r3 + 36% 字 */
+.train-list-card__badge {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  border: 0.5px solid var(--color-alpha-black-24);
+  border-radius: var(--radius-3);
+  background: var(--color-alpha-black-2);
+  color: var(--color-alpha-black-36);
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 12px;
+  text-align: center;
+}
+
+.train-list-card__station-name {
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+/* 中列 50（Figma 1353:16648）：用时 16 + 箭头 4 + 车次 16 = 36，由 group 垂直居中 */
+.train-list-card__mid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  width: 50px;
+}
+
+.train-list-card__duration {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+/* 中线 Union 50×4 浅蓝右箭头（Figma 1353:16650，#D0E3FF 资产原样使用） */
+.train-list-card__mid-arrow {
+  display: block;
+  width: 50px;
+  height: 4px;
+}
+
+.train-list-card__code {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+/* 静徽标（Figma 编组 9）：blue-10 底 r3 + blue-50 字 */
+.train-list-card__quiet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-3);
+  background: var(--color-blue-10);
+  color: var(--color-blue-50);
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 12px;
+  text-align: center;
+}
+
+/* 价格列 */
+.train-list-card__price {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.train-list-card__price-currency {
+  color: var(--color-blue-50);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.train-list-card__price-value {
+  font-family: var(--font-family-ui-number);
+  color: var(--color-blue-50);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+/* 座席行（Figma 1353:16636）：4 项两端分布，有票 84 / 候补 36 */
+.train-list-card__seats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-list-card__seat--disabled {
+  color: var(--color-alpha-black-36);
+}
+
+/* ============ 条件筛选悬浮条：白底 r12 351×52 ============ */
+
+.train-list-filter-bar {
+  position: absolute;
+  bottom: 34px;
+  left: 12px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  width: 351px;
+  height: 52px;
+  padding: 0 16px;
+  border-radius: var(--radius-12);
+  background: var(--color-white);
+  box-shadow: 0 -2px 12px var(--color-alpha-black-6);
+}
+
+.train-list-filter-bar__option {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  cursor: pointer;
+}
+
+.train-list-filter-bar__filter {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  cursor: pointer;
+}
+
+.train-list-filter-bar__filter-icon {
+  width: 16px;
+  height: 16px;
+  color: #333;
+}
+
+.train-list-filter-bar__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 12px;
+  height: 12px;
+  padding: 0 2px;
+  border-radius: 999px;
+  background: var(--color-blue-50);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+.train-list-shell__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 375px;
+}

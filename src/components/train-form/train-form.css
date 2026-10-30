@@ -1,0 +1,443 @@
+.train-form-shell,
+.train-form-shell *,
+.train-form-summary__detail,
+.train-form-passenger__edit,
+.train-form-bottom__detail,
+.train-form-bottom__submit {
+  box-sizing: border-box;
+}
+
+/* ============ 帧壳：375×1977 长页 ============ */
+
+.train-form-shell {
+  position: relative;
+  width: 375px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  font-family: var(--font-family-ui-cn);
+}
+
+.train-form-sticky {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  background: var(--color-bg-gray-2);
+}
+
+.train-form-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 351px;
+  margin-left: 12px;
+  padding-top: 100px;
+  padding-bottom: 148px;
+}
+
+/* ============ 行程摘要：白卡 p12 ============ */
+
+.train-form-summary {
+  padding: 12px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+
+.train-form-summary__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.train-form-summary__tag {
+  flex: none;
+  padding: 0 4px;
+  border-radius: 2px;
+  background: var(--color-blue-50);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+}
+
+.train-form-summary__route {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.train-form-summary__arrow {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-36);
+}
+
+.train-form-summary__datetime {
+  margin-left: 4px;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.train-form-summary__detail {
+  flex: none;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-blue-50);
+  font-size: 12px;
+  line-height: 14px;
+  cursor: pointer;
+}
+
+.train-form-summary__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.train-form-summary__meta > span:first-child {
+  color: #666;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.train-form-summary__divider {
+  color: var(--color-alpha-black-12);
+}
+
+.train-form-summary__meta > span:nth-child(3) {
+  color: #666;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.train-form-summary__free {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.train-form-summary__free-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  background: #52cefb;
+  color: var(--color-white);
+  font-size: 9px;
+  font-style: normal;
+  line-height: 14px;
+}
+
+.train-form-summary__free {
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* ============ 乘车人卡 ============ */
+
+.train-form-passenger {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.train-form-passenger__name {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.train-form-passenger__id {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.train-form-passenger__edit {
+  align-self: flex-start;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-blue-50);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.train-form-passenger__required {
+  color: #f93822;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.train-form-passenger__note {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+/* ============ 座席选择 ============ */
+
+.train-form-seat__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.train-form-seat__cells {
+  display: flex;
+  gap: 12px;
+}
+
+.train-form-seat__cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 28px;
+  border-radius: 4px;
+  background: #1f60bb;
+  color: var(--color-white);
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.train-form-seat__cell--empty {
+  background: transparent;
+}
+
+.train-form-seat__label {
+  color: #666;
+  font-size: 11px;
+  line-height: 14px;
+  white-space: pre-line;
+  text-align: center;
+}
+
+.train-form-seat__quiet {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 8px;
+}
+
+.train-form-seat__quiet-note {
+  margin: 0;
+  color: #333;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.train-form-seat__quiet-sub {
+  margin: 0;
+  color: #999;
+  font-size: 10px;
+  line-height: 14px;
+}
+
+/* ============ 保障选项卡 ============ */
+
+.train-form-insurance__list {
+  display: flex;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.train-form-insurance__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-8);
+  background: #f6f8fb;
+}
+
+.train-form-insurance__card--featured {
+  border-color: #fe7016;
+  background: #fff7f0;
+}
+
+.train-form-insurance__head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.train-form-insurance__name {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.train-form-insurance__badge {
+  padding: 0 2px;
+  border-radius: 2px;
+  background: #fff;
+  color: #fe7016;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.train-form-insurance__features {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.train-form-insurance__price {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.train-form-insurance__unit {
+  margin-left: 2px;
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+}
+
+.train-form-insurance__agreement {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+/* ============ 温馨提示 ============ */
+
+.train-form-notice {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* ============ 吸底：条款 + 提交 ============ */
+
+.train-form-bottom {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  background: var(--color-white);
+}
+
+.train-form-bottom__agreement {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 50px;
+  padding: 0 12px;
+}
+
+.train-form-bottom__agreement-icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  color: var(--color-blue-50);
+}
+
+.train-form-bottom__agreement p {
+  margin: 0;
+  color: var(--color-alpha-black-60);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-form-bottom__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 48px;
+  padding: 0 12px;
+}
+
+.train-form-bottom__pay {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.train-form-bottom__pay-label {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.train-form-bottom__price {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  color: var(--color-blue-50);
+}
+
+.train-form-bottom__currency {
+  color: var(--color-blue-50);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.train-form-bottom__price {
+  font-family: var(--font-family-ui-number);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.train-form-bottom__detail {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-alpha-black-84);
+  font-size: 12px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.train-form-bottom__submit {
+  height: 44px;
+  padding: 0 24px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, var(--color-blue-40) 0%, var(--color-blue-50) 100%);
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.train-form-bottom__footer {
+  background: var(--color-white);
+}

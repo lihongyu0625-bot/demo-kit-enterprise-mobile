@@ -25,6 +25,7 @@ const pageHrefMap = {
   超级省详情: '#page-points-super-save-detail',
   商品详情浮层: '#page-points-product-detail-overlay',
   兑换成功浮层: '#page-points-exchange-success-overlay',
+  行程页: '#page-points-trip',
   机票首页: '#page-flight-home',
   '机票首页-因公': '#page-flight-home',
   航班列表页: '#page-flight-list',
@@ -48,6 +49,7 @@ const componentHrefMap = {
   按钮: '#common-button',
   开关: '#common-switch',
   多选: '#common-multi-select',
+  单选: '#common-radio',
   条款栏: '#business-hotel-components',
   小福包底部标签栏: '#common-page-bottom-nav',
 }

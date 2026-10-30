@@ -20,7 +20,6 @@
 }
 
 .preview-sidebar__header,
-.preview-stage__header,
 .placeholder-preview,
 .common-preview,
 .catalog-preview__intro,
@@ -34,7 +33,6 @@
 }
 
 .preview-sidebar__header,
-.preview-stage__header,
 .placeholder-preview,
 .common-preview,
 .catalog-preview__intro,
@@ -65,11 +63,24 @@
   letter-spacing: 0;
 }
 
+.preview-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.preview-sidebar__logo {
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
 .preview-sidebar__title {
-  margin-top: 6px;
+  margin-top: 2px;
   color: var(--color-text-primary);
-  font-size: 20px;
-  line-height: 28px;
+  font-size: 15px;
+  line-height: 22px;
+  white-space: nowrap;
 }
 
 .preview-sidebar__copy,
@@ -267,7 +278,7 @@
   grid-template-rows: auto minmax(0, 1fr);
   align-content: start;
   align-self: stretch;
-  gap: 24px;
+  gap: 16px;
   min-height: 0;
   height: 100vh;
   /* 底部留白放到 canvas 内容流尾部（::after），滚动时可滚过；留在 stage padding 会形成裁切死区，遮挡状态标签 */
@@ -280,7 +291,9 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
-  padding: 22px;
+  /* 通栏形式：无卡片底/边框/阴影，仅保留底部细分隔线与舞台两侧对齐 */
+  padding: 0 4px 14px;
+  border-bottom: 1px solid var(--color-alpha-black-8);
 }
 
 .preview-stage__heading {
@@ -1765,6 +1778,44 @@
   gap: 14px;
 }
 
+.common-radio-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.common-radio-card {
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--color-line-soft);
+  border-radius: 16px;
+  padding: 16px;
+  background: var(--color-white);
+}
+
+.common-radio-card__title {
+  margin: 0;
+  color: var(--color-text-primary);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.common-radio-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.common-radio-card__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 20px;
+}
+
 .common-multi-select-card {
   display: grid;
   gap: 14px;
@@ -2532,6 +2583,15 @@
   background: transparent;
 }
 
+/* 我的订单头部（导航栏含状态栏 + 搜索栏 + 选项卡）与状态栏同容器吸顶，内容从其下方滚过。 */
+.page-case-viewport .my-orders__header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
 /* 业务底部导航位于 iPhone 底部安全区之上。 */
 .page-case-viewport .car-home-default-bottom,
 .page-case-viewport .car-home-full-bottom,
@@ -2539,7 +2599,7 @@
 .page-case-viewport .flight-home-bottom-nav,
 .page-case-viewport .flight-list-bottom-sort,
 .page-case-viewport .hotel-home-business-bottom,
-.page-case-viewport .points-lucky-bag-shell > .points-lucky-bottom {
+.page-case-viewport .personal-center__bottom-tab {
   position: fixed;
   z-index: 90;
   right: 0;
@@ -2591,12 +2651,28 @@
 .page-case-viewport .room-detail-footer .iphone-footer,
 .page-case-viewport .points-exchange-success-overlay__footer-dock .iphone-footer,
 .page-case-viewport .points-product-detail-overlay__footer-dock .iphone-footer,
-.page-case-viewport .my-coupons__bottom-button .iphone-footer {
+.page-case-viewport .my-coupons__bottom-button .iphone-footer,
+.page-case-viewport .train-home-bottom-nav__footer,
+.page-case-viewport .train-quote-bottom__footer,
+.page-case-viewport .train-form-bottom__footer,
+.page-case-viewport .train-refund-bottom__footer {
   position: relative;
   z-index: auto;
   right: auto;
   bottom: auto;
   left: auto;
+}
+
+/* 火车票列表/订单详情页 footer 不嵌在吸底操作区内，自身绝对吸底于帧壳，
+   只需解除视口级 fixed，恢复帧内绝对定位。 */
+.page-case-viewport .train-list-shell__footer,
+.page-case-viewport .train-detail-shell__footer {
+  position: absolute;
+  z-index: auto;
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 0;
 }
 
 .page-case-viewport .page-bottom-nav,
@@ -2617,6 +2693,14 @@
   display: grid;
   gap: 12px;
   width: 375px; /* 与手机视口同宽，状态文案在视口宽度内换行，保证多列等宽对齐 */
+}
+
+/* 合并条目的页面分组头：整行占满，把同一页面的状态块聚在一行段内 */
+.case-preview__group-meta {
+  flex-basis: 100%;
+  display: grid;
+  gap: 4px;
+  margin-top: 16px;
 }
 
 .case-preview__state-meta {
@@ -2656,7 +2740,7 @@
   line-height: 22px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 860px) {
   .preview-workspace {
     grid-template-columns: 1fr;
     height: auto;
@@ -2672,8 +2756,10 @@
     border-bottom: 1px solid var(--color-line-soft);
   }
 
+  /* 栈叠模式下目录独占整行，限制条目拉伸宽度，避免在宽视口下被拉满整屏 */
   .preview-sidebar__nav {
     overflow: visible;
+    max-width: 560px;
   }
 
   .preview-stage {

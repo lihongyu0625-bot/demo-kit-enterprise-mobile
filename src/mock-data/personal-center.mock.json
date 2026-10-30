@@ -1,0 +1,178 @@
+{
+  "userName": "李**",
+  "companyName": "滴滴出行爱情公寓无限公司",
+  "versionText": "V3.8.8",
+  "agreementText": "服务协议及个人信息处理规则",
+  "rightsRole": "staff",
+  "quota": {
+    "mode": "remaining",
+    "label": "个人限额剩余",
+    "value": "1500.00",
+    "unit": "元"
+  },
+  "orderCategories": [
+    {
+      "icon": "car",
+      "label": "用车订单"
+    },
+    {
+      "icon": "hotel",
+      "label": "酒店订单"
+    },
+    {
+      "icon": "flight",
+      "label": "机票订单"
+    },
+    {
+      "icon": "train",
+      "label": "火车票订单"
+    }
+  ],
+  "points": {
+    "mode": "dual",
+    "pointsLabel": "积分",
+    "pointsValue": "134",
+    "couponLabel": "优惠券",
+    "couponValue": "6"
+  },
+  "entries": [
+    {
+      "icon": "apply",
+      "label": "申请"
+    },
+    {
+      "icon": "approval",
+      "label": "审批"
+    },
+    {
+      "icon": "exception",
+      "label": "异常处理"
+    },
+    {
+      "icon": "invoice",
+      "label": "发票"
+    },
+    {
+      "icon": "reimburse",
+      "label": "报销"
+    },
+    {
+      "icon": "referral",
+      "label": "推荐有奖"
+    },
+    {
+      "icon": "activity",
+      "label": "专属活动"
+    },
+    {
+      "icon": "wallet",
+      "label": "钱包"
+    },
+    {
+      "icon": "permission",
+      "label": "权限说明"
+    },
+    {
+      "icon": "frequent",
+      "label": "常用信息"
+    },
+    {
+      "icon": "feedback",
+      "label": "意见反馈"
+    }
+  ],
+  "bottomTabs": [
+    {
+      "label": "首页",
+      "icon": "home",
+      "active": false
+    },
+    {
+      "label": "行程",
+      "icon": "schedule",
+      "active": false
+    },
+    {
+      "label": "小福包",
+      "icon": "bag",
+      "active": false
+    },
+    {
+      "label": "工作台",
+      "icon": "workspace",
+      "active": false
+    },
+    {
+      "label": "我的",
+      "icon": "profile",
+      "active": true
+    }
+  ],
+  "variants": {
+    "staff": {
+      "frameHeight": 872
+    },
+    "exec": {
+      "frameHeight": 872,
+      "rightsRole": "exec",
+      "quota": {
+        "mode": "quotaRemaining",
+        "prefix": "个人限额",
+        "value": "150000.00",
+        "mid": "元/月，剩余",
+        "value2": "150000.00",
+        "unit": "元"
+      },
+      "rightsCount": 24
+    },
+    "noPoints": {
+      "frameHeight": 872,
+      "quota": {
+        "mode": "none",
+        "label": "个人暂无额度限制"
+      },
+      "orderCategories": [
+        {
+          "icon": "car",
+          "label": "用车订单"
+        },
+        {
+          "icon": "hotel",
+          "label": "酒店订单"
+        },
+        {
+          "icon": "flight",
+          "label": "机票订单"
+        }
+      ],
+      "points": {
+        "mode": "single",
+        "couponLabel": "优惠券",
+        "couponValue": "6"
+      }
+    },
+    "twoCategories": {
+      "frameHeight": 872,
+      "orderCategories": [
+        {
+          "icon": "car",
+          "label": "用车订单"
+        },
+        {
+          "icon": "hotel",
+          "label": "酒店订单"
+        }
+      ]
+    },
+    "singleCategory": {
+      "frameHeight": 872,
+      "orderCategories": [
+        {
+          "icon": "car",
+          "label": "用车订单"
+        }
+      ]
+    }
+  },
+  "rightsCount": 21
+}

@@ -44,6 +44,7 @@ import {
   CommonNavBarPreview,
   CommonPageBottomNavPreview,
   CommonPriceDisplayPreview,
+  CommonRadioPreview,
   CommonSwitchPreview,
   CommonTagPreview,
 } from './common/CommonComponentPreviews'
@@ -69,15 +70,20 @@ import HotelListCasePreview from './page-cases/hotel/HotelListCasePreview'
 import HotelOrderDetailCasePreview from './page-cases/hotel/HotelOrderDetailCasePreview'
 import HotelRoomDetailCasePreview from './page-cases/hotel/HotelRoomDetailCasePreview'
 import PointsLuckyBagCasePreview from './page-cases/points/PointsLuckyBagCasePreview'
-import PointsEarnTasksCasePreview from './page-cases/points/PointsEarnTasksCasePreview'
-import PointsProductDetailOverlayCasePreview from './page-cases/points/PointsProductDetailOverlayCasePreview'
-import PointsExchangeSuccessOverlayCasePreview from './page-cases/points/PointsExchangeSuccessOverlayCasePreview'
-import PointsOrderDetailCasePreview from './page-cases/points/PointsOrderDetailCasePreview'
+import PointsProductExchangeCasePreview from './page-cases/points/PointsProductExchangeCasePreview'
 import PointsDetailCasePreview from './page-cases/points/PointsDetailCasePreview'
-import PointsMallCasePreview from './page-cases/points/PointsMallCasePreview'
 import PointsSuperSaveDetailCasePreview from './page-cases/points/PointsSuperSaveDetailCasePreview'
-import PointsBenefitCenterCasePreview from './page-cases/points/PointsBenefitCenterCasePreview'
+import PointsSecondaryPagesCasePreview from './page-cases/points/PointsSecondaryPagesCasePreview'
 import MyCouponsCasePreview from './page-cases/points/MyCouponsCasePreview'
+import TripPageCasePreview from './page-cases/points/TripPageCasePreview'
+import MyOrdersCasePreview from './page-cases/points/MyOrdersCasePreview'
+import PersonalCenterCasePreview from './page-cases/points/PersonalCenterCasePreview'
+import TrainHomeCasePreview from './page-cases/train/TrainHomeCasePreview'
+import TrainListCasePreview from './page-cases/train/TrainListCasePreview'
+import TrainQuoteCasePreview from './page-cases/train/TrainQuoteCasePreview'
+import TrainFormCasePreview from './page-cases/train/TrainFormCasePreview'
+import TrainOrderDetailCasePreview from './page-cases/train/TrainOrderDetailCasePreview'
+import TrainRefundCasePreview from './page-cases/train/TrainRefundCasePreview'
 
 function createPlaceholderItem(config) {
   return function PlaceholderItem() {
@@ -307,6 +313,17 @@ export const previewNavigation = [
         maintenanceHint: '适合后续接入真实表单状态和批量选择交互。',
         component: CommonMultiSelectPreview,
       },
+      {
+        id: 'common-radio',
+        label: '单选',
+        type: 'item',
+        title: '单选',
+        pathLabel: '通用组件 / 单选',
+        description: '统一维护单选圆点组件，适合筛选单选、列表选择等场景。',
+        statusLabel: '已接入',
+        maintenanceHint: '适合后续接入真实表单状态和单选组交互。',
+        component: CommonRadioPreview,
+      },
     ],
   },
   {
@@ -342,9 +359,9 @@ export const previewNavigation = [
         type: 'item',
         title: '增长&一体化业务组件',
         pathLabel: '业务组件 / 增长&一体化',
-        description: '这里集中展示增长&一体化业务下所有可复用组件，当前接入小福包、积分商城和超级省详情相关模块。',
+        description: '这里集中展示增长&一体化业务下所有可复用组件，当前接入小福包、积分商城、超级省详情、行程页、我的订单和个人中心相关模块。',
         statusLabel: '已接入',
-        maintenanceHint: '按增长&一体化业务统一维护，积分、任务、权益和超级省模块直接归入这里。',
+        maintenanceHint: '按增长&一体化业务统一维护，积分、任务、权益、超级省、行程、我的订单和个人中心模块直接归入这里。',
         component: PointsBusinessComponentsPreview,
       },
       {
@@ -905,15 +922,15 @@ export const previewNavigation = [
         type: 'group',
         children: [
           {
-            id: 'page-points-benefit-center',
-            label: '权益中心',
+            id: 'page-points-secondary-pages',
+            label: '二级页',
             type: 'item',
-            title: '权益中心整页案例',
-            pathLabel: '页面案例 / 增长&一体化 / 权益中心',
-            description: '这里展示增长&一体化业务的权益中心页，包含用车权益、商旅权益、品牌会员卡、积分权益和客服权益模块。',
+            title: '二级页整页案例',
+            pathLabel: '页面案例 / 增长&一体化 / 二级页',
+            description: '这里合并展示增长&一体化业务的三个二级页面：权益中心、做任务赚积分、积分商城，画布并排逐页标注，适合横向核对页面层级与模块编排。',
             statusLabel: '已接入',
-            maintenanceHint: '当前挂载的是权益中心-V8 设计稿（2298:50153）拆分后的完整预览。',
-            component: PointsBenefitCenterCasePreview,
+            maintenanceHint: '当前挂载的是权益中心 / 做任务赚积分 / 积分商城三页合并预览。',
+            component: PointsSecondaryPagesCasePreview,
           },
           {
             id: 'page-points-lucky-bag',
@@ -927,28 +944,6 @@ export const previewNavigation = [
             component: PointsLuckyBagCasePreview,
           },
           {
-            id: 'page-points-earn-tasks',
-            label: '做任务赚积分',
-            type: 'item',
-            title: '做任务赚积分整页案例',
-            pathLabel: '页面案例 / 增长&一体化 / 做任务赚积分',
-            description: '这里展示增长&一体化业务的任务积分页，包含用车阶梯任务、任务列表、省立返积分规则和积分获取示例。',
-            statusLabel: '已接入',
-            maintenanceHint: '当前挂载的是做任务赚积分的完整长页预览。',
-            component: PointsEarnTasksCasePreview,
-          },
-          {
-            id: 'page-points-mall',
-            label: '积分商城',
-            type: 'item',
-            title: '积分商城整页案例',
-            pathLabel: '页面案例 / 增长&一体化 / 积分商城',
-            description: '这里展示增长&一体化业务的积分商城整页组装效果，适合核对顶部积分入口、限时秒杀、特惠专区、任务卡和兑换好礼模块。',
-            statusLabel: '已接入',
-            maintenanceHint: '当前挂载的是积分商城默认场景长图拆分后的完整预览。',
-            component: PointsMallCasePreview,
-          },
-          {
             id: 'page-points-super-save-detail',
             label: '超级省详情',
             type: 'item',
@@ -960,37 +955,15 @@ export const previewNavigation = [
             component: PointsSuperSaveDetailCasePreview,
           },
           {
-            id: 'page-points-product-detail-overlay',
-            label: '商品详情浮层',
+            id: 'page-points-product-exchange',
+            label: '商品兑换',
             type: 'item',
-            title: '商品详情浮层整页案例',
-            pathLabel: '页面案例 / 增长&一体化 / 商品详情浮层',
-            description: '这里展示增长&一体化业务的商品详情浮层，适合核对商品头图、套餐包含、使用须知、购买规则和底部兑换按钮。',
+            title: '商品兑换整页案例',
+            pathLabel: '页面案例 / 增长&一体化 / 商品兑换',
+            description: '这里合并展示增长&一体化业务的商品兑换链路三个页面：商品详情浮层、兑换成功浮层、订单详情，按页分组并保留全部状态画布。',
             statusLabel: '已接入',
-            maintenanceHint: '当前挂载的是商品详情浮层完整预览。',
-            component: PointsProductDetailOverlayCasePreview,
-          },
-          {
-            id: 'page-points-exchange-success-overlay',
-            label: '兑换成功浮层',
-            type: 'item',
-            title: '兑换成功浮层整页案例',
-            pathLabel: '页面案例 / 增长&一体化 / 兑换成功浮层',
-            description: '这里展示增长&一体化业务的兑换成功浮层，适合核对成功反馈、商品信息卡片和底部双按钮操作区。',
-            statusLabel: '已接入',
-            maintenanceHint: '当前挂载的是兑换成功浮层完整预览。',
-            component: PointsExchangeSuccessOverlayCasePreview,
-          },
-          {
-            id: 'page-points-order-detail',
-            label: '订单详情',
-            type: 'item',
-            title: '订单详情整页案例',
-            pathLabel: '页面案例 / 增长&一体化 / 订单详情',
-            description: '这里展示增长&一体化业务的订单详情页，包含会员卡类、权益类、带券码类和实物商品类四种订单形态。',
-            statusLabel: '已接入',
-            maintenanceHint: '当前挂载的是订单详情（2407:36621）四变体完整预览。',
-            component: PointsOrderDetailCasePreview,
+            maintenanceHint: '当前挂载的是商品详情浮层（8 态）/ 兑换成功浮层（5 态）/ 订单详情（4 态）三页合并预览。',
+            component: PointsProductExchangeCasePreview,
           },
           {
             id: 'page-points-detail',
@@ -1014,33 +987,117 @@ export const previewNavigation = [
             maintenanceHint: '当前挂载的是我的优惠券（2499:14871）八变体完整预览。',
             component: MyCouponsCasePreview,
           },
+          {
+            id: 'page-points-trip',
+            label: '行程页',
+            type: 'item',
+            title: '行程页整页案例',
+            pathLabel: '页面案例 / 增长&一体化 / 行程页',
+            description:
+              '这里展示增长&一体化业务的行程页，包含已预订行程（部分未预订/暂无酒店资源/推荐加载中/上滑/空态）、未预订行程（单个/多个差旅单、未开通酒店/火车票、只开通酒店、加载、骨架屏）以及预订差旅单外行程（收起/展开）十三种状态。AI 推荐卡各品类变体陈列归入业务组件维护。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是行程页（2789:22548/2789:22652/2789:22720）十三变体完整预览。',
+            component: TripPageCasePreview,
+          },
+          {
+            id: 'page-my-orders',
+            label: '我的订单',
+            type: 'item',
+            title: '我的订单整页案例',
+            pathLabel: '页面案例 / 增长&一体化 / 我的订单',
+            description:
+              '这里展示增长&一体化业务的我的订单页，包含全部、用车、酒店、机票、火车票五种 tab 状态：用车卡（等待接驾/已完成/已取消、车辆信息条）、酒店卡（预订成功/超标）、机票卡（航变公告、多段中转、退票置灰、隐藏信息行）、火车票卡（出票中多段）。',
+            statusLabel: '已接入',
+            maintenanceHint:
+              '当前挂载的是我的订单（2921:53820/54302/54678/54968/55561）五变体完整预览。',
+            component: MyOrdersCasePreview,
+          },
+          {
+            id: 'page-personal-center',
+            label: '个人中心',
+            type: 'item',
+            title: '个人中心整页案例',
+            pathLabel: '页面案例 / 增长&一体化 / 个人中心',
+            description:
+              '这里展示增长&一体化业务的个人中心页，包含员工·剩余额度、高管·限额数+剩余额度、无限额·积分未开通、开通品类数=2、开通品类数=1 五种状态：背景头图、头部个人信息（姓名/V4 标签/客服设置/公司名/限额三态）、权益卡（员工/高管）、我的订单（品类数 1-4）、积分&优惠券（双列/单列）、11 入口 GRID 卡、banner 与底部小字，底部复用首页标签栏（选中态锚定「我的」）。',
+            statusLabel: '已接入',
+            maintenanceHint:
+              '当前挂载的是个人中心（2935:44428/2939:44955/2939:44957/2940:45410/2945:46266）五变体完整预览。',
+            component: PersonalCenterCasePreview,
+          },
         ],
       },
       {
         id: 'group-pages-train',
         label: '火车票',
-        statusLabel: '待补充',
+        statusLabel: '已接入',
         type: 'group',
         children: [
           {
-            id: 'pages-train-placeholder',
-            label: '预留位',
+            id: 'page-train-home',
+            label: '火车票首页',
             type: 'item',
-            title: '火车票页面案例',
-            pathLabel: '页面案例 / 火车票',
-            description: '火车票页面案例的目录位已经预留，后续可以继续补整页输出案例。',
-            statusLabel: '待补充',
-            maintenanceHint: '建议后续放车次页、填单页等完整页面案例。',
-            component: createPlaceholderItem({
-              badge: '页面案例',
-              title: '火车票页面案例预留位',
-              summary: '这里用于承接火车票相关完整页面的最终预览效果。',
-              nextSteps: [
-                '1. 新建火车票页面预览组件',
-                '2. 在注册表里绑定到这里',
-                '3. 统一按页面案例维护',
-              ],
-            }),
+            title: '火车票首页整页案例',
+            pathLabel: '页面案例 / 火车票 / 火车票首页',
+            description: '火车票品类首页（Figma 2392:7864）：背景头图、品类标题、填写卡片（申请单/城市对/日期/只看高铁动车等选项/因公火车票按钮）、运营 banner、底部水印与四入口标签栏（我的订单/联系客服/取票授权/我的12306）。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是火车票首页完整预览。',
+            component: TrainHomeCasePreview,
+          },
+          {
+            id: 'page-train-list',
+            label: '车次列表页',
+            type: 'item',
+            title: '车次列表页整页案例',
+            pathLabel: '页面案例 / 火车票 / 车次列表页',
+            description: '车次列表页（Figma 2394:9029）：渐变头、城市对导航、日期筛选条（选中渐变胶囊）、车站筛选 chips、6 张车次卡片（时刻 Barlow 22/座席串/价格）与底部条件筛选悬浮条。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是车次列表页完整预览。',
+            component: TrainListCasePreview,
+          },
+          {
+            id: 'page-train-quote',
+            label: '车次详情页',
+            type: 'item',
+            title: '车次详情页整页案例',
+            pathLabel: '页面案例 / 火车票 / 车次详情页',
+            description: '车次详情页/报价页（Figma 2394:18372）：前后日切换、行程卡、三座席列（商务座置灰+超出差标/一等座高亮/二等座抢票）、价格说明条与吸底保障包预订条。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是车次详情页完整预览。',
+            component: TrainQuoteCasePreview,
+          },
+          {
+            id: 'page-train-form',
+            label: '填写订单页',
+            type: 'item',
+            title: '填写订单页整页案例',
+            pathLabel: '页面案例 / 火车票 / 填写订单页',
+            description: '填写订单页（Figma 2422:15705）：行程摘要（免登12306）、乘车人信息、座席选择（静音车厢）、保障选项四卡、审批进度、差旅备注、支付报销、温馨提示与吸底提交条。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是填写订单页完整预览。',
+            component: TrainFormCasePreview,
+          },
+          {
+            id: 'page-train-order-detail',
+            label: '订单详情页',
+            type: 'item',
+            title: '订单详情页整页案例',
+            pathLabel: '页面案例 / 火车票 / 订单详情页',
+            description: '订单详情页（Figma 2422:35576）：蓝底渐变头部（订单号/已出票）、操作按钮行、下单金额卡、行程卡（检票口/乘客座席）、出行尊享、联系信息、费用归属、审批信息与进度时间线、报销信息、温馨提示。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是订单详情页完整预览。',
+            component: TrainOrderDetailCasePreview,
+          },
+          {
+            id: 'page-train-refund',
+            label: '退票页',
+            type: 'item',
+            title: '确认退票页整页案例',
+            pathLabel: '页面案例 / 火车票 / 退票页',
+            description: '选择退票人/确认退票页（Figma 2433:39031）：行程与乘客信息、退票原因（因公/因私分组、深色单选、原因输入框）、退票手续费审批、关于退票说明与吸底退款金额操作条。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是确认退票页完整预览。',
+            component: TrainRefundCasePreview,
           },
         ],
       },

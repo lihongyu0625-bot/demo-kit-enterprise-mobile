@@ -4,6 +4,7 @@ import { ChevronAction } from '../../components/common/ChevronAction'
 import { IPhoneBar } from '../../components/common/IPhoneBar'
 import { MobileNavBar } from '../../components/common/MobileNavBar'
 import { MultiSelect } from '../../components/common/MultiSelect'
+import { Radio } from '../../components/common/Radio'
 import { BottomWatermark } from '../../components/common/BottomWatermark'
 import { IPhoneFooter } from '../../components/common/IPhoneFooter'
 import { PageBottomNav } from '../../components/common/PageBottomNav'
@@ -253,6 +254,10 @@ const commonUsageMap = {
     pages: ['酒店填单页', '机票填单页', '用车冒泡页', '航班列表页'],
     components: ['条款栏勾选框', '乘机人选择框', '车型价格勾选态', '筛选多选标签'],
   },
+  radio: {
+    pages: ['行程页'],
+    components: ['「仅看与我相关的行程」筛选单选'],
+  },
   iphoneBar: {
     pages: [
       '酒店首页-因公',
@@ -491,6 +496,48 @@ export function CommonMultiSelectPreview() {
                   key={`${group.tone}-${state.label}`}
                 >
                   <MultiSelect
+                    checked={state.checked}
+                    disabled={state.disabled}
+                    label={`${group.title}${state.label}`}
+                    tone={group.tone}
+                  />
+                  <span>{state.label}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </CommonPreviewShell>
+  )
+}
+
+export function CommonRadioPreview() {
+  const states = [
+    { label: '选中', checked: true },
+    { label: '未选中', checked: false },
+    { label: '选中禁用', checked: true, disabled: true },
+    { label: '未选禁用', checked: false, disabled: true },
+  ]
+
+  return (
+    <CommonPreviewShell
+      eyebrow="通用组件"
+      title="单选预览"
+      summary="对齐设计稿中的 18px 单选圆点，支持品牌色、深色、选中、未选中和禁用状态。"
+      usage={commonUsageMap.radio}
+    >
+      <div className="common-radio-showcase">
+        {[
+          { title: '品牌色', tone: 'brand' },
+          { title: '深色', tone: 'dark' },
+        ].map((group) => (
+          <article className="common-radio-card" key={group.tone}>
+            <h4 className="common-radio-card__title">{group.title}</h4>
+            <div className="common-radio-card__grid">
+              {states.map((state) => (
+                <div className="common-radio-card__item" key={`${group.tone}-${state.label}`}>
+                  <Radio
                     checked={state.checked}
                     disabled={state.disabled}
                     label={`${group.title}${state.label}`}

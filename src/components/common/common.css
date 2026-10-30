@@ -295,6 +295,15 @@
   transform: translateY(-1px) rotate(-45deg);
 }
 
+/* ===== 单选圆点：Figma 2299:65333 —— 状态图直接用设计稿导出 SVG（assets/common/radio），
+   选中=实心主题色+白对勾，未选=白底+12% 细环，此处只负责尺寸 ===== */
+.common-radio {
+  display: block;
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
 .common-tag--selectable {
   position: relative;
   box-sizing: border-box;

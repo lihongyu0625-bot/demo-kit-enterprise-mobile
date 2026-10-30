@@ -1,0 +1,539 @@
+.personal-center,
+.personal-center * {
+  box-sizing: border-box;
+}
+
+/* 帧壳：375 宽，高度由 mock frameHeight 内联控制（812 / 752）；
+   flex 列布局让底部标签栏 margin-top:auto 恒钉帧底 */
+.personal-center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+  min-height: 812px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-cn);
+}
+
+/* 背景头图：Figma 2927:34635 —— 375×400 浅蓝渐变 */
+.personal-center__header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 375px;
+  height: 400px;
+}
+
+.personal-center .iphone-bar {
+  z-index: 2;
+  /* 吸顶交给 App.css 全局规则（fixed 钉案例视口顶），此处只保层级；
+     flex 列壳会把无 in-flow 内容的 flex 项压缩到 0 高（子元素全为 absolute），
+     状态栏必须保住 44px 自身高度，否则 9:41/图标溢出叠到头部信息上 */
+  flex: none;
+}
+
+/* ============ 头部个人信息：mx12 V gap8（Figma pad=0,12 → 水平边距在帧上） ============ */
+
+.personal-center__header-info {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 12px 0;
+}
+
+/* [row1+公司名 gap0] 分组 */
+.personal-center__header-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* row1：h32 固定，服务列 h40 顶对齐视觉溢出（Figma 容器 1299 同款） */
+.personal-center__header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 32px;
+}
+
+.personal-center__header-row1 {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 32px;
+}
+
+.personal-center__header-name-group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* 姓名：24px Medium 黑84 */
+.personal-center__header-name {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  color: var(--color-alpha-black-84);
+}
+
+/* 姓名后 chevron 24×24 黑36 */
+.personal-center__header-name-chevron {
+  width: 24px;
+  height: 24px;
+  color: var(--color-alpha-black-36);
+}
+
+/* V4 会员标签 53×20 */
+.personal-center__header-v4-tag {
+  width: 53px;
+  height: 20px;
+  flex: none;
+}
+
+/* 服务列组：客服 + 设置 gap16 */
+.personal-center__header-services {
+  display: flex;
+  gap: 16px;
+}
+
+.personal-center__header-service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.personal-center__service-icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+/* 客服/设置文案：10px #09397f */
+.personal-center__service-label {
+  font-size: 10px;
+  line-height: 16px;
+  color: #09397f;
+}
+
+/* 公司名：14px 黑60 */
+.personal-center__header-company {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-alpha-black-60);
+}
+
+/* 限额 pill：h26 r6 bg rgba(5,34,76,5%) px8 py2 gap4 */
+.personal-center__quota {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  height: 26px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(5, 34, 76, 0.05);
+}
+
+.personal-center__quota-text {
+  font-size: 14px;
+  line-height: 22px;
+  color: #09397f;
+}
+
+.personal-center__quota-value {
+  font-family: var(--font-family-ui-number);
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--color-blue-50);
+}
+
+/* ============ 主体卡片列：px12 V gap8 ============ */
+
+.personal-center__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+}
+
+/* ============ 权益卡（代码组装，Figma 2939:44956/44955）：351×76 r8 p12 V-gap12 ============ */
+
+.personal-center__rights {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 351px;
+  height: 76px;
+  padding: 12px;
+  /* 白→浅蓝白 上→下 1px 渐变描边（Figma GRADIENT_LINEAR #fff→#e2edff）：
+     外层渐变垫底，内层背景图 inset:1px 盖上，露出 1px 边 */
+  border-radius: var(--radius-8);
+  background: linear-gradient(180deg, #ffffff 0%, #e2edff 100%);
+  overflow: hidden;
+}
+
+/* 背景图铺底（1053×228@3x），inset 1px 露出渐变描边 */
+.personal-center__rights-bg {
+  position: absolute;
+  inset: 1px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  border-radius: 7px;
+  pointer-events: none;
+}
+
+/* 标题行 h20：字标图 + 「您享有 N 个权益」+ chevron14 */
+.personal-center__rights-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 20px;
+}
+
+/* 员工字标 227×41@3x → 76×13.7 ≈ 76×14；高管 171×42@3x → 57×14 */
+.personal-center__rights-title {
+  height: 14px;
+  width: auto;
+}
+
+.personal-center__rights-count {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: rgba(10, 59, 130, 0.7);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.personal-center__rights-count-value {
+  font-family: var(--font-family-ui-number);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 18px;
+  /* 像素实测：Barlow 数字墨迹中心比 PingFang 中文低 ~1px，视觉居中微调 */
+  transform: translateY(-1px);
+}
+
+.personal-center__rights-chevron {
+  width: 14px;
+  height: 14px;
+}
+
+/* 权益行：4 项两端分布 */
+.personal-center__rights-items {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.personal-center__rights-item {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.personal-center__rights-item-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.personal-center__rights-item-label {
+  color: #09397f;
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+/* 高管版：米金字色（Figma #f4e6dd / rgba(243,230,222,0.7)） */
+.personal-center__rights--exec .personal-center__rights-item-label {
+  color: #f4e6dd;
+}
+
+.personal-center__rights--exec .personal-center__rights-count {
+  color: rgba(243, 230, 222, 0.7);
+}
+
+/* ============ 我的订单卡：白底 r8 p(8,12) V gap12 ============ */
+
+.personal-center__orders {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+/* 品类数=1：h40 单行 H 居中 gap8（icon24 + Bold 标题，无「全部订单」） */
+.personal-center__orders--single {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+}
+
+.personal-center__orders-single-icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+/* 标题行 h22：我的订单 14px Bold 黑84 flex-1；全部订单 12px 黑60 + chevron14(黑60) gap0 */
+.personal-center__orders-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 22px;
+}
+
+.personal-center__orders-title {
+  flex: 1;
+  min-width: 0;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 700;
+  color: var(--color-alpha-black-84);
+}
+
+.personal-center__orders-all {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.personal-center__orders-all-label {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-60);
+}
+
+.personal-center__orders-all-chevron {
+  width: 14px;
+  height: 14px;
+  color: var(--color-alpha-black-60);
+}
+
+/* 品类行 h50：项 flex-1 V 居中 gap2，项间 gap12 */
+.personal-center__orders-grid {
+  display: flex;
+  gap: 12px;
+  height: 50px;
+}
+
+.personal-center__orders-item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.personal-center__orders-item-icon {
+  width: 28px;
+  height: 28px;
+  flex: none;
+}
+
+.personal-center__orders-item-label {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-84);
+}
+
+/* ============ 积分&优惠券卡：白底 r8 p12 ============ */
+
+.personal-center__points {
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.personal-center__points-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 22px;
+}
+
+/* 双列：151px 容器 =（label+value 内组 gap4）+ chevron16 外 gap2 */
+.personal-center__points-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 151px;
+}
+
+.personal-center__points-cell-inner {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.personal-center__points-label {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-84);
+}
+
+.personal-center__points-value {
+  font-family: var(--font-family-ui-number);
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 600;
+  color: var(--color-alpha-black-84);
+}
+
+/* chevron 16×16 黑36 */
+.personal-center__points-chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--color-alpha-black-36);
+}
+
+/* 分割线 1×16 rgba(0,0,0,6%) */
+.personal-center__points-divider {
+  width: 1px;
+  height: 16px;
+  flex: none;
+  background: var(--color-alpha-black-6);
+}
+
+/* 单列（积分未开通=on）：优惠券组居左 + chevron 贴右缘 */
+.personal-center__points-row--single .personal-center__points-cell {
+  justify-content: flex-start;
+  width: auto;
+}
+
+/* ============ 入口区卡：白底 r8 p(16,12) GRID 4列 gap12 ============ */
+
+.personal-center__entries {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 16px 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+.personal-center__entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 46px;
+}
+
+.personal-center__entry-icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+.personal-center__entry-label {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-84);
+}
+
+/* ============ banner：351×90 整图 ============ */
+
+.personal-center__banner {
+  display: block;
+  width: 351px;
+  height: 90px;
+}
+
+/* ============ 底部标签栏：复用首页 PageBottomNav（我的选中）+ iPhone footer ============ */
+.personal-center__bottom-tab {
+  /* 底部标签栏吸底由 App.css 页面案例 fixed 清单承担：
+     .page-case-viewport .personal-center__bottom-tab { position: fixed; bottom: 34px }
+     + .iphone-footer 全局 fixed bottom:0（同首页 car-home 模式）。
+     帧是 872 高长页、视口 812，margin-top:auto/absolute 帧内钉底会被视口裁掉，
+     fixed（含 transform 的 viewport 为包含块）才能恒吸可视底。 */
+  position: relative;
+  z-index: 2;
+}
+
+/* ============ 底部小字：pT16 V gap4 居中 12px 黑24 ============ */
+
+.personal-center__footer-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding-top: 16px;
+}
+
+.personal-center__footer-line {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-24);
+}
+
+/* 页脚：吸底由 App.css `.page-case-viewport .iphone-footer`（fixed bottom:0）承担 */
+.personal-center__iphone-footer {
+  width: 375px;
+}
+
+/* ===== 业务组件目录陈列（挂 business-personal-center 聚合页）=====
+   目录块外层是浅色 .catalog-block__surface；陈列容器统一 375 宽 + 页面同款灰底，
+   卡片列收 12 边距复刻 .personal-center__content 的观感 */
+
+.personal-center-business-sample {
+  width: 375px;
+  padding: 16px 0;
+  background: var(--color-bg-gray-2);
+  font-family: var(--font-family-ui-cn);
+}
+
+.personal-center-business-sample,
+.personal-center-business-sample * {
+  box-sizing: border-box;
+}
+
+/* 卡片类（权益/订单/积分/入口）：与页面 content px12 一致的 12 边距 */
+.personal-center-business-sample .personal-center__rights,
+.personal-center-business-sample .personal-center__orders,
+.personal-center-business-sample .personal-center__points,
+.personal-center-business-sample .personal-center__entries {
+  margin: 0 12px;
+}
+
+/* 陈列状态列：标签 + 组件纵向排布，列间留 12 */
+.personal-center-business-sample > .personal-center-business-state + .personal-center-business-state {
+  margin-top: 12px;
+}
+
+.personal-center-business-state {
+  display: grid;
+  gap: 6px;
+}
+
+.personal-center-business-state__label {
+  margin: 0 12px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #999;
+}
+
+/* 头部个人信息陈列容器：浅蓝底模拟头图环境（页面内为整图，目录里给品牌蓝薄透明垫底） */
+.personal-center-business-hero {
+  padding: 20px 0 16px;
+  background: rgba(20, 115, 255, 0.08);
+}

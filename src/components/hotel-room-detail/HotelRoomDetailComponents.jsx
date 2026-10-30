@@ -286,7 +286,7 @@ export function HotelRoomDetailSubmitBar({ submitBar }) {
           label={submitBar.buttonLabel}
         />
       </div>
-      <IPhoneFooter />
+      <IPhoneFooter className="room-detail-screen__footer" />
     </div>
   )
 }

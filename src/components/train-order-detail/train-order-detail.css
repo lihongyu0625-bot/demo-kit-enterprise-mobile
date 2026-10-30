@@ -1,0 +1,226 @@
+.train-detail-shell,
+.train-detail-shell *,
+.train-detail-actions__btn,
+.train-detail-amount__link {
+  box-sizing: border-box;
+}
+
+/* ============ 帧壳：375×1639 长页 ============ */
+
+.train-detail-shell {
+  position: relative;
+  width: 375px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  font-family: var(--font-family-ui-cn);
+}
+
+/* 蓝底头 297：渐变 #2B81FF→#1473FF */
+.train-detail-head {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  height: 297px;
+  background: linear-gradient(180deg, #2b81ff 0%, #1473ff 100%);
+}
+
+.train-detail-topnav {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+}
+
+.train-detail-head__status {
+  position: absolute;
+  top: 108px;
+  left: 12px;
+  right: 12px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.train-detail-head__status h1 {
+  margin: 0;
+  color: var(--color-white);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.train-detail-head__status p {
+  margin: 0;
+  color: var(--color-white);
+  font-size: 13px;
+  line-height: 16px;
+}
+
+/* ============ 主列：mx12，pt 从头部下 12 起 ============ */
+
+.train-detail-main {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 351px;
+  margin-left: 12px;
+  padding-top: 253px;
+  padding-bottom: 44px;
+}
+
+/* 操作按钮行 */
+.train-detail-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.train-detail-actions__btn {
+  width: 112px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-white);
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 40px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px var(--color-alpha-black-12);
+}
+
+/* 下单金额卡 */
+.train-detail-amount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+
+.train-detail-amount__title {
+  margin: 0;
+  flex: 1;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.train-detail-amount__price {
+  display: flex;
+  align-items: baseline;
+  margin: 0;
+  color: var(--color-blue-50);
+  font-family: var(--font-family-ui-number);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.train-detail-amount__currency {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.train-detail-amount__link {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-blue-50);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+/* 检票口行 */
+.train-detail-gate {
+  margin: 0;
+  color: #3c5a86;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* 乘客块 */
+.train-detail-passenger {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-alpha-black-8);
+}
+
+.train-detail-passenger__row1 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.train-detail-passenger__name {
+  margin: 0;
+  flex: 1;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.train-detail-passenger__status {
+  margin: 0;
+  color: var(--color-blue-50);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-detail-passenger__price {
+  margin: 0;
+  color: #333;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-detail-passenger__seat {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-detail-passenger__row3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.train-detail-passenger__seat-tag {
+  color: var(--color-blue-50);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.train-detail-passenger__id {
+  color: #666;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* 出行尊享 / 温馨提示文案 */
+.train-detail-benefit,
+.train-detail-notice {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-detail-shell__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 375px;
+}

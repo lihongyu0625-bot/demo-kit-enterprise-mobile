@@ -1,0 +1,125 @@
+{
+  "nav": {
+    "fromCity": "北京",
+    "toCity": "上海",
+    "policyLabel": "差旅制度"
+  },
+  "dateFilter": {
+    "items": [
+      { "label": "今天", "date": "07-10", "active": true },
+      { "label": "明天", "date": "11", "active": false },
+      { "label": "后天", "date": "12", "active": false },
+      { "label": "周五", "date": "13", "active": false },
+      { "label": "周六", "date": "14", "active": false }
+    ]
+  },
+  "stationChips": [
+    { "label": "北京南站", "active": false },
+    { "label": "北京站", "active": true },
+    { "label": "上海虹桥", "active": false, "strike": true },
+    { "label": "上海站", "active": true }
+  ],
+  "trips": [
+    {
+      "departTime": "06:35",
+      "arriveTime": "12:26",
+      "fromStation": "北京南",
+      "toStation": "上海虹桥",
+      "duration": "4时10分",
+      "trainCode": "G127",
+      "quiet": true,
+      "price": "560",
+      "seats": [
+        { "name": "商务", "status": "有票" },
+        { "name": "一等", "status": "6张" },
+        { "name": "二等", "status": "候补" },
+        { "name": "无座", "status": "候补" }
+      ]
+    },
+    {
+      "departTime": "07:35",
+      "arriveTime": "13:26",
+      "fromStation": "北京南",
+      "toStation": "上海虹桥",
+      "duration": "4时20分",
+      "trainCode": "G127",
+      "quiet": true,
+      "price": "610",
+      "seats": [
+        { "name": "商务", "status": "有票" },
+        { "name": "一等", "status": "6张" },
+        { "name": "二等", "status": "候补" },
+        { "name": "无座", "status": "候补" }
+      ]
+    },
+    {
+      "departTime": "08:30",
+      "arriveTime": "13:20",
+      "fromStation": "北京南",
+      "toStation": "上海虹桥",
+      "duration": "4时20分",
+      "trainCode": "G127",
+      "quiet": true,
+      "price": "608",
+      "seats": [
+        { "name": "商务", "status": "有票" },
+        { "name": "一等", "status": "6张" },
+        { "name": "二等", "status": "候补" },
+        { "name": "无座", "status": "候补" }
+      ]
+    },
+    {
+      "departTime": "09:00",
+      "arriveTime": "14:10",
+      "fromStation": "北京南",
+      "toStation": "上海虹桥",
+      "duration": "2时20分",
+      "trainCode": "G127",
+      "quiet": true,
+      "price": "579",
+      "seats": [
+        { "name": "商务", "status": "有票" },
+        { "name": "一等", "status": "6张" },
+        { "name": "二等", "status": "候补" },
+        { "name": "无座", "status": "候补" }
+      ]
+    },
+    {
+      "departTime": "10:20",
+      "arriveTime": "15:20",
+      "fromStation": "北京南",
+      "toStation": "上海虹桥",
+      "duration": "2时20分",
+      "trainCode": "G127",
+      "quiet": true,
+      "price": "567",
+      "seats": [
+        { "name": "商务", "status": "有票" },
+        { "name": "一等", "status": "候补" },
+        { "name": "二等", "status": "候补" },
+        { "name": "无座", "status": "候补" }
+      ]
+    },
+    {
+      "departTime": "11:00",
+      "arriveTime": "16:23",
+      "fromStation": "北京南",
+      "toStation": "上海虹桥",
+      "duration": "2时20分",
+      "trainCode": "G127",
+      "quiet": true,
+      "price": "633",
+      "seats": [
+        { "name": "商务", "status": "有票" },
+        { "name": "一等", "status": "候补" },
+        { "name": "二等", "status": "候补" },
+        { "name": "无座", "status": "候补" }
+      ]
+    }
+  ],
+  "sortBar": {
+    "options": ["有票优先", "出发早-晚", "耗时"],
+    "filterLabel": "筛选",
+    "filterBadge": "2"
+  }
+}

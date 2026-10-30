@@ -27,3 +27,10 @@ tmp/
 # 本地工作台与智能体目录
 .codex/
 .workbuddy/
+
+# PRD HTML 生成产物与本地脚本（不入库）
+scripts/
+public/prd-html/
+
+# 应用发布标记（本地内部文件）
+.wbapp_*.genie

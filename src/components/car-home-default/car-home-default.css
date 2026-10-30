@@ -499,6 +499,11 @@
 }
 
 .car-home-full-bottom {
+  /* ui-structural-rules.md S3：长滚动页底部导航区必须吸底（sticky + 骨架层级 z-index 2），
+     修复前跟随内容流、滚动时被内容顶走 */
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
   background: var(--color-white);
 }
 

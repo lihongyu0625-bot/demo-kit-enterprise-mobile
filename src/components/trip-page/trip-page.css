@@ -1,0 +1,1827 @@
+/* 行程页 —— Figma VT4ForkkHiOWsQsdOvy75R
+   Frame 11 已预订行程(2789:22548) / Frame 12 未预订行程(2789:22652) / Frame 13 差旅单外行程(2789:22720) */
+
+/* 全部设计 token 提升到 :root —— 目录陈列容器（.trip-page-business-sample）没有 .trip-page 祖先，
+   变量若只挂在 .trip-page 下，目录里的 var() 引用会整体失效（颜色退化为继承色、渐变丢失） */
+:root {
+  --trip-font-cn: -apple-system, 'PingFang SC', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+  --trip-font-num: 'Barlow Semi Condensed', 'DIN Alternate', 'PingFang SC', sans-serif;
+  --trip-bg-gray: #f5f7fa;
+  --trip-text-84: rgba(0, 0, 0, 0.84);
+  --trip-text-60: rgba(0, 0, 0, 0.6);
+  --trip-text-36: rgba(0, 0, 0, 0.36);
+  --trip-text-12: rgba(0, 0, 0, 0.12);
+  --trip-blue: #1473ff;
+  --trip-blue-10: #e7f1ff;
+  --trip-green: #34bb6d;
+  --trip-gradient-blue: linear-gradient(90deg, #6d8fff, #5254ff);
+}
+
+.trip-page {
+  position: relative;
+  width: 375px;
+  /* 高度自适应设计稿画板（同 my-coupons 模式）：812 兜底，超高变体由内联 minHeight 控制 */
+  min-height: 812px;
+  /* 不能 overflow:hidden —— 吸顶 header 靠 sticky 贴 .page-case-viewport__scroll 顶，
+     帧壳一旦裁切 sticky 即失效（sticky 的滚动容器会变成帧壳自身，而它不滚） */
+  background: var(--trip-bg-gray);
+  font-family: var(--trip-font-cn);
+  color: var(--trip-text-84);
+}
+
+.trip-page,
+.trip-page * {
+  box-sizing: border-box;
+}
+
+/* 按钮去 UA 默认描边（2px outset，浅底上呈灰边）——单类规则未声明 border 时会露出来 */
+.trip-page :where(button),
+.trip-page-business-sample :where(button) {
+  border: none;
+}
+
+/* :where 零特异性 —— 裸 p 重置曾以 (0,1,1) 压制全部单类 margin 规则（状态字 margin-left:auto、
+   日期/节点标签缩进、酒店名上间距等 8 类规则失效），改 :where 后单类规则自然胜出 */
+.trip-page :where(p) {
+  margin: 0;
+}
+
+/* ui-structural-rules：reset 用 :where() 降零优先级——
+   此前 .trip-page button (0,1,1) 压过组件按钮类的背景渐变，
+   导致「去打车」「一键订」白字无背景隐形（ride-action/ai-action/ai-nr-action 均中招） */
+.trip-page :where(button) {
+  border: 0;
+  padding: 0;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.trip-page img {
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ===== 背景：Figma「行程页-背景」 375×300 顶部渐变 ===== */
+.trip-page__bg {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 300px;
+  background: linear-gradient(180deg, rgba(222, 236, 255, 0.76), rgba(222, 236, 255, 0));
+}
+
+/* ===== 吸顶头：iPhone 状态栏 + 顶部 tab 同容器（上滑背景变白） =====
+   sticky 挂流内贴滚动容器顶（.page-case-viewport__scroll）；margin-bottom:-88px 抵消占位，
+   各变体内容均为绝对定位（timeline top:108 / frame-147 top:100 / empty top:146），静止态零偏移 */
+.trip-page__header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  margin-bottom: -88px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.trip-page__header--scrolled {
+  background: #fff;
+}
+
+.trip-page__header--scrolled .trip-page__tabs {
+  border-bottom: 0.5px solid var(--trip-text-12);
+}
+
+/* App.css 的 .page-case-viewport .iphone-bar { position: fixed } 是给其他页预览做的
+   视口钉顶——行程页状态栏必须留在吸顶 header 流内占 44px，被抽走则 tab 行顶到
+   y=0 与固定栏重叠。(0,3,0) 压过 (0,2,0)，不赌两份 CSS 的导入顺序 */
+.trip-page .trip-page__header .iphone-bar {
+  position: relative;
+  top: auto;
+  right: auto;
+  left: auto;
+  z-index: auto;
+}
+
+/* ===== 顶部 tab：Figma「行程页-顶部tab」 —— 行程 20/500 + 订单 16/60 + 右侧分享 ===== */
+.trip-page__tabs {
+  height: 44px;
+  padding: 0 16px 10px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.trip-page__tab {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--trip-text-36);
+}
+
+.trip-page__tab--active {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #212121;
+}
+
+.trip-page__tabs-share {
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  margin-bottom: 2px;
+}
+
+/* ===== 时间轴：日期行 + 连续虚线 + 品类块列（组间 24） ===== */
+.trip-page__timeline {
+  position: absolute;
+  top: 108px;
+  left: 12px;
+  width: 351px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 1;
+}
+
+.trip-page__timeline--external {
+  top: 100px;
+}
+
+.trip-page__group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-page__tl-line {
+  position: absolute;
+  left: 4px;
+  top: 14px;
+  bottom: 0;
+  width: 1px;
+  background: url('../../assets/trip-page/timeline-line.svg') repeat-y;
+  background-size: 1px 100%;
+}
+
+.trip-page__date-row {
+  position: relative;
+  z-index: 1; /* 点绘制在虚线上方：线只从点下缘延伸（设计稿 2516:21587） */
+  display: flex;
+  align-items: center;
+  height: 28px;
+}
+
+.trip-page__date-dot {
+  width: 9px;
+  height: 9px;
+  flex: none;
+}
+
+.trip-page__date-text {
+  margin-left: 7px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--trip-text-84);
+}
+
+.trip-page__date-weekday {
+  margin-left: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--trip-text-60);
+}
+
+/* 日期行右侧「仅看与我相关的行程」+ 单选圆点（圆点与文案间距 4，2789:24092） */
+.trip-page__related-only {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trip-page__related-only .common-radio {
+  width: 14px;
+  height: 14px;
+}
+
+.trip-page__related-only-text {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--trip-text-36);
+}
+
+.trip-page__blocks {
+  margin-left: 16px;
+  margin-top: 12px; /* 日期行 → 品类节点 12（2789:24091：date 28 → blocks 40） */
+  width: calc(100% - 16px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--trip-block-gap, 12px);
+}
+
+.trip-page__block {
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-page__block-card + .trip-page__block-card {
+  margin-top: 8px;
+}
+
+/* ===== 品类节点：Figma「行程页-时间轴品类节点」 —— 16px 蓝描边圆角框 + 12px filled 图标 ===== */
+.trip-page__node {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin: 0 0 4px; /* 2789:24091：节点→卡片 4；卡片底→下节点 = 块 gap12 + mt0 = 12 */
+}
+
+.trip-page__node-icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  border-radius: 5px;
+  border: 1px solid var(--trip-blue);
+  /* 无背景填充：设计稿 icon 盒透明，透出所在容器底色（灰底页 #f5f7fa / 白底卡 white） */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trip-page__node-glyph {
+  width: 12px;
+  height: 12px;
+}
+
+.trip-page__node-label {
+  margin-left: 8px;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--trip-text-60);
+}
+
+.trip-page__node-change {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.trip-page__node-change-text {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--trip-text-36);
+}
+
+.trip-page__node-chevron {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===== 用车推荐条：Figma 2519:24673 335×40 —— 智能文字渐变(#0007ea→#134fff) + 智能按钮渐变胶囊 ===== */
+.trip-page__ride-footer {
+  height: 40px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #f8f8f8, rgba(225, 241, 255, 0));
+}
+
+.trip-page__ride-hint {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: linear-gradient(to left, #0007ea, #134fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* 双类选择器提高优先级，压过 .trip-page button { background: none }（对齐 L1125 ai-action 的既有修法） */
+.trip-page__ride-footer .trip-page__ride-action {
+  flex: none;
+  margin-left: 12px;
+  width: 60px;
+  height: 24px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(to left, #6d8fff, #5254ff);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+}
+
+/* ===== 已预订机票卡：Figma 2789:28725（主组件 2516:24539）—— 阴影主卡 p12 gap12 ===== */
+.trip-page__flight-card {
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.trip-page__flight-main {
+  position: relative;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 设计稿水印绝对居中（left 50% 位移-50%），top 以内容区中线再收 2px */
+.trip-page__flight-watermark {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 2px);
+  width: 227px;
+  height: 96px;
+  transform: translate(-50%, -50%);
+  opacity: 0.08;
+}
+
+.trip-page__flight-title {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.trip-page__flight-logo {
+  width: 14px;
+  height: 14px;
+}
+
+.trip-page__flight-no {
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-60);
+}
+
+.trip-page__flight-status {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--trip-green);
+}
+
+.trip-page__flight-times {
+  display: flex;
+  align-items: flex-start;
+}
+
+.trip-page__flight-time-col {
+  width: 68px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+}
+
+.trip-page__flight-time-col--end {
+  margin-left: auto;
+  align-items: flex-end;
+}
+
+.trip-page__flight-time {
+  font-family: var(--trip-font-num);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 34px;
+  color: var(--trip-text-84);
+  white-space: nowrap;
+}
+
+.trip-page__flight-station {
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-84);
+  white-space: nowrap;
+}
+
+.trip-page__flight-mid {
+  flex: 1;
+  min-width: 0;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.trip-page__flight-badge {
+  width: 95px;
+  height: 22px;
+  margin-bottom: -3px;
+}
+
+.trip-page__flight-duration {
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--trip-text-36);
+  white-space: nowrap;
+}
+
+.trip-page__flight-passengers {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trip-page__flight-passenger-label {
+  flex: none;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-36);
+  white-space: pre;
+}
+
+.trip-page__flight-passenger-value {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-84);
+}
+
+/* ===== 已预订酒店卡：Figma 2789:28727（主组件 2519:25532）—— 阴影主卡 p12 ===== */
+.trip-page__hotel-card {
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.trip-page__hotel-main {
+  position: relative;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-page__hotel-watermark {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 1.5px);
+  width: 227px;
+  height: 96px;
+  transform: translate(-50%, -50%);
+  opacity: 0.08;
+}
+
+.trip-page__hotel-title {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.trip-page__hotel-title-text {
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-60);
+  white-space: nowrap;
+}
+
+/* 入住 —3晚— 离店：两侧 4.3×0.5 小箭头(路径629) + 描边胶囊 */
+.trip-page__hotel-nights-group {
+  flex: none;
+  display: flex;
+  align-items: center;
+}
+
+.trip-page__hotel-title-arrow {
+  width: 4.3px;
+  height: 0.5px;
+  flex: none;
+}
+
+.trip-page__hotel-nights {
+  flex: none;
+  margin: 0 2px;
+  padding: 0 8px;
+  height: 20px;
+  border: 0.5px solid var(--trip-text-12);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 9px;
+  line-height: 16px;
+  color: var(--trip-text-60);
+  white-space: nowrap;
+}
+
+.trip-page__hotel-status {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--trip-green);
+}
+
+.trip-page__hotel-name {
+  margin-top: 12px;
+  max-height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--trip-text-84);
+  overflow: hidden;
+}
+
+.trip-page__hotel-address-row {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trip-page__hotel-address {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-36);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trip-page__hotel-pill {
+  position: relative;
+  flex: none;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(5, 34, 76, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trip-page__hotel-pill--nav {
+  border-radius: 999px;
+  background: none;
+  overflow: hidden;
+}
+
+.trip-page__hotel-pill-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.trip-page__hotel-pill-icon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.trip-page__hotel-info-row {
+  margin-top: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.trip-page__hotel-info-row + .trip-page__hotel-info-row {
+  margin-top: 2px;
+}
+
+.trip-page__hotel-info-label {
+  flex: none;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-36);
+  white-space: nowrap;
+}
+
+.trip-page__hotel-info-value {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-84);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== 差旅单外行程用车卡：Figma 2789:28426（主组件 2779:42204）—— 阴影主卡 p12 gap12，正文 gap8 ===== */
+.trip-page__car-card {
+  position: relative;
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.trip-page__car-watermark {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 1.5px);
+  width: 227px;
+  height: 96px;
+  transform: translate(-50%, -50%);
+  opacity: 0.08;
+}
+
+.trip-page__car-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trip-page__car-title-text {
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-60);
+  white-space: nowrap;
+}
+
+/* 描边标签：0.5px 黑12% 边 + 10px 字，同设计稿 2761:41321 */
+.trip-page__car-tag {
+  flex: none;
+  margin-left: 0;
+  padding: 0 3px;
+  border: 0.5px solid var(--trip-text-12);
+  border-radius: 3px;
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--trip-text-60);
+}
+
+.trip-page__car-status {
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--trip-green);
+}
+
+.trip-page__car-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trip-page__car-time {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.trip-page__car-time-num {
+  font-family: var(--trip-font-num);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: var(--trip-text-84);
+}
+
+.trip-page__car-time-label {
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-36);
+}
+
+.trip-page__car-route {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trip-page__car-route + .trip-page__car-route {
+  margin-top: 4px;
+}
+
+.trip-page__car-dot {
+  width: 10px;
+  height: 10px;
+  flex: none;
+}
+
+.trip-page__car-place {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trip-page__car-rider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trip-page__car-rider-label {
+  flex: none;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-36);
+  white-space: nowrap;
+}
+
+.trip-page__car-rider-value {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-84);
+}
+
+/* 他人代叫行：info 图标 14 + 该用车由{name}为您代叫（name Medium） */
+.trip-page__car-proxy {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.trip-page__car-proxy-icon {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+.trip-page__car-proxy-text {
+  min-width: 0;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-36);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trip-page__car-proxy-name {
+  font-weight: 500;
+  color: var(--trip-text-36);
+}
+
+/* ===== AI 推荐卡片：蓝紫虚线壳（Figma 2789:27823）—— px12 py8 纵向 gap6 ===== */
+.trip-page__ai-card {
+  position: relative;
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--trip-bg-gray);
+  overflow: hidden;
+}
+
+.trip-page__ai-card--violet {
+  background: linear-gradient(-87.7deg, rgba(237, 239, 255, 0.91) 3.9%, rgba(231, 241, 255, 0.44) 103%);
+}
+
+/* 蓝紫卡虚线描边（2539:36259 描边面板：0.5px 内描边 · 50% 透明 · 虚线/间距各 3 · 圆角 8）：
+   由 AiCardDashBorder 的 SVG rect stroke-dasharray 绘制（CSS border:dashed 控制不了虚线节拍），
+   SVG 铺满卡片、preserveAspectRatio 拉伸贴合实际宽高，z-index 压在关闭角标之上（虚线穿过角标） */
+.trip-page__ai-card-dash {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 关闭角标：右上贴边 16×16 方块，左下角 8px 圆角 */
+.trip-page__ai-close {
+  position: absolute;
+  top: -0.5px;
+  right: -0.5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 0 8px 0 8px;
+  background: #e1e6fe;
+}
+
+.trip-page__ai-close-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* AI 机票/火车票：时刻行 = [时间&场站 + 总时间 + 时间&场站] + 金额 */
+.trip-page__ai-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Figma 27834 时刻组固定 196 宽（51+22+50+22+51），不随卡拉伸；金额 space-between 推到右缘 */
+.trip-page__ai-times {
+  flex: none;
+  min-width: 0;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.trip-page__ai-st-col {
+  width: 51px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.trip-page__ai-st-col--end {
+  align-items: flex-end;
+}
+
+.trip-page__ai-time {
+  position: relative;
+  font-family: var(--trip-font-num);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--trip-text-84);
+  white-space: nowrap;
+}
+
+/* 与 Figma 一致的时间-2px 上叠；提高优先级压过 .trip-page p { margin: 0 } */
+.trip-page__ai-card .trip-page__ai-time {
+  margin-bottom: -2px;
+}
+
+.trip-page__ai-plusday {
+  position: absolute;
+  top: -2px;
+  right: -6px;
+  font-family: var(--trip-font-num);
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 12px;
+  color: #333;
+}
+
+.trip-page__ai-station {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  max-width: 100%;
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--trip-text-60);
+  white-space: nowrap;
+}
+
+.trip-page__ai-station-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 火车票 始/终 角标：8×8 描边小方块，内字 8px */
+.trip-page__ai-badge {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid rgba(0, 0, 0, 0.24);
+  border-radius: 2px;
+  padding: 1px;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 9px;
+  color: var(--trip-text-36);
+}
+
+/* 总时间-默认：时长文本(上) + 箭头(下) */
+.trip-page__ai-mid {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-bottom: 6px;
+}
+
+.trip-page__ai-mid-duration {
+  width: 40px;
+  text-align: center;
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--trip-text-36);
+  white-space: nowrap;
+}
+
+.trip-page__ai-mid-arrow {
+  width: 50px;
+  height: 4px;
+}
+
+/* 总时间-中转/经停：全程(#999) / -站点转(停)-(蓝) / 停XXm(36) 三行，行间 -4px 上叠，列高 40 */
+.trip-page__ai-mid--transfer {
+  padding-bottom: 0;
+  gap: 0;
+}
+
+.trip-page__ai-mid-total {
+  font-size: 10px;
+  line-height: 16px;
+  color: #999;
+  white-space: nowrap;
+}
+
+.trip-page__ai-mid-stop {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+}
+
+.trip-page__ai-card .trip-page__ai-mid-total,
+.trip-page__ai-card .trip-page__ai-mid-stop {
+  margin-bottom: -4px;
+}
+
+.trip-page__ai-mid-dash {
+  width: 8px;
+  height: 2px;
+  border-radius: 1px;
+  background: linear-gradient(to left, #dce5fc 43.4%, rgba(220, 229, 252, 0.53));
+}
+
+.trip-page__ai-mid-stopname {
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--trip-blue);
+}
+
+.trip-page__ai-mid-wait {
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--trip-text-36);
+  white-space: nowrap;
+}
+
+/* 金额-单值：￥14/15 + 数字22/22 蓝，右下内收 3px */
+.trip-page__ai-price {
+  display: flex;
+  align-items: flex-end;
+  white-space: nowrap;
+}
+
+.trip-page__ai-route .trip-page__ai-price {
+  padding: 0 3px 3px 0;
+}
+
+.trip-page__ai-price-unit {
+  width: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 15px;
+  color: var(--trip-blue);
+}
+
+.trip-page__ai-price-num {
+  font-family: var(--trip-font-num);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 22px;
+  color: var(--trip-blue);
+}
+
+/* 金额-超标（机票/火车）：企业(蓝) 个人(橙) 双价，企业行上提 4px */
+.trip-page__ai-price-dual {
+  flex: none;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  padding: 0 3px 3px 0;
+  white-space: nowrap;
+}
+
+.trip-page__ai-price-dual-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.trip-page__ai-price-dual-label {
+  font-size: 9px;
+  line-height: 16px;
+  color: var(--trip-text-84);
+}
+
+.trip-page__ai-price-dual-nums {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.trip-page__ai-price-dual-row {
+  display: flex;
+  align-items: flex-end;
+}
+
+.trip-page__ai-price-dual-row .trip-page__ai-price-unit {
+  width: 8px;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.trip-page__ai-price-dual-num {
+  font-family: var(--trip-font-num);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.trip-page__ai-price-dual-num--corp {
+  color: var(--trip-blue);
+  margin-bottom: -4px;
+}
+
+.trip-page__ai-price-dual-num--personal {
+  color: #ff7d41;
+}
+
+/* 小信息：10px/36 + 1×8 分隔线，gap3；火车中转项带 10×10 序号角标 */
+.trip-page__ai-meta {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  min-width: 0;
+}
+
+.trip-page__ai-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--trip-text-36);
+  white-space: nowrap;
+}
+
+.trip-page__ai-meta-divider {
+  flex: none;
+  width: 1px;
+  height: 8px;
+  background: var(--trip-text-12);
+}
+
+.trip-page__ai-meta-serial {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.06);
+  font-family: var(--trip-font-num);
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 10px;
+  color: var(--trip-text-36);
+}
+
+/* AI 推荐卡底部：ai 图标 + 渐变推荐理由(两行截断) + 一键订（渐变胶囊 + 渐变文字） */
+.trip-page__ai-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trip-page__ai-icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.trip-page__ai-reason {
+  flex: 1;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 20px;
+  max-height: 40px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  background: linear-gradient(to left, #0007ea, #134fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.trip-page__ai-action {
+  flex: none;
+  width: 60px;
+  padding: 2px 12px;
+  border: none;
+  border-radius: 46.875px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to left, #dbe1ff, #d7daff);
+}
+
+/* 提高优先级压过 .trip-page button { padding: 0 } */
+.trip-page__ai-card .trip-page__ai-action {
+  padding: 2px 12px;
+}
+
+.trip-page__ai-action-text {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  background: linear-gradient(to left, #0007ea, #134fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* AI 酒店推荐：照片46×56 + 右列（名/址 + 金额 / 房型），右列总高56 与照片齐平 */
+.trip-page__ai-hotel-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.trip-page__ai-hotel-photo {
+  width: 46px;
+  height: 56px;
+  flex: none;
+  border-radius: 8px;
+  border: 0.5px solid #eee;
+  object-fit: cover;
+}
+
+.trip-page__ai-hotel-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-page__ai-hotel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.trip-page__ai-hotel-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-page__ai-hotel-name {
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--trip-text-84);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trip-page__ai-hotel-address {
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--trip-text-60);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 酒店金额：单值蓝；超标橙 + 「企业+个人」注脚 */
+.trip-page__ai-hotel-price {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.trip-page__ai-price--orange .trip-page__ai-price-unit,
+.trip-page__ai-price--orange .trip-page__ai-price-num {
+  color: #ff7d41;
+}
+
+.trip-page__ai-price-note {
+  font-size: 9px;
+  line-height: 16px;
+  color: var(--trip-text-84);
+  white-space: nowrap;
+}
+
+.trip-page__ai-hotel-specs {
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--trip-text-36);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* AI 推荐卡状态总览页（Figma 2789:27823）：小标题 + 卡片纵列 */
+.trip-page__ai-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 6px 20px 24px;
+}
+
+.trip-page__ai-showcase-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trip-page__ai-showcase-label {
+  font-size: 12px;
+  line-height: 20px;
+  color: #999;
+}
+
+/* AI 酒店暂无资源卡：Figma 2711:26797 标题组居左，内容与 footer 50% 透明 */
+.trip-page__ai-card--no-resource {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 标题组：暂无酒店资源 + gap8 + [刷新14 + gap4 + 重新推荐]，整体居左不推右 */
+.trip-page__ai-nr-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trip-page__ai-nr-text {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--trip-text-84);
+}
+
+.trip-page__ai-nr-refresh-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trip-page__ai-nr-refresh {
+  width: 14px;
+  height: 14px;
+}
+
+.trip-page__ai-nr-action {
+  font-size: 12px;
+  line-height: 20px;
+  background: var(--trip-gradient-blue);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.trip-page__ai-nr-body {
+  opacity: 0.5;
+}
+
+/* ===== 骨架块与扫光 ===== */
+.trip-page__skel {
+  display: block;
+  flex: none;
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgba(219, 225, 255, 0.5), rgba(215, 218, 255, 0.5));
+}
+
+.trip-page__plan-card--skeleton .trip-page__skel {
+  background: linear-gradient(90deg, rgba(219, 225, 255, 0.3), rgba(215, 218, 255, 0.3));
+}
+
+.trip-page__skel-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.trip-page__skel-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.trip-page__skel-card {
+  margin-top: 4px;
+  padding: 10px 8px 12px;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.trip-page__skel-card .trip-page__skel {
+  background: linear-gradient(90deg, #f1f2f6, #eceef5);
+}
+
+.trip-page__skel-card--hotel {
+  padding: 10px 12px;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.trip-page__skel-card--hotel .trip-page__skel-col {
+  flex: 1;
+}
+
+.trip-page__sweep {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.55) 50%, rgba(255, 255, 255, 0) 80%);
+  animation: trip-page-sweep 2.8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes trip-page-sweep {
+  from {
+    transform: translateX(-110%);
+  }
+
+  to {
+    transform: translateX(440%);
+  }
+}
+
+/* ===== AI 规划大卡：Figma 25098 351×654，圆角 8，白色渐变描边 =====
+   Figma 规格：border-radius 8px / border 1px solid #FFF / background #FFF。
+   描边用 ::after 内嵌环绘制（inset:0 + border-radius 继承），不占布局、
+   不影响 overflow:hidden 对子元素的圆角裁切；渐变自上而下由实白渐隐，
+   压在页面紫色渐变背景上呈现设计稿的白色渐变描边效果。 */
+.trip-page__plan-card {
+  position: relative;
+  width: 351px;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.trip-page__plan-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.trip-page__plan-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 351px;
+  height: 110px;
+}
+
+.trip-page__plan-header {
+  position: relative;
+  padding: 16px 16px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trip-page__plan-avatar {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+.trip-page__plan-title {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.trip-page__plan-title-main {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #212121;
+  white-space: nowrap;
+}
+
+.trip-page__plan-title-gradient {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  white-space: nowrap;
+  background: var(--trip-gradient-blue);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.trip-page__plan-toggle {
+  margin-left: auto;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trip-page__plan-toggle-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.trip-page__plan-toggle-icon--down {
+  transform: rotate(180deg);
+}
+
+/* 差旅单信息行：label 图 + 分割线 + 事由 */
+.trip-page__plan-order {
+  position: relative;
+  margin: 0 12px 0;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.trip-page__plan-order-label {
+  width: 35px;
+  height: 11px;
+  flex: none;
+}
+
+.trip-page__plan-order-divider {
+  width: 1px;
+  height: 8px;
+  background: var(--trip-text-12);
+}
+
+.trip-page__plan-order-text {
+  min-width: 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--trip-text-60);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trip-page__plan-sections {
+  position: relative;
+  padding: 12px 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* 大卡合计与操作按钮 */
+.trip-page__plan-footer {
+  position: relative;
+  padding: 16px 12px 0;
+}
+
+.trip-page__plan-total {
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.trip-page__plan-total-label {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--trip-text-84);
+}
+
+.trip-page__plan-total-price {
+  margin-left: 4px;
+  display: flex;
+  align-items: baseline;
+}
+
+.trip-page__plan-total-unit {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: var(--trip-blue);
+}
+
+.trip-page__plan-total-num {
+  margin-left: 2px;
+  font-family: var(--trip-font-num);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  color: var(--trip-blue);
+}
+
+.trip-page__plan-total-tax {
+  margin-left: 4px;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--trip-text-36);
+}
+
+.trip-page__plan-detail {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.trip-page__plan-detail-text {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--trip-text-60);
+}
+
+.trip-page__plan-detail-chevron {
+  width: 14px;
+  height: 14px;
+}
+
+.trip-page__plan-buttons {
+  margin-top: 12px;
+  padding-bottom: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.trip-page__plan-replan {
+  height: 48px;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--trip-text-60);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.trip-page__plan-book {
+  height: 48px;
+  border-radius: 24px;
+  background: radial-gradient(circle, #6da8ff 0%, #607eff 50%, #5254ff 100%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+/* 大卡加载占位 stub：Figma 26470 351×56 */
+.trip-page__plan-card--stub {
+  height: 56px;
+}
+
+.trip-page__plan-card--stub .trip-page__plan-header {
+  padding: 16px 16px;
+}
+
+.trip-page__plan-stub-loading {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.trip-page__plan-loading-icon {
+  width: 16px;
+  height: 16px;
+  animation: trip-page-spin 1s linear infinite;
+}
+
+.trip-page__plan-stub-expand {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+@keyframes trip-page-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 大卡头部骨架占位 */
+.trip-page__skel-col--header {
+  flex: 1;
+  margin-top: 2px;
+}
+
+/* ===== 品类入口：Figma「行程页-品类入口」 351×78 ===== */
+.trip-page__frame-147 {
+  position: absolute;
+  top: 100px;
+  left: 12px;
+  width: 351px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 1;
+}
+
+/* ===== 品类入口：Figma 2611:40874 —— 无卡底，提示居中 12/20/36，行 px-28，三项 flex:1 ===== */
+.trip-page__entries {
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-page__entries-hint {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--trip-text-36);
+  text-align: center;
+}
+
+.trip-page__entries-row {
+  margin-top: 12px;
+  padding: 0 28px;
+  display: flex;
+}
+
+.trip-page__entry {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  border-radius: 8px;
+}
+
+.trip-page__entry-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.trip-page__entry-label {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--trip-text-84);
+}
+
+/* ===== 空态：Figma Frame158 ===== */
+.trip-page__empty {
+  position: absolute;
+  top: 146px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trip-page__empty-title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--trip-text-84);
+}
+
+.trip-page__empty-desc {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--trip-text-60);
+}
+
+.trip-page__empty-illustration {
+  margin-top: 16px;
+  width: 375px;
+  height: 419px;
+}
+
+/* ===== 底部标签栏（按设计稿各变体 y 定位，超出 812 视口即被裁切） ===== */
+/* 底部导航容器：吸底——fixed 到预览视口(375×812)底部（viewport 的 contain:paint/translateZ 使 fixed 以其为定位基准，
+   同 App.css 中 car-home-default-bottom 等模式），nav 在上、iPhone footer 沉底，滚动时恒定可见 */
+.trip-page__bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+}
+
+/* App.css 的 .page-case-viewport .iphone-footer (0,2,0) 会把 footer 单独 fixed，
+   这里用 (0,3,0) 拉回容器内正常流，跟在 nav 下方贴容器底 */
+.trip-page .trip-page__bottom-nav .iphone-footer {
+  position: static;
+  z-index: auto;
+  flex: none;
+}
+
+/* ===== 业务组件目录陈列（挂 business-points-components 聚合页）=====
+   目录块外层是浅色 .catalog-block__surface，行程组件原生背景为 #f5f7fa 灰，
+   陈列容器给同色底并统一 375 宽，保证卡片在目录里与页面内观感一致 */
+.trip-page-business-sample {
+  width: 375px;
+  padding: 20px 12px;
+  background: var(--trip-bg-gray);
+  font-family: var(--trip-font-cn);
+}
+
+.trip-page-business-sample,
+.trip-page-business-sample * {
+  box-sizing: border-box;
+}
+
+/* 单列陈列：时间轴组（块内卡片宽度依赖 .trip-page__blocks 的百分比宽度） */
+.trip-page-business-sample > .trip-page__group {
+  width: 351px;
+}
+
+/* 陈列状态列：标签 + 组件纵向排布，列间留 12 */
+.trip-page-business-sample > .trip-page-business-state + .trip-page-business-state {
+  margin-top: 12px;
+}
+
+/* AI 规划大卡 / 品类入口 / AI 推荐卡 / 已预订行程卡：与页面内 335 内容宽一致 */
+.trip-page-business-sample > .trip-page__plan-card,
+.trip-page-business-sample > .trip-page__entries,
+.trip-page-business-sample > .trip-page__ai-card,
+.trip-page-business-sample > .trip-page__flight-card,
+.trip-page-business-sample > .trip-page__hotel-card,
+.trip-page-business-sample > .trip-page__car-card,
+.trip-page-business-sample > .trip-page__ride-footer {
+  width: 335px;
+  margin-left: 8px;
+}
+
+/* 品类入口条下的入口行也收窄到 335 内容宽 */
+.trip-page-business-sample .trip-page__entries-row {
+  width: 100%;
+}
+
+/* 异常态卡经 StateRow 嵌套（非 Sample 直接子代），同样收窄到 335 —— 设计稿 27823 全卡统一 335 宽。
+   :not 排除大卡内嵌卡——plan-sections 内容器仅 311，定宽 335 会溢出大卡右缘 12px（价格/一键订悬在卡外） */
+.trip-page-business-sample .trip-page__ai-card:not(.trip-page__plan-sections .trip-page__ai-card) {
+  width: 335px;
+}
+
+/* 陈列态空态组件脱离帧壳：页面内绝对定位，目录里转正常流 */
+.trip-page-business-sample .trip-page__empty {
+  position: static;
+  width: 375px;
+  margin-left: -20px;
+}
+
+/* 空态插画 375 设计宽，陈列容器 375 内原样展示 */
+.trip-page-business-sample .trip-page__empty-illustration {
+  margin-top: 16px;
+}
+
+/* 陈列状态标签 */
+.trip-page-business-state {
+  display: grid;
+  gap: 6px;
+}
+
+.trip-page-business-state__label {
+  font-size: 12px;
+  line-height: 20px;
+  color: #999;
+}

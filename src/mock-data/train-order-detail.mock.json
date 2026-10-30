@@ -1,0 +1,88 @@
+{
+  "header": {
+    "statusbarTone": "light",
+    "orderNo": "订单号EH00120284",
+    "policyLabel": "差旅制度",
+    "statusTitle": "已出票",
+    "statusNote": "公司将统一打印报销凭证，请勿自取车票"
+  },
+  "actions": [
+    { "label": "联系客服" },
+    { "label": "我要退票" },
+    { "label": "我要改签" }
+  ],
+  "amountCard": {
+    "title": "下单金额",
+    "price": "1600",
+    "detailLabel": "交易记录"
+  },
+  "tripCard": {
+    "departDate": "01月18日 周二",
+    "departTime": "06:35",
+    "fromStation": "北京南",
+    "fromTag": "过",
+    "arriveDate": "01月18日 周二",
+    "arriveTime": "07:25",
+    "toStation": "上海虹桥",
+    "toTag": "终",
+    "trainCode": "G6703",
+    "stopsLabel": "经停信息",
+    "duration": "4小时10分",
+    "gate": "检票口：A20、A20",
+    "passengers": [
+      {
+        "name": "刘新",
+        "seat": "二等座 04车 08D座",
+        "seatTag": "靠窗",
+        "idNumber": "13012**********598",
+        "status": "待乘车",
+        "price": "¥234"
+      }
+    ]
+  },
+  "benefitCard": {
+    "title": "出行尊享",
+    "items": ["100元机场贵宾厅*1次"]
+  },
+  "contactCard": {
+    "title": "联系信息",
+    "rows": [
+      { "label": "联系手机", "value": "<手机号[1].个人.手机号>" },
+      { "label": "联系邮箱", "value": "lihbnuhgkijnh@didigobal.com" },
+      { "label": "发送确认单", "value": "", "action": true }
+    ]
+  },
+  "costCard": {
+    "title": "费用归属",
+    "rows": [
+      { "label": "成本中心", "value": "这里展示成本中心" }
+    ]
+  },
+  "approvalCard": {
+    "title": "审批信息",
+    "rows": [
+      { "label": "审批人", "value": "郑恒大" },
+      { "label": "差旅单", "value": "市场部拜访客户" }
+    ]
+  },
+  "progressCard": {
+    "title": "审批进度",
+    "timeline": [
+      { "text": "这里是信息文字这里是", "time": "2026-02-02  17:14:02" },
+      { "text": "这里是信息文字这里是", "time": "2026-02-02  17:14:02" }
+    ]
+  },
+  "expenseCard": {
+    "title": "报销信息",
+    "rows": [
+      { "label": "支付方式", "value": "企业支付" },
+      { "label": "成本中心", "value": "滴滴CDX" },
+      { "label": "报销凭证", "value": "纸质普票" },
+      { "label": "配送方式", "value": "统一配送到公司" }
+    ]
+  },
+  "noticeCard": {
+    "title": "温馨提示",
+    "text": "一张有效身份证件同一乘车日期同一车次只能购买一张车票高铁动卧"
+  }
+}

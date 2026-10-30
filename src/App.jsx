@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import logoMarkImage from './assets/logo-mark.svg'
 import './App.css'
 import {
   defaultPreviewId,
@@ -255,11 +256,10 @@ function App() {
     <main className="preview-workspace">
       <aside className="preview-sidebar">
         <div className="preview-sidebar__header">
-          <p className="preview-sidebar__eyebrow">组件与页面目录</p>
-          <h1 className="preview-sidebar__title">演示组件套件预览台</h1>
-          <p className="preview-sidebar__copy">
-            左侧按全局、通用、业务和页面案例维护目录。业务组件按酒店、用车、机票、火车票归类，页面案例单独核对整页编排。
-          </p>
+          <div className="preview-sidebar__brand">
+            <img alt="" className="preview-sidebar__logo" src={logoMarkImage} />
+            <h1 className="preview-sidebar__title">企业级移动端组件库预览台</h1>
+          </div>
         </div>
 
         <nav

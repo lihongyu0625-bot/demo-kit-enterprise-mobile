@@ -1,0 +1,617 @@
+.my-orders,
+.my-orders * {
+  box-sizing: border-box;
+}
+
+/* 帧壳：Figma 2921:52538 —— 375 宽，高度由 mock frameHeight 内联控制（1133/812/812/1336/939） */
+.my-orders {
+  position: relative;
+  width: 375px;
+  min-height: 812px;
+  overflow: hidden;
+  background: var(--color-bg-gray-2);
+  color: var(--color-alpha-black-84);
+  font-family: var(--font-family-ui-cn);
+}
+
+/* ============ 顶部：导航栏92 + 搜索栏54 + 选项卡48 ============ */
+
+.my-orders__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 375px;
+}
+
+.my-orders__navbar {
+  width: 375px;
+  flex: none;
+}
+
+/* 搜索栏：Figma 2921:52553 —— h54 白底 px16 py8 gap16 */
+.my-orders__search-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 375px;
+  height: 54px;
+  padding: 8px 16px;
+  background: var(--color-white);
+}
+
+/* 搜索 pill：#f5f5f5 r8 px12 h36 flex-1，icon20 + placeholder 14px/22 黑36 */
+.my-orders__search-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: #f5f5f5;
+}
+
+.my-orders__search-icon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.my-orders__search-placeholder {
+  margin-left: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-alpha-black-36);
+}
+
+/* 筛选入口：icon16 + 14px/22 黑84 gap4 */
+.my-orders__search-filter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.my-orders__filter-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.my-orders__filter-label {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-alpha-black-84);
+}
+
+/* 主选项卡：Figma 2921:52557 —— 白底 + 0.5px 下边框 rgba(0,0,0,0.06)；5 项 flex-1 h48 */
+.my-orders__tabs {
+  display: flex;
+  align-items: center;
+  width: 375px;
+  height: 48px;
+  border-bottom: 0.5px solid var(--color-alpha-black-6);
+  background: var(--color-white);
+}
+
+.my-orders__tab {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+}
+
+.my-orders__tab-label {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--color-alpha-black-60);
+}
+
+.my-orders__tab--active .my-orders__tab-label {
+  font-weight: 500;
+  color: var(--color-blue-50);
+}
+
+/* 激活 track：16×3 r999 #1473ff，贴选项卡底边（底边框 0.5px 之上） */
+.my-orders__tab-track {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 16px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--color-blue-50);
+  transform: translateX(-50%);
+}
+
+/* ============ 主体：Figma 2921:52559 —— top206 px12 flex-col gap8 ============ */
+
+.my-orders__body {
+  position: absolute;
+  top: 206px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 375px;
+  padding: 0 12px;
+}
+
+/* 筛选标签行：Figma 2921:52563 —— gap8；62×26 r6 */
+.my-orders__chips {
+  display: flex;
+  gap: 8px;
+}
+
+.my-orders__chip {
+  position: relative;
+  width: 62px;
+  height: 26px;
+  padding: 3px 10px;
+  border: 0.5px solid var(--color-alpha-black-12);
+  border-radius: 6px;
+  background: var(--color-white);
+}
+
+.my-orders__chip-label {
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: var(--color-alpha-black-60);
+}
+
+.my-orders__chip--selected {
+  border-color: var(--color-blue-50);
+}
+
+.my-orders__chip--selected .my-orders__chip-label {
+  font-weight: 500;
+  color: var(--color-blue-50);
+}
+
+/* 右下角对勾徽标：6×6 蓝底 + 白色对勾，覆盖圆角 */
+.my-orders__chip-check {
+  position: absolute;
+  right: -0.5px;
+  bottom: -0.5px;
+  width: 6px;
+  height: 6px;
+  background: var(--color-blue-50);
+}
+
+/* ============ 订单卡：白底 r8 p12 gap8 ============ */
+
+.my-orders__card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--color-white);
+}
+
+/* 退票/已取消：文案整体黑24（按钮除外） */
+.my-orders__card--dimmed .my-orders__card-title-text,
+.my-orders__card--dimmed .my-orders__card-status,
+.my-orders__card--dimmed .my-orders__car-price,
+.my-orders__card--dimmed .my-orders__car-stop-name,
+.my-orders__card--dimmed .my-orders__car-sub,
+.my-orders__card--dimmed .my-orders__car-vehicle,
+.my-orders__card--dimmed .my-orders__hotel-price,
+.my-orders__card--dimmed .my-orders__hotel-name,
+.my-orders__card--dimmed .my-orders__hotel-date,
+.my-orders__card--dimmed .my-orders__hotel-room,
+.my-orders__card--dimmed .my-orders__transit-price,
+.my-orders__card--dimmed .my-orders__segment-city,
+.my-orders__card--dimmed .my-orders__segment-transfer,
+.my-orders__card--dimmed .my-orders__segment-depart,
+.my-orders__card--dimmed .my-orders__segment-note,
+.my-orders__card--dimmed .my-orders__tag {
+  color: var(--color-alpha-black-24);
+}
+
+.my-orders__card--dimmed .my-orders__tag {
+  border-color: var(--color-alpha-black-24);
+}
+
+/* 卡片标题：icon14 + 12px/20 品类黑84 + 竖线 + 支付黑60（+代订）；右侧状态 12px/20 黑60 */
+.my-orders__card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.my-orders__card-title-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+.my-orders__card-title-icon {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+.my-orders__card-title-text {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-84);
+}
+
+.my-orders__card-title-text--sub {
+  color: var(--color-alpha-black-60);
+}
+
+.my-orders__card-title-divider {
+  width: 1px;
+  height: 8px;
+  flex: none;
+  background: var(--color-alpha-black-12);
+}
+
+.my-orders__card-status {
+  flex: none;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-60);
+}
+
+/* 蓝描边标签：0.5px #1473ff px3 r3 10px/16 */
+.my-orders__tag {
+  flex: none;
+  padding: 0 3px;
+  border: 0.5px solid var(--color-blue-50);
+  border-radius: 3px;
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--color-blue-50);
+}
+
+/* 子行通用竖线分隔：1×8 黑12，左右 gap8 */
+.my-orders__sub-divider {
+  display: inline-block;
+  width: 1px;
+  height: 8px;
+  margin: 0 8px;
+  vertical-align: middle;
+  background: var(--color-alpha-black-12);
+}
+
+/* ============ 用车卡 ============ */
+
+.my-orders__car-route {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-orders__car-stop {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.my-orders__car-stop--end {
+  margin-top: 4px;
+}
+
+.my-orders__car-dot {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+.my-orders__car-stop-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--color-alpha-black-84);
+}
+
+/* 价格：16px/22 Medium Barlow Semi Condensed，与第一行起点点名同行右对齐（Figma 车卡 y6716 同行） */
+.my-orders__car-price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  font-family: var(--font-family-ui-number);
+  color: var(--color-alpha-black-84);
+}
+
+.my-orders__car-sub {
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--color-alpha-black-60);
+}
+
+/* 车辆信息条：黑2% r4 px12 h36 13px/20 黑60，竖线分隔 */
+.my-orders__car-vehicle {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 4px;
+  background: var(--color-alpha-black-4);
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--color-alpha-black-60);
+}
+
+/* ============ 酒店卡 ============ */
+
+.my-orders__hotel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.my-orders__hotel-name-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  flex: 1;
+}
+
+.my-orders__hotel-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--color-alpha-black-84);
+}
+
+.my-orders__hotel-price {
+  flex: none;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  font-family: var(--font-family-ui-number);
+  color: var(--color-alpha-black-84);
+}
+
+.my-orders__hotel-date,
+.my-orders__hotel-room {
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--color-alpha-black-60);
+}
+
+/* ============ 行程卡（机票/火车票） ============ */
+
+/* 公告栏：#fff2ec r8 px12 h32 gap8 —— 航变卡卡头之上 */
+.my-orders__notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
+  background: var(--color-orange-10);
+}
+
+.my-orders__notice-icon {
+  width: 16px;
+  height: 18px;
+  flex: none;
+}
+
+.my-orders__notice-text {
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-super-save-orange);
+}
+
+/* 段列 + 右侧价格 */
+.my-orders__transit-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-orders__transit-segments {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.my-orders__transit-price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  font-family: var(--font-family-ui-number);
+  color: var(--color-alpha-black-84);
+}
+
+/* 行程段：城市 14px/22 Medium + 实心右箭头 16 + (中转xx) 12px 黑36 */
+.my-orders__segment {
+  display: flex;
+  flex-direction: column;
+}
+
+.my-orders__segment-cities {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.my-orders__segment-city {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  color: var(--color-alpha-black-84);
+}
+
+.my-orders__segment-arrow {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.my-orders__segment-transfer {
+  margin-left: 4px;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-36);
+}
+
+.my-orders__segment-depart,
+.my-orders__segment-note {
+  font-size: 13px;
+  line-height: 22px;
+  color: var(--color-alpha-black-60);
+}
+
+/* 隐藏信息行：1px 黑6 线 flex-1 + 10px/16 黑36 提示 */
+.my-orders__transit-hidden {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.my-orders__transit-hidden-line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-alpha-black-6);
+}
+
+.my-orders__transit-hidden-text {
+  flex: none;
+  font-size: 10px;
+  line-height: 16px;
+  color: var(--color-alpha-black-36);
+}
+
+/* ============ 卡片底部：预订时间 + 描边按钮 ============ */
+
+.my-orders__card-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.my-orders__card-book-time {
+  flex: 1;
+  font-size: 11px;
+  line-height: 18px;
+  color: var(--color-alpha-black-24);
+}
+
+.my-orders__card-footer-spacer {
+  flex: 1;
+}
+
+.my-orders__card-action {
+  flex: none;
+  padding: 4px 12px;
+  border: 0.5px solid var(--color-alpha-black-12);
+  border-radius: 6px;
+  background: var(--color-white);
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--color-alpha-black-84);
+}
+
+/* 去支付：0.5px #1473ff + #1473ff */
+.my-orders__card-action--primary {
+  border-color: var(--color-blue-50);
+  color: var(--color-blue-50);
+}
+
+/* ============ 页脚 ============ */
+
+.my-orders__iphone-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 375px;
+}
+
+/* ===== 业务组件目录陈列（挂 business-my-orders 聚合页）=====
+   目录块外层是浅色 .catalog-block__surface；陈列容器统一 375 宽 + 页面同款灰底，
+   全宽单元（搜索栏/选项卡）原样展示，卡片类收 12 边距与页面观感一致 */
+
+.my-orders-business-sample {
+  width: 375px;
+  padding: 20px 0;
+  background: var(--color-bg-gray-2);
+  font-family: var(--font-family-ui-cn);
+}
+
+.my-orders-business-sample,
+.my-orders-business-sample * {
+  box-sizing: border-box;
+}
+
+/* 卡片/筛选标签行/公告栏/标签组：与页面 body px12 一致的 12 边距 */
+.my-orders-business-sample > .my-orders__card,
+.my-orders-business-sample .my-orders-business-inset,
+.my-orders-business-sample .my-orders-business-fragment,
+.my-orders-business-state .my-orders__card {
+  width: 351px;
+  margin: 0 12px;
+}
+
+/* 陈列状态列：标签 + 组件纵向排布，列间留 12 */
+.my-orders-business-sample > .my-orders-business-state + .my-orders-business-state {
+  margin-top: 12px;
+}
+
+.my-orders-business-state {
+  display: grid;
+  gap: 6px;
+}
+
+.my-orders-business-state__label {
+  margin: 0 12px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #999;
+}
+
+/* 卡片子件（标题/操作行/行程段）陈列容器：模拟卡内白底环境 */
+.my-orders-business-fragment {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+
+/* 公告栏/筛选标签/标签组：页面内位于卡片顶部或 body 内，陈列给白底槽位 */
+.my-orders-business-inset {
+  display: flex;
+  padding: 12px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+
+.my-orders-business-tags {
+  gap: 8px;
+}

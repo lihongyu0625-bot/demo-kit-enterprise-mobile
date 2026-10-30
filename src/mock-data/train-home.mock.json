@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "policyLabel": "差旅制度"
+  },
+  "header": {
+    "title": "火车票",
+    "subtitle": "安心出行，轻松订"
+  },
+  "application": {
+    "plan": {
+      "title": "申请单/制度",
+      "placeholder": "暂无可用的申旅单/制度"
+    },
+    "route": {
+      "fromCity": "北京",
+      "toCity": "上海"
+    },
+    "date": {
+      "departDate": "11月27日",
+      "departWeekday": "周二"
+    },
+    "options": [
+      {
+        "label": "只看高铁/动车",
+        "checked": false
+      },
+      {
+        "label": "出差",
+        "checked": true
+      },
+      {
+        "label": "加班",
+        "checked": false
+      }
+    ],
+    "buttonLabel": "因公火车票"
+  },
+  "bannerAlt": "活动名称 最多八字",
+  "watermark": {
+    "headlineAlt": "订火车票·安心行",
+    "items": [
+      "企业保障",
+      "贵必赔",
+      "极速出票"
+    ]
+  },
+  "bottomTabs": [
+    {
+      "label": "我的订单",
+      "iconName": "icon-file-file_text_alt-outlined"
+    },
+    {
+      "label": "联系客服",
+      "iconName": "icon-media-headphones_alt-outlined"
+    },
+    {
+      "label": "取票授权",
+      "iconName": "icon-action-approval-outlined"
+    },
+    {
+      "label": "我的12306",
+      "iconName": "icon-travel-12306-outlined"
+    }
+  ]
+}
