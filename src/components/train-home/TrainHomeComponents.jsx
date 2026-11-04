@@ -42,6 +42,20 @@ export function TrainHomeHeroIntro({ header }) {
   )
 }
 
+/* 单个选项：MultiSelect 复选框 + 文字 label */
+function OptionLabel({ option }) {
+  return (
+    <label className="train-home-application__option">
+      <MultiSelect
+        checked={option.checked}
+        className="train-home-application__option-check"
+        label={option.label}
+      />
+      <span>{option.label}</span>
+    </label>
+  )
+}
+
 /* 填写卡片：Figma 火车票首页-填写卡片 351×285 —— 申请单行/城市对/日期/选项行/提交按钮 */
 export function TrainHomeApplicationCard({ application }) {
   return (
@@ -75,17 +89,14 @@ export function TrainHomeApplicationCard({ application }) {
 
       <span aria-hidden="true" className="train-home-divider" />
 
+      {/* 选项行：Figma 2500:24760 justify-between —— 首项居左，其余归右组（2500:24764 gap12） */}
       <div className="train-home-application__options">
-        {application.options.map((option) => (
-          <label className="train-home-application__option" key={option.label}>
-            <MultiSelect
-              checked={option.checked}
-              className="train-home-application__option-check"
-              label={option.label}
-            />
-            <span>{option.label}</span>
-          </label>
-        ))}
+        <OptionLabel option={application.options[0]} />
+        <div className="train-home-application__options-group">
+          {application.options.slice(1).map((option) => (
+            <OptionLabel key={option.label} option={option} />
+          ))}
+        </div>
       </div>
 
       <button className="train-home-application__submit" type="button">

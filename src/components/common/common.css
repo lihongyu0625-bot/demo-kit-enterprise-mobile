@@ -290,9 +290,104 @@
   display: block;
   width: 8.5px;
   height: 5.5px;
-  border: solid currentColor;
+  border: solid var(--color-white);
   border-width: 0 0 2px 2px;
   transform: translateY(-1px) rotate(-45deg);
+}
+
+/* ===== 多选标签（Figma 2921:53825 / 915:15207）：62×26 r6 白底 px10 py3 ===== */
+
+.common-multi-select-tag {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  gap: 4px;
+  height: 26px;
+  padding: 3px 10px;
+  border-radius: var(--radius-6);
+  font-family: var(--font-family-ui-cn);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-body-sm);
+}
+
+.common-multi-select-tag--light {
+  background: var(--color-bg-gray-2);
+  color: var(--color-alpha-black-60);
+}
+
+.common-multi-select-tag--outline {
+  border: 0.5px solid var(--color-alpha-black-12);
+  background: var(--color-white);
+  color: var(--color-alpha-black-60);
+}
+
+.common-multi-select-tag--selected {
+  color: var(--color-blue-50);
+  font-weight: var(--font-weight-medium);
+}
+
+.common-multi-select-tag--light.common-multi-select-tag--selected {
+  background: var(--color-blue-10);
+}
+
+.common-multi-select-tag--outline.common-multi-select-tag--selected {
+  border-color: var(--color-blue-50);
+  background: var(--color-white);
+}
+
+.common-multi-select-tag--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.common-multi-select-tag__icon,
+.common-multi-select-tag__icon-image--tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+
+.common-multi-select-tag__icon-image--tag.common-multi-select-tag__selection-badge-icon {
+  width: 8px;
+  height: 8px;
+}
+
+.common-multi-select-tag__label {
+  position: relative;
+}
+
+/* 右下角对勾徽标：6×6 蓝底白对勾 + 外侧圆角（Figma 1355:17259）；
+   badge=false 时不渲染（无对号选中态） */
+.common-multi-select-tag__selection-badge {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-4) 0 var(--radius-4) 0;
+  background: var(--color-blue-50);
+  color: var(--color-white);
+  pointer-events: none;
+}
+
+.common-multi-select-tag__selection-badge--outline {
+  right: -0.25px;
+  bottom: -0.25px;
+}
+
+.common-multi-select-tag__selection-badge-icon {
+  width: 8px;
+  height: 8px;
 }
 
 /* ===== 单选圆点：Figma 2299:65333 —— 状态图直接用设计稿导出 SVG（assets/common/radio），

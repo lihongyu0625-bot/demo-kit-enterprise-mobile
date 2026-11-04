@@ -1,0 +1,5 @@
+{
+  "pageType": "hotel-benefits-detail",
+  "pageTitle": "酒店品牌权益详情页",
+  "sections": ["nav", "hero", "group-intro", "benefit-card", "footer"]
+}

@@ -1,0 +1,75 @@
+{
+  "frameHeight": 980,
+  "navTitle": "品牌权益",
+  "sections": [
+    {
+      "id": "brand",
+      "title": "精选品牌权益",
+      "icon": "section-title-brand",
+      "cards": [
+        {
+          "id": "huazhu",
+          "name": "华住酒店",
+          "benefits": [
+            { "icon": "benefit-icon-points", "label": "酒店积分" },
+            { "icon": "benefit-icon-late-checkout", "label": "延迟退房" },
+            { "icon": "benefit-icon-booking-hold", "label": "预定保留" },
+            { "icon": "benefit-icon-gift", "label": "入住礼遇" }
+          ]
+        },
+        {
+          "id": "ihg",
+          "name": "洲际酒店",
+          "benefits": [
+            { "icon": "benefit-icon-member-points", "label": "会员积分累计" },
+            { "icon": "benefit-icon-member-nights", "label": "会员间隔累计" },
+            { "icon": "benefit-icon-instant-confirm", "label": "立即确认" }
+          ]
+        },
+        {
+          "id": "rujia",
+          "name": "如家酒店",
+          "benefits": [
+            { "icon": "benefit-icon-points", "label": "酒店积分" },
+            { "icon": "benefit-icon-late-checkout", "label": "延迟退房" },
+            { "icon": "benefit-icon-breakfast-2", "label": "早餐赠送" },
+            { "icon": "benefit-icon-booking-hold", "label": "预订保留" }
+          ]
+        },
+        {
+          "id": "dongcheng",
+          "name": "东呈酒店",
+          "benefits": [
+            { "icon": "benefit-icon-points", "label": "酒店积分" },
+            { "icon": "benefit-icon-late-checkout", "label": "延迟退房" },
+            { "icon": "benefit-icon-booking-hold-2", "label": "预定保留" },
+            { "icon": "benefit-icon-breakfast-2", "label": "免费早餐" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "platform",
+      "title": "平台联登权益",
+      "icon": "section-title-platform",
+      "cards": [
+        {
+          "id": "ctrip",
+          "title": "携程 × 滴滴权益",
+          "subtitle": ["会员等级", "间夜累计"],
+          "action": "绑定"
+        },
+        {
+          "id": "meituan",
+          "title": "美团 × 滴滴权益",
+          "subtitle": ["会员等级", "间夜累计"],
+          "action": "绑定"
+        }
+      ]
+    }
+  ],
+  "footerButtons": [
+    { "id": "manage", "label": "绑定管理", "variant": "outline" },
+    { "id": "book", "label": "一键预订", "variant": "primary" }
+  ]
+}

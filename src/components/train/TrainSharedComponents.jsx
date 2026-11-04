@@ -89,9 +89,9 @@ export function TrainFormRow({ label, value, placeholder = false, action = false
 }
 
 /* ===== 行程卡（报价/详情/退票共用）：日期小字 + 28px Barlow 时刻 + 站名 13 Medium + 过/终 徽标 + 车次/经停/时长中列 ===== */
-export function TrainTripCard({ trip, classPrefix = 'train-trip' }) {
+export function TrainTripCard({ trip, classPrefix = 'train-trip', flat = false }) {
   return (
-    <div className={`${classPrefix}`}>
+    <div className={cx(classPrefix, flat && 'train-card--flat')}>
       <div className={`${classPrefix}__col ${classPrefix}__col--from`}>
         <p className={`${classPrefix}__date`}>{trip.departDate}</p>
         <p className={`${classPrefix}__time`}>{trip.departTime}</p>

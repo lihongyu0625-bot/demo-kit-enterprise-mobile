@@ -6,6 +6,8 @@ import HotelHomeBusinessBusinessPreview from './hotel/HotelHomeBusinessBusinessP
 import HotelListBusinessPreview from './hotel/HotelListBusinessPreview'
 import HotelOrderDetailBusinessPreview from './hotel/HotelOrderDetailBusinessPreview'
 import HotelRoomDetailBusinessPreview from './hotel/HotelRoomDetailBusinessPreview'
+import HotelBenefitsBusinessPreview from './hotel/HotelBenefitsBusinessPreview'
+import HotelBenefitsDetailBusinessPreview from './hotel/HotelBenefitsDetailBusinessPreview'
 import { HotelBookingSuccessPageBackground } from '../../components/hotel-booking-success/HotelBookingSuccessComponents'
 import { HotelFormGradientBackground } from '../../components/hotel-form/HotelFormComponents'
 import { HotelListHeaderBackground } from '../../components/hotel-list/HotelListComponents'
@@ -108,6 +110,7 @@ const sections = [
       ...withUsage(pick(HotelFormBusinessPreview.showcaseList, ['导航栏']), '酒店填单页', { state: '填单态' }),
       ...withUsage(pick(HotelOrderDetailBusinessPreview.showcaseList, ['订单导航栏']), '酒店订单详情页', { state: '订单详情态' }),
       ...withUsage(pick(HotelDetailBusinessPreview.showcaseList, ['头图与导航']), '酒店详情页'),
+      ...withUsage(pick(HotelBenefitsBusinessPreview.showcaseList, ['品牌权益导航栏', '权益栏目标题', '吸底操作区']), '酒店品牌权益页'),
     ],
   },
   {
@@ -177,6 +180,7 @@ const sections = [
       ...withUsage(pick(HotelRoomDetailBusinessPreview.showcaseList, ['专享权益', '优惠及权益']), '房型详情页'),
       ...withUsage(pick(HotelFormBusinessPreview.showcaseList, ['专项权益卡']), '酒店填单页'),
       ...withUsage(pick(HotelOrderDetailBusinessPreview.showcaseList, ['本单可享卡片']), '酒店订单详情页'),
+      ...withUsage(pick(HotelBenefitsBusinessPreview.showcaseList, ['品牌权益卡', '平台联登卡']), '酒店品牌权益页'),
     ],
   },
   {
@@ -207,6 +211,12 @@ const sections = [
         订单卡片: sharedSuccessUsage,
       },
     }),
+  },
+  {
+    id: 'hotel-benefits-detail',
+    title: '品牌权益详情类',
+    description: '权益详情页的集团介绍、会员权益表格和入住礼遇表格集中沉淀。',
+    items: withUsage(HotelBenefitsDetailBusinessPreview.showcaseList, '酒店品牌权益详情页'),
   },
 ]
 

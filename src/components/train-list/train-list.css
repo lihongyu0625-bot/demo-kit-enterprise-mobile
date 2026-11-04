@@ -192,11 +192,6 @@
   font-weight: 500;
 }
 
-/* 不可选项删除线（Figma：上海虹桥） */
-.train-list-chips__chip--strike {
-  text-decoration: line-through;
-}
-
 /* 选中态右下角蓝色勾标（Figma I1353:16299;1355:17259）：1px 内距 + 6px check */
 .train-list-chips__check {
   position: absolute;

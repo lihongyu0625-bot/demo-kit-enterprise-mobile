@@ -16,7 +16,7 @@
   "stationChips": [
     { "label": "北京南站", "active": false },
     { "label": "北京站", "active": true },
-    { "label": "上海虹桥", "active": false, "strike": true },
+    { "label": "上海虹桥", "active": false },
     { "label": "上海站", "active": true }
   ],
   "trips": [

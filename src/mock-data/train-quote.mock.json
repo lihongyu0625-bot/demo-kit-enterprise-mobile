@@ -26,7 +26,8 @@
       "name": "商务座",
       "price": "￥1260",
       "status": "有票",
-      "overBudget": true
+      "overBudget": true,
+      "overLabel": "超出差标"
     },
     {
       "name": "一等座",
@@ -36,17 +37,17 @@
     },
     {
       "name": "二等座",
-      "price": "￥560.5",
-      "status": "抢票"
+      "price": "￥520.5",
+      "status": "有票"
     }
   ],
   "bottomBar": {
-    "price": "460",
+    "price": "1350",
     "hint": "需登陆12306账号",
     "freeLabel": "官方免费购票",
     "buttonLabel": "预订",
     "bundle": {
-      "tag": "出行忧",
+      "tag": "出行无忧",
       "benefits": ["85折用车券*3张", "赠乘车意外保障"],
       "price": "+¥10"
     }

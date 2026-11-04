@@ -1,103 +1,164 @@
 {
   "nav": {
-    "title": "填写订单",
+    "title": "订单填写",
     "noticeLabel": "预订须知"
   },
   "tripSummary": {
     "tag": "单程",
     "fromStation": "北京西",
     "toStation": "南昌西",
-    "dateTime": "12-10 11:30",
+    "dateTime": "06-19 周三 08:30",
     "detailLabel": "详情",
     "duration": "4时29分",
-    "seatInfo": "二等座 ¥123",
-    "freeTag": "免登12306购票",
-    "freeTagBadge": "免"
+    "seatInfo": "二等座 ¥239",
+    "freeTag": "免登12306购票"
   },
   "passengerCard": {
     "title": "乘车人信息",
     "name": "李冉",
     "idNumber": "身份证 1301***********598",
     "editLabel": "添加/编辑乘车人",
-    "requiredMark": "*",
     "phoneLabel": "联系电话",
-    "phoneValue": "<手机号[1].个人.手机号>",
+    "phoneValue": "13576549876",
     "emailLabel": "联系邮箱",
-    "emailValue": "lihbnuhgkijnh@didigobal.com",
+    "emailValue": "lihbnuhgkijnh@didiglobal.com",
     "collectNote": "* 收集您的联系信息用作占座、出票、停运、改签、退票的提醒"
   },
   "seatPicker": {
     "title": "选择座席",
-    "rows": [
-      { "cells": ["F", "D", "C", "B", "A"] },
-      { "cells": ["D", "C"] },
-      { "cells": ["F", "D", "C", "B", "A"] }
+    "leftLabel": "靠窗",
+    "midLabel": "过道",
+    "rightLabel": "靠窗",
+    "leftGroup": [
+      {
+        "letter": "A",
+        "selected": false
+      },
+      {
+        "letter": "B",
+        "selected": false
+      },
+      {
+        "letter": "C",
+        "selected": false
+      }
     ],
-    "rowLabels": ["靠窗", "过道", "靠窗"],
+    "rightGroup": [
+      {
+        "letter": "D",
+        "selected": false
+      },
+      {
+        "letter": "F",
+        "selected": true
+      }
+    ],
     "quietNote": "请优先为我分配“静音车厢”席位",
     "quietSubNote": "若剩余席位无静音车厢席位，将为您分配其他席位"
   },
   "insurance": {
-    "title": "添加保障更安心",
-    "cards": [
+    "title": "出行服务",
+    "subtitle": "添加保障更安心",
+    "insuranceHead": {
+      "title": "航意保障",
+      "price": "¥38",
+      "unit": "/人",
+      "recommendTag": "超值推荐",
+      "recommendText": "快车券6折，航意保障¥300万"
+    },
+    "options": [
       {
-        "name": "航意保障",
-        "price": "¥38",
-        "unit": "/人",
-        "badge": "超值推荐",
-        "features": ["快车券6折，航意保障¥300万"]
+        "title": "基础保障",
+        "selected": false,
+        "features": [
+          "快车券 8.5折",
+          "乘车意外险 ¥90万"
+        ],
+        "price": "¥38"
       },
       {
-        "name": "基础保障",
-        "price": "¥38",
-        "unit": "/人",
-        "features": ["快车券 8.5折", "乘车意外险 ¥90万"]
+        "title": "专业保障",
+        "selected": true,
+        "features": [
+          "快车券 8.5折",
+          "乘车意外险 ¥100万"
+        ],
+        "price": "¥38"
       },
       {
-        "name": "专业保障",
-        "price": "¥38",
-        "unit": "/人",
-        "features": ["快车券 8.5折", "乘车意外险 ¥100万"]
-      },
-      {
-        "name": "专业保障",
-        "price": "¥38",
-        "unit": "/人",
-        "features": ["快车券 8.5折", "乘车意外险 ¥100万"]
+        "title": "专业保障",
+        "selected": false,
+        "features": [
+          "快车券 8.5折",
+          "乘车意外险 ¥100万"
+        ],
+        "price": "¥38"
       }
     ],
-    "agreement": "请您务必认真阅读本[服务包名称1、服务包名称、产品相关说明，"
+    "footerText": "请您务必认真阅读本[服务包名称1、服务包名称、产品相关说明，如您同意选购的增值服务内容，请您阅读并同意《保险产品说明》《保险条款》《客户告知书》《隐私政策》《个人信息共享授权书》《免责声明》,保险销售方:[中捷保险经纪股份有限公司] 营业执照、经营许可证"
   },
   "approval": {
     "title": "审批进度",
     "rows": [
-      { "label": "审批人", "value": "郑恒大" },
-      { "label": "差旅单", "value": "市场部拜访客户" },
-      { "label": "申请原因", "value": "经批准可不选择最低价" }
+      {
+        "label": "审批人",
+        "value": "郑恒大",
+        "action": true
+      },
+      {
+        "label": "差旅单",
+        "value": "市场部拜访客户"
+      },
+      {
+        "label": "申请原因",
+        "value": "经批准可不选择最低价"
+      }
     ]
   },
   "remarkCard": {
     "title": "差旅备注",
     "rows": [
-      { "label": "出行目的", "value": " " },
-      { "label": "出行描述", "value": "请输入出行原因", "placeholder": true }
+      {
+        "label": "出行目的",
+        "value": " ",
+        "action": true
+      },
+      {
+        "label": "出行描述",
+        "value": "请输入出行原因",
+        "placeholder": true
+      }
     ]
   },
   "payment": {
     "title": "支付报销",
     "rows": [
-      { "label": "支付方式", "value": "企业支付" },
-      { "label": "成本中心", "value": "滴滴CDX" },
-      { "label": "报销凭证", "value": "纸质普票" },
-      { "label": "配送方式", "value": "统一配送到公司" }
+      {
+        "label": "支付方式",
+        "value": "企业支付",
+        "action": true
+      },
+      {
+        "label": "成本中心",
+        "value": "滴滴CDX"
+      },
+      {
+        "label": "报销凭证",
+        "value": "纸质普票"
+      },
+      {
+        "label": "配送方式",
+        "value": "统一配送到公司"
+      }
     ]
   },
   "notice": {
     "title": "温馨提示",
-    "text": "一张有效身份证件同一乘车日期同一车次只能购买一张车票高铁动卧"
+    "text": "一张有效身份证件同一乘车日期同一车次只能购买一张车票高铁动卧列车除外购票时可使用的有效身份证件包括：中华人民共和国居民身份证、港澳居民来往内地通行证、台湾居民来往大陆通行证可行"
   },
   "bottomBar": {
-    "agreementText": "我已阅读并同意《铁路互联网购票须知》《火车票信息服务协议》",
+    "agreementText": "我已阅读并同意",
+    "agreementLinks": "《铁路互联网购票须知》《火车票信息服务协议》",
     "payLabel": "企业支付",
     "price": "600",
     "detailLabel": "明细",

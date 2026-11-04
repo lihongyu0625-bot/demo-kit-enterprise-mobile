@@ -1,0 +1,632 @@
+.hotel-benefits,
+.hotel-benefits * {
+  box-sizing: border-box;
+}
+
+/* ============ 帧壳：Figma 3483:64619 —— 暗色 #070a1f，375×980 ============ */
+.hotel-benefits {
+  position: relative;
+  width: 375px;
+  min-height: 812px;
+  overflow: hidden;
+  background: #070a1f;
+  font-family: var(--font-family-ui-cn);
+}
+
+/* 头图：Figma 3483:64625 —— 375×180 贴顶 cover */
+.hotel-benefits__hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 375px;
+  height: 180px;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* ============ 导航栏：375×92（状态栏44 + 48 标题行） ============ */
+
+.hotel-benefits-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+}
+
+.hotel-benefits-nav__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+/* 返回热区 48×48，icon 24×24 居中（= left12 top12） */
+.hotel-benefits-nav__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hotel-benefits-nav__back-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.hotel-benefits-nav__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #fff;
+  pointer-events: none;
+}
+
+/* ============ 内容列：top103 px12 flex-col（92 导航 + 11） ============ */
+
+.hotel-benefits__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 11px 12px 0;
+}
+
+/* 栏目间 20px：Frame154(544) → Frame153(564) 差值 */
+.hotel-benefits__section + .hotel-benefits__section {
+  margin-top: 20px;
+}
+
+/* 栏目标题：24×24 icon + 16px Medium #d9e2ee lh24，gap6 */
+.hotel-benefits-section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hotel-benefits-section-title__icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+.hotel-benefits-section-title__text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #d9e2ee;
+}
+
+/* 标题行高 24，卡片列表距标题 8（Frame154：title24 + 8 + 首卡32） */
+.hotel-benefits-section-title + .hotel-benefits__brand-cards,
+.hotel-benefits-section-title + .hotel-benefits__platform-cards {
+  margin-top: 8px;
+}
+
+/* 品牌卡列表：flex-col gap8（卡122 + 间8 = 130 行距） */
+.hotel-benefits__brand-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ============ 品牌权益卡：Figma 3483:64733 —— 351×122 ============ */
+
+.hotel-benefits-brand-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  overflow: clip;
+  background-image: url('../../assets/hotel-benefits/brand-card-bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.hotel-benefits-brand-card__head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hotel-benefits-brand-card__name {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 500;
+  color: var(--color-alpha-black-84);
+}
+
+.hotel-benefits-brand-card__chevron {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--color-alpha-black-84);
+}
+
+/* 权益行：gap8 均分；每项 icon 容器(36) + gap2 + label(20) = 58 */
+.hotel-benefits-brand-card__benefits {
+  display: flex;
+  gap: 8px;
+}
+
+.hotel-benefits-brand-card__benefit {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+/* icon 容器：p6 → 36×36，r13.714 玻璃渐变 + blur2 */
+.hotel-benefits-brand-card__benefit-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 13.714px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.36) 0%,
+    rgba(255, 255, 255, 0.48) 50%,
+    rgba(135, 155, 205, 0.6) 100%
+  );
+  backdrop-filter: blur(2px);
+}
+
+.hotel-benefits-brand-card__benefit-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.hotel-benefits-brand-card__benefit-label {
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: var(--color-alpha-black-84);
+}
+
+/* ============ 平台联登卡：Figma 3483:64995 —— 2列 gap8，各 171.5×94 ============ */
+
+.hotel-benefits__platform-cards {
+  display: flex;
+  gap: 8px;
+}
+
+.hotel-benefits-platform-card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 11px 12px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  overflow: clip;
+  height: 94px;
+  box-sizing: border-box;
+  background-image: url('../../assets/hotel-benefits/co-brand-card-bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* 文本块：标题 22 + gap4 + 副题 20 = 46（Figma 3483:64936） */
+.hotel-benefits-platform-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hotel-benefits-platform-card__title {
+  margin: 0;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  color: #061014;
+}
+
+/* 副题：两个独立文本项 gap8 居中（Figma 3483:64938，48+8+48） */
+.hotel-benefits-platform-card__subtitle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.hotel-benefits-platform-card__subtitle p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 20px;
+  color: #20304d;
+  white-space: nowrap;
+}
+
+/* 按钮行：文档流右对齐（Figma 3483:64960 items-end） */
+.hotel-benefits-platform-card__action-row {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* 绑定按钮：高16 定尺寸（Figma 文本 lh16 hug，无纵向 padding）；0.5px 白边 r4 pl6 pr4；
+   radial 蓝晕 + 白线性底（Figma 导出 SVG 原始 stop 值） */
+.hotel-benefits-platform-card__action {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 16px;
+  padding: 0 4px 0 6px;
+  border: 0.5px solid #fff;
+  border-radius: 4px;
+  background:
+    radial-gradient(
+      42px 24px at 65% 0%,
+      rgba(187, 203, 255, 1) 0%,
+      rgba(221, 234, 247, 0) 70%
+    ),
+    linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(255, 255, 255, 0.8) 50%);
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #20304d;
+  cursor: pointer;
+}
+
+.hotel-benefits-platform-card__action-icon {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  color: #20304d;
+}
+
+/* ============ 底部水印：Figma 3483:65025 —— 351×28（pt12 + 252×16） ============ */
+
+.hotel-benefits__watermark {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-top: 12px;
+}
+
+.hotel-benefits__watermark img {
+  width: 252px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ============ 吸底操作区：375×98（按钮64 + footer34），白色连体吸底 dock ============ */
+
+/* dock：按钮条 + 安全区连成一块 #070a1f 暗底，整体绝对吸底于帧壳（Figma 3498:65044） */
+.hotel-benefits-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+  background: #070a1f;
+  filter: drop-shadow(0 -4px 10px rgba(0, 0, 0, 0.04));
+}
+
+.hotel-benefits-footer-actions {
+  display: flex;
+  gap: 8px;
+  padding: 16px 12px 0;
+}
+
+.hotel-benefits-footer-actions__button {
+  flex: 1;
+  height: 48px;
+  padding: 12px 20px;
+  border: 1px solid #b3bcc8;
+  border-radius: 8px;
+  background: transparent;
+  font-family: var(--font-family-ui-cn);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: #b3bcc8;
+  cursor: pointer;
+}
+
+/* 主按钮：白底叠蓝紫渐变（Figma 3498:65044 原始渐变值） */
+.hotel-benefits-footer-actions__button--primary {
+  border: none;
+  background: linear-gradient(
+      270deg,
+      rgb(187, 203, 255) 0%,
+      rgba(221, 234, 247, 0) 100%
+    ),
+    linear-gradient(90deg, #fff, #fff);
+  color: var(--color-alpha-black-84);
+}
+
+/* 暗底 dock 上 Home 指示条用白色（Figma bg-[white]） */
+.hotel-benefits-bottom .iphone-footer__indicator {
+  background: var(--color-white);
+}
+
+.hotel-benefits__iphone-footer {
+  width: 375px;
+}
+
+/* ================================================== */
+/* ============ 权益详情页：Figma 3514:65382 —— 浅色 #f5f7fa，375×812 ============ */
+/* ================================================== */
+
+.hotel-benefits-detail,
+.hotel-benefits-detail * {
+  box-sizing: border-box;
+}
+
+.hotel-benefits-detail {
+  position: relative;
+  width: 375px;
+  min-height: 812px;
+  overflow: hidden;
+  background: #f5f7fa;
+  font-family: var(--font-family-ui-cn);
+}
+
+/* 头图：375×280（介绍卡上叠于头图，玻璃拟态） */
+.hotel-benefits-detail__hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 375px;
+  height: 280px;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* ============ 详情页导航：375×92，标题 18px Medium 白 lh26 ============ */
+
+.hotel-benefits-detail-nav {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+}
+
+.hotel-benefits-detail-nav__bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.hotel-benefits-detail-nav__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.hotel-benefits-detail-nav__back-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.hotel-benefits-detail-nav__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+  color: #fff;
+  pointer-events: none;
+}
+
+/* ============ 内容列：Frame155 @ y116 px12 flex-col gap8 ============ */
+
+.hotel-benefits-detail__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 12px 0;
+}
+
+/* 集团介绍卡：351×160，渐变玻璃 blur5，10px/16 白90 两端对齐 */
+.hotel-benefits-detail__group-intro {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 12px;
+  border-radius: 8px;
+  background: linear-gradient(
+    156.75deg,
+    rgb(47, 58, 77) 2.42%,
+    rgb(71, 52, 64) 95.16%
+  );
+  backdrop-filter: blur(5px);
+}
+
+.hotel-benefits-detail__group-intro p {
+  margin: 0;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: justify;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ============ 权益卡：351×442 白底 r8 p12/16 flex-col gap12 ============ */
+
+.hotel-benefits-detail__benefit-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 12px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* 卡顶渐变条 h60：180deg #cdd5e5 → 透明（同色系淡出） */
+.hotel-benefits-detail__benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, #cdd5e5, rgba(205, 213, 229, 0));
+  pointer-events: none;
+}
+
+/* 标题行：24 icon + 16px Medium 黑84 + 24 icon，gap6 居中 */
+.hotel-benefits-detail__benefit-card-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hotel-benefits-detail__title-icon {
+  width: 24px;
+  height: 24px;
+  flex: none;
+}
+
+.hotel-benefits-detail__card-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: var(--color-alpha-black-84);
+}
+
+/* ============ 会员权益表格：5 列（表头 + 名称列 title 样式，值列 default） ============ */
+/* 容器：0.5px 描边 + r6（Figma 3519:65681 border-[0.5px] rounded-[6px] overflow-clip） */
+.hotel-benefits-detail-table {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid var(--color-alpha-black-12);
+  border-radius: 6px;
+  overflow: clip;
+}
+
+.hotel-benefits-detail-table__row {
+  display: flex;
+}
+
+.hotel-benefits-detail-table__cell {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-right: 0.5px solid var(--color-alpha-black-12);
+  border-bottom: 0.5px solid var(--color-alpha-black-12);
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--color-alpha-black-60);
+  text-align: center;
+}
+
+/* 表头行 + 首列名称：title 样式 12px Medium 黑84 */
+.hotel-benefits-detail-table__cell--title {
+  font-weight: 500;
+  color: var(--color-alpha-black-84);
+}
+
+/* 末列去右边、末行去底边 */
+.hotel-benefits-detail-table__cell:last-child {
+  border-right: none;
+}
+
+.hotel-benefits-detail-table__row:last-child .hotel-benefits-detail-table__cell {
+  border-bottom: none;
+}
+
+/* ============ 入住礼遇表格：2 列（首行跨列标题 + 3 行 × 2 值），r6 ============ */
+/* 容器：0.5px 描边 + r6（Figma 3519:65990 border-[0.5px] rounded-[6px] overflow-clip） */
+.hotel-benefits-hospitality-table {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid var(--color-alpha-black-12);
+  border-radius: 6px;
+  overflow: clip;
+}
+
+.hotel-benefits-hospitality-table__row {
+  display: flex;
+}
+
+.hotel-benefits-hospitality-table__cell {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-right: 0.5px solid var(--color-alpha-black-12);
+  border-bottom: 0.5px solid var(--color-alpha-black-12);
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+  color: var(--color-alpha-black-60);
+  text-align: center;
+}
+
+.hotel-benefits-hospitality-table__cell--title {
+  font-weight: 500;
+  color: var(--color-alpha-black-84);
+}
+
+/* 首行跨 2 列标题 */
+.hotel-benefits-hospitality-table__cell--span {
+  flex: 2;
+}
+
+.hotel-benefits-hospitality-table__cell:last-child {
+  border-right: none;
+}
+
+.hotel-benefits-hospitality-table__row:last-child .hotel-benefits-hospitality-table__cell {
+  border-bottom: none;
+}
+
+/* ============ 详情页页脚：3519:66222 @ y778，34 高 ============ */
+
+.hotel-benefits-detail__iphone-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  width: 375px;
+}

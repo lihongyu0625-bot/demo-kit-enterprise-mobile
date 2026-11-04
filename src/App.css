@@ -2506,6 +2506,22 @@
   background: #5f5f5f;
 }
 
+/* 品牌权益陈列衬底：主页暗底 / 详情头图底 / 详情浅灰底 */
+.catalog-surface--benefits-dark {
+  width: 375px;
+  background: #070a1f;
+}
+
+.catalog-surface--benefits-hero {
+  width: 375px;
+  background: linear-gradient(180deg, #2f3a4d 0%, #473440 100%);
+}
+
+.catalog-surface--benefits-light {
+  width: 375px;
+  background: #f5f7fa;
+}
+
 .catalog-backdrop-demo-sheet {
   position: absolute;
   right: 0;
@@ -2621,7 +2637,8 @@
 /* 带业务操作的底部区域与 iPhone 安全区作为一个整体吸底。 */
 .page-case-viewport .hotel-form-footer,
 .page-case-viewport .flight-form-bottom-dock,
-.page-case-viewport .room-detail-footer {
+.page-case-viewport .room-detail-footer,
+.page-case-viewport .train-form-bottom {
   position: fixed;
   z-index: 100;
   right: 0;
@@ -2643,6 +2660,11 @@
   padding-bottom: 34px;
 }
 
+/* 品牌权益吸底操作区在预览窗口内固定于窗口底部（translateZ 包含块，同状态栏 fixed 机制）。 */
+.page-case-viewport .hotel-benefits-bottom {
+  position: fixed;
+}
+
 /* 组合式底部操作区的安全区应跟随容器整体吸底。 */
 .page-case-viewport .car-bubble-bottom .iphone-footer,
 .page-case-viewport .hotel-home-business-bottom .iphone-footer,
@@ -2652,6 +2674,7 @@
 .page-case-viewport .points-exchange-success-overlay__footer-dock .iphone-footer,
 .page-case-viewport .points-product-detail-overlay__footer-dock .iphone-footer,
 .page-case-viewport .my-coupons__bottom-button .iphone-footer,
+.page-case-viewport .hotel-benefits-bottom .iphone-footer,
 .page-case-viewport .train-home-bottom-nav__footer,
 .page-case-viewport .train-quote-bottom__footer,
 .page-case-viewport .train-form-bottom__footer,
@@ -2663,10 +2686,9 @@
   left: auto;
 }
 
-/* 火车票列表/订单详情页 footer 不嵌在吸底操作区内，自身绝对吸底于帧壳，
+/* 火车票列表页 footer 不嵌在吸底操作区内，自身绝对吸底于帧壳，
    只需解除视口级 fixed，恢复帧内绝对定位。 */
-.page-case-viewport .train-list-shell__footer,
-.page-case-viewport .train-detail-shell__footer {
+.page-case-viewport .train-list-shell__footer {
   position: absolute;
   z-index: auto;
   top: auto;
@@ -2675,9 +2697,13 @@
   left: 0;
 }
 
+/* 火车票订单详情页 footer 吸底于预览视口（滚动常驻，同平台 .iphone-footer 默认 fixed），
+   透明底（transparent 变体），底带灰由帧壳 main::before 提供。 */
+
 .page-case-viewport .page-bottom-nav,
 .page-case-viewport .hotel-form-footer,
-.page-case-viewport .room-detail-footer {
+.page-case-viewport .room-detail-footer,
+.page-case-viewport .hotel-benefits-bottom {
   z-index: 90;
 }
 

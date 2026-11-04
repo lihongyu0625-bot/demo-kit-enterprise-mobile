@@ -191,8 +191,14 @@
   line-height: 20px;
 }
 
-/* 选项行：checkbox16 + 14 Regular，h22 gap8 */
+/* 选项行：Figma 2500:24760 justify-between —— 首项(只看高铁/动车)居左，右组(出差+加班 gap12)贴右 */
 .train-home-application__options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.train-home-application__options-group {
   display: flex;
   align-items: center;
   gap: 12px;

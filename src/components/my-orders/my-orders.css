@@ -146,46 +146,16 @@
   padding: 0 12px;
 }
 
-/* 筛选标签行：Figma 2921:52563 —— gap8；62×26 r6 */
+/* 筛选标签行：Figma 2921:53825 多选标签组 —— gap8；
+   标签本体复用 common/MultiSelect variant="tag"（26 高描边、badge=false 无对号），
+   此处只收 62px 等宽（设计稿三枚均 62 宽） */
 .my-orders__chips {
   display: flex;
   gap: 8px;
 }
 
 .my-orders__chip {
-  position: relative;
   width: 62px;
-  height: 26px;
-  padding: 3px 10px;
-  border: 0.5px solid var(--color-alpha-black-12);
-  border-radius: 6px;
-  background: var(--color-white);
-}
-
-.my-orders__chip-label {
-  font-size: 12px;
-  line-height: 20px;
-  text-align: center;
-  color: var(--color-alpha-black-60);
-}
-
-.my-orders__chip--selected {
-  border-color: var(--color-blue-50);
-}
-
-.my-orders__chip--selected .my-orders__chip-label {
-  font-weight: 500;
-  color: var(--color-blue-50);
-}
-
-/* 右下角对勾徽标：6×6 蓝底 + 白色对勾，覆盖圆角 */
-.my-orders__chip-check {
-  position: absolute;
-  right: -0.5px;
-  bottom: -0.5px;
-  width: 6px;
-  height: 6px;
-  background: var(--color-blue-50);
 }
 
 /* ============ 订单卡：白底 r8 p12 gap8 ============ */

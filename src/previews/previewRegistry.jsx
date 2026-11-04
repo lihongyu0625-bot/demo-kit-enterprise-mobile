@@ -23,6 +23,8 @@ import HotelHomeBusinessBusinessPreview from './business/hotel/HotelHomeBusiness
 import HotelListBusinessPreview from './business/hotel/HotelListBusinessPreview'
 import HotelOrderDetailBusinessPreview from './business/hotel/HotelOrderDetailBusinessPreview'
 import HotelRoomDetailBusinessPreview from './business/hotel/HotelRoomDetailBusinessPreview'
+import HotelBenefitsBusinessPreview from './business/hotel/HotelBenefitsBusinessPreview'
+import HotelBenefitsDetailBusinessPreview from './business/hotel/HotelBenefitsDetailBusinessPreview'
 import PointsBusinessComponentsPreview from './business/PointsBusinessComponentsPreview'
 import {
   GlobalColorPreview,
@@ -68,6 +70,7 @@ import HotelFormCasePreview from './page-cases/hotel/HotelFormCasePreview'
 import HotelHomeBusinessCasePreview from './page-cases/hotel/HotelHomeBusinessCasePreview'
 import HotelListCasePreview from './page-cases/hotel/HotelListCasePreview'
 import HotelOrderDetailCasePreview from './page-cases/hotel/HotelOrderDetailCasePreview'
+import HotelBenefitsCasePreview from './page-cases/hotel/HotelBenefitsCasePreview'
 import HotelRoomDetailCasePreview from './page-cases/hotel/HotelRoomDetailCasePreview'
 import PointsLuckyBagCasePreview from './page-cases/points/PointsLuckyBagCasePreview'
 import PointsProductExchangeCasePreview from './page-cases/points/PointsProductExchangeCasePreview'
@@ -479,6 +482,28 @@ export const previewNavigation = [
             maintenanceHint: '当前挂载的是酒店订单详情页拆分后的业务组件。',
             component: HotelOrderDetailBusinessPreview,
           },
+          {
+            id: 'business-hotel-benefits',
+            label: '酒店品牌权益页',
+            type: 'item',
+            title: '酒店品牌权益页组件预览',
+            pathLabel: '业务组件 / 酒店 / 酒店品牌权益页',
+            description: '这里展示酒店品牌权益页里拆出来的业务组件，适合按品牌权益卡、平台联登卡和吸底操作持续维护。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店品牌权益页拆分后的业务组件。',
+            component: HotelBenefitsBusinessPreview,
+          },
+          {
+            id: 'business-hotel-benefits-detail',
+            label: '酒店品牌权益详情页',
+            type: 'item',
+            title: '酒店品牌权益详情页组件预览',
+            pathLabel: '业务组件 / 酒店 / 酒店品牌权益详情页',
+            description: '这里展示酒店品牌权益详情页里拆出来的业务组件，适合按集团介绍卡和权益表格持续沉淀。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店品牌权益详情页拆分后的业务组件。',
+            component: HotelBenefitsDetailBusinessPreview,
+          },
         ],
       },
       {
@@ -742,6 +767,17 @@ export const previewNavigation = [
             statusLabel: '已接入',
             maintenanceHint: '当前挂载的是酒店订单详情页完整预览。',
             component: HotelOrderDetailCasePreview,
+          },
+          {
+            id: 'page-hotel-benefits',
+            label: '品牌权益',
+            type: 'item',
+            title: '酒店品牌权益页整页案例',
+            pathLabel: '页面案例 / 酒店 / 品牌权益',
+            description: '这里统一展示酒店品牌权益主页和权益详情页整页组装后的最终效果，适合从页面层级核对品牌权益卡、平台联登卡与权益表格的整体编排。',
+            statusLabel: '已接入',
+            maintenanceHint: '当前挂载的是酒店品牌权益主页与权益详情页完整预览。',
+            component: HotelBenefitsCasePreview,
           },
         ],
       },
@@ -1125,6 +1161,7 @@ const previewItemMap = new Map(
 )
 
 const previewIdAliases = {
+  'page-hotel-benefits-detail': 'page-hotel-benefits',
   'business-hotel-home-business': 'business-hotel-components',
   'business-hotel-list': 'business-hotel-components',
   'business-hotel-detail': 'business-hotel-components',
@@ -1132,6 +1169,8 @@ const previewIdAliases = {
   'business-hotel-form': 'business-hotel-components',
   'business-hotel-booking-success': 'business-hotel-components',
   'business-hotel-order-detail': 'business-hotel-components',
+  'business-hotel-benefits': 'business-hotel-components',
+  'business-hotel-benefits-detail': 'business-hotel-components',
   'business-car-home-default': 'business-car-components',
   'business-car-location-input': 'business-car-components',
   'business-car-bubble': 'business-car-components',

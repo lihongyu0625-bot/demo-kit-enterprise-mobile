@@ -359,10 +359,13 @@
   line-height: 22px;
 }
 
-.flight-order-detail-payment-card__arrow {
+/* 提高特异性压过 __flight-title span 徽章规则的误伤（渐变背景/16px/padding 会泼到图标上）。 */
+.flight-order-detail-payment-card__flight-title .flight-order-detail-payment-card__arrow {
   width: 14px;
   height: 14px;
+  padding: 0;
   color: var(--color-alpha-black-84);
+  background: var(--color-alpha-black-84);
 }
 
 .flight-order-detail-route {

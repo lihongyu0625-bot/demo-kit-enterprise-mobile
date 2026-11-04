@@ -3,7 +3,6 @@ import iconAirplaneImage from '../../assets/my-orders/icon-category-airplane.svg
 import iconBedImage from '../../assets/my-orders/icon-category-bed.svg'
 import iconCarBlueImage from '../../assets/my-orders/icon-category-car-blue.svg'
 import iconCarOrangeImage from '../../assets/my-orders/icon-category-car-orange.svg'
-import iconCheckWhiteImage from '../../assets/my-orders/icon-check-white.svg'
 import iconFilterImage from '../../assets/my-orders/icon-filter-outlined.svg'
 import iconNoticeInfoImage from '../../assets/my-orders/icon-notice-info.svg'
 import iconSearchImage from '../../assets/my-orders/icon-search-outlined.svg'
@@ -13,6 +12,7 @@ import dotStartImage from '../../assets/my-orders/dot-start.svg'
 import mockData from '../../mock-data/my-orders.mock.json'
 import { GlobalStyleIcon } from '../common/GlobalStyleIcon'
 import { IPhoneFooter } from '../common/IPhoneFooter'
+import { MultiSelect } from '../common/MultiSelect'
 import { MobileNavBar } from '../common/MobileNavBar'
 import './my-orders.css'
 
@@ -80,28 +80,25 @@ function MyOrdersTabs({ activeTab, tabs }) {
   )
 }
 
-/* 筛选标签：Figma 2921:52563 —— 62×26 r6；
-   选中 = 白底 + 0.5px 边框 #1473ff + 12px Medium #1473ff + 右下角 6×6 蓝底对勾；
-   未选中 = 白底 + 0.5px 边框 rgba(0,0,0,0.12) + 12px Regular 黑60 */
+/* 筛选标签：Figma 2921:53825 多选标签组 —— 62×26 r6 白底描边；
+   选中 = 蓝边 + 12px Medium 蓝 + 无对号（propValue=false）；
+   未选中 = 12% 边框 + 12px Regular 黑60。
+   复用 common/MultiSelect variant="tag"（badge=false = 无对号状态） */
 function MyOrdersChips({ chips }) {
   return (
     <div className="my-orders__chips">
       {chips.map((chip) => (
-        <div
-          className={cx(
-            'my-orders__chip',
-            chip.selected && 'my-orders__chip--selected',
-          )}
+        <MultiSelect
+          badge={false}
+          checked={chip.selected}
+          className="my-orders__chip"
           key={chip.id}
+          label={chip.label}
+          selectableStyle="outline"
+          variant="tag"
         >
-          <p className="my-orders__chip-label">{chip.label}</p>
-          {chip.selected ? (
-            <Img
-              className="my-orders__chip-check"
-              src={iconCheckWhiteImage}
-            />
-          ) : null}
-        </div>
+          {chip.label}
+        </MultiSelect>
       ))}
     </div>
   )

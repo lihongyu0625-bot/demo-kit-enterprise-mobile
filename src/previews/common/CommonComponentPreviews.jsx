@@ -807,7 +807,7 @@ export function CommonTagPreview() {
               <p className="common-tag-showcase__eyebrow">可选标签</p>
               <h4 className="common-tag-showcase__title">支持选中反馈的筛选标签</h4>
             </div>
-            <p className="common-tag-showcase__copy">按样式拆成亮色和描边两组，每组再区分纯文字与带图标状态。</p>
+            <p className="common-tag-showcase__copy">按样式拆成亮色和描边两组，每组再区分纯文字、带图标与无对号状态。</p>
           </div>
           <div className="common-tag-showcase__selectable-grid">
             <article className="common-tag-showcase__variant">
@@ -819,39 +819,53 @@ export function CommonTagPreview() {
                 <div className="common-tag-showcase__row">
                   <span className="common-tag-showcase__row-label">纯文字</span>
                   <div className="common-multi-select-tag-row">
-                    <Tag
+                    <MultiSelect
+                      label="航班友好"
                       selectableStyle="light"
-                      selected
-                      variant="selectable"
+                      variant="tag"
+                      checked
                     >
                       航班友好
-                    </Tag>
-                    <Tag
+                    </MultiSelect>
+                    <MultiSelect
+                      label="职场附近"
                       selectableStyle="light"
-                      variant="selectable"
+                      variant="tag"
                     >
                       职场附近
-                    </Tag>
+                    </MultiSelect>
                   </div>
                 </div>
                 <div className="common-tag-showcase__row">
                   <span className="common-tag-showcase__row-label">带图标</span>
                   <div className="common-multi-select-tag-row">
-                    <Tag
+                    <MultiSelect
                       iconName="icon-travel-destination-outlined"
+                      label="航班友好"
                       selectableStyle="light"
-                      selected
-                      variant="selectable"
+                      variant="tag"
+                      checked
                     >
                       航班友好
-                    </Tag>
-                    <Tag
+                    </MultiSelect>
+                    <MultiSelect
+                      badge={false}
+                      checked
                       iconName="icon-travel-destination-outlined"
+                      label="航班友好"
                       selectableStyle="light"
-                      variant="selectable"
+                      variant="tag"
+                    >
+                      航班友好
+                    </MultiSelect>
+                    <MultiSelect
+                      iconName="icon-travel-destination-outlined"
+                      label="职场附近"
+                      selectableStyle="light"
+                      variant="tag"
                     >
                       职场附近
-                    </Tag>
+                    </MultiSelect>
                   </div>
                 </div>
               </div>
@@ -866,39 +880,53 @@ export function CommonTagPreview() {
                 <div className="common-tag-showcase__row">
                   <span className="common-tag-showcase__row-label">纯文字</span>
                   <div className="common-multi-select-tag-row">
-                    <Tag
+                    <MultiSelect
+                      label="航班友好"
                       selectableStyle="outline"
-                      selected
-                      variant="selectable"
+                      variant="tag"
+                      checked
                     >
                       航班友好
-                    </Tag>
-                    <Tag
+                    </MultiSelect>
+                    <MultiSelect
+                      label="职场附近"
                       selectableStyle="outline"
-                      variant="selectable"
+                      variant="tag"
                     >
                       职场附近
-                    </Tag>
+                    </MultiSelect>
                   </div>
                 </div>
                 <div className="common-tag-showcase__row">
                   <span className="common-tag-showcase__row-label">带图标</span>
                   <div className="common-multi-select-tag-row">
-                    <Tag
+                    <MultiSelect
                       iconName="icon-travel-destination-outlined"
+                      label="航班友好"
                       selectableStyle="outline"
-                      selected
-                      variant="selectable"
+                      variant="tag"
+                      checked
                     >
                       航班友好
-                    </Tag>
-                    <Tag
+                    </MultiSelect>
+                    <MultiSelect
+                      badge={false}
+                      checked
                       iconName="icon-travel-destination-outlined"
+                      label="航班友好"
                       selectableStyle="outline"
-                      variant="selectable"
+                      variant="tag"
+                    >
+                      航班友好
+                    </MultiSelect>
+                    <MultiSelect
+                      iconName="icon-travel-destination-outlined"
+                      label="职场附近"
+                      selectableStyle="outline"
+                      variant="tag"
                     >
                       职场附近
-                    </Tag>
+                    </MultiSelect>
                   </div>
                 </div>
               </div>

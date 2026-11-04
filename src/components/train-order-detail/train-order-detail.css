@@ -5,174 +5,463 @@
   box-sizing: border-box;
 }
 
-/* ============ 帧壳：375×1639 长页 ============ */
+/* ============ 帧壳：375×1642 长页（稿 2422:36295） ============ */
 
 .train-detail-shell {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 375px;
   overflow: hidden;
-  background: var(--color-bg-gray-2);
+  background: #f5f7fa;
   font-family: var(--font-family-ui-cn);
 }
 
-/* 蓝底头 297：渐变 #2B81FF→#1473FF */
+/* 蓝底头：稿 3676:58020 头图背景（375×300 切图，矩形直角，不削角。
+   灰底内容区从 y215 起顶部两角 R11 向下包裹蓝头（见 main::before） */
 .train-detail-head {
   position: absolute;
   inset: 0 0 auto;
   z-index: 1;
-  height: 297px;
-  background: linear-gradient(180deg, #2b81ff 0%, #1473ff 100%);
+  height: 226px;
+  background: url('../../assets/train-order-detail/header-bg.png') center top / 375px 300px no-repeat;
 }
 
-.train-detail-topnav {
-  position: absolute;
-  inset: 0 0 auto;
+.train-detail-head .train-top {
+  position: relative;
   z-index: 2;
 }
 
+/* 蓝底头上的导航白字变体（复刻 train-top--onblue，不改共享组件） */
+.train-detail-head .train-top__back-icon,
+.train-detail-head .train-top__policy-icon,
+.train-detail-head .train-top__bar h1 {
+  color: var(--color-white);
+}
+
+.train-detail-head .train-top__policy {
+  background: var(--color-alpha-black-30);
+}
+
+.train-detail-head .train-top__policy span {
+  color: var(--color-white);
+}
+
+/* 状态区（稿 2422:35468）：横向排列，icon 24×24 + 文本块 gap12，左缘 x12 */
 .train-detail-head__status {
-  position: absolute;
-  top: 108px;
-  left: 12px;
-  right: 12px;
+  position: relative;
   z-index: 2;
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 12px 0;
 }
 
-.train-detail-head__status h1 {
+.train-detail-head__status-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   margin: 0;
   color: var(--color-white);
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
+  white-space: nowrap;
 }
 
-.train-detail-head__status p {
+/* 白描边圆勾（稿 2422:16046，1.67px 描边） */
+.train-detail-head__status-check {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  background: center / contain no-repeat
+    url('../../assets/train-order-detail/status-check-white.svg');
+}
+
+/* 标题与副题竖排 gap7（稿 Frame 167） */
+.train-detail-head__status-text {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.train-detail-head__status-note {
   margin: 0;
   color: var(--color-white);
   font-size: 13px;
   line-height: 16px;
 }
 
-/* ============ 主列：mx12，pt 从头部下 12 起 ============ */
+/* ============ 主列：mx12 卡片流 gap10，actions 自 y163 起 ============ */
+
+/* 灰底内容层：从 y215 起向下包裹蓝头，顶部两角 R11。
+   用伪元素而非 main 背景——main 盒子从 y0 起会盖住蓝头和 actions 行 */
+.train-detail-main::before {
+  content: '';
+  position: absolute;
+  top: 215px;
+  right: -12px;
+  bottom: -215px;
+  left: -12px;
+  z-index: -1;
+  border-radius: 11px 11px 0 0;
+  background: #f5f7fa;
+}
 
 .train-detail-main {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   width: 351px;
   margin-left: 12px;
-  padding-top: 253px;
-  padding-bottom: 44px;
+  padding-top: 163px;
+  padding-bottom: 10px;
 }
 
-/* 操作按钮行 */
+/* 操作按钮行：稿 2422:17527 三枚 flex-1 白底 R8、gap8、px12 py9（高40）、无阴影 */
 .train-detail-actions {
   display: flex;
   gap: 8px;
-  justify-content: flex-end;
 }
 
 .train-detail-actions__btn {
-  width: 112px;
+  flex: 1;
   height: 40px;
-  padding: 0;
+  padding: 9px 12px;
   border: none;
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-8);
   background: var(--color-white);
   color: var(--color-alpha-black-84);
   font-size: 14px;
   font-weight: 500;
-  line-height: 40px;
+  line-height: 22px;
   cursor: pointer;
-  box-shadow: 0 2px 8px var(--color-alpha-black-12);
 }
 
-/* 下单金额卡 */
+/* 下单金额条：渐变卡 #E0ECFF→白（稿 2422:36160），价格 ¥16/26 数字24，行高对齐 */
 .train-detail-amount {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: space-between;
   gap: 8px;
+  height: 50px;
+  margin-top: 14px; /* 10 基础 gap + 14 = 稿 24 */
+  padding: 12px;
+  border-radius: var(--radius-8);
+  background: linear-gradient(180deg, #e0ecff 0%, #fefeff 69.5%, #ffffff 72.7%, #ffffff 100%);
+}
+
+.train-detail-amount__title {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.train-detail-amount__price {
+  display: flex;
+  align-items: flex-end;
+  color: #1473ff;
+  font-family: var(--font-family-ui-number);
+  font-weight: 500;
+}
+
+.train-detail-amount__price-number {
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.train-detail-amount__currency {
+  margin-bottom: 3px;
+  color: #1473ff;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 20px;
+}
+
+.train-detail-amount__link {
+  display: inline-flex;
+  gap: 1px;
+  align-items: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #1473ff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.train-detail-amount__link-icon {
+  width: 12px;
+  height: 12px;
+  color: #1473ff;
+}
+
+/* ============ 通用卡内元素 ============ */
+
+/* 通栏分割线：稿 116:101 切图 0.5px 实线黑 12%，用 2x 物理像素渲染出真 0.5px */
+.train-detail-divider {
+  height: 0.5px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* 表单类卡片：白卡 p12 gap12 R8，标题 16/24（稿 58067 高 82=12+24+12+22+12 精确闭合） */
+.train-detail-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   padding: 12px;
   border-radius: var(--radius-8);
   background: var(--color-white);
 }
 
-.train-detail-amount__title {
+/* 无分割线卡（费用归属 58067/审批信息 58068：分割线 hidden）：仅 label 色 #999 */
+.train-detail-card--plain .train-form-row__label {
+  color: #999;
+}
+
+.train-detail-card__title {
   margin: 0;
-  flex: 1;
   color: var(--color-alpha-black-84);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-}
-
-.train-detail-amount__price {
-  display: flex;
-  align-items: baseline;
-  margin: 0;
-  color: var(--color-blue-50);
-  font-family: var(--font-family-ui-number);
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 26px;
-}
-
-.train-detail-amount__currency {
   font-size: 16px;
-  line-height: 20px;
-}
-
-.train-detail-amount__link {
-  padding: 0;
-  border: none;
-  background: transparent;
-  color: var(--color-blue-50);
-  font-size: 12px;
   font-weight: 500;
-  line-height: 20px;
-  cursor: pointer;
+  line-height: 24px;
 }
 
-/* 检票口行 */
+.train-detail-card__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 表单行（稿 2382:19557/1024:19306）：items-start，label 56 定宽，value 左对齐 flex-1
+   默认（报销信息 58070）label 黑 36%；#999 变体见 --plain / contact 覆盖 */
+.train-detail-card .train-form-row {
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 0;
+}
+
+.train-detail-card .train-form-row__label {
+  width: 56px;
+  white-space: nowrap;
+  color: rgba(0, 0, 0, 0.36);
+}
+
+.train-detail-card .train-form-row__value {
+  flex: 1;
+  text-align: left;
+  word-break: break-word;
+}
+
+/* 费用归属/审批信息 value #333（稿 58067/58068） */
+.train-detail-card--plain .train-form-row__value {
+  color: #333;
+}
+
+/* 联系信息（稿 58066）：label #999 */
+.train-detail-contact .train-form-row__label {
+  color: #999;
+}
+
+/* ============ 行程卡（稿 2422:36213 一比一） ============ */
+
+.train-detail-trip {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+
+/* 检票口：浅蓝条全宽 px12 py2 r8（稿 2422:36195，在外层 12px 组内） */
 .train-detail-gate {
   margin: 0;
+  padding: 2px 12px;
+  border-radius: var(--radius-8);
+  background: #f3f8ff;
   color: #3c5a86;
   font-size: 12px;
   line-height: 20px;
 }
 
-/* 乘客块 */
+/* 分割线：同通用款 0.5px 实线黑 12%（稿切图 6a1a7.svg） */
+.train-detail-trip .train-detail-divider {
+  height: 0.5px;
+  margin: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* 三列布局（稿 3662:49521）：左右列 78 定宽，中列 69 居中 */
+.train-detail-trip .train-trip {
+  gap: 0;
+  padding: 0;
+}
+
+.train-detail-trip .train-trip__col {
+  width: 78px;
+  flex: none;
+  gap: 4px;
+}
+
+.train-detail-trip .train-trip__date {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.train-detail-trip .train-trip__time {
+  color: #333;
+  font-size: 28px;
+  line-height: 32px;
+}
+
+.train-detail-trip .train-trip__station {
+  gap: 2px;
+}
+
+/* 站点 tag：稿 12×12 R3，底黑 2%、边 0.5px 黑 24%，字 9/16 黑 36%；「终」边/字橙 #FE7016
+   （稿内层用 pb-px 补偿，这里用 flex 居中等价实现，视觉居中） */
+.train-detail-trip .train-trip__tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  border: 0.5px solid var(--color-alpha-black-24, rgba(0, 0, 0, 0.24));
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.02);
+  color: rgba(0, 0, 0, 0.36);
+  font-size: 9px;
+  line-height: 1;
+  padding-bottom: 0.5px;
+  text-align: center;
+}
+
+.train-detail-trip .train-trip__tag--orange {
+  border-color: #fe7016;
+  background: rgba(0, 0, 0, 0.02);
+  color: #fe7016;
+}
+
+.train-detail-trip .train-trip__station-name {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* 中列（稿 3662:49499）：69 宽 gap6，去共享样式的 pt18 */
+.train-detail-trip .train-trip__mid {
+  width: 69px;
+  flex: 1;
+  gap: 6px;
+  padding-top: 0;
+}
+
+.train-detail-trip .train-trip__code {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* 经停信息：稿 3662:49501 描边 pill R8，宽自适应内容，文字 13/22 #3c5a86 */
+.train-detail-trip .train-trip__stops {
+  width: auto;
+  justify-content: center;
+  gap: 0;
+  padding: 2px 8px;
+  border: 0.5px solid rgba(5, 34, 76, 0.5);
+  border-radius: var(--radius-8);
+  font-size: 13px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.train-detail-trip .train-trip__stops-icon {
+  width: 10px;
+  height: 10px;
+}
+
+.train-detail-trip .train-trip__duration {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* 乘客块（稿 2422:36199）：左列 163 gap2；右列 36 竖排右对齐，行高 20 */
 .train-detail-passenger {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.train-detail-passenger__col {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  padding-top: 8px;
-  border-top: 1px solid var(--color-alpha-black-8);
+  width: 163px;
+  min-width: 0;
 }
 
 .train-detail-passenger__row1 {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  gap: 4px;
+  align-items: center;
 }
 
 .train-detail-passenger__name {
   margin: 0;
-  flex: 1;
-  color: var(--color-alpha-black-84);
+  color: #000;
   font-size: 14px;
   font-weight: 500;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.train-detail-passenger__seat {
+  margin: 0;
+  color: #666;
+  font-size: 12px;
   line-height: 20px;
+  white-space: nowrap;
+}
+
+.train-detail-passenger__seat-tag {
+  flex: none;
+  padding: 0 3px;
+  border: 0.5px solid #1473ff;
+  border-radius: 3px;
+  color: #1473ff;
+  font-size: 10px;
+  line-height: 16px;
+}
+
+/* 右列（稿 2422:36207）：36 宽竖排右对齐，状态蓝、价格 #333 */
+.train-detail-passenger__col--side {
+  width: 36px;
+  flex: none;
+  gap: 0;
+  align-items: flex-end;
 }
 
 .train-detail-passenger__status {
   margin: 0;
-  color: var(--color-blue-50);
+  color: #1473ff;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: right;
+}
+
+.train-detail-passenger__id {
+  margin: 0;
+  color: #666;
   font-size: 12px;
   line-height: 20px;
 }
@@ -181,46 +470,218 @@
   margin: 0;
   color: #333;
   font-size: 12px;
+  font-family: var(--font-family-ui-number);
   line-height: 20px;
+  text-align: right;
 }
 
-.train-detail-passenger__seat {
-  margin: 0;
-  color: #666;
-  font-size: 12px;
-  line-height: 20px;
+/* ============ 出行服务卡（稿 3677:58065）：头带渐变 + 白体行 ============ */
+
+.train-detail-benefit {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
 }
 
-.train-detail-passenger__row3 {
+/* 头带：blue/10→白 水平渐变，pt8 pb16（与白体行重叠 8px） */
+.train-detail-benefit__title {
   display: flex;
   align-items: center;
+  margin: 0 0 -8px;
+  padding: 8px 12px 16px;
+  background: linear-gradient(90deg, #e7f1ff 0%, #ffffff 100%);
+}
+
+.train-detail-benefit__logo {
+  display: block;
+  width: 58px;
+  height: 22px;
+}
+
+/* 白体行 p12：名称+info 上、描述下；右箭头 16 */
+.train-detail-benefit__panel {
+  display: flex;
   gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  background: var(--color-white);
 }
 
-.train-detail-passenger__seat-tag {
-  color: var(--color-blue-50);
-  font-size: 10px;
-  line-height: 16px;
+.train-detail-benefit__col {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
 }
 
-.train-detail-passenger__id {
-  color: #666;
+.train-detail-benefit__name {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.train-detail-benefit__info {
+  width: 14px;
+  height: 14px;
+  color: #999;
+}
+
+.train-detail-benefit__desc {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
+  font-weight: 500;
   line-height: 20px;
 }
 
-/* 出行尊享 / 温馨提示文案 */
-.train-detail-benefit,
+.train-detail-benefit__arrow {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: #999;
+}
+
+/* ============ 联系信息卡（稿 3677:58066）：p12 gap12，操作按钮通栏居中蓝字 ============ */
+
+.train-detail-contact__title {
+  margin-bottom: 0;
+}
+
+/* rows 底→divider 12 / divider→action 12（稿 gap12） */
+.train-detail-contact .train-detail-divider {
+  margin-top: 0;
+}
+
+.train-detail-contact__action-wrap {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.train-detail-contact__action {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #09397f;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+/* ============ 审批进度时间线（稿 3677:58069）：左列 16 宽，icon 16×16，连接线 4px 间隙居中 ============ */
+
+.train-detail-timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.train-detail-timeline__item {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+/* 左列固定 16 宽（稿 2251:15179 容器 25671），icon 底 y19 → 线顶 y23 = 4px 间隙 */
+.train-detail-timeline__side {
+  position: relative;
+  display: flex;
+  flex: none;
+  width: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.train-detail-timeline__item--tail .train-detail-timeline__side::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  bottom: 3px;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+/* icon 本体 16×16 实底圆勾：mask 着色（稿 b373b.svg #1473FF / f055a.svg 黑36%） */
+.train-detail-timeline__dot {
+  display: inline-block;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  color: #1473ff;
+}
+
+.train-detail-timeline__item--inactive .train-detail-timeline__dot {
+  color: rgba(0, 0, 0, 0.36);
+}
+
+/* text 22 行高 y0→time 20 行高 y24 = 行间 2px（稿 25615 内排布） */
+.train-detail-timeline__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: -3px;
+}
+
+.train-detail-timeline__item--tail .train-detail-timeline__body {
+  padding-bottom: 24px;
+}
+
+/* active 深灰 / inactive 浅灰（稿 2251:15127 vs 2251:14951） */
+.train-detail-timeline__item--inactive .train-detail-timeline__text {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.train-detail-timeline__text {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.train-detail-timeline__item--inactive .train-detail-timeline__text {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.train-detail-timeline__time {
+  margin: 0;
+  color: var(--color-alpha-black-36);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: pre-wrap;
+}
+
+/* 温馨提示文案（稿 2422:35281 内文/小号）：12/20 黑60 */
 .train-detail-notice {
   margin: 0;
-  color: #666;
+  color: var(--color-alpha-black-60);
   font-size: 12px;
   line-height: 20px;
 }
 
+/* 底带：F5F5F5（稿 1573-1642 = footer 34 + 35 空白）。预览中 footer transparent fixed 吸底于 812px 视口
+   （App.css），帧内绝对定位同款透明占位（底带灰由 main::before 提供），尾部 35px 空白由 spacer 占位 */
 .train-detail-shell__footer {
   position: absolute;
+  right: 0;
   bottom: 0;
   left: 0;
-  width: 375px;
+  height: 34px;
+  background: transparent;
+}
+
+.train-detail-shell__footer-spacer {
+  height: 35px;
 }

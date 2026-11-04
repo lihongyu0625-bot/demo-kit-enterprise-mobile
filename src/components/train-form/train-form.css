@@ -1,87 +1,132 @@
 .train-form-shell,
-.train-form-shell *,
-.train-form-summary__detail,
-.train-form-passenger__edit,
-.train-form-bottom__detail,
-.train-form-bottom__submit {
+.train-form-shell * {
   box-sizing: border-box;
 }
 
-/* ============ 帧壳：375×1977 长页 ============ */
+/* ============ 帧壳：375×1977 长页（稿 3665:57243 / 2422:15705） ============ */
 
 .train-form-shell {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 375px;
   overflow: hidden;
   background: var(--color-bg-gray-2);
   font-family: var(--font-family-ui-cn);
 }
 
+/* 顶部渐变头：稿 3665:57243 标注 375×180，#d0e3ff → #f5f7fa(103.42%) */
+.train-form-shell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(180deg, #d0e3ff 0%, #f5f7fa 103.42%);
+}
+
 .train-form-sticky {
   position: absolute;
   inset: 0 0 auto;
   z-index: 2;
-  background: var(--color-bg-gray-2);
+  background: transparent;
 }
 
+/* 内容列：x12 w351，导航 92 起，块间 gap10（稿 2422:15680）；底部 148 吸底操作区占位 */
 .train-form-main {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   width: 351px;
   margin-left: 12px;
-  padding-top: 100px;
+  padding-top: 92px;
   padding-bottom: 148px;
 }
 
-/* ============ 行程摘要：白卡 p12 ============ */
+/* ============ 通用：卡标题 / 分割线 / 勾选框 ============ */
+
+.train-form-card-title {
+  margin: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.train-form-card-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.train-form-card-divider--dark {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.train-form-checkbox18 {
+  flex: none;
+  width: 18px;
+  height: 18px;
+}
+
+/* ============ 行程摘要卡：稿 2415:3237 351×78 白卡 p12 gap8 ============ */
 
 .train-form-summary {
-  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: none;
+  height: 78px;
+  padding: 16px 12px;
   border-radius: var(--radius-8);
   background: var(--color-white);
 }
 
 .train-form-summary__head {
   display: flex;
-  align-items: center;
   gap: 8px;
+  align-items: center;
 }
 
+/* 单程 tag 30×16 r3.7 蓝渐变（稿矩形80 radial） */
 .train-form-summary__tag {
   flex: none;
-  padding: 0 4px;
-  border-radius: 2px;
-  background: var(--color-blue-50);
+  width: 30px;
+  height: 16px;
+  border-radius: 3.7px;
+  background: linear-gradient(90deg, #7bb3ff 0%, #0373ff 100%);
   color: var(--color-white);
   font-size: 10px;
   font-weight: 500;
-  line-height: 14px;
+  line-height: 16px;
+  text-align: center;
 }
 
 .train-form-summary__route {
   display: flex;
-  align-items: center;
-  gap: 2px;
-  margin: 0;
   flex: 1;
+  gap: 4px;
+  align-items: center;
   min-width: 0;
+  margin: 0;
   color: var(--color-alpha-black-84);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  white-space: nowrap;
 }
 
 .train-form-summary__arrow {
-  width: 14px;
-  height: 14px;
-  color: var(--color-alpha-black-36);
+  flex: none;
+  width: 12px;
+  height: 6px;
 }
 
 .train-form-summary__datetime {
-  margin-left: 4px;
   color: var(--color-alpha-black-84);
   font-size: 14px;
+  font-weight: 500;
   line-height: 22px;
 }
 
@@ -90,7 +135,7 @@
   padding: 0;
   border: none;
   background: transparent;
-  color: var(--color-blue-50);
+  color: #1473ff;
   font-size: 12px;
   line-height: 14px;
   cursor: pointer;
@@ -98,241 +143,646 @@
 
 .train-form-summary__meta {
   display: flex;
+  gap: 8px;
   align-items: center;
-  gap: 6px;
-  margin-top: 8px;
 }
 
-.train-form-summary__meta > span:first-child {
+.train-form-summary__meta > span {
   color: #666;
   font-size: 12px;
   line-height: 16px;
 }
 
+/* meta 分隔竖线：稿直线16 #ccc（实测 x64） */
 .train-form-summary__divider {
-  color: var(--color-alpha-black-12);
+  width: 0;
+  height: 9.5px;
+  border-left: 1px solid #ccc;
 }
 
-.train-form-summary__meta > span:nth-child(3) {
-  color: #666;
-  font-size: 12px;
-  line-height: 16px;
-}
+/* ============ 免登12306条：稿 2415:3267 351×40 白→浅蓝渐变 r8 ============ */
 
-.train-form-summary__free {
-  display: inline-flex;
+.train-form-miandeng {
+  position: relative;
+  display: flex;
+  flex: none;
+  gap: 8px;
   align-items: center;
-  gap: 2px;
-  margin-left: auto;
+  height: 40px;
+  padding: 0 12px;
+  overflow: hidden;
+  border-radius: var(--radius-8);
+  background: linear-gradient(-0.95deg, #ffffff 0.2%, #edf4ff 87.1%);
 }
 
-.train-form-summary__free-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 2px;
-  background: #52cefb;
-  color: var(--color-white);
-  font-size: 9px;
-  font-style: normal;
-  line-height: 14px;
+.train-form-miandeng__logo {
+  flex: none;
+  width: 24px;
+  height: 24px;
 }
 
-.train-form-summary__free {
+.train-form-miandeng__text {
+  margin: 0;
   color: var(--color-alpha-black-84);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  white-space: nowrap;
 }
 
-/* ============ 乘车人卡 ============ */
+/* 右侧免角标装饰：稿组745 x308 y-1.8 w42.9（部分溢出裁切） */
+.train-form-miandeng__decor {
+  position: absolute;
+  top: -2px;
+  right: 13px;
+  width: 43px;
+  height: 44px;
+}
+
+/* ============ 乘车人信息卡：稿 2415:14944 351×293 白卡 p12 gap12 ============ */
 
 .train-form-passenger {
   display: flex;
+  flex: none;
   flex-direction: column;
-  gap: 2px;
+  gap: 12px;
+  height: 293px;
+  padding: 12px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
+
+.train-form-passenger__person {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.train-form-passenger__idcol {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .train-form-passenger__name {
+  display: flex;
+  gap: 4px;
+  align-items: center;
   margin: 0;
   color: var(--color-alpha-black-84);
   font-size: 14px;
   font-weight: 500;
   line-height: 22px;
+  white-space: nowrap;
 }
 
-.train-form-passenger__id {
+.train-form-passenger__pencil {
+  width: 16px;
+  height: 16px;
+  color: var(--color-alpha-black-36);
+}
+
+.train-form-passenger__idnumber {
   margin: 0;
-  color: var(--color-alpha-black-84);
+  color: var(--color-alpha-black-36);
   font-size: 12px;
   font-weight: 500;
   line-height: 20px;
+  white-space: nowrap;
 }
 
-.train-form-passenger__edit {
-  align-self: flex-start;
-  padding: 0;
+/* 添加/编辑乘车人：稿 2415:14908 浅蓝底 r8 h44 + 蓝圈加号 16 */
+.train-form-passenger__add {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 11px 12px;
   border: none;
-  background: transparent;
-  color: var(--color-blue-50);
+  border-radius: var(--radius-8);
+  background: #e7f1ff;
+  color: #1473ff;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 500;
   line-height: 22px;
   cursor: pointer;
 }
 
+.train-form-passenger__add-icon {
+  width: 16px;
+  height: 16px;
+  color: #1473ff;
+}
+
+/* 字段行：label 70 宽（电话行含红*），value 14 黑 */
+.train-form-passenger__fieldrow {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.train-form-passenger__label {
+  display: flex;
+  flex: none;
+  gap: 2px;
+  align-items: center;
+  width: 70px;
+  color: var(--color-alpha-black-36);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
 .train-form-passenger__required {
+  margin: 0;
   color: #f93822;
+  font-style: normal;
   font-size: 14px;
   line-height: 22px;
 }
 
+.train-form-passenger__value {
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .train-form-passenger__note {
   margin: 0;
-  color: var(--color-alpha-black-84);
+  color: rgba(0, 0, 0, 0.24);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+/* ============ 座席选择卡：稿 3665:57921 351×154 ============ */
+
+.train-form-seat {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  height: 154px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+  box-sizing: border-box;
+}
+
+/* 标题「选择座席」16px/500/24px */
+.train-form-seat__title {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.84);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+/* 座位排：侧标 20 宽竖排(渐变底)，座位 36×36，两端 justify-between */
+.train-form-seat__map {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 42px;
+}
+
+.train-form-seat__sidelabel {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 42px;
+  padding: 7px 5px 7px 4px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 11px;
+  line-height: 14px;
+  text-align: center;
+  white-space: pre-line;
+  opacity: 0.6;
+  background: linear-gradient(
+    180deg,
+    rgba(229, 233, 238, 0) 0%,
+    rgba(229, 233, 238, 0.3) 34.18%,
+    rgba(229, 233, 238, 0.3) 73.1%,
+    rgba(229, 233, 238, 0) 99.02%
+  );
+  box-sizing: border-box;
+}
+
+.train-form-seat__cell {
+  flex: none;
+  width: 36px;
+  height: 36px;
+}
+
+/* 静音车厢条：稿 3665:57906 327×44 浅蓝 #f3f8ff，px8/py4 */
+.train-form-seat__quiet {
+  position: relative;
+  display: flex;
+  flex: none;
+  gap: 8px;
+  align-items: center;
+  padding: 4px 8px;
+  height: 44px;
+  border-radius: var(--radius-6, 6px);
+  background: #f3f8ff;
+  box-sizing: border-box;
+}
+
+.train-form-seat__quiet-main {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.train-form-seat__quiet-head {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.train-form-seat__quiet-note {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.84);
+  font-size: 12px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.train-form-seat__quiet-info {
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+
+.train-form-seat__quiet-sub {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.36);
   font-size: 10px;
   line-height: 16px;
 }
 
-/* ============ 座席选择 ============ */
+.train-form-seat__quiet-check {
+  position: static;
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
 
-.train-form-seat__row {
+/* ============ 出行服务卡：稿 3665:57600 351×411（渐变壳 + 白 panel） ============ */
+
+.train-form-travel-service {
+  position: relative;
+  display: grid;
+  flex: none;
+  gap: 12px;
+  padding: 12px 4px 4px;
+  overflow: hidden;
+  border-radius: var(--radius-8);
+  background: linear-gradient(180deg, #d0e3ff 0%, #e7f1ff 50%, #e7f1ff 100%);
+}
+
+.train-form-travel-service__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: 104px;
+  height: 164px;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.train-form-travel-service__heading,
+.train-form-travel-service__panel {
+  position: relative;
+  z-index: 1;
+}
+
+/* 头行：logo 切图 64×22（稿 3665:57435 渐变字）+ 副题 12px #05224c */
+.train-form-travel-service__heading {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.train-form-travel-service__pill {
+  display: block;
+  flex: none;
+  width: 64px;
+  height: 22px;
+}
+
+.train-form-travel-service__subtitle {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: #05224c;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+/* 内白卡 343×353：py12 px8 gap12 r6 */
+.train-form-travel-service__panel {
+  display: grid;
+  gap: 12px;
+  padding: 12px 8px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--color-white);
+}
+
+/* 头部行 + 推荐横幅合并为同一组，组内 gap4 */
+.train-form-travel-service__head-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.train-form-travel-service__panel-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
 
-.train-form-seat__cells {
-  display: flex;
-  gap: 12px;
-}
-
-.train-form-seat__cell {
+.train-form-travel-service__panel-title,
+.train-form-travel-service__panel-price {
   display: inline-flex;
+  gap: 4px;
   align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 28px;
-  border-radius: 4px;
-  background: #1f60bb;
-  color: var(--color-white);
-  font-size: 13px;
-  line-height: 16px;
+  color: var(--color-alpha-black-84);
+  white-space: nowrap;
 }
 
-.train-form-seat__cell--empty {
-  background: transparent;
+.train-form-travel-service__panel-title strong {
+  color: var(--color-alpha-black-84);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
 }
 
-.train-form-seat__label {
-  color: #666;
-  font-size: 11px;
-  line-height: 14px;
-  white-space: pre-line;
-  text-align: center;
+.train-form-travel-service__info,
+.train-form-travel-service__row-info {
+  width: 14px;
+  height: 14px;
+  color: #a0a0a0;
 }
 
-.train-form-seat__quiet {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 8px;
+.train-form-travel-service__panel-price {
+  gap: 0;
 }
 
-.train-form-seat__quiet-note {
-  margin: 0;
-  color: #333;
+.train-form-travel-service__panel-price span,
+.train-form-protection-option__bottom span {
+  color: rgba(0, 0, 0, 0.6);
+  font-family: var(--font-family-ui-number);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.train-form-travel-service__panel-price em,
+.train-form-protection-option__bottom em {
+  color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
-  line-height: 14px;
+  font-style: normal;
+  line-height: 20px;
 }
 
-.train-form-seat__quiet-sub {
-  margin: 0;
-  color: #999;
-  font-size: 10px;
-  line-height: 14px;
+.train-form-travel-service__panel-price .train-form-checkbox18 {
+  margin-left: 8px;
 }
 
-/* ============ 保障选项卡 ============ */
-
-.train-form-insurance__list {
+/* 橙标横幅：标签 46×16 0.5px 橙边 r3 + 文案 12px 灰黑 */
+.train-form-travel-service__recommend {
   display: flex;
   gap: 8px;
-  overflow: hidden;
+  align-items: center;
+  min-width: 0;
 }
 
-.train-form-insurance__card {
+.train-form-travel-service__recommend span {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 16px;
+  border: 0.5px solid #fe7016;
+  border-radius: 3px;
+  color: #fe7016;
+  font-size: 10px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.train-form-travel-service__recommend p {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 三保障卡：横滑列表，卡 132×180 pt20 px12 pb12，底灰 rgba(0,0,0,0.04) */
+.train-form-protection-list {
+  display: flex;
+  flex: none;
+  gap: 8px;
+  align-items: flex-start;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.train-form-protection-list::-webkit-scrollbar {
+  display: none;
+}
+
+.train-form-protection-option {
   position: relative;
   display: flex;
+  flex: none;
   flex-direction: column;
-  gap: 4px;
-  flex: 1;
-  padding: 8px;
-  border: 1px solid transparent;
-  border-radius: var(--radius-8);
-  background: #f6f8fb;
-}
-
-.train-form-insurance__card--featured {
-  border-color: #fe7016;
-  background: #fff7f0;
-}
-
-.train-form-insurance__head {
-  display: flex;
+  gap: 12px;
   align-items: center;
-  gap: 4px;
+  width: 132px;
+  height: 180px;
+  padding: 20px 12px 12px;
+  border: 0.5px solid transparent;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
 }
 
-.train-form-insurance__name {
-  margin: 0;
+.train-form-protection-option--selected {
+  border-color: #1473ff;
+  background: #e7f1ff;
+}
+
+.train-form-protection-option__title {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.train-form-protection-option__icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+.train-form-protection-option__title strong {
   color: var(--color-alpha-black-84);
   font-size: 14px;
   font-weight: 500;
   line-height: 22px;
+  white-space: nowrap;
 }
 
-.train-form-insurance__badge {
-  padding: 0 2px;
-  border-radius: 2px;
-  background: #fff;
-  color: #fe7016;
-  font-size: 10px;
-  line-height: 16px;
-}
-
-.train-form-insurance__features {
+.train-form-protection-option__features {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0;
+  align-self: stretch;
   margin: 0;
-  color: var(--color-alpha-black-60);
+  padding: 0;
+  list-style: none;
+}
+
+.train-form-protection-option__features span {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.train-form-protection-option__check {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  color: #1473ff;
+}
+
+/* 卡底部：价格在上、勾选框在下，竖排 gap4 居中 */
+.train-form-protection-option__bottom {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.train-form-protection-option__price {
+  display: inline-flex;
+  align-items: baseline;
+  color: rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+
+/* 分割线：稿 3665:57597 327×1 */
+.train-form-travel-service__divider {
+  height: 1px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.train-form-travel-service__footer {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.36);
+  font-size: 10px;
+  font-weight: 500;
   line-height: 16px;
 }
 
-.train-form-insurance__price {
-  margin: 0;
+/* ============ 表单信息条（审批/差旅/支付共用）：label 56 + value + chevron 16 ============ */
+
+.train-form-inforow {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.train-form-inforow__label {
+  flex: none;
+  width: 56px;
+  color: var(--color-alpha-black-36);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.train-form-inforow__valuewrap {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+}
+
+.train-form-inforow__value {
+  flex: 1;
+  min-width: 0;
   color: var(--color-alpha-black-84);
   font-size: 14px;
-  line-height: 24px;
+  line-height: 22px;
 }
 
-.train-form-insurance__unit {
-  margin-left: 2px;
-  color: var(--color-alpha-black-84);
-  font-size: 12px;
+.train-form-inforow__value--placeholder {
+  color: #ccc;
 }
 
-.train-form-insurance__agreement {
-  margin: 0;
-  color: var(--color-alpha-black-60);
-  font-size: 10px;
-  line-height: 16px;
+.train-form-inforow__chevron {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  color: rgba(0, 0, 0, 0.36);
 }
 
-/* ============ 温馨提示 ============ */
+/* 通用表单卡：白卡 p12，标题→分割线→rows gap12 */
+.train-form-formcard {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-8);
+  background: var(--color-white);
+}
 
+.train-form-formcard__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 温馨提示文案：12px/20 #666 */
 .train-form-notice {
   margin: 0;
   color: #666;
@@ -340,98 +790,132 @@
   line-height: 20px;
 }
 
-/* ============ 吸底：条款 + 提交 ============ */
+/* ============ 吸底：稿 2422:15682 375×148 ============ */
 
 .train-form-bottom {
-  position: absolute;
-  inset: auto 0 0;
+  position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  background: var(--color-white);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* 条款行：稿 2422:15683 py5，文字两行 2×20（反推 148=50+64+34） */
+.train-form-bottom__agreement {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 5px 12px;
+  background:
+    linear-gradient(270deg, #ffffff 0%, #e7f1ff 100%),
+    linear-gradient(90deg, #f9f9f9 0%, #f9f9f9 100%);
+}
+
+.train-form-bottom__agreement-box {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border: 0.9px solid rgba(0, 0, 0, 0.12);
+  border-radius: 5.3px;
   background: var(--color-white);
 }
 
-.train-form-bottom__agreement {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  height: 50px;
-  padding: 0 12px;
-}
-
-.train-form-bottom__agreement-icon {
-  width: 16px;
-  height: 16px;
-  flex: none;
-  color: var(--color-blue-50);
-}
-
-.train-form-bottom__agreement p {
+.train-form-bottom__agreement-text {
+  display: -webkit-box;
+  flex: 1;
+  min-width: 0;
   margin: 0;
-  color: var(--color-alpha-black-60);
+  overflow: hidden;
+  color: #333;
   font-size: 12px;
   line-height: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
+.train-form-bottom__agreement-links {
+  color: #1473ff;
+}
+
+/* 提交条：pt16 px12 h64 内容 + footer 34 = 98 */
 .train-form-bottom__bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  height: 48px;
-  padding: 0 12px;
+  padding: 16px 12px 0;
 }
 
 .train-form-bottom__pay {
   display: flex;
-  align-items: baseline;
   gap: 4px;
+  align-items: flex-end;
 }
 
 .train-form-bottom__pay-label {
   margin: 0;
   color: var(--color-alpha-black-84);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 20px;
 }
 
 .train-form-bottom__price {
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   margin: 0;
-  color: var(--color-blue-50);
-}
-
-.train-form-bottom__currency {
-  color: var(--color-blue-50);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 20px;
-}
-
-.train-form-bottom__price {
+  color: #1473ff;
   font-family: var(--font-family-ui-number);
   font-size: 24px;
   font-weight: 500;
   line-height: 26px;
 }
 
+.train-form-bottom__currency {
+  color: #1473ff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.train-form-bottom__submitgroup {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+/* 明细 + 上三角（稿 icon-directional-caret_up-filled 12） */
 .train-form-bottom__detail {
+  display: flex;
+  gap: 0;
+  align-items: center;
   padding: 0;
   border: none;
   background: transparent;
-  color: var(--color-alpha-black-84);
+  color: rgba(0, 0, 0, 0.6);
   font-size: 12px;
   line-height: 20px;
   cursor: pointer;
 }
 
+.train-form-bottom__detail-caret {
+  width: 12px;
+  height: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* 提交按钮：稿 314:574 104×48 实心 #1473FF r8（非胶囊） */
 .train-form-bottom__submit {
-  height: 44px;
-  padding: 0 24px;
+  width: 104px;
+  height: 48px;
   border: none;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(90deg, var(--color-blue-40) 0%, var(--color-blue-50) 100%);
+  border-radius: var(--radius-8);
+  background: #1473ff;
   color: var(--color-white);
+  font-family: inherit;
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
@@ -439,5 +923,6 @@
 }
 
 .train-form-bottom__footer {
+  flex: none;
   background: var(--color-white);
 }

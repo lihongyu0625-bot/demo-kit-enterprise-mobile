@@ -38,7 +38,7 @@ export function TrainListDateFilter({ items }) {
   )
 }
 
-/* 车站筛选 chips（Figma 1353:16315）：r6 白底标签 + 0.5px 边框；选中蓝边 Medium + 右下角勾标；不可选删除线 */
+/* 车站筛选 chips（Figma 1353:16315）：r6 白底标签 + 0.5px 边框；选中蓝边 Medium + 右下角勾标 */
 export function TrainListStationChips({ chips }) {
   return (
     <div className="train-list-chips">
@@ -47,7 +47,7 @@ export function TrainListStationChips({ chips }) {
           className={
             chip.active
               ? 'train-list-chips__chip train-list-chips__chip--active'
-              : `train-list-chips__chip${chip.strike ? ' train-list-chips__chip--strike' : ''}`
+              : 'train-list-chips__chip'
           }
           key={chip.label}
           type="button"
@@ -153,7 +153,7 @@ export function TrainListPreviewFrame({ data = mockData }) {
         <TrainListCardList trips={data.trips} />
       </div>
       <TrainListFilterBar sortBar={data.sortBar} />
-      <IPhoneFooter className="train-list-shell__footer" />
+      <IPhoneFooter className="train-list-shell__footer" transparent />
     </div>
   )
 }

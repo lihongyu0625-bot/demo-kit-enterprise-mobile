@@ -52,14 +52,20 @@ button.train-btn {
   color: var(--color-alpha-black-84);
 }
 
+/* 标题全帧居中（稿 2394:18372 导航行：标题带中心 188 = 帧中心 187.5）；
+   绝对定位脱离 flex 流，pointer-events 防遮两侧按钮点击 */
 .train-top__bar h1 {
+  position: absolute;
+  top: 9px;
+  left: 0;
+  right: 0;
   margin: 0;
-  flex: 1;
-  padding-left: 44px;
   color: var(--color-alpha-black-84);
   font-size: 18px;
   font-weight: 500;
   line-height: 26px;
+  text-align: center;
+  pointer-events: none;
 }
 
 .train-top__title {
